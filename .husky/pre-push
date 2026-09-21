@@ -1,0 +1,26 @@
+#!/bin/sh
+# ==============================================================================
+# 🚀 TJAP PROTOCOL: ORBITAL UPLINK & EPISTEMIC VERIFICATION (PRE-PUSH)
+# ==============================================================================
+echo ""
+echo " 🛰️  [ ORBITAL UPLINK INITIATED ] Engaging Epistemic Verification Sequence..."
+
+LAST_COMMIT_MSG="$(git log -1 --pretty=%B || true)"
+if echo "$LAST_COMMIT_MSG" | grep -qi '\[skip-precheck\]'; then
+  echo " ⚠️  [ OVERRIDE DETECTED ] Skipping verification due to [skip-precheck] tag."
+  exit 0
+fi
+
+# Run the strict verification chain defined in package.json
+npm run verify
+
+if [ $? -ne 0 ]; then
+  echo ""
+  echo " 🔴 [ UPLINK FAILED ] Epistemic verification collapsed. Fix the structural rot and retry."
+  echo ""
+  exit 1
+fi
+
+echo ""
+echo " 🐁 🐾 🐾 🐾 🐈 🚀 [ UPLINK APPROVED ] Jinba Ittai alignment confirmed. Safe to push payload."
+echo ""

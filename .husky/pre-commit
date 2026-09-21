@@ -1,0 +1,40 @@
+#!/bin/bash
+# ==============================================================================
+# 🛡️ TJAP PROTOCOL: AIRLOCK INTAKE SCANNER (PRE-COMMIT)
+# ==============================================================================
+echo ""
+echo " 🛸 [ INITIATING AIRLOCK SEQUENCE ]"
+echo " 📡 [ TELEMETRY ] Scanning staged matrix for Ghost Nodes (Empty Files)..."
+
+ALLOW_EMPTY_REGEX='(^|/)\.gitkeep$|(^|/)\.keep$'
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=AM)
+UNTRACKED_FILES=$(git ls-files --others --exclude-standard)
+CANDIDATES=$(echo -e "$STAGED_FILES\n$UNTRACKED_FILES" | sort -u)
+
+EMPTY_FILES=""
+echo "$CANDIDATES" | while IFS= read -r file; do
+  [ -z "$file" ] && continue
+  if echo "$file" | grep -Eq "$ALLOW_EMPTY_REGEX"; then
+    continue
+  fi
+  if [ -f "$file" ] && [ ! -s "$file" ]; then
+    EMPTY_FILES+="$file"$'\n'
+  fi
+done
+
+if [ -n "$EMPTY_FILES" ]; then
+  echo ""
+  echo " 🔴 [ AIRLOCK BREACH ] Vacuum detected in the matrix. Ghost Nodes found:"
+  printf "\n%s\n" "$EMPTY_FILES"
+  echo " 🛠️ [ DIRECTIVE ] The structural dampers cannot hold empty data. Fill or purge these nodes before commit."
+  echo " ❌ [ SEQUENCE ABORTED ]"
+  echo ""
+  exit 1
+fi
+
+echo " 🟢 [ NOMINAL ] No Ghost Nodes detected."
+echo " 🎨 [ TRELLIS ALIGNMENT ] Running Prettier on staged files..."
+npx lint-staged
+
+echo " 🟢 [ NOMINAL ] Airlock sealed. Proceeding with commit."
+echo ""

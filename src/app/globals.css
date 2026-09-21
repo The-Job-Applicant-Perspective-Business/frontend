@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+/* 1. Base Variables & Contrast-Safe Theme Tokens */
+:root {
+  /* Liability Surface: Enforcing strict 4.5:1 minimum contrast ratios */
+  --background: #ffffff;
+  --foreground: #121212; 
+  --primary: #0D3276; 
+  --focus-ring: #D946EF; /* High visibility magenta for focus states */
+  --error: #DC2626; /* WCAG compliant error red */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-focus: var(--focus-ring);
+  --color-error: var(--error);
+  --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Optional Deep Space / Dark Mode Fallback */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #121212;
+    --foreground: #F8FAFC;
+    --primary: #93C5FD;
+    --focus-ring: #F0ABFC;
+    --error: #FCA5A5;
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* 2. WCAG 2.2 AA Focus Management (SC 2.4.11 / 2.4.12) */
+  /* Strip default ambiguous rings; enforce strict high-contrast borders on keyboard focus */
+  *:focus {
+    outline: none;
+  }
+  
+  *:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* 3. WCAG 2.2 Target Size Minimum (SC 2.5.8) */
+  /* Hard-fails any interactive element below the 24x24px mathematical threshold */
+  button, 
+  a[href], 
+  input, 
+  select, 
+  textarea, 
+  [role="button"], 
+  [role="tab"] {
+    min-width: 24px;
+    min-height: 24px;
+  }
+
+  /* 4. Motion Failsafe (SC 2.3.3) */
+  /* Zero-trust execution for vestibular disorder compliance */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* 5. ARIA State Visual Enforcement */
+  /* Forcing the UI to reflect the raw DOM truth */
+  [aria-disabled="true"], 
+  [disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  /* SC 1.4.1 Use of Color: Error states must use form/border geometry, not just red hex codes */
+  [aria-invalid="true"] {
+    border-color: var(--error);
+    border-width: 2px;
+  }
+  
+  /* 6. Screen Reader Substrate */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
