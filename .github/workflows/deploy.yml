@@ -1,0 +1,42 @@
+name: Zero-Trust GitHub Pages Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+# Grants the action permission to push the compiled artifacts to the gh-pages branch
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Substrate
+        uses: actions/checkout@v3
+
+      - name: Initialize Node.js Environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies (Strict)
+        # Uses npm ci to ensure exact package-lock.json matches, preventing dependency drift
+        run: npm ci
+
+      - name: Compile Next.js Static Export
+        run: npm run build
+
+      - name: Deploy to gh-pages Branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Next.js static export targets the 'out' directory by default. 
+          # Change to 'dist' if you pivoted the build tool to Vite.
+          publish_dir: ./out
+          publish_branch: gh-pages
+          # Removes deleted files from the destination branch to prevent artifact bloat
+          force_orphan: true
