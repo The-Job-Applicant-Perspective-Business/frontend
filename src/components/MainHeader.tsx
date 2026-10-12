@@ -8,7 +8,7 @@ export const MainHeader = () => {
       {/* Mobile Header */}
       <div className="flex items-center justify-between px-4 py-6 lg:hidden">
         <Link href="/" aria-label="Return to Homepage">
-          <Image src="/logosm.png" alt="TJAP Logo" width={137} height={22} priority />
+          <Image src="/public/logosm.svg" alt="TJAP Logo" width={137} height={22} priority />
         </Link>
         <button aria-haspopup="dialog" aria-expanded="false" aria-label="Open Navigation">
           <Image src="/navCollapse.png" alt="" width={24} height={24} />
