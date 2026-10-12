@@ -56,14 +56,16 @@ export const TabbedInterface = () => {
           <div className="flex w-full flex-col gap-5 lg:flex-row xl:gap-12">
             <div className="w-full lg:w-full xl:w-1/2">
               <SearchInput />
-              <div className="mt-4 flex h-[400px] flex-col gap-2 overflow-y-auto md:gap-3">
+              {/* JIT Div Soup Eradicated: Replaced h-[400px] with custom token h-100 */}
+              <div className="mt-4 flex h-100 flex-col gap-2 overflow-y-auto md:gap-3">
                 {/* Search Results Render Here */}
                 <p className="mt-8 text-center text-neutral-500">
                   No local search results configured.
                 </p>
               </div>
             </div>
-            <div className="hidden w-full items-center justify-center rounded-lg border border-slate-200 bg-slate-50 lg:flex lg:h-[700px] xl:w-1/2">
+            {/* JIT Div Soup Eradicated: Replaced lg:h-[700px] with custom token lg:h-175 */}
+            <div className="hidden w-full items-center justify-center rounded-lg border border-slate-200 bg-slate-50 lg:flex lg:h-175 xl:w-1/2">
               <h3 className="text-primary font-bold">Map Interface Placeholder</h3>
             </div>
           </div>

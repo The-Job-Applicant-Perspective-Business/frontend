@@ -21,6 +21,7 @@ import BlogCard from './blocks/BlogCard';
 // 2. The Component Registry: Maps the CMS block string to the React function
 const components = {
   page: Page,
+  'Home Content': Page,
   button: SbButton,
   input: SbInput,
   navigation_link: NavigationLink,

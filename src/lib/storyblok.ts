@@ -1,9 +1,8 @@
-import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
+import { storyblokInit, apiPlugin } from '@storyblok/react/rsc';
 
-export const getStoryblokApi = storyblokInit({
-  accessToken: process.env.STORYBLOK_DELIVERY_API_TOKEN,
-  use: [apiPlugin],
-  apiOptions: {
-    region: "eu",
-  },
-});
+export const initStoryblok = () => {
+  storyblokInit({
+    accessToken: process.env.NEXT_PUBLIC_STORYBLOK_TOKEN,
+    use: [apiPlugin],
+  });
+};

@@ -1,50 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 
-/* 1. Base Variables & Contrast-Safe Theme Tokens */
 :root {
-  /* Core Backgrounds & Typography */
   --background: #ffffff;
-  --foreground: #121212;
-  --muted-foreground: #7c7c7c;
-  --heading-dark: #0d0d0a;
-
-  /* TJAP Brand Colors (Extracted from 21309756baa11228.css) */
+  --foreground: #171717;
   --primary: #0d3276;
   --primary-light: #36558d;
+  --primary-dark: #081f48; /* Extracted from MainFooter.tsx */
   --accent-bg: #f0f3ff;
   --accent-text: #003cb1;
-
-  /* Structural & Border Colors */
-  --border-light: #e7ebf1;
-  --border-input: #d0d9e9;
-  --surface-gray: #fafafa;
-  --surface-muted: #f3f4f6;
-
-  /* Accessibility & State */
-  --focus-ring: #d946ef; /* High visibility magenta for focus states */
-  --error: #ff0000; /* WCAG compliant error red */
-  --success: #15bf06; /* WCAG compliant success green */
-}
-
-@theme inline {
-  /* Color Mapping */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted-foreground);
-  --color-primary: var(--primary);
-  --color-primary-light: var(--primary-light);
-  --color-accent: var(--accent-bg);
-  --color-accent-foreground: var(--accent-text);
-  --color-border: var(--border-light);
-  --color-input: var(--border-input);
-  --color-surface: var(--surface-gray);
-  --color-focus: var(--focus-ring);
-  --color-error: var(--error);
-  --color-success: var(--success);
-
-  /* Typography Mapping */
-  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --focus-ring: #2563eb;
 }
 
 @layer base {
@@ -56,8 +21,7 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* 2. WCAG 2.2 AA Focus Management (SC 2.4.11 / 2.4.12) */
-  /* Strip default ambiguous rings; enforce strict high-contrast borders on keyboard focus */
+  /* WCAG 2.2 AA Focus Management (SC 2.4.11 / 2.4.12) */
   *:focus {
     outline: none;
   }
@@ -66,59 +30,5 @@
     outline: 3px solid var(--focus-ring);
     outline-offset: 3px;
     border-radius: 2px;
-  }
-
-  /* 3. WCAG 2.2 Target Size Minimum (SC 2.5.8) */
-  /* Hard-fails any interactive element below the 24x24px mathematical threshold */
-  button,
-  a[href],
-  input,
-  select,
-  textarea,
-  [role='button'],
-  [role='tab'] {
-    min-width: 24px;
-    min-height: 24px;
-  }
-
-  /* 4. Motion Failsafe (SC 2.3.3) */
-  /* Zero-trust execution for vestibular disorder compliance */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    ::before,
-    ::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-  }
-
-  /* 5. ARIA State Visual Enforcement */
-  /* Forcing the UI to reflect the raw DOM truth */
-  [aria-disabled='true'],
-  [disabled] {
-    cursor: not-allowed;
-    opacity: 0.6;
-    pointer-events: none;
-  }
-
-  /* SC 1.4.1 Use of Color: Error states must use form/border geometry, not just red hex codes */
-  [aria-invalid='true'] {
-    border-color: var(--error);
-    border-width: 2px;
-  }
-
-  /* 6. Screen Reader Substrate */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
   }
 }

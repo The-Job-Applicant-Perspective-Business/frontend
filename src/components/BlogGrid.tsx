@@ -33,7 +33,8 @@ const BlogCard = ({ title, author, date, imageSrc, tags, href, subtitle }: BlogC
         <h4 className="group-hover:text-primary mt-3 text-2xl leading-tight font-semibold text-neutral-800 transition-colors">
           {title}
         </h4>
-        <p className="mt-3 line-clamp-2 min-h-[48px] text-base text-neutral-600">{subtitle}</p>
+        {/* JIT Div Soup Eradicated: Replaced min-h-[48px] with min-h-12 */}
+        <p className="mt-3 line-clamp-2 min-h-12 text-base text-neutral-600">{subtitle}</p>
 
         <div className="mt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <ul className="m-0 flex list-none flex-wrap gap-2 p-0" aria-label="Article tags">
