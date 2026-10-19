@@ -23,6 +23,9 @@
   --color-focus-ring: var(--focus-ring);
   --color-ring: var(--focus-ring);
 
+  --spacing-100: 25rem;
+  --spacing-175: 43.75rem;
+
   --ring-width-3: 3px;
 }
 /* stylelint-enable at-rule-no-unknown */
@@ -32,13 +35,13 @@
   --foreground: #171717;
   --primary: #0d3276;
   --primary-light: #36558d;
-  --primary-dark: #081f48; /* Extracted from MainFooter.tsx */
+  --primary-dark: #081f48;
   --accent-bg: #f0f3ff;
   --accent-text: #003cb1;
   --focus-ring: #2563eb;
-  --border: #cbd5e1; /* slate-300 */
-  --muted: #f8fafc; /* slate-50 */
-  --muted-foreground: #525252; /* neutral-600 */
+  --border: #cbd5e1;
+  --muted: #f8fafc;
+  --muted-foreground: #525252;
 }
 
 @layer base {

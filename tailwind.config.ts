@@ -26,11 +26,19 @@ const config: Config = {
         },
         border: 'var(--border)',
         'focus-ring': 'var(--focus-ring)',
-        ring: 'var(--focus-ring)', // Fallback alias for shadcn / generic utility compatibility
+        ring: 'var(--focus-ring)',
       },
       fontFamily: {
         sans: ['var(--font-geist-sans)', 'Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['var(--font-geist-mono)', 'ui-monospace', 'monospace'],
+      },
+      spacing: {
+        '100': '25rem', // 400px
+        '175': '43.75rem', // 700px
+      },
+      height: {
+        '100': '25rem', // 400px
+        '175': '43.75rem', // 700px
       },
       ringWidth: {
         '3': '3px',
