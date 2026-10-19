@@ -6,9 +6,10 @@ import { LocalJobsGrid } from '@/components/layout/LocalJobsGrid';
 import { MissionBanner } from '@/components/layout/MissionBanner';
 import { BlogGrid } from '@/components/layout/BlogGrid';
 
-// 1. Server-Side Component Registry for @storyblok/react/rsc
 export const components = {
   page: PageBlok,
+  'Home Content': PageBlok,
+  home_content: PageBlok,
   hero_section: HeroSection,
   tabbed_interface: TabbedInterface,
   local_jobs_grid: LocalJobsGrid,
@@ -16,12 +17,16 @@ export const components = {
   blog_grid: BlogGrid,
 };
 
-// 2. Resolve authentication credentials across server and client environment variables
 const accessToken =
-  process.env.STORYBLOK_DELIVERY_API_TOKEN || process.env.NEXT_PUBLIC_STORYBLOK_TOKEN || '';
+  process.env.STORYBLOK_DELIVERY_API_TOKEN ||
+  process.env.NEXT_PUBLIC_STORYBLOK_TOKEN ||
+  process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN ||
+  '';
 
-// 3. Match Storyblok Space Location: 'us' for North America, 'eu' for Europe
-const region = (process.env.STORYBLOK_REGION as 'us' | 'eu') || 'us';
+const region =
+  (process.env.STORYBLOK_REGION as 'us' | 'eu') ||
+  (process.env.NEXT_PUBLIC_STORYBLOK_REGION as 'us' | 'eu') ||
+  'eu';
 
 export const getStoryblokApi = storyblokInit({
   accessToken,
@@ -32,7 +37,6 @@ export const getStoryblokApi = storyblokInit({
   components,
 });
 
-// 4. Safe re-export for consumers invoking initStoryblok() before getStoryblokApi()
 export const initStoryblok = () => {
   return getStoryblokApi;
 };
