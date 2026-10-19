@@ -16,9 +16,9 @@ const BlogCard = ({ title, author, date, imageSrc, tags, href, subtitle }: BlogC
   return (
     <Link
       href={href}
-      className="group focus-visible:ring-primary flex w-full cursor-pointer flex-col overflow-hidden rounded-lg focus-visible:ring-2 focus-visible:outline-none"
+      className="group focus-visible:ring-focus-ring flex w-full cursor-pointer flex-col overflow-hidden rounded-lg focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
     >
-      <div className="relative h-60 w-full overflow-hidden bg-slate-100">
+      <div className="bg-muted relative h-60 w-full overflow-hidden">
         <Image
           src={imageSrc}
           alt={`Cover image for ${title}`}
@@ -26,27 +26,31 @@ const BlogCard = ({ title, author, date, imageSrc, tags, href, subtitle }: BlogC
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
       </div>
-      <div className="mt-6">
-        <h3 className="text-primary text-sm font-semibold">
+      <div className="mt-6 flex flex-1 flex-col">
+        <p className="text-primary text-sm font-semibold">
           {author} • {date}
-        </h3>
-        <h4 className="group-hover:text-primary mt-3 text-2xl leading-tight font-semibold text-neutral-800 transition-colors">
+        </p>
+        <h3 className="text-foreground group-hover:text-primary mt-3 text-2xl leading-tight font-semibold transition-colors">
           {title}
-        </h4>
-        {/* JIT Div Soup Eradicated: Replaced min-h-[48px] with min-h-12 */}
-        <p className="mt-3 line-clamp-2 min-h-12 text-base text-neutral-600">{subtitle}</p>
+        </h3>
+        {/* Tokenized minimum height: min-h-12 (3rem / 48px) */}
+        <p className="text-muted-foreground mt-3 line-clamp-2 min-h-12 text-base">{subtitle}</p>
 
-        <div className="mt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <ul className="m-0 flex list-none flex-wrap gap-2 p-0" aria-label="Article tags">
-            {tags.map((tag) => (
-              <li
-                key={tag}
-                className="rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700"
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
+        <div className="mt-6 flex flex-1 flex-col justify-end gap-4 md:flex-row md:items-center md:justify-between">
+          {tags.length > 0 ? (
+            <ul className="m-0 flex list-none flex-wrap gap-2 p-0" aria-label="Article tags">
+              {tags.map((tag) => (
+                <li
+                  key={tag}
+                  className="bg-accent-bg text-accent-text rounded-full px-3 py-1 text-sm font-medium"
+                >
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div aria-hidden="true" />
+          )}
           <div className="text-primary flex items-center gap-2 font-bold group-hover:underline">
             <span>Read more</span>
             <span aria-hidden="true">&gt;</span>
@@ -89,24 +93,30 @@ export const BlogGrid = () => {
   ];
 
   return (
-    <section className="container mx-auto px-4 py-16 md:px-8 md:py-24 lg:px-12">
+    <section
+      aria-labelledby="blog-grid-heading"
+      className="container mx-auto px-4 py-16 md:px-8 md:py-24 lg:px-12"
+    >
       <div className="mb-12 flex flex-col items-end justify-between gap-8 md:flex-row">
         <div className="w-full md:w-1/2">
-          <h2 className="text-3xl font-semibold text-neutral-900 md:text-5xl">
+          <h2 id="blog-grid-heading" className="text-foreground text-3xl font-semibold md:text-5xl">
             Job search intel and insights
           </h2>
         </div>
         <div className="w-full md:w-1/2">
-          <p className="text-lg text-neutral-600">
+          <p className="text-muted-foreground text-lg">
             Wondering what others face? Explore anonymous stories from job seekers like you. Get a
             dose of reality, laugh, connect, and gain valuable insights on your path to landing your
             dream job!
           </p>
           <Link
             href="/job-insights"
-            className="group focus-visible:ring-primary mt-4 flex w-fit items-center gap-2 rounded-md focus-visible:ring-2 focus-visible:outline-none"
+            className="group focus-visible:ring-focus-ring mt-4 flex w-fit items-center gap-2 rounded-md p-1 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
           >
-            <span className="text-primary font-bold group-hover:underline">Read all</span>
+            <span className="text-primary font-bold group-hover:underline">
+              Read all
+              <span className="sr-only"> articles and insights</span>
+            </span>
             <Image src="/rightarrow.svg" alt="" width={24} height={24} aria-hidden="true" />
           </Link>
         </div>
@@ -119,3 +129,5 @@ export const BlogGrid = () => {
     </section>
   );
 };
+
+export default BlogGrid;

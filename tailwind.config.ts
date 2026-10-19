@@ -41,7 +41,8 @@ const config: Config = {
         '175': '43.75rem', // 700px
       },
       minHeight: {
-        '20': '5rem', // 80px - Eradicates min-h-[80px] JIT bracket
+        '12': '3rem', // 48px - Replaces min-h-[48px]
+        '20': '5rem', // 80px - Replaces min-h-[80px]
       },
       ringWidth: {
         '3': '3px',
