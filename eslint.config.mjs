@@ -6,10 +6,10 @@ import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import prettierConfig from "eslint-config-prettier";
-import globals from "globals"; // 1. Inject the globals package
+import globals from "globals";
 
 export default tseslint.config(
-  // 1. GLOBAL IGNORES (Environment Optimization)
+  // 1. GLOBAL IGNORES
   {
     ignores: [
       ".next/**",
@@ -26,7 +26,7 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
 
-// 3. NEXT.JS, REACT & STORYBLOK CONFIGURATION
+  // 3. NEXT.JS, REACT & STORYBLOK CONFIGURATION
   {
     files: ["**/*.{ts,tsx}"],
     plugins: {
@@ -39,8 +39,8 @@ export default tseslint.config(
       parser: tseslint.parser,
       ecmaVersion: 2020,
       globals: {
-        ...globals.browser, // 2. Hardwire the browser globals
-        ...globals.node,    // 3. Hardwire the node globals
+        ...globals.browser,
+        ...globals.node,
       },
       parserOptions: {
         ecmaFeatures: { jsx: true },
@@ -71,14 +71,14 @@ export default tseslint.config(
       "react/prop-types": "off",
       "@typescript-eslint/explicit-function-return-type": "off",
 
-      // 🔒 Tightened: TypeScript Integrity
+      // TypeScript Integrity
       "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/no-unused-vars": [
         "error",
         { argsIgnorePattern: "^_" },
       ],
 
-      // --- NEXT.JS SEMANTIC INTEGRITY (The Prophet's Audit) ---
+      // Semantic Integrity
       "no-restricted-syntax": [
         "error",
         {
@@ -98,9 +98,16 @@ export default tseslint.config(
       "jsx-a11y/role-has-required-aria-props": "error",
       "jsx-a11y/click-events-have-key-events": "error",
       "jsx-a11y/no-static-element-interactions": "error",
+      // Allows scrollable regions and tabpanels to receive keyboard focus per WCAG 2.1.1
+      "jsx-a11y/no-noninteractive-tabindex": [
+        "error",
+        {
+          roles: ["tabpanel", "region"],
+        },
+      ],
     },
   },
 
-  // 4. PRETTIER (The Final Firewall)
+  // 4. PRETTIER
   prettierConfig
 );

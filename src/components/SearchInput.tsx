@@ -4,25 +4,33 @@ import { Search, SlidersHorizontal } from 'lucide-react';
 
 export const SearchInput = () => {
   return (
-    <section className="flex w-full justify-between gap-2">
-      <div className="flex w-full items-center gap-2">
-        <div className="focus-within:ring-primary flex w-full items-center gap-4 rounded-lg border border-slate-300 p-4 shadow-sm focus-within:ring-2">
-          <Search className="h-5 w-5 text-neutral-400" aria-hidden="true" />
-          <input
-            id="job-search"
-            aria-label="Search classified jobs"
-            placeholder="Search"
-            className="h-full w-full bg-transparent text-base outline-none"
-            type="text"
-          />
-        </div>
-        <button
-          aria-label="Filter search results"
-          className="focus-visible:ring-primary flex h-14 w-16 items-center justify-center rounded-lg border border-slate-300 p-3 text-neutral-500 shadow-sm transition-colors hover:bg-slate-50 hover:text-neutral-700 focus-visible:ring-2 focus-visible:outline-none"
-        >
-          <SlidersHorizontal className="h-6 w-6" aria-hidden="true" />
-        </button>
+    <form
+      role="search"
+      aria-label="Job search"
+      onSubmit={(e) => e.preventDefault()}
+      className="flex w-full items-center gap-2"
+    >
+      <div className="border-border bg-background focus-within:border-primary focus-within:ring-focus-ring flex w-full items-center gap-4 rounded-lg border p-4 shadow-sm transition-colors focus-within:ring-2">
+        <Search className="text-muted-foreground h-5 w-5" aria-hidden="true" />
+        <label htmlFor="job-search" className="sr-only">
+          Search classified jobs
+        </label>
+        <input
+          id="job-search"
+          type="search"
+          placeholder="Search"
+          className="text-foreground placeholder:text-muted-foreground h-full w-full bg-transparent text-base focus:outline-none"
+        />
       </div>
-    </section>
+      <button
+        type="button"
+        aria-label="Filter search results"
+        className="border-border bg-background text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:ring-focus-ring flex h-14 w-16 shrink-0 items-center justify-center rounded-lg border p-3 shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+      >
+        <SlidersHorizontal className="h-6 w-6" aria-hidden="true" />
+      </button>
+    </form>
   );
 };
+
+export default SearchInput;
