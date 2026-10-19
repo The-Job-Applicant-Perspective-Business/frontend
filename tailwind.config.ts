@@ -2,10 +2,9 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/blocks/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -15,21 +14,21 @@ const config: Config = {
         primary: {
           DEFAULT: 'var(--primary)',
           light: 'var(--primary-light)',
-          dark: 'var(--primary-dark)', // Maps the #081F48 hex from MainFooter
+          dark: 'var(--primary-dark)',
         },
         accent: {
-          DEFAULT: 'var(--accent-bg)',
-          foreground: 'var(--accent-text)',
+          bg: 'var(--accent-bg)',
+          text: 'var(--accent-text)',
         },
         'focus-ring': 'var(--focus-ring)',
-      },
-      spacing: {
-        '100': '25rem', // Replaces h-[400px] from TabbedInterface
-        '175': '43.75rem', // Replaces h-[700px] from TabbedInterface
+        ring: 'var(--focus-ring)', // Fallback alias for shadcn / generic utility compatibility
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)', 'sans-serif'],
-        mono: ['var(--font-geist-mono)', 'monospace'],
+        sans: ['var(--font-geist-sans)', 'Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-geist-mono)', 'ui-monospace', 'monospace'],
+      },
+      ringWidth: {
+        '3': '3px',
       },
     },
   },

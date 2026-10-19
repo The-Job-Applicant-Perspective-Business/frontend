@@ -38,11 +38,11 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-[var(--background)] font-sans text-[var(--foreground)]">
+      <body className="bg-background text-foreground flex min-h-full flex-col font-sans">
         {/* WCAG 2.2 SC 2.4.1: Skip to Main Content Bypass Block */}
         <Link
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-[var(--primary)] focus:px-4 focus:py-2 focus:text-white focus:outline-none focus-visible:ring-3 focus-visible:ring-[var(--focus-ring)]"
+          className="focus:bg-primary focus-visible:ring-focus-ring sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:px-4 focus:py-2 focus:text-white focus:outline-none focus-visible:ring-3"
         >
           Skip to main content
         </Link>

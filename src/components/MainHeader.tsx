@@ -8,24 +8,30 @@ export const MainHeader = () => {
       {/* Mobile Header */}
       <div className="flex items-center justify-between px-4 py-6 lg:hidden">
         <Link href="/" aria-label="Return to Homepage">
-          <Image src="/public/logosm.svg" alt="TJAP Logo" width={137} height={22} priority />
+          <Image src="/logosm.svg" alt="TJAP Logo" width={137} height={22} priority />
         </Link>
-        <button aria-haspopup="dialog" aria-expanded="false" aria-label="Open Navigation">
+        <button
+          type="button"
+          aria-haspopup="dialog"
+          aria-expanded="false"
+          aria-label="Open Navigation"
+          className="focus-visible:ring-focus-ring rounded-md p-1 focus-visible:ring-2 focus-visible:outline-none"
+        >
           <Image src="/navCollapse.png" alt="" width={24} height={24} />
         </button>
       </div>
 
       {/* Desktop Header */}
-      <section className="hidden w-full justify-between bg-transparent px-8 py-10 lg:flex lg:px-12">
+      <div className="hidden w-full items-center justify-between bg-transparent px-8 py-10 lg:flex lg:px-12">
         <Link href="/" aria-label="Return to Homepage">
-          <Image src="/logo.svg" alt="TJAP Logo" width={247} height={41} priority />
+          <Image src="/logosm.svg" alt="TJAP Logo" width={247} height={41} priority />
         </Link>
         <nav aria-label="Main Desktop Navigation" className="flex items-center space-x-8">
           <ul className="m-0 flex list-none items-center gap-8 p-0">
             <li>
               <Link
                 href="/who-we-are"
-                className="hover:text-primary focus-visible:ring-ring rounded-md text-base font-semibold text-neutral-700 focus-visible:ring-2 focus-visible:outline-none"
+                className="hover:text-primary focus-visible:ring-focus-ring rounded-md text-base font-semibold text-neutral-700 focus-visible:ring-2 focus-visible:outline-none"
               >
                 About Us
               </Link>
@@ -33,23 +39,26 @@ export const MainHeader = () => {
             <li>
               <Link
                 href="/job-insights"
-                className="hover:text-primary focus-visible:ring-ring rounded-md text-base font-semibold text-neutral-700 focus-visible:ring-2 focus-visible:outline-none"
+                className="hover:text-primary focus-visible:ring-focus-ring rounded-md text-base font-semibold text-neutral-700 focus-visible:ring-2 focus-visible:outline-none"
               >
                 Job Insights
               </Link>
             </li>
-            <li className="bg-primary hover:bg-primary/90 rounded-md px-4 py-2 font-semibold text-white transition-colors">
+            <li>
               <Link
                 href="https://hr.thejobapplicantperspective.com/login"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="bg-primary hover:bg-primary/90 focus-visible:ring-focus-ring inline-flex items-center justify-center rounded-md px-4 py-2 text-base font-semibold text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
               >
                 Sign in as employer
               </Link>
             </li>
           </ul>
         </nav>
-      </section>
+      </div>
     </header>
   );
 };
+
+export default MainHeader;
