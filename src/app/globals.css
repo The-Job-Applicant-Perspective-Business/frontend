@@ -16,6 +16,10 @@
   --color-accent-bg: var(--accent-bg);
   --color-accent-text: var(--accent-text);
 
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+
   --color-focus-ring: var(--focus-ring);
   --color-ring: var(--focus-ring);
 
@@ -32,6 +36,9 @@
   --accent-bg: #f0f3ff;
   --accent-text: #003cb1;
   --focus-ring: #2563eb;
+  --border: #cbd5e1; /* slate-300 */
+  --muted: #f8fafc; /* slate-50 */
+  --muted-foreground: #525252; /* neutral-600 */
 }
 
 @layer base {

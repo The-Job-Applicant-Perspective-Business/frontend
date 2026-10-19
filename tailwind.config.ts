@@ -20,6 +20,11 @@ const config: Config = {
           bg: 'var(--accent-bg)',
           text: 'var(--accent-text)',
         },
+        muted: {
+          DEFAULT: 'var(--muted)',
+          foreground: 'var(--muted-foreground)',
+        },
+        border: 'var(--border)',
         'focus-ring': 'var(--focus-ring)',
         ring: 'var(--focus-ring)', // Fallback alias for shadcn / generic utility compatibility
       },
