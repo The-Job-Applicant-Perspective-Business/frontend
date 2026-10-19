@@ -40,6 +40,9 @@ const config: Config = {
         '100': '25rem', // 400px
         '175': '43.75rem', // 700px
       },
+      minHeight: {
+        '20': '5rem', // 80px - Eradicates min-h-[80px] JIT bracket
+      },
       ringWidth: {
         '3': '3px',
       },
