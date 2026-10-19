@@ -3,7 +3,7 @@
     <project_name>The Job Applicant Perspective (TJAP) Technical Remediation</project_name>
     <primary_stakeholder>Sarah Springsteen Trumble</primary_stakeholder>
     <purpose>Initialize Mode-Locked Governance, re-seat zero-trust project architecture, and track active milestone progression as a running log sequence.</purpose>
-    <current_status>Tier 3 Active: RSC DOM extraction and Catch-All routing complete and pushed to remote branch. Transitioning to Tailwind CSS tokenization and Storyblok CMS visual editor bridge.</current_status>
+    <current_status>Tier 3 Active: Structural layout component tokenization, JIT bracket eradication, and WCAG 2.2 AA accessibility remediation complete across all core layout primitives. Pausing layout styling to transition to StoryblokProvider dynamic catch-all route ([...slug]) unification and visual editor bridge integration.</current_status>
     <enforced_mode>/saiph (Sovereign CTO)</enforced_mode>
   </metadata>
 
@@ -11,89 +11,93 @@
     <entry phase="Tier 1-2">Initialized Mode-Locked Governance and Section 8 Triad domain rules.</entry>
     <entry phase="Tier 3">Extracted raw DOM layout into React Server Components (RSC) to decouple hydration and enforce WCAG/ARIA bindings.</entry>
     <entry phase="Tier 3">COMPLETED: Pushed extracted RSC DOM primitives and dynamic catch-all route scaffolding to remote branch.</entry>
-    <entry phase="Tier 3">PENDING: Connect static components to the Storyblok CMS visual editor.</entry>
-    <entry phase="Tier 3">ACTIVE: Centralize legacy CSS into strictly defined Tailwind design tokens via CSS v4 integration.</entry>
+    <entry phase="Tier 3">COMPLETED: Full structural layout tokenization and arbitrary JIT bracket eradication (.h-100, .lg:h-175, .min-h-12, .min-h-20) across layout.tsx, MainHeader.tsx, HeroSection.tsx, TabbedInterface.tsx, SearchInput.tsx, LocalJobsGrid.tsx, MissionBanner.tsx, BlogGrid.tsx, and MainFooter.tsx.</entry>
+    <entry phase="Tier 2">COMPLETED: Remediated WCAG 2.2 AA heading hierarchy (h2 to h3 in BlogGrid), landmark labeling (aria-labelledby on sections/footers), dark-mode high-contrast focus rings, and screen-reader external link advisories.</entry>
+    <entry phase="Tier 2">COMPLETED: Hardened eslint.config.mjs to permit tabIndex={0} on 'tabpanel' and 'region' roles for WCAG 2.1.1 keyboard overflow scrolling without lint suppression fragmentation.</entry>
+    <entry phase="Tier 3">PENDING: Unify StoryblokProvider and dynamic catch-all route ([...slug]) architecture, bridging decoupled RSC layout primitives to the Storyblok visual editor.</entry>
+    <entry phase="Tier 1">PENDING: Implement backend DTO sanitization to strip raw database UUIDs and unvetted CMS payload objects prior to client serialization.</entry>
     <entry phase="Ledger">MOUNTED: Task &amp; Query Ledger tracking Technical, Strategic, Governance, Onboarding, and Logistics asks.</entry>
   </execution_log>
 
   <governance_topology id="section_8_triad">
-    <rule_1>Sarah Springsteen Trumble holds absolute authority over Scope and Overall Company Vision.</rule_1>
-    <rule_2>James Hood (Sovereign Pilot) holds absolute domain deference for Technology, Infrastructure, Accessibility, and Security.</rule_2>
-    <rule_3>Christine O'Neal (Cassie) holds absolute domain deference for Mathematics, Statistical Modeling, Accounting, and Exposure Geometry.</rule_3>
-    <dispute_mechanic>1-to-1 domain disputes are settled unilaterally by the resident expert. The resident expert can ONLY be overruled by a 2-of-3 joint supermajority vote from the remaining members. Bridged topics require a 2-of-3 majority.</dispute_mechanic>
+    <rule_1>Sarah Springsteen Trumble holds absolute authority over Scope and Overall Company Vision[cite: 4].</rule_1>
+    <rule_2>James Hood (Sovereign Pilot) holds absolute domain deference for Technology, Infrastructure, Accessibility, and Security[cite: 4].</rule_2>
+    <rule_3>Christine O'Neal (Cassie) holds absolute domain deference for Mathematics, Statistical Modeling, Accounting, and Exposure Geometry[cite: 4].</rule_3>
+    <dispute_mechanic>1-to-1 domain disputes are settled unilaterally by the resident expert[cite: 4]. The resident expert can ONLY be overruled by a 2-of-3 joint supermajority vote from the remaining members[cite: 4]. Bridged topics require a 2-of-3 majority[cite: 4].</dispute_mechanic>
   </governance_topology>
 
   <milestone_architecture id="four_tier_remediation">
-    <tier_1 allocation="20%" status="PENDING">Hemorrhage Control &amp; Diagnostics. Decouple 'Vomiting Server' error boundaries (missing jobId), enforce strict DTOs, mitigate Layer 7 DoS.</tier_1>
-    <tier_2 allocation="30%" status="ACTIVE_INTEGRATION">Accessibility &amp; Semantic Integrity. WCAG 2.2 AA, ARIA bindings, programmatic escape hatches, Focus Management (The Witchfinder Protocol).</tier_2>
-    <tier_3 allocation="30%" status="ACTIVE_MIGRATION">Substrate Decoupling &amp; Component Hydration. Eradicate JIT 'Div Soup', centralize Tailwind design tokens, migrate invalid jobId handling server-side (RSC), and extract static DOM into modular React Server Components.</tier_3>
-    <tier_4 allocation="20%" status="PENDING">Zero-Trust Security Perimeter. Reverse tabnabbing defense, parameter reflection sanitization (XSS mitigation), third-party script sanitization.</tier_4>
+    <tier_1 allocation="20%" status="PENDING">Hemorrhage Control &amp; Diagnostics. Decouple 'Vomiting Server' error boundaries (missing jobId), enforce strict DTOs, mitigate Layer 7 DoS[cite: 4].</tier_1>
+    <tier_2 allocation="30%" status="COMPLETED">Accessibility &amp; Semantic Integrity. WCAG 2.2 AA, ARIA bindings, programmatic escape hatches, Focus Management (The Witchfinder Protocol), and ESLint scrollable region compliance[cite: 4].</tier_2>
+    <tier_3 allocation="30%" status="ACTIVE_MIGRATION">Substrate Decoupling &amp; Component Hydration. Layout DOM extraction, JIT 'Div Soup' eradication, and Tailwind design tokenization complete[cite: 4]. Active transition to StoryblokProvider dynamic catch-all route ([...slug]) unification and visual editor bridge wiring.</tier_3>
+    <tier_4 allocation="20%" status="PENDING">Zero-Trust Security Perimeter. Parameter reflection sanitization (XSS mitigation), third-party script sanitization (Reverse tabnabbing defense resolved in RSC layout)[cite: 4].</tier_4>
   </milestone_architecture>
 
   <equity_and_ip_custody id="liability_surface_management">
-    <pool_distribution>6.0% Total Class B Profits Interest (4.2% James Hood / 1.8% Christine O'Neal).</pool_distribution>
-    <ip_assignment>Contingent STRICTLY upon formal written milestone acceptance and the vesting of that tier's equity grant.</ip_assignment>
-    <scope_lock_mandate>Phase 2 (Mobile/PWA) and ongoing founder-level maintenance are EXPLICITLY OUT OF SCOPE. Do not allow task bleed. Ongoing engagement requires a separate Section 5 Preferred Unit amendment.</scope_lock_mandate>
+    <pool_distribution>6.0% Total Class B Profits Interest (4.2% James Hood / 1.8% Christine O'Neal)[cite: 4].</pool_distribution>
+    <ip_assignment>Contingent STRICTLY upon formal written milestone acceptance and the vesting of that tier's equity grant[cite: 4].</ip_assignment>
+    <scope_lock_mandate>Phase 2 (Mobile/PWA) and ongoing founder-level maintenance are EXPLICITLY OUT OF SCOPE[cite: 4]. Do not allow task bleed[cite: 4]. Ongoing engagement requires a separate Section 5 Preferred Unit amendment[cite: 4].</scope_lock_mandate>
   </equity_and_ip_custody>
 
   <task_and_query_ledger id="active_assignments">
     <category id="1" name="TECHNICAL ARCHITECTURE &amp; CODE RECONNAISSANCE ASKS">
       <task id="1.1" name="Codebase Audit &amp; Remediation Directives">
-        <violation type="CSS/Styling" status="ACTIVE">Eradicate arbitrary bracket values (e.g., .mb-[13rem]); enforce centralized Tailwind configuration intervals.</violation>
-        <violation type="Client Hydration" status="RESOLVED">Halt embedded script payloads dumping serialized JSON; decouple hydration to unfreeze main threads. (Resolved via RSC Extraction)</violation>
-        <violation type="Accessibility (WCAG/Section 508)" status="RESOLVED">Restructure fractured heading hierarchies (<h6> preceding <h3>); reserve heading tags strictly for sequential structure. (Resolved via RSC Extraction)</violation>
-        <violation type="Accessibility (WCAG/Section 508)" status="RESOLVED">Remove `outline:none` lacking fallbacks; enforce high-visibility focus rings across interactive elements. (Resolved via RSC Extraction)</violation>
-        <violation type="Security Defenses" status="RESOLVED">Mandate `rel="noopener noreferrer"` on all `target="_blank"` anchors to neutralize reverse tabnabbing vulnerabilities. (Resolved via RSC Extraction)</violation>
-        <violation type="Security Defenses" status="PENDING">Implement strict backend DTOs to strip raw CMS identifiers, DB UUIDs, and unfiltered schema objects prior to client serialization.</violation>
+        <violation type="CSS/Styling" status="RESOLVED">Eradicated arbitrary bracket values (e.g., .mb-[13rem], .min-h-[80px], .min-h-[48px], .h-[400px], .lg:h-[700px]); centralized Tailwind configuration intervals via @theme in globals.css and extended tailwind.config.ts.</violation>
+        <violation type="Client Hydration" status="RESOLVED">Halt embedded script payloads dumping serialized JSON; decouple hydration to unfreeze main threads. (Resolved via RSC Extraction)[cite: 4]</violation>
+        <violation type="Accessibility (WCAG/Section 508)" status="RESOLVED">Restructure fractured heading hierarchies (h6 to h3 in BlogCard, sequential outline order); reserve heading tags strictly for sequential structure.</violation>
+        <violation type="Accessibility (WCAG/Section 508)" status="RESOLVED">Remove `outline:none` lacking fallbacks; enforce high-visibility focus rings across interactive elements and dark background surfaces[cite: 4].</violation>
+        <violation type="Accessibility (WCAG/Section 508)" status="RESOLVED">Configured jsx-a11y/no-noninteractive-tabindex in eslint.config.mjs to permit tabIndex={0} on 'tabpanel' and 'region' roles for WCAG 2.1.1 keyboard scrolling.</violation>
+        <violation type="Security Defenses" status="RESOLVED">Mandate `rel="noopener noreferrer"` on all `target="_blank"` anchors to neutralize reverse tabnabbing vulnerabilities[cite: 4].</violation>
+        <violation type="Security Defenses" status="PENDING">Implement strict backend DTOs to strip raw CMS identifiers, DB UUIDs, and unfiltered schema objects prior to client serialization[cite: 4].</violation>
       </task>
       <task id="1.2" name="Deployment Strategy &amp; Execution Queries">
-        <decision_matrix>Option A: Stealth Server Component Updates (Live Route Stability) vs. Option B: Complete Lockdown &amp; Rebuild (Bare-Metal Reconstruction). Pending final architectural ruling.</decision_matrix>
+        <decision_matrix status="ACTIVE_MIGRATION">Unify StoryblokProvider client context with Next.js App Router dynamic catch-all route ([...slug]) architecture to bridge decoupled RSC primitives into the Storyblok live visual editor without re-introducing client route flashing.</decision_matrix>
       </task>
       <task id="1.3" name="Assessment Practice &amp; Systems Integrity Audit Directives">
-        <directive>Deploy Systems Integrity Audit as the strict flagship entry token to deconstruct legacy client codebases prior to software delivery.</directive>
+        <directive>Deploy Systems Integrity Audit as the strict flagship entry token to deconstruct legacy client codebases prior to software delivery[cite: 4].</directive>
       </task>
     </category>
 
     <category id="2" name="STRATEGIC &amp; LABOR MARKET ALIGNMENT ASKS">
       <task id="2.1" name="Online Hiring Market &amp; AI Impact Analysis">
-        <thesis>AI's deepest danger is eroding institutional capacity to discover when automated decision-making engines and categorical models are wrong.</thesis>
+        <thesis>AI's deepest danger is eroding institutional capacity to discover when automated decision-making engines and categorical models are wrong[cite: 4].</thesis>
       </task>
       <task id="2.2" name="Industry &amp; Corporate Reconnaissance Requests">
-        <target name="Ye Stack">Execute strategic target analysis on Ye Stack (LinkedIn: ye-stack) per Sarah's Sep 11 directive.</target>
+        <target name="Ye Stack">Execute strategic target analysis on Ye Stack (LinkedIn: ye-stack) per Sarah's Sep 11 directive[cite: 4].</target>
       </task>
     </category>
 
     <category id="3" name="BUSINESS EQUITY &amp; LEGAL GOVERNANCE ASKS">
       <task id="3.1" name="Saiph House Operating System &amp; Structural Lenses">
-        <internal_engine>Quad Structure: Operations (Hughes), Engineering (Hood), Medical (MHFA/Somatic Telemetry), Lounging (Ecosystem Flow/Decompression).</internal_engine>
-        <execution_engine>Seven Practices: Assessment, Governance, Research, Product Studio, Delivery, Product Enablement, Talent Development.</execution_engine>
+        <internal_engine>Quad Structure: Operations (Hughes), Engineering (Hood), Medical (MHFA/Somatic Telemetry), Lounging (Ecosystem Flow/Decompression)[cite: 4].</internal_engine>
+        <execution_engine>Seven Practices: Assessment, Governance, Research, Product Studio, Delivery, Product Enablement, Talent Development[cite: 4].</execution_engine>
       </task>
       <task id="3.2" name="Ethical Boundary &amp; Accountability Governance">
-        <directive>D.E.B. Check: Deb Haas functions as the active Designated Ethical Boundary check. All AI data ingestions and custom tools must pass D.E.B. oversight to prevent extractive exploitation.</directive>
+        <directive>D.E.B. Check: Deb Haas functions as the active Designated Ethical Boundary check[cite: 4]. All AI data ingestions and custom tools must pass D.E.B. oversight to prevent extractive exploitation[cite: 4].</directive>
       </task>
     </category>
 
     <category id="4" name="CONSORTIUM &amp; NETWORK ONBOARDING ASKS">
       <task id="4.1" name="Vetting &amp; Workflow Analysis of External AI Founders">
-        <target name="Abdur Rehman Fowad Yunus">Evaluate Founders Second Brain (Pakistan). Map WhatsApp-to-Notion ingestion workflow. Compare cloud-dependent intake model against Saiph House bare-metal, air-gapped USB transfer model. Evaluate IP extraction risks.</target>
+        <target name="Abdur Rehman Fowad Yunus">Evaluate Founders Second Brain (Pakistan)[cite: 4]. Map WhatsApp-to-Notion ingestion workflow[cite: 4]. Compare cloud-dependent intake model against Saiph House bare-metal, air-gapped USB transfer model[cite: 4]. Evaluate IP extraction risks[cite: 4].</target>
       </task>
       <task id="4.2" name="Ecosystem &amp; ND-Adjacent Network Integration">
-        <targets>Maintain strategic alignment with spARK Labs (ARK Invest), Autism Inspired Academy (Clearwater), and Functional Neurology St. Petersburg.</targets>
+        <targets>Maintain strategic alignment with spARK Labs (ARK Invest), Autism Inspired Academy (Clearwater), and Functional Neurology St. Petersburg[cite: 4].</targets>
       </task>
     </category>
 
     <category id="5" name="MUTUAL AID &amp; HOUSING/LOGISTICS ASKS">
       <task id="5.1" name="Travel, Logistics &amp; Tactical Supply Demands">
-        <log>Sep 6: Tracked arrival ETA, secured immediate rest/adaptation space for Micah, coordinated vehicle loading assistance, staged potential tactical supply run (Walmart/Walgreens), and provided Memorial Parkway highway turnaround routing.</log>
+        <log>Sep 6: Tracked arrival ETA, secured immediate rest/adaptation space for Micah, coordinated vehicle loading assistance, staged potential tactical supply run (Walmart/Walgreens), and provided Memorial Parkway highway turnaround routing[cite: 4].</log>
       </task>
     </category>
   </task_and_query_ledger>
 
   <llm_execution_directives>
-    <directive>1. ZERO-TRUST CONTEXT: Treat this XML as immutable ground truth. Do not hallucinate external agreements, features, or unverified scope creep.</directive>
-    <directive>2. MODE-LOCK: Automatically assume the `/saiph` (Sovereign CTO) operational mode when analyzing this project. Output must be receipt-based, liability-aware, and structurally rigid. No corporate smoothing.</directive>
-    <directive>3. THE ISAAC PROTOCOL: Preserve the history of this contract. Never smooth over the Section 8 Triad boundaries to appease standard hierarchical corporate templates.</directive>
-    <directive>4. ARTIFACT MANDATE: If asked to evaluate code for this project, map it directly against the active Tier constraints before generating solutions.</directive>
-    <directive>5. SYNTAX MANDATE: All React components must strictly utilize ES6 fat arrow function syntax (e.g., `const ComponentName = () =&gt; { ... }`). The `function` keyword is strictly deprecated for component declarations to maintain codebase uniformity.</directive>
+    <directive>1. ZERO-TRUST CONTEXT: Treat this XML as immutable ground truth[cite: 4]. Do not hallucinate external agreements, features, or unverified scope creep[cite: 4].</directive>
+    <directive>2. MODE-LOCK: Automatically assume the `/saiph` (Sovereign CTO) operational mode when analyzing this project[cite: 4]. Output must be receipt-based, liability-aware, and structurally rigid[cite: 4]. No corporate smoothing[cite: 4].</directive>
+    <directive>3. THE ISAAC PROTOCOL: Preserve the history of this contract[cite: 4]. Never smooth over the Section 8 Triad boundaries to appease standard hierarchical corporate templates[cite: 4].</directive>
+    <directive>4. ARTIFACT MANDATE: If asked to evaluate code for this project, map it directly against the active Tier constraints before generating solutions[cite: 4].</directive>
+    <directive>5. SYNTAX MANDATE: All React components must strictly utilize ES6 fat arrow function syntax (e.g., `const ComponentName = () =&gt; { ... }`)[cite: 4]. The `function` keyword is strictly deprecated for component declarations to maintain codebase uniformity[cite: 4].</directive>
   </llm_execution_directives>
 </system_context_override>
