@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import StoryblokProvider from '@/components/StoryblokProvider';
+import { StoryblokProvider } from '@/components/StoryblokProvider';
+import { MainHeader } from '@/components/layout/MainHeader';
+import { MainFooter } from '@/components/layout/MainFooter';
 import './globals.css';
 import Link from 'next/link';
 
@@ -49,9 +51,11 @@ const RootLayout = ({ children }: RootLayoutProps) => {
 
         <StoryblokProvider>
           <div className="flex min-h-screen flex-col">
+            <MainHeader />
             <main id="main-content" className="flex-grow">
               {children}
             </main>
+            <MainFooter />
           </div>
         </StoryblokProvider>
       </body>
