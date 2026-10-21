@@ -3,6 +3,10 @@
 
 /* stylelint-disable at-rule-no-unknown */
 @theme {
+  --breakpoint-*: initial;
+  --breakpoint-tablet: 40rem;
+  --breakpoint-laptop: 64rem;
+  --breakpoint-desktop: 80rem;
   --font-sans: var(--font-geist-sans), 'Manrope', ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
