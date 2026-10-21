@@ -3,9 +3,40 @@
     <project_name>The Job Applicant Perspective (TJAP) Technical Remediation</project_name>
     <primary_stakeholder>Sarah Springsteen Trumble</primary_stakeholder>
     <purpose>Initialize Mode-Locked Governance, re-seat zero-trust project architecture, and track active milestone progression as a running log sequence.</purpose>
-    <current_status>Tier 3 Active: Dynamic catch-all route ([...slug]), StoryblokProvider client boundary, lib/storyblok.ts server API, PageBlok container, and root layout shell architecture unified and verified[cite: 4, 6, 7]. tailwind.config.ts audited against globals.css and confirmed redundant for deletion under Tailwind CSS v4. Transitioning to systematic audit, tokenization, and WCAG 2.2 AA hardening across presentational components in /components/blocks and base UI primitives in /components/ui.</current_status>
+    <current_status>Tier 3 Active: Dynamic catch-all route ([...slug]), StoryblokProvider client boundary, lib/storyblok.ts server API, PageBlok container, and root layout shell architecture unified and verified[cite: 4, 6, 7]. tailwind.config.ts audited against globals.css and confirmed redundant for deletion under Tailwind CSS v4. Physical repository map, dependency graph, and execution scripts have been successfully ingested and mounted to the active context.</current_status>
     <enforced_mode>/saiph (Sovereign CTO)</enforced_mode>
   </metadata>
+
+  <environment_state id="tjap_infrastructure">
+    <tech_stack>
+      <core>Next.js (16.3.3), React &amp; React-DOM (19.2.8), TypeScript (^5)</core>
+      <styling>Tailwind CSS (^4), @tailwindcss/postcss</styling>
+      <cms>@storyblok/react (^7.3.1)</cms>
+      <ui_primitives>Radix UI (Dialog, Slot, Visually-Hidden), lucide-react (^1.48.0)</ui_primitives>
+      <backend_and_security>@upstash/ratelimit (2.0.8), @upstash/redis (1.38.4), zod (4.6.2)</backend_and_security>
+      <ai_integration>@google/generative-ai (^0.24.1)</ai_integration>
+      <testing_and_qa>@playwright/test (^1.62.1), eslint-plugin-playwright (^2.11.0)</testing_and_qa>
+    </tech_stack>
+    <build_and_execution>
+      <script name="dev">concurrently Next.js + TSC watch (--noEmit)</script>
+      <script name="dev:full">concurrently Next.js + TSC watch + Supabase local start</script>
+      <script name="verify">ESLint + TSC strict check (pre-commit/CI pipeline)</script>
+    </build_and_execution>
+    <repository_map>
+      <root_directories>src, public, docs, e2e, qa-agent, test-results, playwright-report</root_directories>
+      <src_architecture>
+        <path name="src/app/[[...slug]]">Dynamic catch-all routing (Storyblok PageBlok mapping)</path>
+        <path name="src/components/blocks">Presentational and composite components (Hero, Grids, Banners)</path>
+        <path name="src/components/layout">Global layout shells (MainHeader, MainFooter)</path>
+        <path name="src/components/storyblok">CMS-bound component wrappers</path>
+        <path name="src/components/ui">Base interactive primitives (Button, Input, Tabs)</path>
+        <path name="src/lib/dto">Data Transfer Objects (Backend sanitization/validation/Zod schemas)</path>
+      </src_architecture>
+      <qa_architecture>
+        <path name="qa-agent/docs/qa-tasks">Deterministic QA tracking and Playwright execution boundaries</path>
+      </qa_architecture>
+    </repository_map>
+  </environment_state>
 
   <execution_log id="project_timeline">
     <entry phase="Tier 1-2">Initialized Mode-Locked Governance and Section 8 Triad domain rules.</entry>
@@ -18,6 +49,7 @@
     <entry phase="Tier 3">ACTIVE: Auditing and refactoring 13 presentational components in src/components/blocks and primitives in src/components/ui for semantic token alignment, keyboard focus rings, and strict React 19 typing.</entry>
     <entry phase="Tier 1">PENDING: Implement backend DTO sanitization to strip raw database UUIDs and unvetted CMS payload objects prior to client serialization[cite: 4].</entry>
     <entry phase="Ledger">MOUNTED: Task &amp; Query Ledger tracking Technical, Strategic, Governance, Onboarding, and Logistics asks[cite: 4].</entry>
+    <entry phase="Environment">MOUNTED: Full repository directory map, package.json dependencies, and execution scripts logged to active memory.</entry>
   </execution_log>
 
   <governance_topology id="section_8_triad">
@@ -28,7 +60,7 @@
   </governance_topology>
 
   <milestone_architecture id="four_tier_remediation">
-    <tier_1 allocation="20%" status="PENDING">Hemorrhage Control &amp; Diagnostics. Decouple 'Vomiting Server' error boundaries (missing jobId), enforce strict DTOs, mitigate Layer 7 DoS[cite: 4].</tier_1>
+    <tier_1 allocation="20%" status="PENDING">Hemorrhage Control &amp; Diagnostics. Decouple 'Vomiting Server' error boundaries (missing jobId), enforce strict DTOs (via mounted Zod 4.6.2), mitigate Layer 7 DoS (via mounted Upstash Ratelimit)[cite: 4].</tier_1>
     <tier_2 allocation="30%" status="COMPLETED">Accessibility &amp; Semantic Integrity. WCAG 2.2 AA, ARIA bindings, programmatic escape hatches, Focus Management (The Witchfinder Protocol), and ESLint scrollable region compliance[cite: 4].</tier_2>
     <tier_3 allocation="30%" status="ACTIVE_MIGRATION">Substrate Decoupling &amp; Component Hydration. Layout DOM extraction, JIT eradication, Storyblok catch-all integration, and tailwind.config.ts deprecation complete[cite: 4, 5, 8]. Active execution on UI atom and molecular library tokenization and interactive state compliance[cite: 4, 5].</tier_3>
     <tier_4 allocation="20%" status="PENDING">Zero-Trust Security Perimeter. Parameter reflection sanitization (XSS mitigation), third-party script sanitization (Reverse tabnabbing defense resolved in RSC layout)[cite: 4].</tier_4>
