@@ -1,30 +1,37 @@
+import React from 'react';
 import Link from 'next/link';
+import { ChevronRight } from 'lucide-react';
 
-type JobLinkCardProps = {
+export interface JobLinkCardProps {
   title: string;
   href: string;
-};
+  isExternal?: boolean;
+  className?: string;
+}
 
-const JobLinkCard = ({ title, href }: JobLinkCardProps) => {
+export const JobLinkCard = ({
+  title,
+  href,
+  isExternal = true,
+  className = '',
+}: JobLinkCardProps) => {
   return (
     <Link
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group flex min-h-[80px] items-center justify-between rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition-all hover:shadow-md focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:outline-none"
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
+      className={`group border-border bg-background hover:border-primary focus-visible:ring-focus-ring focus-visible:ring-offset-background flex min-h-20 w-full items-center justify-between rounded-xl border p-4 shadow-sm transition-all duration-200 hover:shadow-md focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none ${className}`.trim()}
     >
-      <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600">{title}</h3>
-      <div aria-hidden="true" className="text-gray-400 transition-colors group-hover:text-blue-600">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
+      <h3 className="text-foreground group-hover:text-primary text-base font-medium transition-colors md:text-lg">
+        {title}
+        {isExternal && <span className="sr-only"> (opens in a new tab)</span>}
+      </h3>
+
+      <div className="flex shrink-0 items-center justify-center pl-2">
+        <ChevronRight
+          className="text-muted-foreground group-hover:bg-primary flex h-8 w-8 items-center justify-center rounded-full p-1 transition-all duration-200 group-hover:text-white"
+          aria-hidden="true"
+        />
       </div>
     </Link>
   );

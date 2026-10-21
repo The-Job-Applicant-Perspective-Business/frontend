@@ -1,9 +1,17 @@
-// components/MainFooter.tsx
+import React from 'react';
+import { Button } from '@/components/ui/Button';
 
-export const MainFooter = () => {
+export interface MainFooterProps {
+  className?: string;
+}
+
+export const MainFooter = ({ className = '' }: MainFooterProps) => {
   return (
-    <footer aria-labelledby="footer-heading" className="bg-primary-dark w-full">
-      <div className="container mx-auto px-4 py-12 md:px-8 md:py-24 lg:px-12">
+    <footer
+      aria-labelledby="footer-heading"
+      className={`bg-primary-dark w-full text-white ${className}`.trim()}
+    >
+      <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 md:px-8 md:py-24 lg:px-12">
         <div className="flex flex-col justify-between gap-12 md:flex-row">
           <div className="w-full md:w-1/2 lg:w-5/12">
             <h2
@@ -12,7 +20,7 @@ export const MainFooter = () => {
             >
               We’re here to answer all your questions
             </h2>
-            <p className="mt-4 text-base text-neutral-200">
+            <p className="mt-4 text-base leading-relaxed text-slate-200">
               Your journey’s important to us. Need help, resources, or just someone to talk to?
               We’re just a message away!
             </p>
@@ -20,7 +28,7 @@ export const MainFooter = () => {
 
           <div className="w-full md:w-1/2">
             <form className="flex flex-col gap-4" action="/api/contact" method="POST">
-              <div className="flex flex-col gap-4 md:flex-row">
+              <div className="flex flex-col gap-4 sm:flex-row">
                 <div className="w-full">
                   <label htmlFor="contact-name" className="sr-only">
                     Name
@@ -31,7 +39,7 @@ export const MainFooter = () => {
                     placeholder="Name"
                     type="text"
                     required
-                    className="w-full rounded-md border border-neutral-600 bg-transparent px-4 py-3 text-white transition-colors placeholder:text-neutral-400 focus-visible:border-white focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+                    className="focus-visible:ring-offset-primary-dark w-full rounded-md border border-slate-400 bg-transparent px-4 py-3 text-white transition-colors placeholder:text-slate-300 focus-visible:ring-3 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:outline-none"
                   />
                 </div>
                 <div className="w-full">
@@ -44,10 +52,11 @@ export const MainFooter = () => {
                     placeholder="Email"
                     type="email"
                     required
-                    className="w-full rounded-md border border-neutral-600 bg-transparent px-4 py-3 text-white transition-colors placeholder:text-neutral-400 focus-visible:border-white focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+                    className="focus-visible:ring-offset-primary-dark w-full rounded-md border border-slate-400 bg-transparent px-4 py-3 text-white transition-colors placeholder:text-slate-300 focus-visible:ring-3 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:outline-none"
                   />
                 </div>
               </div>
+
               <div>
                 <label htmlFor="contact-message" className="sr-only">
                   Message
@@ -57,24 +66,27 @@ export const MainFooter = () => {
                   name="message"
                   placeholder="Message"
                   required
-                  className="h-32 w-full resize-none rounded-md border border-neutral-600 bg-transparent px-4 py-3 text-white transition-colors placeholder:text-neutral-400 focus-visible:border-white focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none md:h-48"
+                  rows={4}
+                  className="focus-visible:ring-offset-primary-dark md:rows-6 w-full resize-none rounded-md border border-slate-400 bg-transparent px-4 py-3 text-white transition-colors placeholder:text-slate-300 focus-visible:ring-3 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:outline-none"
                 />
               </div>
+
               <div className="mt-2">
-                <button
+                <Button
                   type="submit"
-                  className="text-primary focus-visible:ring-offset-primary-dark rounded-md bg-white px-6 py-3 font-semibold transition-colors hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:outline-none"
+                  className="text-primary focus-visible:ring-offset-primary-dark inline-flex min-h-10 items-center justify-center rounded-md bg-white px-6 py-3 font-semibold transition-colors hover:bg-slate-100 focus-visible:ring-3 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-60"
                 >
                   Send Message
-                </button>
+                </Button>
               </div>
             </form>
           </div>
         </div>
 
         {/* Structural presentation divider */}
-        <div className="mt-16 h-px w-full bg-neutral-700" role="presentation" />
-        <div className="mt-12 text-center text-sm text-neutral-400">
+        <div className="mt-16 h-px w-full bg-slate-700" role="presentation" />
+
+        <div className="mt-12 text-center text-sm text-slate-300">
           Copyright © {new Date().getFullYear()} • thejobapplicantperspective
         </div>
       </div>

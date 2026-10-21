@@ -1,46 +1,74 @@
-import React, { useId } from "react";
+import React, { useId } from 'react';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   error?: string;
+  wrapperClassName?: string;
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, id, className = "", required, "aria-invalid": ariaInvalid, ...props }, ref) => {
-    // 1. Auto-generate a unique ID if the developer forgets to pass one (Section 508 Failsafe)
+  (
+    {
+      label,
+      error,
+      id,
+      className = '',
+      wrapperClassName = '',
+      required,
+      disabled,
+      'aria-invalid': ariaInvalid,
+      ...props
+    },
+    ref,
+  ) => {
+    // 1. Unique ID Generation (WCAG 3.3.2 / Section 508 programmatic binding)
     const generatedId = useId();
     const inputId = id || generatedId;
     const errorId = `${inputId}-error`;
-    
-    // 2. Bind the CSS error state directly to the component's logic
-    const isInvalid = !!error || ariaInvalid === "true" || ariaInvalid === true;
+
+    // 2. Unified Validation Flag
+    const isInvalid = Boolean(error) || ariaInvalid === 'true' || ariaInvalid === true;
+
+    // 3. Structural Tokenization mapped to Tailwind CSS v4 globals.css
+    const baseInputStyles =
+      'flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm text-foreground transition-colors ' +
+      'placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:ring-offset-background ' +
+      'disabled:cursor-not-allowed disabled:opacity-60';
+
+    const stateStyles = isInvalid
+      ? 'border-red-600 focus-visible:ring-red-600'
+      : 'border-border focus-visible:ring-focus-ring';
 
     return (
-      <div className="flex w-full flex-col gap-1.5">
-        {/* WCAG 3.3.2: Explicit labels bound to the input ID */}
-        <label htmlFor={inputId} className="text-sm font-semibold text-[var(--foreground)]">
-          {label} {required && <span aria-hidden="true" className="text-[var(--error)]">*</span>}
+      <div className={`flex w-full flex-col gap-1.5 ${wrapperClassName}`.trim()}>
+        <label htmlFor={inputId} className="text-foreground text-sm font-semibold select-none">
+          {label}
+          {required && (
+            <span aria-hidden="true" className="ml-1 text-red-600">
+              *
+            </span>
+          )}
         </label>
-        
+
         <input
           ref={ref}
           id={inputId}
           required={required}
-          aria-invalid={isInvalid ? "true" : "false"}
+          disabled={disabled}
+          aria-invalid={isInvalid ? 'true' : 'false'}
           aria-describedby={error ? errorId : undefined}
-          className={`flex h-10 w-full rounded-md border border-gray-300 bg-[var(--background)] px-3 py-2 text-sm text-[var(--foreground)] placeholder:text-gray-500 transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[var(--focus-ring)] ${className}`}
+          className={`${baseInputStyles} ${stateStyles} ${className}`.trim()}
           {...props}
         />
-        
-        {/* SC 4.1.3: Status messages must be programmatically associated and announced */}
+
         {error && (
-          <span id={errorId} role="alert" className="text-sm font-medium text-[var(--error)]">
+          <span id={errorId} role="alert" className="text-sm font-medium text-red-600">
             {error}
           </span>
         )}
       </div>
     );
-  }
+  },
 );
 
-Input.displayName = "Input";
+Input.displayName = 'Input';
