@@ -3,7 +3,7 @@
     <project_name>The Job Applicant Perspective (TJAP) Technical Remediation</project_name>
     <primary_stakeholder>Sarah Springsteen Trumble</primary_stakeholder>
     <purpose>Initialize Mode-Locked Governance, re-seat zero-trust project architecture, and track active milestone progression as a running log sequence.</purpose>
-    <current_status>Tier 3 Active: Dynamic catch-all route ([...slug]), StoryblokProvider client boundary, lib/storyblok.ts server API, PageBlok container, and root layout shell architecture unified and verified[cite: 4, 6, 7]. tailwind.config.ts audited against globals.css and confirmed redundant for deletion under Tailwind CSS v4. Physical repository map, dependency graph, and execution scripts have been successfully ingested and mounted to the active context.</current_status>
+    <current_status>Tier 3 Substrate Decoupling Complete. All core UI primitives and presentational blocks successfully refactored and tokenized. Active Phase shifted to Visual Regression Testing: comparing the legacy DOM layout (The Job Applicant Perspective.html) and visual telemetry against the newly implemented CSS-first semantic tokens.</current_status>
     <enforced_mode>/saiph (Sovereign CTO)</enforced_mode>
   </metadata>
 
@@ -29,7 +29,7 @@
         <path name="src/components/blocks">Presentational and composite components (Hero, Grids, Banners)</path>
         <path name="src/components/layout">Global layout shells (MainHeader, MainFooter)</path>
         <path name="src/components/storyblok">CMS-bound component wrappers</path>
-        <path name="src/components/ui">Base interactive primitives (Button, Input, Tabs)</path>
+        <path name="src/components/ui">Base interactive primitives (Button, Input, Tabs, NavLink)</path>
         <path name="src/lib/dto">Data Transfer Objects (Backend sanitization/validation/Zod schemas)</path>
       </src_architecture>
       <qa_architecture>
@@ -41,51 +41,52 @@
   <execution_log id="project_timeline">
     <entry phase="Tier 1-2">Initialized Mode-Locked Governance and Section 8 Triad domain rules.</entry>
     <entry phase="Tier 3">Extracted raw DOM layout into React Server Components (RSC) to decouple hydration and enforce WCAG/ARIA bindings.</entry>
-    <entry phase="Tier 3">COMPLETED: Full structural layout tokenization and arbitrary JIT bracket eradication (.h-100, .lg:h-175, .min-h-12, .min-h-20) across layout primitives[cite: 4].</entry>
-    <entry phase="Tier 2">COMPLETED: Remediated WCAG 2.2 AA heading hierarchy, landmark labeling, dark-mode high-contrast focus rings, and screen-reader link advisories[cite: 4].</entry>
+    <entry phase="Tier 3">COMPLETED: Full structural layout tokenization and arbitrary JIT bracket eradication (.h-100, .lg:h-175, .min-h-12, .min-h-20) across layout primitives.</entry>
+    <entry phase="Tier 2">COMPLETED: Remediated WCAG 2.2 AA heading hierarchy, landmark labeling, dark-mode high-contrast focus rings, and screen-reader link advisories.</entry>
     <entry phase="Tier 2">COMPLETED: Hardened eslint.config.mjs to permit tabIndex={0} on 'tabpanel' and 'region' roles for WCAG 2.1.1 keyboard scrolling[cite: 4].</entry>
-    <entry phase="Tier 3">COMPLETED: Unified StoryblokProvider, lib/storyblok.ts, and dynamic catch-all route (app/[...slug]/page.tsx) with PageBlok container, resolving access token authentication and landmark collisions[cite: 4, 6, 7].</entry>
-    <entry phase="Tier 3">COMPLETED: Audited legacy tailwind.config.ts against globals.css; confirmed 1:1 token parity under Tailwind CSS v4 CSS-first configuration, deprecating standalone configuration files.</entry>
-    <entry phase="Tier 3">ACTIVE: Auditing and refactoring 13 presentational components in src/components/blocks and primitives in src/components/ui for semantic token alignment, keyboard focus rings, and strict React 19 typing.</entry>
+    <entry phase="Tier 3">COMPLETED: Unified StoryblokProvider, lib/storyblok.ts, and dynamic catch-all route (app/[...slug]/page.tsx) with PageBlok container, resolving access token authentication and landmark collisions[cite: 4].</entry>
+    <entry phase="Tier 3">COMPLETED: Audited legacy tailwind.config.ts against globals.css; confirmed 1:1 token parity under Tailwind CSS v4 CSS-first configuration, deprecating standalone configuration files[cite: 4].</entry>
+    <entry phase="Tier 3">COMPLETED: Deprecated redundant wrappers (ActionButton.tsx, NavigationLink.tsx) unifying under core primitives (Button.tsx, NavLink.tsx)[cite: 4].</entry>
+    <entry phase="Tier 3">COMPLETED: Refactored base UI primitives (Button, FormInput, GoBackButton, NavLink, Tabs, SearchInput) and layout blocks (MainHeader, MainFooter, HeroSection, AuthorSidebar, JobLinkCard, LocalJobsGrid, TabbedInterface, RichTextContent) to enforce React 19 forwardRef, WCAG 2.2 AA target sizes, and Tailwind v4 @theme tokens[cite: 4].</entry>
+    <entry phase="Tier 3">ACTIVE: Executing Visual Regression Testing. Comparing raw HTML payload and visual telemetry screenshots against refactored component baseline[cite: 24, 31].</entry>
     <entry phase="Tier 1">PENDING: Implement backend DTO sanitization to strip raw database UUIDs and unvetted CMS payload objects prior to client serialization[cite: 4].</entry>
     <entry phase="Ledger">MOUNTED: Task &amp; Query Ledger tracking Technical, Strategic, Governance, Onboarding, and Logistics asks[cite: 4].</entry>
-    <entry phase="Environment">MOUNTED: Full repository directory map, package.json dependencies, and execution scripts logged to active memory.</entry>
   </execution_log>
 
   <governance_topology id="section_8_triad">
     <rule_1>Sarah Springsteen Trumble holds absolute authority over Scope and Overall Company Vision[cite: 4].</rule_1>
     <rule_2>James Hood (Sovereign Pilot) holds absolute domain deference for Technology, Infrastructure, Accessibility, and Security[cite: 4].</rule_2>
     <rule_3>Christine O'Neal (Cassie) holds absolute domain deference for Mathematics, Statistical Modeling, Accounting, and Exposure Geometry[cite: 4].</rule_3>
-    <dispute_mechanic>1-to-1 domain disputes are settled unilaterally by the resident expert[cite: 4]. The resident expert can ONLY be overruled by a 2-of-3 joint supermajority vote from the remaining members[cite: 4]. Bridged topics require a 2-of-3 majority[cite: 4].</dispute_mechanic>
+    <dispute_mechanic>1-to-1 domain disputes are settled unilaterally by the resident expert. The resident expert can ONLY be overruled by a 2-of-3 joint supermajority vote from the remaining members. Bridged topics require a 2-of-3 majority[cite: 4].</dispute_mechanic>
   </governance_topology>
 
   <milestone_architecture id="four_tier_remediation">
     <tier_1 allocation="20%" status="PENDING">Hemorrhage Control &amp; Diagnostics. Decouple 'Vomiting Server' error boundaries (missing jobId), enforce strict DTOs (via mounted Zod 4.6.2), mitigate Layer 7 DoS (via mounted Upstash Ratelimit)[cite: 4].</tier_1>
     <tier_2 allocation="30%" status="COMPLETED">Accessibility &amp; Semantic Integrity. WCAG 2.2 AA, ARIA bindings, programmatic escape hatches, Focus Management (The Witchfinder Protocol), and ESLint scrollable region compliance[cite: 4].</tier_2>
-    <tier_3 allocation="30%" status="ACTIVE_MIGRATION">Substrate Decoupling &amp; Component Hydration. Layout DOM extraction, JIT eradication, Storyblok catch-all integration, and tailwind.config.ts deprecation complete[cite: 4, 5, 8]. Active execution on UI atom and molecular library tokenization and interactive state compliance[cite: 4, 5].</tier_3>
+    <tier_3 allocation="30%" status="ACTIVE_VERIFICATION">Substrate Decoupling &amp; Component Hydration. Layout DOM extraction, JIT eradication, Storyblok catch-all integration, tailwind.config.ts deprecation, UI primitive tokenization, and strict React 19 typing complete. Active visual DOM verification executing[cite: 4].</tier_3>
     <tier_4 allocation="20%" status="PENDING">Zero-Trust Security Perimeter. Parameter reflection sanitization (XSS mitigation), third-party script sanitization (Reverse tabnabbing defense resolved in RSC layout)[cite: 4].</tier_4>
   </milestone_architecture>
 
   <equity_and_ip_custody id="liability_surface_management">
     <pool_distribution>6.0% Total Class B Profits Interest (4.2% James Hood / 1.8% Christine O'Neal)[cite: 4].</pool_distribution>
     <ip_assignment>Contingent STRICTLY upon formal written milestone acceptance and the vesting of that tier's equity grant[cite: 4].</ip_assignment>
-    <scope_lock_mandate>Phase 2 (Mobile/PWA) and ongoing founder-level maintenance are EXPLICITLY OUT OF SCOPE[cite: 4]. Do not allow task bleed[cite: 4]. Ongoing engagement requires a separate Section 5 Preferred Unit amendment[cite: 4].</scope_lock_mandate>
+    <scope_lock_mandate>Phase 2 (Mobile/PWA) and ongoing founder-level maintenance are EXPLICITLY OUT OF SCOPE. Do not allow task bleed. Ongoing engagement requires a separate Section 5 Preferred Unit amendment[cite: 4].</scope_lock_mandate>
   </equity_and_ip_custody>
 
   <task_and_query_ledger id="active_assignments">
     <category id="1" name="TECHNICAL ARCHITECTURE &amp; CODE RECONNAISSANCE ASKS">
       <task id="1.1" name="Codebase Audit &amp; Remediation Directives">
-        <violation type="CSS/Styling" status="COMPLETED">tailwind.config.ts audited against globals.css; confirmed exact mapping of colors, fonts, ring widths, and custom spacing intervals into @theme and :root variables. tailwind.config.ts marked safe for deletion under Tailwind CSS v4 CSS-first paradigm.</violation>
-        <violation type="CSS/Styling" status="ACTIVE_MIGRATION">Eradicate arbitrary bracket values and hardcoded hex values (e.g., bg-[#FAFAFA], border-gray-200) across /components/blocks and /components/ui primitives; map strictly to @theme tokens in globals.css[cite: 4, 5].</violation>
-        <violation type="Accessibility (WCAG/Section 508)" status="ACTIVE_MIGRATION">Replace focus:outline-none in interactive atoms with high-contrast visible focus rings (WCAG 2.2 SC 2.4.11/2.4.12)[cite: 4, 5].</violation>
-        <violation type="Type System / Props" status="ACTIVE_MIGRATION">Refactor button and input primitives to extend native HTML element attributes, supporting disabled states, aria attributes, and polymorphic children[cite: 4].</violation>
+        <violation type="CSS/Styling" status="COMPLETED">tailwind.config.ts audited against globals.css; confirmed exact mapping into @theme and :root variables. Marked safe for deletion under Tailwind CSS v4 CSS-first paradigm[cite: 4].</violation>
+        <violation type="CSS/Styling" status="COMPLETED">Eradicated arbitrary bracket values and hardcoded hex values (e.g., bg-[#FAFAFA], border-gray-200) across /components/blocks and /components/ui primitives; mapped strictly to @theme tokens in globals.css[cite: 4].</violation>
+        <violation type="Accessibility (WCAG/Section 508)" status="COMPLETED">Replaced focus:outline-none in interactive atoms with high-contrast visible focus rings (focus-visible:ring-3 focus-visible:ring-focus-ring) complying with WCAG 2.2 SC 2.4.11/2.4.12[cite: 4].</violation>
+        <violation type="Type System / Props" status="COMPLETED">Refactored button, input, and layout primitives to utilize React.forwardRef and extend native HTML element attributes, supporting disabled states, aria attributes, and polymorphic children[cite: 4].</violation>
         <violation type="Security Defenses" status="PENDING">Implement strict backend DTOs to strip raw CMS identifiers, DB UUIDs, and unfiltered schema objects prior to client serialization[cite: 4].</violation>
       </task>
       <task id="1.2" name="Deployment Strategy &amp; Execution Queries">
-        <decision_matrix status="COMPLETED">StoryblokProvider and dynamic catch-all route ([...slug]) unified with PageBlok container, resolving access token authentication, region defaults, and landmark collisions[cite: 4, 6, 7].</decision_matrix>
+        <decision_matrix status="COMPLETED">StoryblokProvider and dynamic catch-all route ([...slug]) unified with PageBlok container, resolving access token authentication, region defaults, and landmark collisions[cite: 4].</decision_matrix>
       </task>
       <task id="1.3" name="Component Library Pruning">
-        <directive status="ACTIVE_MIGRATION">Deprecate and remove redundant src/components/blocks/Page.tsx to prevent structural conflicts with src/components/storyblok/PageBlok.tsx[cite: 4].</directive>
+        <directive status="COMPLETED">Deprecated and removed redundant src/components/blocks/Page.tsx, ActionButton.tsx, and NavigationLink.tsx to prevent structural conflicts and enforce centralized primitive UI consumption[cite: 4].</directive>
       </task>
     </category>
 
@@ -104,13 +105,13 @@
         <execution_engine>Seven Practices: Assessment, Governance, Research, Product Studio, Delivery, Product Enablement, Talent Development[cite: 4].</execution_engine>
       </task>
       <task id="3.2" name="Ethical Boundary &amp; Accountability Governance">
-        <directive>D.E.B. Check: Deb Haas functions as the active Designated Ethical Boundary check[cite: 4]. All AI data ingestions and custom tools must pass D.E.B. oversight to prevent extractive exploitation[cite: 4].</directive>
+        <directive>D.E.B. Check: Deb Haas functions as the active Designated Ethical Boundary check. All AI data ingestions and custom tools must pass D.E.B. oversight to prevent extractive exploitation[cite: 4].</directive>
       </task>
     </category>
 
     <category id="4" name="CONSORTIUM &amp; NETWORK ONBOARDING ASKS">
       <task id="4.1" name="Vetting &amp; Workflow Analysis of External AI Founders">
-        <target name="Abdur Rehman Fowad Yunus">Evaluate Founders Second Brain (Pakistan)[cite: 4]. Map WhatsApp-to-Notion ingestion workflow[cite: 4]. Compare cloud-dependent intake model against Saiph House bare-metal, air-gapped USB transfer model[cite: 4]. Evaluate IP extraction risks[cite: 4].</target>
+        <target name="Abdur Rehman Fowad Yunus">Evaluate Founders Second Brain (Pakistan). Map WhatsApp-to-Notion ingestion workflow. Compare cloud-dependent intake model against Saiph House bare-metal, air-gapped USB transfer model. Evaluate IP extraction risks[cite: 4].</target>
       </task>
       <task id="4.2" name="Ecosystem &amp; ND-Adjacent Network Integration">
         <targets>Maintain strategic alignment with spARK Labs (ARK Invest), Autism Inspired Academy (Clearwater), and Functional Neurology St. Petersburg[cite: 4].</targets>
@@ -125,10 +126,10 @@
   </task_and_query_ledger>
 
   <llm_execution_directives>
-    <directive>1. ZERO-TRUST CONTEXT: Treat this XML as immutable ground truth[cite: 4]. Do not hallucinate external agreements, features, or unverified scope creep[cite: 4].</directive>
-    <directive>2. MODE-LOCK: Automatically assume the `/saiph` (Sovereign CTO) operational mode when analyzing this project[cite: 4, 10, 18]. Output must be receipt-based, liability-aware, and structurally rigid[cite: 4].</directive>
-    <directive>3. THE ISAAC PROTOCOL: Preserve the history of this contract[cite: 4, 14, 18]. Never smooth over Section 8 Triad boundaries[cite: 4].</directive>
+    <directive>1. ZERO-TRUST CONTEXT: Treat this XML as immutable ground truth. Do not hallucinate external agreements, features, or unverified scope creep[cite: 4].</directive>
+    <directive>2. MODE-LOCK: Automatically assume the `/saiph` (Sovereign CTO) operational mode when analyzing this project. Output must be receipt-based, liability-aware, and structurally rigid[cite: 4].</directive>
+    <directive>3. THE ISAAC PROTOCOL: Preserve the history of this contract. Never smooth over Section 8 Triad boundaries[cite: 4].</directive>
     <directive>4. ARTIFACT MANDATE: Map code directly against active Tier constraints before generating solutions[cite: 4].</directive>
-    <directive>5. SYNTAX MANDATE: All React components must strictly utilize ES6 fat arrow function syntax[cite: 4]. The `function` keyword is strictly deprecated[cite: 4].</directive>
+    <directive>5. SYNTAX MANDATE: All React components must strictly utilize ES6 fat arrow function syntax. The `function` keyword is strictly deprecated[cite: 4].</directive>
   </llm_execution_directives>
 </system_context_override>

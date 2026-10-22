@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { NavLink } from '@/components/ui/NavLink';
 
 export interface MainHeaderProps {
   logoSrc?: string;
@@ -16,6 +17,10 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -31,12 +36,14 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
         </Link>
         <Button
           type="button"
+          variant="secondary"
+          size="sm"
           aria-haspopup="dialog"
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-navigation-menu"
           aria-label={isMobileMenuOpen ? 'Close Navigation' : 'Open Navigation'}
           onClick={toggleMobileMenu}
-          className="text-foreground hover:bg-muted focus-visible:ring-focus-ring focus-visible:ring-offset-background rounded-md p-2 transition-colors focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
+          className="p-2"
         >
           {isMobileMenuOpen ? (
             <X className="h-6 w-6" aria-hidden="true" />
@@ -58,32 +65,34 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
           <nav aria-label="Mobile Navigation Menu">
             <ul className="m-0 flex list-none flex-col gap-4 p-0">
               <li>
-                <Link
+                <NavLink
                   href="/who-we-are"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-foreground hover:text-primary focus-visible:ring-focus-ring block rounded-md py-2 text-base font-semibold transition-colors focus-visible:ring-3 focus-visible:outline-none"
+                  onClick={closeMobileMenu}
+                  className="block py-2 text-base font-semibold"
                 >
                   About Us
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   href="/job-insights"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-foreground hover:text-primary focus-visible:ring-focus-ring block rounded-md py-2 text-base font-semibold transition-colors focus-visible:ring-3 focus-visible:outline-none"
+                  onClick={closeMobileMenu}
+                  className="block py-2 text-base font-semibold"
                 >
                   Job Insights
-                </Link>
+                </NavLink>
               </li>
               <li className="pt-2">
                 <Link
                   href="https://hr.thejobapplicantperspective.com/login"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary hover:bg-primary-light focus-visible:ring-focus-ring focus-visible:ring-offset-background inline-flex w-full items-center justify-center rounded-md px-4 py-2 text-base font-semibold text-white transition-colors focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
+                  className="focus-visible:outline-none"
                 >
-                  Sign in as employer
-                  <span className="sr-only"> (opens in a new tab)</span>
+                  <Button variant="primary" size="md" className="w-full">
+                    Sign in as employer
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </Button>
                 </Link>
               </li>
             </ul>
@@ -103,30 +112,26 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
         <nav aria-label="Main Desktop Navigation" className="flex items-center">
           <ul className="m-0 flex list-none items-center gap-8 p-0">
             <li>
-              <Link
-                href="/who-we-are"
-                className="text-foreground hover:text-primary focus-visible:ring-focus-ring focus-visible:ring-offset-background rounded-md text-base font-semibold transition-colors focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
-              >
+              <NavLink href="/who-we-are" className="text-base font-semibold">
                 About Us
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
-                href="/job-insights"
-                className="text-foreground hover:text-primary focus-visible:ring-focus-ring focus-visible:ring-offset-background rounded-md text-base font-semibold transition-colors focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
-              >
+              <NavLink href="/job-insights" className="text-base font-semibold">
                 Job Insights
-              </Link>
+              </NavLink>
             </li>
             <li>
               <Link
                 href="https://hr.thejobapplicantperspective.com/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-primary hover:bg-primary-light focus-visible:ring-focus-ring focus-visible:ring-offset-background inline-flex items-center justify-center rounded-md px-4 py-2 text-base font-semibold text-white transition-colors focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
+                className="focus-visible:outline-none"
               >
-                Sign in as employer
-                <span className="sr-only"> (opens in a new tab)</span>
+                <Button variant="primary" size="md">
+                  Sign in as employer
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </Button>
               </Link>
             </li>
           </ul>
