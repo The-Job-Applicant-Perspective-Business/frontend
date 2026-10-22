@@ -1,38 +1,99 @@
-type FormInputProps = {
-  type: string;
-  placeholder: string;
-  name: string;
+import React from 'react';
+
+export interface BaseInputProps {
+  label?: string;
+  error?: string;
   id: string;
-  ariaLabel?: string;
-};
+  name: string;
+}
 
-const FormInput = ({ type, placeholder, name, id, ariaLabel }: FormInputProps) => {
-  const baseClasses =
-    'w-full rounded-md border border-gray-300 px-4 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors';
-
-  if (type === 'textarea') {
-    return (
-      <textarea
-        name={name}
-        id={id}
-        placeholder={placeholder}
-        aria-label={ariaLabel || placeholder}
-        className={baseClasses}
-        rows={4}
-      />
-    );
-  }
-
-  return (
-    <input
-      type={type}
-      name={name}
-      id={id}
-      placeholder={placeholder}
-      aria-label={ariaLabel || placeholder}
-      className={baseClasses}
-    />
+export type FormInputProps = BaseInputProps &
+  (
+    | ({ type: 'textarea' } & React.TextareaHTMLAttributes<HTMLTextAreaElement>)
+    | ({
+        type?: Exclude<React.HTMLInputTypeAttribute, 'textarea'>;
+      } & React.InputHTMLAttributes<HTMLInputElement>)
   );
-};
+
+export const FormInput = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, FormInputProps>(
+  (
+    {
+      label,
+      error,
+      id,
+      name,
+      type = 'text',
+      className = '',
+      placeholder,
+      disabled,
+      required,
+      ...props
+    },
+    ref,
+  ) => {
+    const baseInputStyles =
+      'w-full rounded-md border border-border bg-background px-4 py-2 text-foreground ' +
+      'placeholder:text-muted-foreground transition-colors ' +
+      'focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-focus-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ' +
+      'disabled:cursor-not-allowed disabled:opacity-60 ' +
+      (error ? 'border-red-600 focus-visible:ring-red-600' : '');
+
+    const hasError = Boolean(error);
+    const errorId = `${id}-error`;
+
+    return (
+      <div className="flex w-full flex-col gap-1.5">
+        {label && (
+          <label htmlFor={id} className="text-foreground text-sm font-semibold">
+            {label}
+            {required && (
+              <span className="ml-1 text-red-600" aria-hidden="true">
+                *
+              </span>
+            )}
+          </label>
+        )}
+
+        {type === 'textarea' ? (
+          <textarea
+            ref={ref as React.ForwardedRef<HTMLTextAreaElement>}
+            id={id}
+            name={name}
+            placeholder={placeholder}
+            disabled={disabled}
+            required={required}
+            aria-invalid={hasError ? 'true' : undefined}
+            aria-describedby={hasError ? errorId : undefined}
+            rows={4}
+            className={`${baseInputStyles} ${className}`.trim()}
+            {...(props as React.TextareaHTMLAttributes<HTMLTextAreaElement>)}
+          />
+        ) : (
+          <input
+            ref={ref as React.ForwardedRef<HTMLInputElement>}
+            type={type}
+            id={id}
+            name={name}
+            placeholder={placeholder}
+            disabled={disabled}
+            required={required}
+            aria-invalid={hasError ? 'true' : undefined}
+            aria-describedby={hasError ? errorId : undefined}
+            className={`${baseInputStyles} ${className}`.trim()}
+            {...(props as React.InputHTMLAttributes<HTMLInputElement>)}
+          />
+        )}
+
+        {error && (
+          <span id={errorId} role="alert" className="text-xs font-medium text-red-600">
+            {error}
+          </span>
+        )}
+      </div>
+    );
+  },
+);
+
+FormInput.displayName = 'FormInput';
 
 export default FormInput;

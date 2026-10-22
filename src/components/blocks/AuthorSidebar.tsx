@@ -1,19 +1,29 @@
-type AuthorSidebarProps = {
+import React from 'react';
+
+export interface AuthorSidebarProps {
   authorName: string;
   postDate: string;
-};
+  className?: string;
+}
 
-const AuthorSidebar = ({ authorName, postDate }: AuthorSidebarProps) => {
+export const AuthorSidebar = ({ authorName, postDate, className = '' }: AuthorSidebarProps) => {
   return (
-    <aside className="sticky top-[40px] flex flex-col gap-4 rounded-xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
+    <aside
+      aria-label="Author and publication details"
+      className={`border-border bg-muted sticky top-10 flex flex-col gap-4 rounded-xl border p-6 shadow-xs ${className}`.trim()}
+    >
       <div>
-        <h3 className="text-xs font-bold tracking-wider text-gray-500 uppercase">Author</h3>
-        <p className="mt-1 text-lg font-semibold text-gray-900">{authorName}</p>
+        <p className="text-muted-foreground text-xs font-bold tracking-wider uppercase">Author</p>
+        <p className="text-foreground mt-1 text-lg font-semibold">{authorName}</p>
       </div>
-      <div className="h-px w-full bg-gray-200" aria-hidden="true" />
+
+      <div className="bg-border h-px w-full" aria-hidden="true" />
+
       <div>
-        <h3 className="text-xs font-bold tracking-wider text-gray-500 uppercase">Published</h3>
-        <time dateTime={postDate} className="mt-1 block text-gray-700">
+        <p className="text-muted-foreground text-xs font-bold tracking-wider uppercase">
+          Published
+        </p>
+        <time dateTime={postDate} className="text-foreground/80 mt-1 block text-sm">
           {postDate}
         </time>
       </div>

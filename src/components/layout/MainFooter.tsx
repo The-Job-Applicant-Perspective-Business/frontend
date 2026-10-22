@@ -1,11 +1,16 @@
 import React from 'react';
 import { Button } from '@/components/ui/Button';
+import { FormInput } from '@/components/blocks/FormInput';
 
 export interface MainFooterProps {
   className?: string;
 }
 
 export const MainFooter = ({ className = '' }: MainFooterProps) => {
+  const inputOverrides =
+    'border-slate-400 bg-transparent text-white placeholder:text-slate-300 ' +
+    'focus-visible:ring-white focus-visible:ring-offset-primary-dark';
+
   return (
     <footer
       aria-labelledby="footer-heading"
@@ -29,52 +34,42 @@ export const MainFooter = ({ className = '' }: MainFooterProps) => {
           <div className="w-full md:w-1/2">
             <form className="flex flex-col gap-4" action="/api/contact" method="POST">
               <div className="flex flex-col gap-4 sm:flex-row">
-                <div className="w-full">
-                  <label htmlFor="contact-name" className="sr-only">
-                    Name
-                  </label>
-                  <input
-                    id="contact-name"
-                    name="name"
-                    placeholder="Name"
-                    type="text"
-                    required
-                    className="focus-visible:ring-offset-primary-dark w-full rounded-md border border-slate-400 bg-transparent px-4 py-3 text-white transition-colors placeholder:text-slate-300 focus-visible:ring-3 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:outline-none"
-                  />
-                </div>
-                <div className="w-full">
-                  <label htmlFor="contact-email" className="sr-only">
-                    Email
-                  </label>
-                  <input
-                    id="contact-email"
-                    name="email"
-                    placeholder="Email"
-                    type="email"
-                    required
-                    className="focus-visible:ring-offset-primary-dark w-full rounded-md border border-slate-400 bg-transparent px-4 py-3 text-white transition-colors placeholder:text-slate-300 focus-visible:ring-3 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:outline-none"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="contact-message" className="sr-only">
-                  Message
-                </label>
-                <textarea
-                  id="contact-message"
-                  name="message"
-                  placeholder="Message"
+                <FormInput
+                  id="contact-name"
+                  name="name"
+                  placeholder="Name"
+                  type="text"
                   required
-                  rows={4}
-                  className="focus-visible:ring-offset-primary-dark md:rows-6 w-full resize-none rounded-md border border-slate-400 bg-transparent px-4 py-3 text-white transition-colors placeholder:text-slate-300 focus-visible:ring-3 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:outline-none"
+                  label="Name"
+                  className={inputOverrides}
+                />
+                <FormInput
+                  id="contact-email"
+                  name="email"
+                  placeholder="Email"
+                  type="email"
+                  required
+                  label="Email"
+                  className={inputOverrides}
                 />
               </div>
+
+              <FormInput
+                id="contact-message"
+                name="message"
+                placeholder="Message"
+                type="textarea"
+                required
+                label="Message"
+                className={`md:rows-6 resize-none ${inputOverrides}`}
+              />
 
               <div className="mt-2">
                 <Button
                   type="submit"
-                  className="text-primary focus-visible:ring-offset-primary-dark inline-flex min-h-10 items-center justify-center rounded-md bg-white px-6 py-3 font-semibold transition-colors hover:bg-slate-100 focus-visible:ring-3 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-60"
+                  variant="secondary"
+                  size="lg"
+                  className="text-primary focus-visible:ring-offset-primary-dark bg-white hover:bg-slate-100 focus-visible:ring-white"
                 >
                   Send Message
                 </Button>
