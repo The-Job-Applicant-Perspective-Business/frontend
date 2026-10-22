@@ -5,6 +5,7 @@ import { TabbedInterface } from '@/components/layout/TabbedInterface';
 import { LocalJobsGrid } from '@/components/layout/LocalJobsGrid';
 import { MissionBanner } from '@/components/layout/MissionBanner';
 import { BlogGrid } from '@/components/layout/BlogGrid';
+import { PromoBanner } from '@/components/blocks/PromoBanner';
 
 export const components = {
   page: PageBlok,
@@ -15,6 +16,7 @@ export const components = {
   local_jobs_grid: LocalJobsGrid,
   mission_banner: MissionBanner,
   blog_grid: BlogGrid,
+  promo_banner: PromoBanner,
 };
 
 const accessToken =

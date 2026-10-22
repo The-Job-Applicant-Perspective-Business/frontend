@@ -37,18 +37,29 @@ export const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
       <section
         ref={ref}
         aria-labelledby="hero-heading"
-        className={`layout-background border-border w-full border-b ${className}`.trim()}
+        className={`border-border from-accent-bg/30 via-background to-background relative w-full overflow-hidden border-b bg-gradient-to-b ${className}`.trim()}
         {...props}
       >
-        <div className="flex w-full items-center justify-center px-[5vw] pt-[145px] lg:pt-[124px]">
-          <div className="mb-[56px] w-full max-w-[699px] text-center md:mb-[89px] lg:mt-[71px]">
+        {/* Atmospheric Floating Diamond Accents (Decorative Telemetry) */}
+        <div
+          aria-hidden="true"
+          className="bg-primary/5 pointer-events-none absolute top-24 -left-12 h-48 w-48 rotate-12 rounded-3xl blur-2xl md:top-20 md:left-8 md:h-64 md:w-64"
+        />
+        <div
+          aria-hidden="true"
+          className="bg-accent-text/5 pointer-events-none absolute top-32 -right-12 h-56 w-56 -rotate-12 rounded-3xl blur-2xl md:top-24 md:right-12 md:h-72 md:w-72"
+        />
+
+        <div className="relative container mx-auto flex w-full items-center justify-center px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 lg:px-8 lg:pt-44 lg:pb-28">
+          <div className="mx-auto w-full max-w-3xl text-center">
             <h1
               id="hero-heading"
-              className="text-foreground text-[32px] leading-[46px] font-bold tracking-[-0.02em] lg:text-[64px] lg:leading-[92px]"
+              className="text-foreground text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:leading-none"
             >
               {headline}
             </h1>
-            <p className="text-muted-foreground mt-[8px] text-[14px] font-normal lg:text-[18px]">
+
+            <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-base leading-relaxed sm:text-lg md:text-xl">
               {description}
             </p>
 
@@ -60,15 +71,13 @@ export const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
                     target={isExternal ? '_blank' : undefined}
                     rel={isExternal ? 'noopener noreferrer' : undefined}
                     onClick={onCtaClick}
-                    className="focus-visible:outline-none"
+                    className="focus-visible:ring-focus-ring bg-primary text-primary-foreground hover:bg-primary/90 inline-flex min-h-12 items-center justify-center rounded-lg px-6 py-3 text-base font-semibold shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
                   >
-                    <Button variant="primary" size="lg">
-                      {ctaText}
-                      {isExternal && <span className="sr-only"> (opens in a new tab)</span>}
-                    </Button>
+                    {ctaText}
+                    {isExternal && <span className="sr-only"> (opens in a new tab)</span>}
                   </Link>
                 ) : (
-                  <Button variant="primary" size="lg" onClick={onCtaClick}>
+                  <Button variant="primary" size="lg" onClick={onCtaClick} className="min-h-12">
                     {ctaText}
                   </Button>
                 )}
