@@ -37,18 +37,18 @@ export const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
       <section
         ref={ref}
         aria-labelledby="hero-heading"
-        className={`border-border bg-muted w-full border-b ${className}`.trim()}
+        className={`layout-background border-border w-full border-b ${className}`.trim()}
         {...props}
       >
-        <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 md:py-20 lg:px-8 lg:py-24">
-          <div className="w-full max-w-3xl">
+        <div className="flex w-full items-center justify-center px-[5vw] pt-[145px] lg:pt-[124px]">
+          <div className="mb-[56px] w-full max-w-[699px] text-center md:mb-[89px] lg:mt-[71px]">
             <h1
               id="hero-heading"
-              className="text-foreground text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl lg:leading-tight"
+              className="text-foreground text-[32px] leading-[46px] font-bold tracking-[-0.02em] lg:text-[64px] lg:leading-[92px]"
             >
               {headline}
             </h1>
-            <p className="text-muted-foreground mt-4 text-base font-normal sm:text-lg lg:text-xl">
+            <p className="text-muted-foreground mt-[8px] text-[14px] font-normal lg:text-[18px]">
               {description}
             </p>
 
