@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Tabs, TabsList, TabTrigger, TabPanel } from '@/components/ui/Tabs';
-import { SearchInput } from './SearchInput';
+import { SearchInput } from '../ui/SearchInput';
 
 export type TabValue = 'classified' | 'review';
 

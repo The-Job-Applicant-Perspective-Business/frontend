@@ -1,11 +1,16 @@
+import React from 'react';
 import { storyblokEditable, StoryblokComponent } from '@storyblok/react';
-import { PromoBanner } from '@/components/blocks/PromoBanner';
-import { HeroSection } from '@/components/layout/HeroSection';
-import { TabbedInterface } from '@/components/layout/TabbedInterface';
-import { LocalJobsGrid } from '@/components/layout/LocalJobsGrid';
-import { MissionBanner } from '@/components/layout/MissionBanner';
-import { BlogGrid } from '@/components/layout/BlogGrid';
+import type { SbBlokData } from '@storyblok/react';
+import {
+  HeroSection,
+  TabbedInterface,
+  PromoBanner,
+  LocalJobsGrid,
+  MissionBanner,
+  BlogGrid,
+} from '@/components/blocks';
 
+// Component registry map for Storyblok dynamic resolution
 export const components = {
   hero_section: HeroSection,
   tabbed_interface: TabbedInterface,
@@ -19,18 +24,22 @@ interface PageBlokProps {
   blok: {
     _uid: string;
     _editable?: string;
-    body: Array<{ _uid: string; [key: string]: unknown }>;
+    body?: SbBlokData[];
     [key: string]: unknown;
   };
 }
 
 export const PageBlok = ({ blok }: PageBlokProps) => {
   return (
-    <main {...storyblokEditable(blok)} className="w-full">
+    <div
+      {...storyblokEditable(blok)}
+      data-testid="storyblok-page-container"
+      className="flex w-full flex-col"
+    >
       {blok.body?.map((nestedBlok) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
-    </main>
+    </div>
   );
 };
 

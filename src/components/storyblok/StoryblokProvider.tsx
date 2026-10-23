@@ -3,11 +3,11 @@
 import React from 'react';
 import { storyblokInit, apiPlugin } from '@storyblok/react/rsc';
 import { PageBlok } from '@/components/storyblok/PageBlok';
-import { HeroSection } from '@/components/layout/HeroSection';
-import { TabbedInterface } from '@/components/layout/TabbedInterface';
-import { LocalJobsGrid } from '@/components/layout/LocalJobsGrid';
-import { MissionBanner } from '@/components/layout/MissionBanner';
-import { BlogGrid } from '@/components/layout/BlogGrid';
+import { HeroSection } from '@/components/blocks/HeroSection';
+import { TabbedInterface } from '@/components/blocks/TabbedInterface';
+import { LocalJobsGrid } from '@/components/blocks/LocalJobsGrid';
+import { MissionBanner } from '@/components/blocks/MissionBanner';
+import { BlogGrid } from '@/components/blocks/BlogGrid';
 
 const components = {
   page: PageBlok,

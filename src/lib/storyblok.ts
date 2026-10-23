@@ -1,11 +1,13 @@
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 import { PageBlok } from '@/components/storyblok/PageBlok';
-import { HeroSection } from '@/components/layout/HeroSection';
-import { TabbedInterface } from '@/components/layout/TabbedInterface';
-import { LocalJobsGrid } from '@/components/layout/LocalJobsGrid';
-import { MissionBanner } from '@/components/layout/MissionBanner';
-import { BlogGrid } from '@/components/layout/BlogGrid';
-import { PromoBanner } from '@/components/blocks/PromoBanner';
+import {
+  HeroSection,
+  TabbedInterface,
+  LocalJobsGrid,
+  MissionBanner,
+  BlogGrid,
+  PromoBanner,
+} from '@/components/blocks';
 
 export const components = {
   page: PageBlok,

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { getStoryblokApi, StoryblokStory } from '@storyblok/react/rsc';
 import type { ISbStoryData } from '@storyblok/react';
@@ -5,16 +7,29 @@ import { initStoryblok } from '@/lib/storyblok';
 
 export const dynamic = 'force-dynamic';
 
-const fetchDynamicStory = async (slugPath: string): Promise<ISbStoryData | null> => {
+type DynamicPageProps = {
+  params: Promise<{ slug?: string[] }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+const resolveSlugPath = (slug?: string[]): string => {
+  return slug && slug.length > 0 ? slug.join('/') : 'home';
+};
+
+const fetchDynamicStory = async (
+  slugPath: string,
+  isDraft: boolean,
+): Promise<ISbStoryData | null> => {
   try {
     initStoryblok();
     const storyblokApi = getStoryblokApi();
     const { data } = await storyblokApi.get(`cdn/stories/${slugPath}`, {
-      version: process.env.NODE_ENV === 'development' ? 'draft' : 'published',
+      version: isDraft ? 'draft' : 'published',
+      cv: isDraft ? Date.now() : undefined,
       resolve_relations: '',
     });
 
-    return data.story;
+    return data.story ?? null;
   } catch (error) {
     console.warn(
       `Storyblok Bridge: Payload absent or rejected for slug [${slugPath}].` +
@@ -24,29 +39,65 @@ const fetchDynamicStory = async (slugPath: string): Promise<ISbStoryData | null>
   }
 };
 
-type DynamicPageProps = {
-  params: Promise<{ slug?: string[] }>;
+export const generateMetadata = async ({ params }: DynamicPageProps): Promise<Metadata> => {
+  const { slug } = await params;
+  const slugPath = resolveSlugPath(slug);
+  const { isEnabled: isDraft } = await draftMode();
+
+  const story = await fetchDynamicStory(slugPath, isDraft);
+
+  if (!story?.content) {
+    return {
+      title: 'The Job Applicant Perspective',
+      description: 'Documenting the applicant timeline and market dynamics.',
+    };
+  }
+
+  const metaTitle =
+    (story.content.meta_title as string) || story.name || 'The Job Applicant Perspective';
+  const metaDescription =
+    (story.content.meta_description as string) ||
+    'Documenting the applicant timeline and market dynamics.';
+
+  return {
+    title: metaTitle,
+    description: metaDescription,
+    openGraph: {
+      title: metaTitle,
+      description: metaDescription,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: metaTitle,
+      description: metaDescription,
+    },
+  };
 };
 
 const DynamicPage = async ({ params }: DynamicPageProps) => {
-  const resolvedParams = await params;
-  const slugPath = resolvedParams.slug ? resolvedParams.slug.join('/') : 'home';
+  const { slug } = await params;
+  const slugPath = resolveSlugPath(slug);
+  const { isEnabled: isDraft } = await draftMode();
 
-  const story = await fetchDynamicStory(slugPath);
+  const story = await fetchDynamicStory(slugPath, isDraft);
 
   if (!story) {
     notFound();
   }
 
   return (
-    <div className="bg-background relative flex w-full flex-grow flex-col">
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className="bg-background relative flex w-full flex-grow flex-col focus:outline-none"
+    >
       <section
         aria-label={`${story.name || 'Dynamic'} Page Content`}
         className="container mx-auto h-full w-full flex-grow px-4 py-12 md:px-8 lg:px-12"
       >
         <StoryblokStory story={story} />
       </section>
-    </div>
+    </main>
   );
 };
 

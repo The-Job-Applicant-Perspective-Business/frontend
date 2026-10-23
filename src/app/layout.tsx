@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import StoryblokProvider from '@/components/StoryblokProvider';
+import StoryblokProvider from '@/components/storyblok/StoryblokProvider';
 import { MainHeader } from '@/components/layout/MainHeader';
 import { MainFooter } from '@/components/layout/MainFooter';
 import './globals.css';
