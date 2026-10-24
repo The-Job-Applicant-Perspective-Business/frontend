@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getStoryblokApi, StoryblokStory } from '@storyblok/react/rsc';
 import type { ISbStoryData } from '@storyblok/react';
 import { initStoryblok } from '@/lib/storyblok';
+import { sanitizeStoryPayload } from '@/lib/dto/sanitizeStoryPayload';
 
 export const dynamic = 'force-dynamic';
 
@@ -29,7 +30,13 @@ const fetchDynamicStory = async (
       resolve_relations: '',
     });
 
-    return data.story ?? null;
+    if (!data?.story) {
+      return null;
+    }
+
+    // Pass through strict DTO sanitization boundary before returning to React Server Components
+    const sanitized = sanitizeStoryPayload(data.story);
+    return sanitized as unknown as ISbStoryData;
   } catch (error) {
     console.warn(
       `Storyblok Bridge: Payload absent or rejected for slug [${slugPath}].` +
@@ -86,18 +93,14 @@ const DynamicPage = async ({ params }: DynamicPageProps) => {
   }
 
   return (
-    <main
-      id="main-content"
-      tabIndex={-1}
-      className="bg-background relative flex w-full flex-grow flex-col focus:outline-none"
-    >
+    <div className="bg-background relative flex w-full flex-grow flex-col">
       <section
         aria-label={`${story.name || 'Dynamic'} Page Content`}
         className="container mx-auto h-full w-full flex-grow px-4 py-12 md:px-8 lg:px-12"
       >
         <StoryblokStory story={story} />
       </section>
-    </main>
+    </div>
   );
 };
 

@@ -3,58 +3,59 @@
     <project_name>The Job Applicant Perspective (TJAP) Technical Remediation</project_name>
     <primary_stakeholder>Sarah Springsteen Trumble</primary_stakeholder>
     <purpose>Initialize Mode-Locked Governance, re-seat zero-trust project architecture, track active milestone progression, and maintain deterministic state across sessions.</purpose>
-    <current_status>Tier 3 Visual Regression Audit &amp; Core Presentational Block Refactoring Complete. Successfully refactored HeroSection, TabbedInterface, PromoBanner, LocalJobsGrid, MissionBanner, and BlogGrid to eradicate arbitrary JIT brackets, enforce WCAG 2.2 AA / Section 508 contrast and touch targets, and apply React 19 forwardRef patterns. Active Phase shifted to Dynamic Routing &amp; Storyblok Component Registry Mapping: auditing src/app/[[...slug]]/page.tsx, src/components/storyblok/PageBlok.tsx, and src/lib/storyblok.ts to verify component taxonomy across /components/ui, /components/blocks, /components/layout, and /components/storyblok.</current_status>
+    <current_status>Tier 3 Dynamic Routing, Component Registry Mapping, and Component Directory Taxonomy Governance Complete. Successfully refactored src/app/[[...slug]]/page.tsx, src/components/storyblok/PageBlok.tsx, and src/lib/storyblok.ts. Physically decoupled components into /components/ui, /components/blocks, /components/layout, and /components/storyblok with established barrel exports. Active Phase shifted to Tier 1 DTO sanitization (sanitizeStoryPayload.ts) and auditing src/components/storyblok/StoryblokProvider.tsx for live preview leaks[cite: 4, 8].</current_status>
     <enforced_mode>/saiph (Sovereign CTO)</enforced_mode>
   </metadata>
 
   <environment_state id="tjap_infrastructure">
     <tech_stack>
-      <core>Next.js (16.3.3), React &amp; React-DOM (19.2.8), TypeScript (^5)</core>
-      <styling>Tailwind CSS (^4), @tailwindcss/postcss</styling>
-      <cms>@storyblok/react (^7.3.1)</cms>
-      <ui_primitives>Radix UI (Dialog, Slot, Visually-Hidden), lucide-react (^1.48.0)</ui_primitives>
-      <backend_and_security>@upstash/ratelimit (2.0.8), @upstash/redis (1.38.4), zod (4.6.2)</backend_and_security>
-      <ai_integration>@google/generative-ai (^0.24.1)</ai_integration>
-      <testing_and_qa>@playwright/test (^1.62.1), eslint-plugin-playwright (^2.11.0)</testing_and_qa>
+      <core>Next.js (16.3.3), React &amp; React-DOM (19.2.8), TypeScript (^5)[cite: 4]</core>
+      <styling>Tailwind CSS (^4), @tailwindcss/postcss[cite: 4]</styling>
+      <cms>@storyblok/react (^7.3.1)[cite: 4]</cms>
+      <ui_primitives>Radix UI (Dialog, Slot, Visually-Hidden), lucide-react (^1.48.0)[cite: 4]</ui_primitives>
+      <backend_and_security>@upstash/ratelimit (2.0.8), @upstash/redis (1.38.4), zod (4.6.2)[cite: 4]</backend_and_security>
+      <ai_integration>@google/generative-ai (^0.24.1)[cite: 4]</ai_integration>
+      <testing_and_qa>@playwright/test (^1.62.1), eslint-plugin-playwright (^2.11.0)[cite: 4]</testing_and_qa>
     </tech_stack>
     <build_and_execution>
-      <script name="dev">concurrently Next.js + TSC watch (--noEmit)</script>
-      <script name="dev:full">concurrently Next.js + TSC watch + Supabase local start</script>
-      <script name="verify">ESLint + TSC strict check (pre-commit/CI pipeline)</script>
+      <script name="dev">concurrently Next.js + TSC watch (--noEmit)[cite: 4]</script>
+      <script name="dev:full">concurrently Next.js + TSC watch + Supabase local start[cite: 4]</script>
+      <script name="verify">ESLint + TSC strict check (pre-commit/CI pipeline)[cite: 4]</script>
     </build_and_execution>
     <repository_map>
-      <root_directories>src, public, docs, e2e, qa-agent, test-results, playwright-report</root_directories>
+      <root_directories>src, public, docs, e2e, qa-agent, test-results, playwright-report[cite: 4]</root_directories>
       <src_architecture>
-        <path name="src/app/[[...slug]]">Dynamic catch-all routing (Storyblok PageBlok container mapping)</path>
-        <path name="src/components/blocks">Presentational and composite components (HeroSection, TabbedInterface, PromoBanner, LocalJobsGrid, JobLinkCard, MissionBanner, BlogGrid)</path>
-        <path name="src/components/layout">Global layout shells (MainHeader, MainFooter)</path>
-        <path name="src/components/storyblok">CMS-bound component wrappers and dynamic resolver (PageBlok)</path>
-        <path name="src/components/ui">Base interactive primitives (Button, Input/FormInput, Tabs, NavLink, SearchInput, GoBackButton)</path>
-        <path name="src/lib">Storyblok client initialization (storyblok.ts) and DTO validation</path>
-        <path name="src/lib/dto">Data Transfer Objects (Backend sanitization/validation/Zod schemas)</path>
+        <path name="src/app/[[...slug]]">Dynamic catch-all routing (Storyblok PageBlok container mapping)[cite: 4]</path>
+        <path name="src/components/blocks">Presentational and composite components (AuthorSidebar, BlogCard, BlogGrid, FormInput, HeroSection, JobLinkCard, LocalJobsGrid, MissionBanner, PromoBanner, RichTextContent, SocialMediaIcon, TabbedInterface)[cite: 4]</path>
+        <path name="src/components/layout">Global layout shells (MainHeader, MainFooter)[cite: 4]</path>
+        <path name="src/components/storyblok">CMS-bound component wrappers and dynamic resolver (PageBlok, StoryblokProvider, StoryblokStoryWrapper)[cite: 4]</path>
+        <path name="src/components/ui">Base interactive primitives (Button, GoBackButton, Input, NavLink, SearchInput, Tabs)[cite: 4]</path>
+        <path name="src/lib">Storyblok client initialization (storyblok.ts) and DTO validation[cite: 4]</path>
+        <path name="src/lib/dto">Data Transfer Objects (Backend sanitization/validation/Zod schemas)[cite: 4]</path>
       </src_architecture>
       <qa_architecture>
-        <path name="qa-agent/docs/qa-tasks">Deterministic QA tracking and Playwright execution boundaries</path>
+        <path name="qa-agent/docs/qa-tasks">Deterministic QA tracking and Playwright execution boundaries[cite: 4]</path>
       </qa_architecture>
     </repository_map>
   </environment_state>
 
   <execution_log id="project_timeline">
-    <entry phase="Tier 1-2">Initialized Mode-Locked Governance and Section 8 Triad domain rules.</entry>
-    <entry phase="Tier 3">Extracted raw DOM layout into React Server Components (RSC) to decouple hydration and enforce WCAG/ARIA bindings.</entry>
-    <entry phase="Tier 3">COMPLETED: Full structural layout tokenization and arbitrary JIT bracket eradication (.h-100, .lg:h-175, .min-h-12, .min-h-20) across layout primitives.</entry>
-    <entry phase="Tier 2">COMPLETED: Remediated WCAG 2.2 AA heading hierarchy, landmark labeling, dark-mode high-contrast focus rings, and screen-reader link advisories.</entry>
+    <entry phase="Tier 1-2">Initialized Mode-Locked Governance and Section 8 Triad domain rules[cite: 4].</entry>
+    <entry phase="Tier 3">Extracted raw DOM layout into React Server Components (RSC) to decouple hydration and enforce WCAG/ARIA bindings[cite: 4].</entry>
+    <entry phase="Tier 3">COMPLETED: Full structural layout tokenization and arbitrary JIT bracket eradication (.h-100, .lg:h-175, .min-h-12, .min-h-20) across layout primitives[cite: 4].</entry>
+    <entry phase="Tier 2">COMPLETED: Remediated WCAG 2.2 AA heading hierarchy, landmark labeling, dark-mode high-contrast focus rings, and screen-reader link advisories[cite: 4].</entry>
     <entry phase="Tier 2">COMPLETED: Hardened eslint.config.mjs to permit tabIndex={0} on 'tabpanel' and 'region' roles for WCAG 2.1.1 keyboard scrolling[cite: 4].</entry>
     <entry phase="Tier 3">COMPLETED: Audited legacy tailwind.config.ts against globals.css; confirmed 1:1 token parity under Tailwind CSS v4 CSS-first configuration, deprecating standalone configuration files[cite: 4].</entry>
     <entry phase="Tier 3">COMPLETED: Deprecated redundant wrappers (ActionButton.tsx, NavigationLink.tsx, Page.tsx) unifying under core primitives[cite: 4].</entry>
-    <entry phase="Tier 3">COMPLETED: Visual telemetry audit &amp; refactor of BlogGrid.tsx (responsive aspect-16/10 geometry, removed duplicate link alt-text announcements, typed BlogItem dynamic contract).</entry>
-    <entry phase="Tier 3">COMPLETED: Visual telemetry audit &amp; refactor of LocalJobsGrid.tsx (container gutter constraints, external navigation link typing, React.forwardRef integration).</entry>
-    <entry phase="Tier 3">COMPLETED: Visual telemetry audit &amp; refactor of TabbedInterface.tsx (centered pill capsule, outer bounding container border, WCAG 2.1.1 keyboard-scrollable region, empty-state inspection graphic).</entry>
-    <entry phase="Tier 3">COMPLETED: Visual telemetry audit &amp; refactor of MissionBanner.tsx (tokenized aspect-3/2, atmospheric gradient parity, React.forwardRef, min-h-12 touch targets).</entry>
-    <entry phase="Tier 3">COMPLETED: Extracted and created PromoBanner.tsx (First 3 job posts free, responsive mobile/desktop Storyblok assets, WCAG-compliant explicit alt text, semantic aside landmark).</entry>
-    <entry phase="Tier 3">COMPLETED: Visual telemetry audit &amp; refactor of HeroSection.tsx (eradicated JIT bracket values, fixed invalid Link-wrapping-Button nesting bug, ambient decorative blur accents).</entry>
-    <entry phase="Tier 3">ACTIVE / NEXT STEP: Dynamic route reconciliation and Storyblok component registry audit across src/app/[[...slug]]/page.tsx, src/components/storyblok/PageBlok.tsx, and src/lib/storyblok.ts. Ensure strict directory taxonomy across /components/ui, /components/blocks, /components/layout, and /components/storyblok.</entry>
-    <entry phase="Tier 1">PENDING: Implement backend DTO sanitization to strip raw database UUIDs and unvetted CMS payload objects prior to client serialization[cite: 4].</entry>
+    <entry phase="Tier 3">COMPLETED: Visual telemetry audit &amp; refactor of BlogGrid.tsx (responsive aspect-16/10 geometry, removed duplicate link alt-text announcements, typed BlogItem dynamic contract)[cite: 4].</entry>
+    <entry phase="Tier 3">COMPLETED: Visual telemetry audit &amp; refactor of LocalJobsGrid.tsx (container gutter constraints, external navigation link typing, React.forwardRef integration)[cite: 4].</entry>
+    <entry phase="Tier 3">COMPLETED: Visual telemetry audit &amp; refactor of TabbedInterface.tsx (centered pill capsule, outer bounding container border, WCAG 2.1.1 keyboard-scrollable region, empty-state inspection graphic)[cite: 4].</entry>
+    <entry phase="Tier 3">COMPLETED: Visual telemetry audit &amp; refactor of MissionBanner.tsx (tokenized aspect-3/2, atmospheric gradient parity, React.forwardRef, min-h-12 touch targets)[cite: 4].</entry>
+    <entry phase="Tier 3">COMPLETED: Extracted and created PromoBanner.tsx (First 3 job posts free, responsive mobile/desktop Storyblok assets, WCAG-compliant explicit alt text, semantic aside landmark)[cite: 4].</entry>
+    <entry phase="Tier 3">COMPLETED: Visual telemetry audit &amp; refactor of HeroSection.tsx (eradicated JIT bracket values, fixed invalid Link-wrapping-Button nesting bug, ambient decorative blur accents)[cite: 4].</entry>
+    <entry phase="Tier 3">COMPLETED: Dynamic route reconciliation and Storyblok component registry audit across src/app/[[...slug]]/page.tsx, src/components/storyblok/PageBlok.tsx, and src/lib/storyblok.ts[cite: 4].</entry>
+    <entry phase="Tier 3">COMPLETED: Component Directory Taxonomy Governance enforced. Files physically relocated across /components/ui, /components/blocks, /components/layout, and /components/storyblok. Barrel export (index.ts) established for blocks[cite: 4].</entry>
+    <entry phase="Tier 1">ACTIVE / NEXT STEP: Implement backend DTO sanitization to strip raw database UUIDs and unvetted CMS payload objects prior to client serialization, and audit src/components/storyblok/StoryblokProvider.tsx to verify client-side bridge initialization parameters[cite: 4].</entry>
     <entry phase="Tier 4">PENDING: Lock down security perimeter (parameter reflection sanitization, XSS mitigation, reverse-tabnabbing verification)[cite: 4].</entry>
   </execution_log>
 
@@ -66,9 +67,9 @@
   </governance_topology>
 
   <milestone_architecture id="four_tier_remediation">
-    <tier_1 allocation="20%" status="PENDING">Hemorrhage Control &amp; Diagnostics. Decouple 'Vomiting Server' error boundaries (missing jobId), enforce strict DTOs (via mounted Zod 4.6.2), mitigate Layer 7 DoS (via mounted Upstash Ratelimit)[cite: 4].</tier_1>
+    <tier_1 allocation="20%" status="ACTIVE_VERIFICATION">Hemorrhage Control &amp; Diagnostics. Decouple 'Vomiting Server' error boundaries (missing jobId), enforce strict DTOs (via mounted Zod 4.6.2), mitigate Layer 7 DoS (via mounted Upstash Ratelimit)[cite: 4].</tier_1>
     <tier_2 allocation="30%" status="COMPLETED">Accessibility &amp; Semantic Integrity. WCAG 2.2 AA, ARIA bindings, programmatic escape hatches, Focus Management (The Witchfinder Protocol), and ESLint scrollable region compliance[cite: 4].</tier_2>
-    <tier_3 allocation="30%" status="ACTIVE_VERIFICATION">Substrate Decoupling &amp; Component Hydration. Layout DOM extraction, JIT eradication, UI primitive tokenization, and presentational block refactoring complete. Active focus: dynamic catch-all route mapping ([[...slug]]/page.tsx), Storyblok PageBlok registry unification, and barrel export alignment across directory tiers[cite: 4].</tier_3>
+    <tier_3 allocation="30%" status="COMPLETED">Substrate Decoupling &amp; Component Hydration. Layout DOM extraction, JIT eradication, UI primitive tokenization, presentational block refactoring, dynamic catch-all route mapping ([[...slug]]/page.tsx), Storyblok PageBlok registry unification, and barrel export alignment across directory tiers complete[cite: 4].</tier_3>
     <tier_4 allocation="20%" status="PENDING">Zero-Trust Security Perimeter. Parameter reflection sanitization (XSS mitigation), third-party script sanitization, and strict rel="noopener noreferrer" external anchor lock[cite: 4].</tier_4>
   </milestone_architecture>
 
@@ -81,24 +82,25 @@
   <task_and_query_ledger id="active_assignments">
     <category id="1" name="TECHNICAL ARCHITECTURE &amp; CODE RECONNAISSANCE ASKS">
       <task id="1.1" name="Component Refactoring &amp; Tokenization" status="COMPLETED">
-        <subtask status="COMPLETED">Refactored HeroSection, TabbedInterface, LocalJobsGrid, MissionBanner, and BlogGrid to 100% Tailwind CSS v4 CSS-first tokens.</subtask>
-        <subtask status="COMPLETED">Engineered PromoBanner block with mobile/desktop Storyblok CDN asset switching and descriptive WCAG 2.2 alt text.</subtask>
-        <subtask status="COMPLETED">Eradicated all arbitrary pixel brackets (.px-[5vw], .pt-[145px], .text-[64px], .h-100, .lg:h-175, .aspect-[3/2], .mb-[54px]).</subtask>
+        <subtask status="COMPLETED">Refactored HeroSection, TabbedInterface, LocalJobsGrid, MissionBanner, and BlogGrid to 100% Tailwind CSS v4 CSS-first tokens[cite: 4].</subtask>
+        <subtask status="COMPLETED">Engineered PromoBanner block with mobile/desktop Storyblok CDN asset switching and descriptive WCAG 2.2 alt text[cite: 4].</subtask>
+        <subtask status="COMPLETED">Eradicated all arbitrary pixel brackets (.px-[5vw], .pt-[145px], .text-[64px], .h-100, .lg:h-175, .aspect-[3/2], .mb-[54px])[cite: 4].</subtask>
       </task>
-      <task id="1.2" name="Dynamic Routing &amp; Storyblok Architecture" status="ACTIVE">
-        <target_file path="src/app/[[...slug]]/page.tsx">Audit catch-all routing parameter extraction, draftMode support, and dynamic Storyblok API fetching with offline fallback.</target_file>
-        <target_file path="src/components/storyblok/PageBlok.tsx">Verify dynamic StoryblokComponent mapping against all refactored block components.</target_file>
-        <target_file path="src/lib/storyblok.ts">Ensure storyblokInit correctly registers all components and initializes the Storyblok JavaScript bridge for visual live-editing.</target_file>
-        <target_file path="src/components/blocks/index.ts">Maintain centralized barrel export for all presentational blocks.</target_file>
+      <task id="1.2" name="Dynamic Routing &amp; Storyblok Architecture" status="COMPLETED">
+        <target_file path="src/app/[[...slug]]/page.tsx">Audited catch-all routing parameter extraction, draftMode support, and dynamic Storyblok API fetching with offline fallback[cite: 4].</target_file>
+        <target_file path="src/components/storyblok/PageBlok.tsx">Verified dynamic StoryblokComponent mapping against all refactored block components[cite: 4].</target_file>
+        <target_file path="src/lib/storyblok.ts">Ensured storyblokInit correctly registers all components and initializes the Storyblok JavaScript bridge for visual live-editing[cite: 4].</target_file>
+        <target_file path="src/components/blocks/index.ts">Maintained centralized barrel export for all presentational blocks[cite: 4].</target_file>
       </task>
-      <task id="1.3" name="Component Directory Taxonomy Governance" status="ACTIVE">
-        <directory path="src/components/ui">Base interactive primitives only (Button, Input, FormInput, Tabs, NavLink, SearchInput, GoBackButton).</directory>
-        <directory path="src/components/blocks">Presentational composites and sections (HeroSection, TabbedInterface, PromoBanner, LocalJobsGrid, JobLinkCard, MissionBanner, BlogGrid, ContactSection).</directory>
-        <directory path="src/components/layout">Global shells and framing (MainHeader, MainFooter).</directory>
-        <directory path="src/components/storyblok">CMS integration bindings and resolvers (PageBlok, StoryblokProvider).</directory>
+      <task id="1.3" name="Component Directory Taxonomy Governance" status="COMPLETED">
+        <directory path="src/components/ui">Base interactive primitives only (Button.tsx, GoBackButton.tsx, Input.tsx, NavLink.tsx, SearchInput.tsx, Tabs.tsx)[cite: 4].</directory>
+        <directory path="src/components/blocks">Presentational composites and sections (AuthorSidebar.tsx, BlogCard.tsx, BlogGrid.tsx, FormInput.tsx, HeroSection.tsx, JobLinkCard.tsx, LocalJobsGrid.tsx, MissionBanner.tsx, PromoBanner.tsx, RichTextContent.tsx, SocialMediaIcon.tsx, TabbedInterface.tsx)[cite: 4].</directory>
+        <directory path="src/components/layout">Global shells and framing (MainHeader.tsx, MainFooter.tsx)[cite: 4].</directory>
+        <directory path="src/components/storyblok">CMS integration bindings and resolvers (PageBlok.tsx, StoryblokProvider.tsx, StoryblokStoryWrapper.tsx)[cite: 4].</directory>
       </task>
-      <task id="1.4" name="Security &amp; DTO Sanitization" status="PENDING">
-        <directive>Implement strict backend DTOs to strip raw CMS identifiers, DB UUIDs, and unfiltered schema objects prior to client serialization[cite: 4].</directive>
+      <task id="1.4" name="Security &amp; DTO Sanitization" status="ACTIVE">
+        <target_file path="src/lib/dto/sanitizeStoryPayload.ts">Implement strict backend Zod schema validation to strip raw CMS identifiers, DB UUIDs, and unfiltered schema objects prior to client serialization[cite: 4].</target_file>
+        <target_file path="src/components/storyblok/StoryblokProvider.tsx">Audit client-side bridge initialization parameters and ensure live preview callbacks do not leak unvetted origins[cite: 4].</target_file>
       </task>
     </category>
 
@@ -143,6 +145,6 @@
     <directive>3. THE ISAAC PROTOCOL: Preserve the history of this contract. Never smooth over Section 8 Triad boundaries[cite: 4].</directive>
     <directive>4. ARTIFACT MANDATE: Map code directly against active Tier constraints before generating solutions[cite: 4].</directive>
     <directive>5. SYNTAX MANDATE: All React components must strictly utilize ES6 fat arrow function syntax. The `function` keyword is strictly deprecated[cite: 4].</directive>
-    <directive>6. ARCHITECTURAL ISOLATION: Strictly govern directory placement across /components/ui, /components/blocks, /components/layout, and /components/storyblok without leakage.</directive>
+    <directive>6. ARCHITECTURAL ISOLATION: Strictly govern directory placement across /components/ui, /components/blocks, /components/layout, and /components/storyblok without leakage[cite: 4].</directive>
   </llm_execution_directives>
 </system_context_override>

@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import Link from 'next/link';
 import StoryblokProvider from '@/components/storyblok/StoryblokProvider';
 import { MainHeader } from '@/components/layout/MainHeader';
 import { MainFooter } from '@/components/layout/MainFooter';
 import './globals.css';
-import Link from 'next/link';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -22,6 +22,7 @@ export const viewport: Viewport = {
   themeColor: '#0D3276',
   width: 'device-width',
   initialScale: 1,
+  maximumScale: 5,
 };
 
 export const metadata: Metadata = {
@@ -31,6 +32,13 @@ export const metadata: Metadata = {
   },
   description: 'Anonymous crowdsourced reviews and systems analysis for the modern job market.',
   metadataBase: new URL('https://thejobapplicantperspective.com'),
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 interface RootLayoutProps {
@@ -39,9 +47,13 @@ interface RootLayoutProps {
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
       <body className="bg-background text-foreground flex min-h-full flex-col font-sans">
-        {/* WCAG 2.2 SC 2.4.1: Skip to Main Content Bypass Block */}
+        {/* WCAG 2.2 SC 2.4.1: Accessible Skip to Content Landmark */}
         <Link
           href="#main-content"
           className="focus:bg-primary focus-visible:ring-focus-ring sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:px-4 focus:py-2 focus:text-white focus:outline-none focus-visible:ring-3"
@@ -52,7 +64,12 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         <StoryblokProvider>
           <div className="flex min-h-screen flex-col">
             <MainHeader />
-            <main id="main-content" className="flex-grow">
+            {/* Primary Main Landmark - Universal across all routes */}
+            <main
+              id="main-content"
+              tabIndex={-1}
+              className="flex flex-grow flex-col focus:outline-none"
+            >
               {children}
             </main>
             <MainFooter />
