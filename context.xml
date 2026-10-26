@@ -2,8 +2,8 @@
   <metadata>
     <project_name>The Job Applicant Perspective (TJAP) Technical Remediation</project_name>
     <primary_stakeholder>Sarah Springsteen Trumble</primary_stakeholder>
-    <purpose>Initialize Mode-Locked Governance, re-seat zero-trust project architecture, track active milestone progression, and maintain deterministic state across sessions.</purpose>
-    <current_status>Tiers 1, 2, and 3 Complete. Pre-Stage Local Runtime Verification (smoke test via npm run verify and npm run dev) executed successfully with 0 TypeScript/ESLint errors and successful 200 OK rendering on http://localhost:3000[cite: 4]. Runtime telemetry identified two immediate polish targets: (1) Next.js Image unconstrained aspect-ratio warning on logosm.svg, and (2) dynamic catch-all route [[...slug]]/page.tsx intercepting browser devtools requests (/.well-known/appspecific/com.chrome.devtools.json) and attempting Storyblok CDN resolution[cite: 4]. Active Phase: Address runtime polish targets and mobile breakpoint optimization before locking Tier 4 Zero-Trust Security Perimeter[cite: 4].</current_status>
+    <purpose>Initialize Mode-Locked Governance, re-seat zero-trust project architecture, track active milestone progression, and maintain deterministic state across sessions[cite: 4].</purpose>
+    <current_status>Tiers 1, 2, and 3 Complete[cite: 4]. Pre-stage runtime verification executed and verified via clean TypeScript compilation and HTTP 200 localhost rendering[cite: 4]. Runtime polish fixes committed and pushed to GitHub: (1) fast-failed non-routable system paths (.well-known, favicon.ico) in src/app/[[...slug]]/page.tsx, and (2) resolved logosm.svg unconstrained aspect-ratio styling warnings. Active Phase on resume: Audit mobile viewport responsiveness (320px–480px) across core block layouts before initializing Tier 4 Security Perimeter Hardening[cite: 4].</current_status>
     <enforced_mode>/saiph (Sovereign CTO)</enforced_mode>
   </metadata>
 
@@ -25,7 +25,7 @@
     <repository_map>
       <root_directories>src, public, docs, e2e, qa-agent, test-results, playwright-report[cite: 4]</root_directories>
       <src_architecture>
-        <path name="src/app/[[...slug]]">Dynamic catch-all routing (Storyblok PageBlok container mapping, React.cache deduplication, safe DTO error isolation)[cite: 4]</path>
+        <path name="src/app/[[...slug]]">Dynamic catch-all routing (Storyblok PageBlok container mapping, React.cache deduplication, system slug fast-fail, safe DTO error isolation)[cite: 4]</path>
         <path name="src/components/blocks">Presentational and composite components with centralized index.ts barrel export (AuthorSidebar, BlogCard, BlogGrid, FormInput, HeroSection, JobLinkCard, LocalJobsGrid, MissionBanner, PromoBanner, RichTextContent, SocialMediaIcon, TabbedInterface)[cite: 4]</path>
         <path name="src/components/layout">Global layout shells (MainHeader, MainFooter)[cite: 4]</path>
         <path name="src/components/storyblok">CMS-bound component wrappers and client-side bridge resolver (PageBlok, StoryblokProvider, StoryblokStoryWrapper)[cite: 4]</path>
@@ -57,9 +57,10 @@
     <entry phase="Tier 3">COMPLETED: Component Directory Taxonomy Governance enforced. Files physically relocated across /components/ui, /components/blocks, /components/layout, and /components/storyblok. Barrel export (index.ts) established for blocks[cite: 4].</entry>
     <entry phase="Tier 1">COMPLETED: Hardened src/lib/dto/sanitizeStoryPayload.ts. Implemented Zod schema validation for core metadata, tag_list, and is_startpage, unwrapped nested API client response structures, and exported safeSanitizeStoryPayload discriminated union to prevent unhandled 500 crashes[cite: 4].</entry>
     <entry phase="Tier 1">COMPLETED: Wired safeSanitizeStoryPayload into src/app/[[...slug]]/page.tsx. Deduplicated metadata and rendering passes via React.cache, ensured clean 404 boundary handling on corrupt or missing payloads, and upgraded root container to a semantic main landmark with skip-link focus support[cite: 4].</entry>
-    <entry phase="Tier 1">COMPLETED: Hardened src/components/storyblok/StoryblokProvider.tsx. Switched import boundary to @storyblok/react for client hook compatibility, registered PromoBanner, consolidated presentational imports via barrel exports, and disabled fallback component dumps in production[cite: 4].</entry>
-    <entry phase="Pre-Stage">COMPLETED: Executed local runtime smoke test via npm run verify and npm run dev. TypeScript watch compiled cleanly with 0 errors, Next.js Turbopack mounted ready in 5.0s, and GET / returned HTTP 200 OK without console runtime crashes[cite: 4].</entry>
-    <entry phase="Pre-Stage Polish">ACTIVE / NEXT STEP: (1) Fast-fail non-routable system/browser requests (e.g., .well-known/*, favicon.ico) in src/app/[[...slug]]/page.tsx before querying Storyblok CDN; (2) Fix aspect-ratio warning on logosm.svg (add style={{ height: 'auto' }} or width: auto); (3) Audit and enforce mobile-first responsive breakpoints across composite sections[cite: 4].</entry>
+    <entry phase="Tier 1">COMPLETED: Hardened src/components/storyblok/StoryblokProvider.tsx. Switched import boundary to @storyblok/react for client hook compatibility, registered PromoBanner, consolidated presentational imports via barrel exports, and disabled fallback component dumps in production[cite: 4, 5].</entry>
+    <entry phase="Pre-Stage">COMPLETED: Executed local runtime smoke test via npm run verify and npm run dev. TypeScript watch compiled with 0 errors, Next.js mounted clean in 5.0s, and GET / returned HTTP 200 OK[cite: 4].</entry>
+    <entry phase="Pre-Stage Polish">COMPLETED: Applied runtime fixes: (1) Injected early 404 fast-fail for system/browser paths (.well-known, favicon.ico) in src/app/[[...slug]]/page.tsx; (2) Corrected aspect-ratio auto-scaling on logosm.svg in MainHeader.tsx. Staged, committed, and pushed to remote origin.</entry>
+    <entry phase="Pre-Stage Responsive">ACTIVE / NEXT STEP: Audit and enforce mobile-first responsive breakpoints (320px–480px) across HeroSection, TabbedInterface, and LocalJobsGrid to eliminate horizontal scroll overflow and verify touch target compliance.</entry>
     <entry phase="Tier 4">PENDING: Zero-Trust Security Perimeter Hardening (@upstash/ratelimit on sensitive API routes, query/parameter reflection sanitization, and rel="noopener noreferrer" external anchor audit)[cite: 4].</entry>
   </execution_log>
 
@@ -107,14 +108,16 @@
         <target_file path="src/components/storyblok/StoryblokProvider.tsx">Audited client bridge configuration, bound PromoBanner to component resolver, corrected SDK import paths to @storyblok/react, and disabled production fallback dumps[cite: 4].</target_file>
       </task>
       <task id="1.5" name="Pre-Stage Runtime Verification &amp; Smoke Test" status="COMPLETED">
-        <action target="terminal">Executed `npm run verify` and `npm run dev`. TypeScript and Turbopack verified with 0 errors. Localhost HTTP 200 OK confirmed[cite: 4].</action>
+        <action target="terminal">Executed `npm run verify` and `npm run dev`. TypeScript and Turbopack verified clean with 0 errors. HTTP 200 localhost rendering confirmed[cite: 4].</action>
       </task>
-      <task id="1.6" name="Runtime Telemetry Polish &amp; Mobile Breakpoints" status="ACTIVE">
-        <subtask status="ACTIVE">Intercept and return early 404 for non-content system slugs (e.g. `slugPath.startsWith('.well-known')`, `favicon.ico`) in `src/app/[[...slug]]/page.tsx` before invoking Storyblok API[cite: 4].</subtask>
-        <subtask status="ACTIVE">Locate `logosm.svg` usage in `src/components/layout/MainHeader.tsx` (or presentational primitives) and apply `style={{ height: 'auto' }}` or `style={{ width: 'auto' }}` to resolve Next.js Image aspect-ratio warnings.</subtask>
-        <subtask status="ACTIVE">Audit mobile viewport responsiveness (320px–480px) across HeroSection, TabbedInterface, and LocalJobsGrid to ensure fluid mobile-first presentation without horizontal scroll overflow.</subtask>
+      <task id="1.6" name="Runtime Polish Fixes" status="COMPLETED">
+        <subtask status="COMPLETED">Fast-failed non-routable system slugs (.well-known, favicon.ico) in src/app/[[...slug]]/page.tsx before querying Storyblok CDN.</subtask>
+        <subtask status="COMPLETED">Resolved Next.js Image aspect-ratio auto-scaling attribute warning on logosm.svg in MainHeader.tsx.</subtask>
       </task>
-      <task id="1.7" name="Tier 4 Zero-Trust Security Perimeter" status="PENDING">
+      <task id="1.7" name="Mobile Viewport Breakpoint Audit" status="ACTIVE">
+        <subtask status="ACTIVE">Audit responsive viewport behavior (320px–480px) across HeroSection, TabbedInterface, and LocalJobsGrid to confirm no horizontal overflow and ensure all interactive targets hit 48px touch minimums.</subtask>
+      </task>
+      <task id="1.8" name="Tier 4 Zero-Trust Security Perimeter" status="PENDING">
         <subtask status="PENDING">Deploy Upstash Layer 7 rate limiting on critical API endpoints[cite: 4].</subtask>
         <subtask status="PENDING">Sanitize route and query parameter reflection against regex patterns (XSS mitigation)[cite: 4].</subtask>
         <subtask status="PENDING">Verify all anchor tags targeting _blank include rel="noopener noreferrer"[cite: 4].</subtask>
