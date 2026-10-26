@@ -1,14 +1,21 @@
 'use client';
 
 import React from 'react';
-import { storyblokInit, apiPlugin } from '@storyblok/react/rsc';
+import { storyblokInit, apiPlugin } from '@storyblok/react';
 import { PageBlok } from '@/components/storyblok/PageBlok';
-import { HeroSection } from '@/components/blocks/HeroSection';
-import { TabbedInterface } from '@/components/blocks/TabbedInterface';
-import { LocalJobsGrid } from '@/components/blocks/LocalJobsGrid';
-import { MissionBanner } from '@/components/blocks/MissionBanner';
-import { BlogGrid } from '@/components/blocks/BlogGrid';
+import {
+  HeroSection,
+  TabbedInterface,
+  LocalJobsGrid,
+  MissionBanner,
+  PromoBanner,
+  BlogGrid,
+} from '@/components/blocks';
 
+/**
+ * Component registry binding Storyblok schema technical names
+ * to refactored React Server and Client presentational blocks.
+ */
 const components = {
   page: PageBlok,
   'Home Content': PageBlok,
@@ -17,29 +24,38 @@ const components = {
   tabbed_interface: TabbedInterface,
   local_jobs_grid: LocalJobsGrid,
   mission_banner: MissionBanner,
+  promo_banner: PromoBanner,
   blog_grid: BlogGrid,
 };
 
-// Check both naming conventions exposed to client bundle
+// Evaluate public access tokens from environment
 const clientAccessToken =
   process.env.NEXT_PUBLIC_STORYBLOK_TOKEN || process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN || '';
 
 const clientRegion = (process.env.NEXT_PUBLIC_STORYBLOK_REGION as 'us' | 'eu') || 'eu';
 
-storyblokInit({
-  accessToken: clientAccessToken,
-  use: [apiPlugin],
-  apiOptions: {
-    region: clientRegion,
-  },
-  components,
-});
+// Initialize the client SDK only if a token is configured
+if (clientAccessToken) {
+  storyblokInit({
+    accessToken: clientAccessToken,
+    use: [apiPlugin],
+    apiOptions: {
+      region: clientRegion,
+    },
+    components,
+    enableFallbackComponent: process.env.NODE_ENV !== 'production',
+  });
+} else if (process.env.NODE_ENV !== 'production') {
+  console.warn(
+    'StoryblokProvider: NEXT_PUBLIC_STORYBLOK_TOKEN is missing. Client bridge initialization skipped.',
+  );
+}
 
 interface StoryblokProviderProps {
   children: React.ReactNode;
 }
 
-const StoryblokProvider = ({ children }: StoryblokProviderProps) => {
+export const StoryblokProvider = ({ children }: StoryblokProviderProps) => {
   return <>{children}</>;
 };
 

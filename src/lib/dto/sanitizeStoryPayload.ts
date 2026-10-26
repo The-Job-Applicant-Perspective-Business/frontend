@@ -1,8 +1,8 @@
 import { z } from 'zod';
 
 /**
- * Zod Schema validating nested Storyblok Blok payloads.
- * Ensures each nested block conforms to standard Storyblok component shapes.
+ * Validates individual Storyblok nested component blocks.
+ * Enforces required identifiers while sanitizing block-level parameters.
  */
 export const BlokSchema = z
   .object({
@@ -12,68 +12,115 @@ export const BlokSchema = z
   })
   .passthrough();
 
+export type Blok = z.infer<typeof BlokSchema>;
+
 /**
- * Core Story Content schema.
- * Validates the primary story container and its child component tree.
+ * Validates Storyblok content containers and child component arrays.
  */
 export const StoryContentSchema = z
   .object({
     _uid: z.string().optional(),
     component: z.string().optional(),
-    body: z.array(BlokSchema).optional().default([]),
-    meta_title: z.string().optional().default(''),
-    meta_description: z.string().optional().default(''),
+    body: z.array(BlokSchema).default([]),
+    meta_title: z.string().default(''),
+    meta_description: z.string().default(''),
   })
   .passthrough();
 
+export type StoryContent = z.infer<typeof StoryContentSchema>;
+
 /**
- * Invariant schema for sanitized Storyblok Story delivery.
- * Strips unvetted telemetry, database internals, and unparsed headers.
+ * Invariant schema for sanitized Storyblok story delivery.
+ * Enforces runtime schema parity with Storyblok React component expectations.
  */
 export const SanitizedStorySchema = z.object({
   id: z.number().int().nonnegative().default(0),
   name: z.string().default('Untitled Page'),
   slug: z.string().default(''),
   full_slug: z.string().default(''),
-  created_at: z.string().optional().default(''),
-  published_at: z.string().nullable().optional().default(null),
-  first_published_at: z.string().nullable().optional().default(null),
-  content: StoryContentSchema.default({ body: [], meta_title: '', meta_description: '' }),
+  created_at: z.string().default(''),
+  published_at: z.string().nullable().default(null),
+  first_published_at: z.string().nullable().default(null),
+  is_startpage: z.boolean().default(false),
+  tag_list: z.array(z.string()).default([]),
+  content: StoryContentSchema.default({
+    body: [],
+    meta_title: '',
+    meta_description: '',
+  }),
 });
 
-export type SanitizedStory = z.infer<typeof SanitizedStorySchema> & {
-  // Enforces compatibility with Storyblok React RSC component expectations
-  is_startpage?: boolean;
-  tag_list?: string[];
+export type SanitizedStory = z.infer<typeof SanitizedStorySchema>;
+
+export type SanitizationResult =
+  { success: true; data: SanitizedStory } | { success: false; error: string };
+
+/**
+ * Normalizes input by unwrapping Storyblok API client responses.
+ */
+const unwrapStoryPayload = (raw: unknown): unknown => {
+  if (!raw || typeof raw !== 'object') return raw;
+
+  const candidate = raw as Record<string, unknown>;
+
+  // Handles storyblokApi.get() full response: { data: { story: { ... } } }
+  if (candidate.data && typeof candidate.data === 'object') {
+    const dataObj = candidate.data as Record<string, unknown>;
+    if (dataObj.story) return dataObj.story;
+  }
+
+  // Handles { story: { ... } }
+  if (candidate.story) {
+    return candidate.story;
+  }
+
+  return raw;
 };
 
 /**
- * Sanitizes and validates raw Storyblok API payloads before client serialization.
- * Strips raw internal database UUIDs, administrative headers, and malformed blok trees.
- *
- * @param rawStory - The unknown raw payload returned from storyblokApi.get()
- * @returns SanitizedStory - A deterministic, schema-validated Story object
+ * Safe parser returning a discriminated union.
+ * Prevents Next.js Server Component 500 error crashes on malformed data.
  */
-export const sanitizeStoryPayload = (rawStory: unknown): SanitizedStory => {
-  if (!rawStory || typeof rawStory !== 'object') {
-    throw new Error('DTO_SANITIZATION_FAILED: Expected non-null object payload from CMS API.');
+export const safeSanitizeStoryPayload = (rawPayload: unknown): SanitizationResult => {
+  if (!rawPayload || typeof rawPayload !== 'object') {
+    return {
+      success: false,
+      error: 'DTO_SANITIZATION_FAILED: Expected non-null object payload from CMS API.',
+    };
   }
 
-  // Parse payload through Zod schema to enforce types and apply default fallbacks
-  const validationResult = SanitizedStorySchema.safeParse(rawStory);
+  const unwrapped = unwrapStoryPayload(rawPayload);
+  const result = SanitizedStorySchema.safeParse(unwrapped);
 
-  if (!validationResult.success) {
-    const errorDetails = validationResult.error.issues
+  if (!result.success) {
+    const errorDetails = result.error.issues
       .map((issue) => `${issue.path.join('.')}: ${issue.message}`)
       .join('; ');
 
-    console.error(`Storyblok DTO Validation Error: ${errorDetails}`);
-    throw new Error(`DTO_SANITIZATION_FAILED: Invalid story payload structure. [${errorDetails}]`);
+    return {
+      success: false,
+      error: `DTO_SANITIZATION_FAILED: Invalid story payload structure. [${errorDetails}]`,
+    };
   }
 
-  const cleanData = validationResult.data;
+  return {
+    success: true,
+    data: result.data,
+  };
+};
 
-  return cleanData;
+/**
+ * Strict parser for operations where an invalid payload must abort execution.
+ */
+export const sanitizeStoryPayload = (rawPayload: unknown): SanitizedStory => {
+  const result = safeSanitizeStoryPayload(rawPayload);
+
+  if (!result.success) {
+    console.error(`Storyblok DTO Validation Error: ${result.error}`);
+    throw new Error(result.error);
+  }
+
+  return result.data;
 };
 
 export default sanitizeStoryPayload;
