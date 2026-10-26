@@ -32,7 +32,14 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
           aria-label="Return to Homepage"
           className="focus-visible:ring-focus-ring focus-visible:ring-offset-background rounded-md focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
         >
-          <Image src={logoSrc} alt="TJAP Logo" width={137} height={22} priority />
+          <Image
+            src={logoSrc}
+            alt="TJAP Logo"
+            width={137}
+            height={22}
+            priority
+            style={{ width: 'auto' }}
+          />
         </Link>
         <Button
           type="button"

@@ -24,6 +24,12 @@ const resolveSlugPath = (slug?: string[]): string => {
  */
 const fetchDynamicStory = cache(
   async (slugPath: string, isDraft: boolean): Promise<ISbStoryData | null> => {
+    const SYSTEM_SLUG_PREFIXES = ['.well-known', 'favicon.ico', 'robots.txt', 'sitemap.xml'];
+
+    if (SYSTEM_SLUG_PREFIXES.some((prefix) => slugPath.startsWith(prefix))) {
+      return null;
+    }
+
     try {
       initStoryblok();
       const storyblokApi = getStoryblokApi();
