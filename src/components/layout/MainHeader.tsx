@@ -26,7 +26,7 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
   return (
     <header className={`absolute top-0 z-50 w-full bg-transparent ${className}`.trim()}>
       {/* Mobile Navigation Bar */}
-      <div className="flex items-center justify-between px-4 py-6 lg:hidden">
+      <div className="px-gutter flex items-center justify-between py-6 lg:hidden">
         <Link
           href="/"
           aria-label="Return to Homepage"
@@ -50,7 +50,7 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
           aria-controls="mobile-navigation-menu"
           aria-label={isMobileMenuOpen ? 'Close Navigation' : 'Open Navigation'}
           onClick={toggleMobileMenu}
-          className="p-2"
+          className="inline-flex min-h-12 min-w-12 items-center justify-center p-2"
         >
           {isMobileMenuOpen ? (
             <X className="h-6 w-6" aria-hidden="true" />
@@ -67,15 +67,15 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation"
-          className="border-border bg-background border-b px-6 py-6 shadow-lg lg:hidden"
+          className="border-border bg-background px-gutter border-b py-6 shadow-lg lg:hidden"
         >
           <nav aria-label="Mobile Navigation Menu">
-            <ul className="m-0 flex list-none flex-col gap-4 p-0">
+            <ul className="m-0 flex list-none flex-col gap-2 p-0">
               <li>
                 <NavLink
                   href="/who-we-are"
                   onClick={closeMobileMenu}
-                  className="block py-2 text-base font-semibold"
+                  className="flex min-h-12 items-center font-semibold text-[var(--text-fluid-base)]"
                 >
                   About Us
                 </NavLink>
@@ -84,7 +84,7 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
                 <NavLink
                   href="/job-insights"
                   onClick={closeMobileMenu}
-                  className="block py-2 text-base font-semibold"
+                  className="flex min-h-12 items-center font-semibold text-[var(--text-fluid-base)]"
                 >
                   Job Insights
                 </NavLink>
@@ -96,7 +96,7 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
                   rel="noopener noreferrer"
                   className="focus-visible:outline-none"
                 >
-                  <Button variant="primary" size="md" className="w-full">
+                  <Button variant="primary" size="md" className="min-h-12 w-full">
                     Sign in as employer
                     <span className="sr-only"> (opens in a new tab)</span>
                   </Button>
@@ -108,7 +108,7 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
       )}
 
       {/* Desktop Navigation Bar */}
-      <div className="hidden w-full items-center justify-between bg-transparent px-8 py-10 lg:flex lg:px-12">
+      <div className="px-gutter hidden w-full items-center justify-between bg-transparent py-8 lg:flex">
         <Link
           href="/"
           aria-label="Return to Homepage"
@@ -119,12 +119,12 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
         <nav aria-label="Main Desktop Navigation" className="flex items-center">
           <ul className="m-0 flex list-none items-center gap-8 p-0">
             <li>
-              <NavLink href="/who-we-are" className="text-base font-semibold">
+              <NavLink href="/who-we-are" className="font-semibold text-[var(--text-fluid-base)]">
                 About Us
               </NavLink>
             </li>
             <li>
-              <NavLink href="/job-insights" className="text-base font-semibold">
+              <NavLink href="/job-insights" className="font-semibold text-[var(--text-fluid-base)]">
                 Job Insights
               </NavLink>
             </li>
@@ -135,7 +135,7 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
                 rel="noopener noreferrer"
                 className="focus-visible:outline-none"
               >
-                <Button variant="primary" size="md">
+                <Button variant="primary" size="md" className="min-h-12">
                   Sign in as employer
                   <span className="sr-only"> (opens in a new tab)</span>
                 </Button>

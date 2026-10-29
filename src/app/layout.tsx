@@ -65,11 +65,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           <div className="flex min-h-screen flex-col">
             <MainHeader />
             {/* Primary Main Landmark - Universal fluid spacing via Tailwind v4 @theme tokens */}
-            <main
-              id="main-content"
-              tabIndex={-1}
-              className="px-gutter py-section mx-auto w-full max-w-7xl focus:outline-none"
-            >
+            <main id="main-content" tabIndex={-1} className="w-full flex-grow focus:outline-none">
               {children}
             </main>
             <MainFooter />

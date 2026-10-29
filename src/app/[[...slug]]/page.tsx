@@ -108,18 +108,9 @@ const DynamicPage = async ({ params }: DynamicPageProps) => {
   }
 
   return (
-    <main
-      id="main-content"
-      tabIndex={-1}
-      className="bg-background relative flex w-full flex-grow flex-col focus:outline-none"
-    >
-      <section
-        aria-label={`${story.name || 'Dynamic'} Page Content`}
-        className="container mx-auto h-full w-full flex-grow px-4 py-12 md:px-8 lg:px-12"
-      >
-        <StoryblokStory story={story} />
-      </section>
-    </main>
+    <div className="relative flex w-full flex-grow flex-col">
+      <StoryblokStory story={story} />
+    </div>
   );
 };
 

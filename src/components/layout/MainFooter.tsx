@@ -16,16 +16,16 @@ export const MainFooter = ({ className = '' }: MainFooterProps) => {
       aria-labelledby="footer-heading"
       className={`bg-primary-dark w-full text-white ${className}`.trim()}
     >
-      <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 md:px-8 md:py-24 lg:px-12">
-        <div className="flex flex-col justify-between gap-12 md:flex-row">
+      <div className="px-gutter py-section mx-auto w-full max-w-7xl">
+        <div className="gap-gutter flex flex-col justify-between md:flex-row">
           <div className="w-full md:w-1/2 lg:w-5/12">
             <h2
               id="footer-heading"
-              className="text-3xl leading-tight font-semibold text-white md:text-5xl"
+              className="leading-tight font-semibold text-[var(--text-fluid-3xl)] text-white"
             >
               We’re here to answer all your questions
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-200">
+            <p className="mt-4 leading-relaxed text-[var(--text-fluid-base)] text-slate-200">
               Your journey’s important to us. Need help, resources, or just someone to talk to?
               We’re just a message away!
             </p>
@@ -69,7 +69,7 @@ export const MainFooter = ({ className = '' }: MainFooterProps) => {
                   type="submit"
                   variant="secondary"
                   size="lg"
-                  className="text-primary focus-visible:ring-offset-primary-dark bg-white hover:bg-slate-100 focus-visible:ring-white"
+                  className="text-primary focus-visible:ring-offset-primary-dark min-h-12 bg-white hover:bg-slate-100 focus-visible:ring-white"
                 >
                   Send Message
                 </Button>
