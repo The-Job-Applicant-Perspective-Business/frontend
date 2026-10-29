@@ -4,8 +4,12 @@ import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { getStoryblokApi, StoryblokStory } from '@storyblok/react/rsc';
 import type { ISbStoryData } from '@storyblok/react';
-import { initStoryblok } from '@/lib/storyblok';
+import { getStoryblokConfigIssue, initStoryblok } from '@/lib/storyblok';
 import { safeSanitizeStoryPayload } from '@/lib/dto/sanitizeStoryPayload';
+import {
+  handleStoryblokError,
+  type StoryblokErrorReport,
+} from '@/lib/dto/storyblok/storyblokErrorHandler';
 
 export const dynamic = 'force-dynamic';
 
@@ -14,20 +18,60 @@ type DynamicPageProps = {
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
+/**
+ * Discriminated result so the page can distinguish "no such page" from
+ * "the CMS pipeline failed". `report: null` means an expected, unlogged miss
+ * (system/browser paths).
+ */
+type StoryFetchResult =
+  { ok: true; story: ISbStoryData } | { ok: false; report: StoryblokErrorReport | null };
+
+const SYSTEM_SLUG_PREFIXES = ['.well-known', 'favicon.ico', 'robots.txt', 'sitemap.xml'];
+
 const resolveSlugPath = (slug?: string[]): string => {
   return slug && slug.length > 0 ? slug.join('/') : 'home';
 };
 
 /**
+ * Pulls an HTTP status off an unknown thrown value without trusting its shape.
+ * Hardened to inspect status, statusCode, and response.status.
+ */
+const extractStatus = (error: unknown): number | undefined => {
+  if (!error || typeof error !== 'object') {
+    return undefined;
+  }
+
+  const value = error as {
+    status?: unknown;
+    statusCode?: unknown;
+    response?: { status?: unknown };
+  };
+
+  const status = value.status ?? value.statusCode ?? value.response?.status;
+  return typeof status === 'number' ? status : undefined;
+};
+
+/**
  * Deduplicated dynamic story fetcher bounded by safe DTO sanitization.
- * Wrapped in React.cache to share a single request between metadata and page execution.
+ * Wrapped in React.cache so metadata and page execution share one request.
+ * This is the single logging boundary: handleStoryblokError is called here and
+ * nowhere else in the route, so cached calls never log twice.
  */
 const fetchDynamicStory = cache(
-  async (slugPath: string, isDraft: boolean): Promise<ISbStoryData | null> => {
-    const SYSTEM_SLUG_PREFIXES = ['.well-known', 'favicon.ico', 'robots.txt', 'sitemap.xml'];
-
+  async (slugPath: string, isDraft: boolean): Promise<StoryFetchResult> => {
     if (SYSTEM_SLUG_PREFIXES.some((prefix) => slugPath.startsWith(prefix))) {
-      return null;
+      return { ok: false, report: null };
+    }
+
+    const context = { operation: 'fetchDynamicStory', slug: slugPath };
+
+    const configIssue = getStoryblokConfigIssue();
+    if (configIssue) {
+      const report = handleStoryblokError(new Error(configIssue), {
+        context,
+        category: 'CONFIG',
+      });
+      return { ok: false, report };
     }
 
     try {
@@ -43,20 +87,30 @@ const fetchDynamicStory = cache(
       const result = safeSanitizeStoryPayload(response);
 
       if (!result.success) {
-        console.warn(
-          `Storyblok Bridge: DTO validation rejected for slug [${slugPath}]. Error: ${result.error}`,
+        const report = handleStoryblokError(
+          new Error(`DTO validation rejected: ${String(result.error)}`),
+          {
+            context,
+            category: 'VALIDATION',
+          },
         );
-        return null;
+        return { ok: false, report };
       }
 
-      return result.data as unknown as ISbStoryData;
+      return { ok: true, story: result.data as unknown as ISbStoryData };
     } catch (error) {
-      console.warn(
-        `Storyblok Bridge: Upstream fetch failed for slug [${slugPath}]. Error: ${
-          error instanceof Error ? error.message : String(error)
-        }`,
-      );
-      return null;
+      const status = extractStatus(error);
+      const errorContext = {
+        ...context,
+        status,
+      };
+
+      const report = handleStoryblokError(error, {
+        context: errorContext,
+        category: status === 404 ? ('NOT_FOUND' as const) : undefined,
+      });
+
+      return { ok: false, report };
     }
   },
 );
@@ -66,15 +120,18 @@ export const generateMetadata = async ({ params }: DynamicPageProps): Promise<Me
   const slugPath = resolveSlugPath(slug);
   const { isEnabled: isDraft } = await draftMode();
 
-  const story = await fetchDynamicStory(slugPath, isDraft);
+  const result = await fetchDynamicStory(slugPath, isDraft);
 
-  if (!story?.content) {
+  // Metadata never throws: any failure degrades to site defaults and the page
+  // body decides the user-facing outcome.
+  if (!result.ok || !result.story.content) {
     return {
       title: 'The Job Applicant Perspective',
       description: 'Documenting the applicant timeline and market dynamics.',
     };
   }
 
+  const { story } = result;
   const metaTitle =
     (story.content.meta_title as string) || story.name || 'The Job Applicant Perspective';
   const metaDescription =
@@ -101,15 +158,24 @@ const DynamicPage = async ({ params }: DynamicPageProps) => {
   const slugPath = resolveSlugPath(slug);
   const { isEnabled: isDraft } = await draftMode();
 
-  const story = await fetchDynamicStory(slugPath, isDraft);
+  const result = await fetchDynamicStory(slugPath, isDraft);
 
-  if (!story) {
-    notFound();
+  if (!result.ok) {
+    const { report } = result;
+
+    // Expected misses and corrupt payloads keep the existing clean-404 behavior.
+    if (!report || report.category === 'NOT_FOUND' || report.category === 'VALIDATION') {
+      notFound();
+    }
+
+    // CONFIG / API / INITIALIZATION / UNKNOWN are not "missing pages".
+    // Hand off to the nearest error boundary with only the visitor-safe message.
+    throw new Error(report.safeMessage);
   }
 
   return (
     <div className="relative flex w-full flex-grow flex-col">
-      <StoryblokStory story={story} />
+      <StoryblokStory story={result.story} />
     </div>
   );
 };

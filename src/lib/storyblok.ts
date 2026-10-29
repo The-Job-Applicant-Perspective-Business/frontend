@@ -21,26 +21,51 @@ export const components = {
   promo_banner: PromoBanner,
 };
 
-const accessToken =
-  process.env.STORYBLOK_DELIVERY_API_TOKEN ||
-  process.env.NEXT_PUBLIC_STORYBLOK_TOKEN ||
-  process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN ||
-  '';
+const getStoryblokToken = (): string => {
+  return (
+    process.env.STORYBLOK_DELIVERY_API_TOKEN ||
+    process.env.STORYBLOK_ACCESS_TOKEN ||
+    process.env.STORYBLOK_TOKEN ||
+    process.env.NEXT_PUBLIC_STORYBLOK_TOKEN ||
+    process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN ||
+    ''
+  );
+};
 
-const region =
-  (process.env.STORYBLOK_REGION as 'us' | 'eu') ||
-  (process.env.NEXT_PUBLIC_STORYBLOK_REGION as 'us' | 'eu') ||
-  'eu';
+const getStoryblokRegion = (): 'us' | 'eu' => {
+  return (
+    (process.env.STORYBLOK_REGION as 'us' | 'eu') ||
+    (process.env.NEXT_PUBLIC_STORYBLOK_REGION as 'us' | 'eu') ||
+    'eu'
+  );
+};
+
+/**
+ * Pure server-side configuration check. Returns a diagnostic string (never a
+ * token value) when configuration is unusable, or null when it looks present.
+ * Presence is not validity: a rejected token still surfaces as an API error.
+ * Reporting is left to the caller so this module stays free of handler coupling
+ * and the route remains the single logging boundary.
+ */
+export const getStoryblokConfigIssue = (): string | null => {
+  const token = getStoryblokToken();
+
+  if (!token) {
+    return 'Missing Storyblok access token in environment variables (checked STORYBLOK_DELIVERY_API_TOKEN, STORYBLOK_ACCESS_TOKEN, STORYBLOK_TOKEN, NEXT_PUBLIC_STORYBLOK_TOKEN, NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN).';
+  }
+
+  return null;
+};
 
 export const getStoryblokApi = storyblokInit({
-  accessToken,
+  accessToken: getStoryblokToken(),
   use: [apiPlugin],
   apiOptions: {
-    region,
+    region: getStoryblokRegion(),
   },
   components,
 });
 
-export const initStoryblok = () => {
+export const initStoryblok = (): typeof getStoryblokApi => {
   return getStoryblokApi;
 };
