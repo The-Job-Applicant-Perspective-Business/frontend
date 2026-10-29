@@ -50,16 +50,18 @@ export const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
           className="bg-accent-text/5 pointer-events-none absolute top-32 -right-12 h-56 w-56 -rotate-12 rounded-3xl blur-2xl md:top-24 md:right-12 md:h-72 md:w-72"
         />
 
-        <div className="relative container mx-auto flex w-full items-center justify-center px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 lg:px-8 lg:pt-44 lg:pb-28">
+        <div className="px-gutter pb-section relative mx-auto flex w-full max-w-7xl items-center justify-center pt-28 sm:pt-32 md:pt-40">
           <div className="mx-auto w-full max-w-3xl text-center">
+            {/* Fluid Hero Typography: continuous scale, no viewport snapping */}
             <h1
               id="hero-heading"
-              className="text-foreground text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:leading-none"
+              className="text-foreground leading-tight font-extrabold tracking-tight text-[var(--text-fluid-hero)]"
             >
               {headline}
             </h1>
 
-            <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-base leading-relaxed sm:text-lg md:text-xl">
+            {/* Fluid Subtitle Typography */}
+            <p className="text-muted-foreground mx-auto mt-6 max-w-2xl leading-relaxed text-[var(--text-fluid-lg)]">
               {description}
             </p>
 

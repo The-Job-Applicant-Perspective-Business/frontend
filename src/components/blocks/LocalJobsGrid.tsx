@@ -52,17 +52,18 @@ export const LocalJobsGrid = React.forwardRef<HTMLElement, LocalJobsGridProps>(
       <section
         ref={ref}
         aria-labelledby="local-jobs-heading"
-        className={`container mx-auto px-4 py-12 md:px-8 md:py-16 lg:px-12 ${className}`.trim()}
+        className={`px-gutter py-section mx-auto w-full max-w-7xl ${className}`.trim()}
         {...props}
       >
         <h2
           id="local-jobs-heading"
-          className="text-foreground text-center text-3xl leading-tight font-semibold tracking-tight md:text-4xl"
+          className="text-foreground text-center leading-tight font-semibold tracking-tight text-[var(--text-fluid-2xl)] md:text-[var(--text-fluid-3xl)]"
         >
           {heading}
         </h2>
 
-        <div className="mt-8 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Fluid intrinsic auto-fit grid prevents discrete breakpoint snapping */}
+        <div className="gap-card-gap mt-8 grid w-full grid-cols-[repeat(auto-fit,minmax(min(100%,18rem),1fr))]">
           {jobs.map((job) => (
             <JobLinkCard
               key={`${job.title}-${job.href}`}

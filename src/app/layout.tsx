@@ -64,11 +64,11 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         <StoryblokProvider>
           <div className="flex min-h-screen flex-col">
             <MainHeader />
-            {/* Primary Main Landmark - Universal across all routes */}
+            {/* Primary Main Landmark - Universal fluid spacing via Tailwind v4 @theme tokens */}
             <main
               id="main-content"
               tabIndex={-1}
-              className="flex flex-grow flex-col focus:outline-none"
+              className="px-gutter py-section mx-auto w-full max-w-7xl focus:outline-none"
             >
               {children}
             </main>
