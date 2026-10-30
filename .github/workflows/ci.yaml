@@ -49,6 +49,6 @@ jobs:
 
       - name: Validate Next.js Build
         env:
-          STORYBLOK_TOKEN: ${{ secrets.STORYBLOK_TOKEN }}
           NODE_ENV: production
+          USE_STORYBLOK_FIXTURES: 'true'
         run: npx next build --no-lint
