@@ -105,6 +105,14 @@ export default tseslint.config(
           roles: ["tabpanel", "region"],
         },
       ],
+      "react/jsx-no-target-blank": [
+      "error",
+      {
+        "allowReferrer": false,
+        "enforceDynamicLinks": "always",
+        "warnOnSpreadAttributes": true
+      }
+    ]
     },
   },
 

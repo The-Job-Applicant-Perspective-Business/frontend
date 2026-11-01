@@ -2,13 +2,16 @@ name: TJAP CI Pipeline
 
 on:
   push:
-    branches: [main, qa, dev]
+    branches: [main, staging, dev]
   pull_request:
-    branches: [main, qa]
+    branches: [main, staging]
+
+permissions:
+  contents: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   audit-and-verify:
@@ -51,4 +54,5 @@ jobs:
         env:
           NODE_ENV: production
           USE_STORYBLOK_FIXTURES: 'true'
-        run: npx next build --no-lint
+          STORYBLOK_TOKEN: ${{ secrets.STORYBLOK_TOKEN || 'fixture-token-placeholder' }}
+        run: npm run build:offline
