@@ -6,6 +6,7 @@
     "dev": "concurrently -n \"NEXT,TSC\" -c \"bgBlue.bold,bgCyan.bold\" \"next dev\" \"tsc --noEmit --watch --preserveWatchOutput\"",
     "dev:full": "concurrently -n \"NEXT,TSC,SUPA\" -c \"bgBlue.bold,bgCyan.bold,bgGreen.bold\" \"next dev\" \"tsc --noEmit --watch --preserveWatchOutput\" \"npx supabase start\"",
     "build": "next build",
+    "build:offline": "USE_STORYBLOK_FIXTURES=true next build --no-lint",
     "start": "next start",
     "lint": "eslint src",
     "verify": "npm run lint && tsc --noEmit --pretty false",
