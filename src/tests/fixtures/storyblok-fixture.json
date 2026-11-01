@@ -1,0 +1,87 @@
+{
+  "name": "Home",
+  "created_at": "2026-10-01T00:00:00.000Z",
+  "published_at": "2026-10-01T00:00:00.000Z",
+  "id": 100001,
+  "uuid": "fixture-home-uuid-001",
+  "slug": "home",
+  "full_slug": "home",
+  "is_startpage": true,
+  "parent_id": 0,
+  "group_id": "fixture-group-001",
+  "first_published_at": "2026-10-01T00:00:00.000Z",
+  "meta_data": null,
+  "tag_list": [],
+  "content": {
+    "_uid": "root-page-uid-001",
+    "component": "page",
+    "meta_title": "The Job Applicant Perspective",
+    "meta_description": "Documenting the applicant timeline and market dynamics.",
+    "body": [
+      {
+        "_uid": "hero-section-uid-001",
+        "component": "hero_section",
+        "headline": "The Job Applicant Perspective",
+        "subheadline": "Auditing systemic friction and labor extraction across modern hiring infrastructure.",
+        "cta_text": "Explore the Research",
+        "cta_link": {
+          "id": "",
+          "url": "#research",
+          "linktype": "url",
+          "fieldtype": "multilink",
+          "cached_url": "#research"
+        }
+      },
+      {
+        "_uid": "mission-banner-uid-001",
+        "component": "mission_banner",
+        "title": "Decoupling Market Friction",
+        "description": "Quantifying the Ghost Hour Tax and establishing candidate-side verification.",
+        "badge_text": "Zero-Trust Labor Forensics"
+      },
+      {
+        "_uid": "tabbed-interface-uid-001",
+        "component": "tabbed_interface",
+        "title": "Platform Telemetry",
+        "tabs": [
+          {
+            "_uid": "tab-item-001",
+            "title": "Ghost Hour Tax",
+            "content": "Measuring uncompensated labor extracted by broken ATS workflows."
+          },
+          {
+            "_uid": "tab-item-002",
+            "title": "Information Asymmetry",
+            "content": "Analyzing employer-candidate opacity in modern recruitment pipelines."
+          }
+        ]
+      },
+      {
+        "_uid": "local-jobs-grid-uid-001",
+        "component": "local_jobs_grid",
+        "heading": "Verified Local Postings",
+        "jobs": []
+      },
+      {
+        "_uid": "blog-grid-uid-001",
+        "component": "blog_grid",
+        "heading": "Dispatches & Analysis",
+        "posts": []
+      },
+      {
+        "_uid": "promo-banner-uid-001",
+        "component": "promo_banner",
+        "heading": "Independent Structural Auditing",
+        "subtext": "Zero-knowledge candidate defense and Section 508 / WCAG 2.2 AA verified architectures.",
+        "button_text": "View Methodology",
+        "button_link": {
+          "id": "",
+          "url": "/methodology",
+          "linktype": "url",
+          "fieldtype": "multilink",
+          "cached_url": "/methodology"
+        }
+      }
+    ]
+  }
+}
