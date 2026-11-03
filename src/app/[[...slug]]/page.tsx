@@ -10,6 +10,7 @@ import {
   handleStoryblokError,
   type StoryblokErrorReport,
 } from '@/lib/dto/storyblok/storyblokErrorHandler';
+import { sanitizeSlugSegments, sanitizeSearchParams } from '@/lib/security/sanitizeParams';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,24 +19,15 @@ type DynamicPageProps = {
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-/**
- * Discriminated result so the page can distinguish "no such page" from
- * "the CMS pipeline failed". `report: null` means an expected, unlogged miss
- * (system/browser paths).
- */
 type StoryFetchResult =
   { ok: true; story: ISbStoryData } | { ok: false; report: StoryblokErrorReport | null };
 
 const SYSTEM_SLUG_PREFIXES = ['.well-known', 'favicon.ico', 'robots.txt', 'sitemap.xml'];
 
-const resolveSlugPath = (slug?: string[]): string => {
-  return slug && slug.length > 0 ? slug.join('/') : 'home';
+const resolveSlugPath = (slugSegments: string[]): string => {
+  return slugSegments.length > 0 ? slugSegments.join('/') : 'home';
 };
 
-/**
- * Pulls an HTTP status off an unknown thrown value without trusting its shape.
- * Hardened to inspect status, statusCode, and response.status.
- */
 const extractStatus = (error: unknown): number | undefined => {
   if (!error || typeof error !== 'object') {
     return undefined;
@@ -51,12 +43,6 @@ const extractStatus = (error: unknown): number | undefined => {
   return typeof status === 'number' ? status : undefined;
 };
 
-/**
- * Deduplicated dynamic story fetcher bounded by safe DTO sanitization.
- * Wrapped in React.cache so metadata and page execution share one request.
- * This is the single logging boundary: handleStoryblokError is called here and
- * nowhere else in the route, so cached calls never log twice.
- */
 const fetchDynamicStory = cache(
   async (slugPath: string, isDraft: boolean): Promise<StoryFetchResult> => {
     if (SYSTEM_SLUG_PREFIXES.some((prefix) => slugPath.startsWith(prefix))) {
@@ -83,7 +69,6 @@ const fetchDynamicStory = cache(
         resolve_relations: '',
       });
 
-      // Pass raw CMS payload to the deterministic unwrapper and Zod validator
       const result = safeSanitizeStoryPayload(response);
 
       if (!result.success) {
@@ -117,13 +102,20 @@ const fetchDynamicStory = cache(
 
 export const generateMetadata = async ({ params }: DynamicPageProps): Promise<Metadata> => {
   const { slug } = await params;
-  const slugPath = resolveSlugPath(slug);
+  const sanitizedSlug = sanitizeSlugSegments(slug);
+
+  if (sanitizedSlug === null) {
+    return {
+      title: 'Not Found | The Job Applicant Perspective',
+      description: 'The requested document contains invalid path parameters.',
+    };
+  }
+
+  const slugPath = resolveSlugPath(sanitizedSlug);
   const { isEnabled: isDraft } = await draftMode();
 
   const result = await fetchDynamicStory(slugPath, isDraft);
 
-  // Metadata never throws: any failure degrades to site defaults and the page
-  // body decides the user-facing outcome.
   if (!result.ok || !result.story.content) {
     return {
       title: 'The Job Applicant Perspective',
@@ -153,9 +145,21 @@ export const generateMetadata = async ({ params }: DynamicPageProps): Promise<Me
   };
 };
 
-const DynamicPage = async ({ params }: DynamicPageProps) => {
-  const { slug } = await params;
-  const slugPath = resolveSlugPath(slug);
+const DynamicPage = async ({ params, searchParams }: DynamicPageProps) => {
+  const [resolvedParams, resolvedSearchParams] = await Promise.all([params, searchParams]);
+
+  const sanitizedSlug = sanitizeSlugSegments(resolvedParams.slug);
+
+  // If path contains traversal or illegal characters, reject immediately at the edge.
+  if (sanitizedSlug === null) {
+    notFound();
+  }
+
+  // Sanitize query parameters before downstream consumption.
+  const cleanSearchParams = sanitizeSearchParams(resolvedSearchParams);
+  void cleanSearchParams;
+
+  const slugPath = resolveSlugPath(sanitizedSlug);
   const { isEnabled: isDraft } = await draftMode();
 
   const result = await fetchDynamicStory(slugPath, isDraft);
@@ -163,13 +167,10 @@ const DynamicPage = async ({ params }: DynamicPageProps) => {
   if (!result.ok) {
     const { report } = result;
 
-    // Expected misses and corrupt payloads keep the existing clean-404 behavior.
     if (!report || report.category === 'NOT_FOUND' || report.category === 'VALIDATION') {
       notFound();
     }
 
-    // CONFIG / API / INITIALIZATION / UNKNOWN are not "missing pages".
-    // Hand off to the nearest error boundary with only the visitor-safe message.
     throw new Error(report.safeMessage);
   }
 
