@@ -9,6 +9,7 @@
     "build:offline": "USE_STORYBLOK_FIXTURES=true next build",
     "start": "next start",
     "lint": "eslint src",
+    "test:security": "playwright test e2e/security.spec.ts",
     "verify": "npm run lint && tsc --noEmit --pretty false",
     "prepare": "husky"
   },

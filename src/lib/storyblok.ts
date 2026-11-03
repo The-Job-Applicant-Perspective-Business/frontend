@@ -1,5 +1,6 @@
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 import { PageBlok } from '@/components/storyblok/PageBlok';
+import { HomeContent } from '@/components/storyblok/HomeContent';
 import {
   HeroSection,
   TabbedInterface,
@@ -12,14 +13,15 @@ import cachedStoryFixture from '../tests/fixtures/storyblok-fixture.json';
 
 export const components = {
   page: PageBlok,
-  'Home Content': PageBlok,
-  home_content: PageBlok,
+  // Register both variants to resolve the exact technical name returned by the API
+  'Home Content': HomeContent,
+  home_content: HomeContent,
   hero_section: HeroSection,
   tabbed_interface: TabbedInterface,
+  promo_banner: PromoBanner,
   local_jobs_grid: LocalJobsGrid,
   mission_banner: MissionBanner,
   blog_grid: BlogGrid,
-  promo_banner: PromoBanner,
 };
 
 const getStoryblokToken = (): string => {
