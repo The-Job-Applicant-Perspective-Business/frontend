@@ -3,26 +3,26 @@
     <project_name>The Job Applicant Perspective (TJAP) Technical Remediation</project_name>
     <primary_stakeholder>Sarah Springsteen Trumble</primary_stakeholder>
     <purpose>Initialize Mode-Locked Governance, re-seat zero-trust project architecture, track active milestone progression, and maintain deterministic state across sessions.</purpose>
-    <current_status>Tiers 1, 2, and 3 Complete. CI/CD Pipeline &amp; Offline Fixture Architecture verified: YAML workflow (.github/workflows/ci.yml) drafted and pushed; offline Storyblok fixture (tests/fixtures/storyblok-fixture.json) aligned with DTO validation schemas; src/lib/storyblok.ts hardened with virtual client intercept; local build and verify checks passing with zero errors. Active Phase: Finalize GitHub repository secrets and branch protections, execute external link security audits (noopener/noreferrer), and parameter sanitization (XSS defense). Upstash Redis rate-limiting (Task 1.9 part 2) is formally postponed.</current_status>
+    <current_status>Tiers 1, 2, and 3 Complete. Tier 4 CI/CD Pipeline, GitHub Security Governance, and External Link Hardening Complete: workflow (.github/workflows/ci.yml) validated and passing; status checks registered across branches; repository secrets (STORYBLOK_TOKEN) verified in runner logs[cite: 4]; build:offline script integrated into package.json[cite: 4]; external anchor security audit complete with rel="noopener noreferrer" enforced across all target="_blank" links[cite: 4]. Active Phase: Deploy parameter reflection sanitization for XSS defense to finalize Tier 4 Zero-Trust Security Perimeter[cite: 4]. Upstash Redis rate-limiting is formally postponed.</current_status>
     <enforced_mode>/saiph (Sovereign CTO)[cite: 4, 8]</enforced_mode>
   </metadata>
 
   <environment_state id="tjap_infrastructure">
     <tech_stack>
-      <core>Next.js (16.3.3), React &amp; React-DOM (19.2.8), TypeScript (^5)</core>
-      <styling>Tailwind CSS (^4), @tailwindcss/postcss</styling>
+      <core>Next.js (16.3.3), React &amp; React-DOM (19.2.8), TypeScript (^5)[cite: 4]</core>
+      <styling>Tailwind CSS (^4), @tailwindcss/postcss[cite: 4]</styling>
       <cms>@storyblok/react (^7.3.1)[cite: 4]</cms>
       <ui_primitives>Radix UI (Dialog, Slot, Visually-Hidden), lucide-react (^1.48.0)[cite: 4]</ui_primitives>
-      <backend_and_security>zod (4.6.2) [Upstash deferred to future post-launch phase]</backend_and_security>
+      <backend_and_security>zod (4.6.2) [@upstash/ratelimit and @upstash/redis deferred to post-launch][cite: 4]</backend_and_security>
       <ai_integration>@google/generative-ai (^0.24.1)[cite: 4]</ai_integration>
       <testing_and_qa>@playwright/test (^1.62.1), eslint-plugin-playwright (^2.11.0)[cite: 4]</testing_and_qa>
-      <ci_cd>GitHub Actions (.github/workflows/ci.yml) with offline fixture pre-rendering</ci_cd>
+      <ci_cd>GitHub Actions (.github/workflows/ci.yml) with offline fixture pre-rendering and protected branch gates[cite: 4]</ci_cd>
     </tech_stack>
     <build_and_execution>
       <script name="dev">concurrently Next.js + TSC watch (--noEmit)[cite: 4]</script>
       <script name="dev:full">concurrently Next.js + TSC watch + Supabase local start[cite: 4]</script>
       <script name="verify">ESLint + TSC strict check (pre-commit/CI pipeline)[cite: 4]</script>
-      <script name="build:offline">USE_STORYBLOK_FIXTURES=true next build --no-lint</script>
+      <script name="build:offline">USE_STORYBLOK_FIXTURES=true next build --no-lint[cite: 4]</script>
     </build_and_execution>
     <repository_map>
       <root_directories>.github, src, public, docs, e2e, qa-agent, tests/fixtures, test-results, playwright-report[cite: 4]</root_directories>
@@ -34,14 +34,14 @@
         <path name="src/components/ui">Base interactive primitives[cite: 4]</path>
         <path name="src/lib">Storyblok client initialization (storyblok.ts) with unified token extraction, pure diagnostic checks (getStoryblokConfigIssue), and virtual client intercept for offline CI fixture hydration[cite: 4]</path>
         <path name="src/lib/dto">Data Transfer Objects, payload sanitization (sanitizeStoryPayload.ts), and centralized Storyblok error handling (storyblok/storyblokErrorHandler.ts)[cite: 4]</path>
-        <path name="tests/fixtures">Standardized CMS response fixtures (storyblok-fixture.json) for zero-egress CI/CD compilation and deterministic testing</path>
+        <path name="tests/fixtures">Standardized CMS response fixtures (storyblok-fixture.json) for zero-egress CI/CD compilation and deterministic testing[cite: 4]</path>
       </src_architecture>
     </repository_map>
     <cms_architectural_invariants>
       <invariant id="CMS-01">Decoupled Headless Contract: Storyblok owns zero HTML, CSS, or molecular components in production. It operates strictly as a decoupled JSON data store returning content arrays of typed bloks[cite: 4].</invariant>
       <invariant id="CMS-02">Zero Production Iframe: The application renders native Next.js Server Components. Iframes are strictly isolated to the Storyblok Visual Editor administrative preview (app.storyblok.com) via window.postMessage bridge listeners[cite: 4].</invariant>
       <invariant id="CMS-03">Presentation Sovereignty: All styling, fluid typography, WCAG 2.2 AA focus indicators, and layout constraints remain 100% under local Tailwind CSS v4 CSS-first token custody[cite: 4].</invariant>
-      <invariant id="CMS-04">Offline CI Determinism: CI runners execute static generation and type audits against local fixture JSON, eliminating build-time network dependencies, API token exposure, and rate-limiting failure states.</invariant>
+      <invariant id="CMS-04">Offline CI Determinism: CI runners execute static generation and type audits against local fixture JSON, eliminating build-time network dependencies, API token exposure, and rate-limiting failure states[cite: 4].</invariant>
     </cms_architectural_invariants>
   </environment_state>
 
@@ -53,9 +53,10 @@
     <entry phase="Tier 3">COMPLETED: Mobile-First Responsive Breakpoint &amp; Fluid Typography Refactor using clamp() tokens in globals.css[cite: 4].</entry>
     <entry phase="Tier 1-3 Infrastructure">COMPLETED: Centralized Storyblok Error Handler architecture implemented and reconciled. Wired lib/dto/storyblok/storyblokErrorHandler.ts into src/app/[[...slug]]/page.tsx and src/lib/storyblok.ts using strict 2-argument signature options contract ({ context, category }). Decoupled 404 notFound() routing from fatal 500 error boundaries, preserving WCAG 2.2 AA / Section 508 accessibility status reporting[cite: 4, 5].</entry>
     <entry phase="Pre-Stage Credentials">COMPLETED: Task 1.8 closed. Formulated sanitized .env.example template, verified server vs. client token segregation, aligned getStoryblokToken() lookup cascade, and mapped GitHub Actions repository secrets[cite: 4].</entry>
-    <entry phase="CI/CD Architecture">COMPLETED: Hardened GitHub Actions CI pipeline (.github/workflows/ci.yml) deployed. Implemented offline cached fixture strategy (tests/fixtures/storyblok-fixture.json) to decouple pre-rendering from live Storyblok API calls in runners. Patched src/lib/storyblok.ts with virtual client intercept; verified zero errors across local ESLint, TypeScript strict check, and Next.js static build.</entry>
-    <entry phase="GitHub Operations">COMPLETED: Configured workflow branch rules and staging environment parameters.</entry>
-    <entry phase="Tier 4">ACTIVE: Task 1.9 (Zero-Trust Security Perimeter Hardening). External anchor attribute hardening (`rel="noopener noreferrer"`) and parameter reflection sanitization in progress. Upstash rate-limiting postponed per operator directive.</entry>
+    <entry phase="CI/CD Architecture">COMPLETED: Hardened GitHub Actions CI pipeline (.github/workflows/ci.yml) deployed. Implemented offline cached fixture strategy (tests/fixtures/storyblok-fixture.json) to decouple pre-rendering from live Storyblok API calls in runners[cite: 4]. Added missing build:offline script to package.json; verified clean pipeline execution on main branch.</entry>
+    <entry phase="GitHub Operations">COMPLETED: Configured repository secrets (STORYBLOK_TOKEN confirmed injected via logs), set up branch protection status check requirements for Codebase Verification &amp; Next.js Production Build Validation on main and staging[cite: 4].</entry>
+    <entry phase="Tier 4 Security Hardening">COMPLETED: Audited and hardened all external anchor elements targeting _blank to mandate rel="noopener noreferrer", neutralizing reverse tabnabbing vulnerabilities[cite: 4].</entry>
+    <entry phase="Tier 4">ACTIVE: Task 1.9 (Zero-Trust Security Perimeter Hardening). Finalizing parameter reflection sanitization against regex patterns (XSS defense)[cite: 4]. Upstash rate-limiting deferred.</entry>
   </execution_log>
 
   <governance_topology id="section_8_triad">
@@ -69,7 +70,7 @@
     <tier_1 allocation="20%" status="COMPLETED">Hemorrhage Control &amp; Diagnostics. Decoupled server error boundaries, enforced strict DTO schema sanitization, and stabilized Storyblok client/server bridge integration with centralized diagnostics[cite: 4].</tier_1>
     <tier_2 allocation="30%" status="COMPLETED">Accessibility &amp; Semantic Integrity. WCAG 2.2 AA, ARIA bindings, programmatic escape hatches, Focus Management, and ESLint scrollable region compliance[cite: 4].</tier_2>
     <tier_3 allocation="30%" status="COMPLETED">Substrate Decoupling &amp; Component Hydration. Layout DOM extraction, JIT eradication, UI primitive tokenization, presentational block refactoring, dynamic catch-all route mapping, and barrel export alignment complete[cite: 4].</tier_3>
-    <tier_4 allocation="20%" status="ACTIVE">Zero-Trust Security Perimeter &amp; Production Hardening. CI/CD offline build decoupling complete. Active assignments: Parameter reflection sanitization (XSS mitigation), external anchor security locks (`rel="noopener noreferrer"`), and GitHub secret wiring. Upstash rate-limiting deferred[cite: 4].</tier_4>
+    <tier_4 allocation="20%" status="ACTIVE">Zero-Trust Security Perimeter &amp; Production Hardening. CI/CD offline build decoupling, GitHub repository secrets, branch protection status checks, and external link security locks complete[cite: 4]. Final active assignment: Parameter reflection sanitization (XSS defense)[cite: 4]. Upstash rate-limiting deferred[cite: 4].</tier_4>
   </milestone_architecture>
 
   <equity_and_ip_custody id="liability_surface_management">
@@ -84,15 +85,16 @@
         <subtask status="COMPLETED">Audited repository to guarantee STORYBLOK_TOKEN and delivery keys are not tracked in Git[cite: 4].</subtask>
         <subtask status="COMPLETED">Formalized .env.example template defining server vs. client token segregation[cite: 4].</subtask>
         <subtask status="COMPLETED">Documented GitHub Actions Repository Secrets and Deployment Environment mapping[cite: 4].</subtask>
-        <subtask status="COMPLETED">Engineered tests/fixtures/storyblok-fixture.json matching Storyblok Delivery API v2 schema.</subtask>
-        <subtask status="COMPLETED">Configured .github/workflows/ci.yml with offline fixture switch (USE_STORYBLOK_FIXTURES=true).</subtask>
-        <subtask status="COMPLETED">Audited src/lib/storyblok.ts and confirmed zero build errors locally during static optimization.</subtask>
+        <subtask status="COMPLETED">Engineered tests/fixtures/storyblok-fixture.json matching Storyblok Delivery API v2 schema[cite: 4].</subtask>
+        <subtask status="COMPLETED">Configured .github/workflows/ci.yml with offline fixture switch (USE_STORYBLOK_FIXTURES=true)[cite: 4].</subtask>
+        <subtask status="COMPLETED">Audited src/lib/storyblok.ts and confirmed zero build errors locally during static optimization[cite: 4].</subtask>
       </task>
       <task id="1.9" name="Tier 4 Zero-Trust Security Perimeter &amp; CI/CD Hardening" status="ACTIVE">
-        <subtask status="COMPLETED">Set up GitHub Actions repository secrets (STORYBLOK_TOKEN, STORYBLOK_WEBHOOK_SECRET) and branch protection rules.</subtask>
+        <subtask status="COMPLETED">Set up GitHub Actions repository secrets (STORYBLOK_TOKEN confirmed active via log masking)[cite: 4].</subtask>
+        <subtask status="COMPLETED">Enforced protected branch status checks for main and staging in GitHub repository settings[cite: 4].</subtask>
         <subtask status="POSTPONED">Deploy Upstash Layer 7 rate limiting (@upstash/ratelimit) on sensitive API and ISR endpoints (Deferred to post-launch phase)[cite: 4].</subtask>
+        <subtask status="COMPLETED">Audit all external anchor elements targeting _blank to mandate rel="noopener noreferrer"[cite: 4].</subtask>
         <subtask status="ACTIVE">Sanitize route and query parameter reflection against regex patterns (XSS mitigation)[cite: 4].</subtask>
-        <subtask status="ACTIVE">Audit all external anchor elements targeting _blank to mandate rel="noopener noreferrer"[cite: 4].</subtask>
       </task>
     </category>
   </task_and_query_ledger>
@@ -101,6 +103,6 @@
     <directive>1. ZERO-TRUST CONTEXT: Treat this XML as immutable ground truth[cite: 4].</directive>
     <directive>2. MODE-LOCK: Enforce /saiph (Sovereign CTO) mode for all code and architecture generation[cite: 4, 8].</directive>
     <directive>3. SYNTAX MANDATE: All React components must strictly utilize ES6 fat arrow function syntax[cite: 4].</directive>
-    <directive>4. CI INTEGRITY: Maintain offline fixture fallback support across any Storyblok API updates to ensure continuous headless build validity.</directive>
+    <directive>4. CI INTEGRITY: Maintain offline fixture fallback support across any Storyblok API updates to ensure continuous headless build validity[cite: 4].</directive>
   </llm_execution_directives>
 </system_context_override>
