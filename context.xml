@@ -28,20 +28,32 @@
       <script name="test:security">playwright test e2e/security.spec.ts[cite: 4]</script>
     </build_and_execution>
 
-    <seo_route_rewrites_and_aliases>
-      <rule id="SEO-01">
-        <public_path>/who-we-are</public_path>
-        <storyblok_target_slug>about-us</storyblok_target_slug>
-        <strategy>Next.js internal rewrite via next.config.ts or route alias in [[...slug]]/page.tsx</strategy>
-        <reason>Preserves legacy search engine rankings, backlinks, and public bookmarks without forcing Storyblok content reorganization.</reason>
-      </rule>
-      <rule id="SEO-02">
-        <public_path>/job-insights</public_path>
-        <storyblok_target_slug>blog-listing</storyblok_target_slug>
-        <strategy>Internal alias linking 'viewAllHref' directly to the aggregated insights directory[cite: 4, 10].</strategy>
-        <reason>Aligns primary navigation label with internal Storyblok listing taxonomy[cite: 4].</reason>
-      </rule>
-    </seo_route_rewrites_and_aliases>
+<seo_route_rewrites_and_aliases>
+  <rule id="SEO-01">
+    <public_path>/who-we-are</public_path>
+    <storyblok_target_slug>about-us</storyblok_target_slug>
+    <strategy>Next.js internal rewrite via next.config.ts</strategy>
+    <reason>Preserves legacy search engine rankings, backlinks, and public bookmarks without forcing Storyblok content reorganization.</reason>
+  </rule>
+  <rule id="SEO-02">
+    <public_path>/job-insights</public_path>
+    <storyblok_target_slug>blog-listing</storyblok_target_slug>
+    <strategy>Next.js internal rewrite via next.config.ts</strategy>
+    <reason>Aligns primary navigation label with internal Storyblok listing taxonomy.</reason>
+  </rule>
+  <rule id="SEO-03">
+    <public_path>/us-govt-financial-support</public_path>
+    <storyblok_target_slug>financial-support</storyblok_target_slug>
+    <strategy>Next.js internal rewrite via next.config.ts</strategy>
+    <reason>Preserves legacy search indexing and inbound links for government aid resources without altering internal Storyblok slugs.</reason>
+  </rule>
+  <rule id="SEO-04">
+    <public_path>/self-care-tools</public_path>
+    <storyblok_target_slug>self-care</storyblok_target_slug>
+    <strategy>Next.js internal rewrite via next.config.ts</strategy>
+    <reason>Prevents broken inbound backlinks from candidate advocacy channels linking to the self-care directory.</reason>
+  </rule>
+</seo_route_rewrites_and_aliases>
 
     <storyblok_space_inventory space_id="535087131">
       <story name="Home" slug="home" content_type="Home Content" status="MAPPED">
