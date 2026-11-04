@@ -44,6 +44,8 @@ try {
   console.log(`- Story Name: ${story.name}`);
   console.log(`- Story ID: ${story.id}`);
   console.log(`- Content Component (Root Blok): ${story.content?.component}`);
+  console.log('\n--- ROOT CONTENT FIELDS ---');
+  console.log(JSON.stringify(story.content, null, 2));
   
   const bloks = story.content?.body || [];
   console.log(`- Registered Child Bloks in body: ${bloks.length}`);

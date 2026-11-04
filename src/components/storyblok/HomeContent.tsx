@@ -1,79 +1,108 @@
 import React from 'react';
 import { storyblokEditable, StoryblokComponent } from '@storyblok/react';
 import type { SbBlokData } from '@storyblok/react';
-import { HeroSection, LocalJobsGrid, MissionBanner, BlogGrid } from '@/components/blocks';
+import {
+  HeroSection,
+  TabbedInterface,
+  PromoBanner,
+  MissionBanner,
+  LocalJobsGrid,
+  BlogGrid,
+} from '@/components/blocks';
+import type { LocalJobItem } from '@/components/blocks/LocalJobsGrid';
 
-interface JobBoardItem {
+interface StoryblokJobBoardItem {
   _uid: string;
   Name: string;
   Link: string;
   component: string;
 }
 
-interface HomeContentProps {
+interface StoryblokAsset {
+  id?: number;
+  filename?: string;
+  alt?: string;
+  [key: string]: unknown;
+}
+
+export interface HomeContentProps {
   blok: {
     _uid: string;
     _editable?: string;
     body?: SbBlokData[];
     Title?: string;
     Description?: string;
+    BannerMobile?: string | StoryblokAsset;
+    BannerDesktop?: string | StoryblokAsset;
     CardTitle?: string;
     CardDescription?: string;
-    CardImage?: {
-      filename?: string;
-      alt?: string;
-    };
+    CardImage?: StoryblokAsset;
     JobBoardTitle?: string;
-    JobBoard?: JobBoardItem[];
+    JobBoard?: StoryblokJobBoardItem[];
     BlogSectionTitle?: string;
     BlogSectionDescription?: string;
     [key: string]: unknown;
   };
 }
 
+const resolveAssetUrl = (asset?: string | StoryblokAsset): string | undefined => {
+  if (!asset) return undefined;
+  if (typeof asset === 'string') return asset;
+  return asset.filename;
+};
+
 export const HomeContent = ({ blok }: HomeContentProps) => {
+  // Normalize Storyblok JobBoard items to strict LocalJobItem shape
+  const formattedJobs: LocalJobItem[] | undefined = blok.JobBoard?.map((item) => ({
+    title: item.Name,
+    href: item.Link,
+    isExternal: true,
+  }));
+
+  const mobileBanner = resolveAssetUrl(blok.BannerMobile);
+  const desktopBanner = resolveAssetUrl(blok.BannerDesktop);
+
   return (
     <div
       {...storyblokEditable(blok)}
       data-testid="storyblok-home-content-container"
       className="flex w-full flex-col"
     >
-      {/* 1. Hero Section from Root Fields */}
-      {blok.Title && <HeroSection title={blok.Title} description={blok.Description || ''} />}
+      {/* 1. Hero Section */}
+      {blok.Title && <HeroSection headline={blok.Title} description={blok.Description} />}
 
-      {/* 2. Mission / Promo Card from Root Fields */}
+      {/* 2. Classified vs. Hiring Feedback Search Interface */}
+      <TabbedInterface defaultTab="classified" />
+
+      {/* 3. Promotional Dual-Asset Banner */}
+      <PromoBanner mobileImageSrc={mobileBanner} desktopImageSrc={desktopBanner} />
+
+      {/* 4. Mission Banner: ctaHref points directly to the verified Storyblok slug */}
       {blok.CardTitle && (
         <MissionBanner
-          title={blok.CardTitle}
-          description={blok.CardDescription || ''}
+          heading={blok.CardTitle}
+          description={blok.CardDescription}
+          imageSrc={blok.CardImage?.filename}
           imageAlt={blok.CardImage?.alt || blok.CardTitle}
+          ctaText="Know more"
+          ctaHref="/about-us"
         />
       )}
 
-      {/* 3. Local Job Board Links */}
-      {blok.JobBoard && blok.JobBoard.length > 0 && (
+      {/* 5. Local Job Board Links */}
+      {formattedJobs && formattedJobs.length > 0 && (
         <LocalJobsGrid
-          title={blok.JobBoardTitle || 'Local Opportunities'}
-          jobs={blok.JobBoard.map((item) => ({
-            id: item._uid,
-            title: item.Name,
-            href: item.Link,
-          }))}
+          heading={blok.JobBoardTitle || 'For more local jobs and opportunities visit'}
+          jobs={formattedJobs}
         />
       )}
 
-      {/* 4. Blog / Insights Section Header */}
+      {/* 6. Blog / Research Insights */}
       {blok.BlogSectionTitle && (
-        <>
-          <section className="w-full">
-            <h2>{blok.BlogSectionTitle}</h2>
-            {blok.BlogSectionDescription && <p>{blok.BlogSectionDescription}</p>}
-          </section>
-          <BlogGrid />
-        </>
+        <BlogGrid title={blok.BlogSectionTitle} description={blok.BlogSectionDescription} />
       )}
 
-      {/* 5. Fallback for dynamic modular bloks if added to body in the future */}
+      {/* 7. Fallback Container for Future Modular Storyblok Bloks */}
       {blok.body && blok.body.length > 0 && (
         <div className="flex w-full flex-col">
           {blok.body.map((nestedBlok) => (

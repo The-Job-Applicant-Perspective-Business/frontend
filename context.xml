@@ -3,7 +3,7 @@
     <project_name>The Job Applicant Perspective (TJAP) Technical Remediation</project_name>
     <primary_stakeholder>Sarah Springsteen Trumble</primary_stakeholder>
     <purpose>Initialize Mode-Locked Governance, re-seat zero-trust project architecture, track active milestone progression, and maintain deterministic state across sessions.</purpose>
-    <current_status>Tiers 1, 2, 3, and 4 Complete. Tier 4 Zero-Trust Security Perimeter finalized: CI/CD pipeline hardened with offline fixture tests, protected branch status checks active, external links secured with rel="noopener noreferrer", and dynamic route/query parameter reflection sanitized against XSS vectors with dedicated Playwright integration tests. Active Phase: Local Storyblok CMS live ingestion verification and visual sanity checks prior to stakeholder demonstration. Upstash Redis rate-limiting remains deferred post-launch.</current_status>
+    <current_status>Tiers 1, 2, 3, and 4 Complete. Full Storyblok space inventory (12 stories) cataloged and reconciled. Key slug divergence resolved: navigation link targeting '/who-we-are' failed with 404 due to Storyblok slug being 'about-us' (Content Type: 'About Us Content'). Active Phase: Wire 'TabbedInterface' and 'PromoBanner' into 'HomeContent.tsx', align 'about-us' routing/component resolution, and verify component bindings across all live CMS content types prior to stakeholder demonstration. Upstash Redis rate-limiting remains deferred post-launch.</current_status>
     <enforced_mode>/saiph (Sovereign CTO)</enforced_mode>
   </metadata>
 
@@ -12,12 +12,13 @@
       <core>Next.js (16.3.3), React &amp; React-DOM (19.2.8), TypeScript (^5)</core>
       <styling>Tailwind CSS (^4), @tailwindcss/postcss</styling>
       <cms>@storyblok/react (^7.3.1)</cms>
-      <ui_primitives>Radix UI (Dialog, Slot, Visually-Hidden), lucide-react (^1.48.0)</ui_primitives>
+      <ui_primitives>Radix UI (Dialog, Slot, Visually-Hidden, Tabs, ScrollArea), lucide-react (^1.48.0)</ui_primitives>
       <backend_and_security>zod (4.6.2) [@upstash/ratelimit and @upstash/redis deferred to post-launch]</backend_and_security>
       <ai_integration>@google/generative-ai (^0.24.1)</ai_integration>
       <testing_and_qa>@playwright/test (^1.62.1), eslint-plugin-playwright (^2.11.0)</testing_and_qa>
       <ci_cd>GitHub Actions (.github/workflows/ci.yml) with offline fixture pre-rendering and protected branch gates</ci_cd>
     </tech_stack>
+    
     <build_and_execution>
       <script name="dev">concurrently Next.js + TSC watch (--noEmit)</script>
       <script name="dev:full">concurrently Next.js + TSC watch + Supabase local start</script>
@@ -25,13 +26,53 @@
       <script name="build:offline">USE_STORYBLOK_FIXTURES=true next build --no-lint</script>
       <script name="test:security">playwright test e2e/security.spec.ts</script>
     </build_and_execution>
+
+    <storyblok_space_inventory space_id="535087131">
+      <story name="Home" slug="home" content_type="Home Content" status="MAPPED">
+        <notes>Root landing page. Schema maps flat root fields (Title, Description, CardTitle, CardDescription, CardImage, JobBoard, JobBoardTitle, BlogSectionTitle, BlogSectionDescription) via HomeContent.tsx adapter.</notes>
+      </story>
+      <story name="About Us" slug="about-us" content_type="About Us Content" status="DISCOVERED">
+        <notes>Target of '/who-we-are' CTA link in MissionBanner. Resolution required: alias route or update ctaHref in MissionBanner from '/who-we-are' to '/about-us'.</notes>
+      </story>
+      <story name="Michael-Smith-Who?" slug="michael-smith-who-" content_type="Root" status="DISCOVERED">
+        <notes>Article or case study story under Root schema.</notes>
+      </story>
+      <story name="Deloitte Manpower" slug="deloitte-manpower" content_type="Blog Content" status="DISCOVERED">
+        <notes>Individual blog post under Blog Content schema.</notes>
+      </story>
+      <story name="Blog" slug="blog" content_type="Blog Content" status="DISCOVERED">
+        <notes>Featured or primary blog entry.</notes>
+      </story>
+      <story name="Blog Listing" slug="blog-listing" content_type="Blog List" status="DISCOVERED">
+        <notes>Aggregator page for insights archive. Target of 'viewAllHref' (/job-insights or /blog-listing).</notes>
+      </story>
+      <story name="Privacy Policy" slug="privacy-policy" content_type="Privacy Policy Content" status="DISCOVERED">
+        <notes>Compliance and legal terms document.</notes>
+      </story>
+      <story name="Self Care" slug="self-care" content_type="Self Care Content" status="DISCOVERED">
+        <notes>Resource hub for applicant mental health and stress mitigation.</notes>
+      </story>
+      <story name="Financial Support" slug="financial-support" content_type="Financial Support Content" status="DISCOVERED">
+        <notes>Applicant support and mutual aid routing page.</notes>
+      </story>
+      <story name="Career Fairs" slug="career-fairs" content_type="Career Fairs Content" status="DISCOVERED">
+        <notes>Event directory and local fair listings.</notes>
+      </story>
+      <story name="AI Tools" slug="ai-tools" content_type="A I Tools Content" status="DISCOVERED">
+        <notes>Job applicant tooling and transparency evaluations.</notes>
+      </story>
+      <story name="Footer" slug="footer" content_type="Footer Content" status="DISCOVERED">
+        <notes>Global footer navigation and social links block.</notes>
+      </story>
+    </storyblok_space_inventory>
+
     <repository_map>
       <root_directories>.github, src, public, docs, e2e, qa-agent, tests/fixtures, test-results, playwright-report</root_directories>
       <src_architecture>
         <path name="src/app/[[...slug]]">Dynamic catch-all routing (Receives Storyblok story JSON, unwraps story.content.body, isolates DTO errors via Zod, deduplicates requests via React.cache, handles 404 vs 500 boundaries via handleStoryblokError, sanitizes route/query params, and renders full-width flex container without duplicate main landmarks)</path>
-        <path name="src/components/blocks">Presentational and composite components with centralized index.ts barrel export</path>
+        <path name="src/components/blocks">Presentational and composite components with centralized index.ts barrel export (HeroSection, TabbedInterface, PromoBanner, LocalJobsGrid, MissionBanner, BlogGrid, BlogCard, JobLinkCard)</path>
         <path name="src/components/layout">Global layout shells (MainHeader, MainFooter)</path>
-        <path name="src/components/storyblok">CMS-bound component wrappers and client-side bridge resolver</path>
+        <path name="src/components/storyblok">CMS-bound component wrappers and client-side bridge resolver (PageBlok, HomeContent)</path>
         <path name="src/components/ui">Base interactive primitives</path>
         <path name="src/lib">Storyblok client initialization (storyblok.ts) with unified token extraction, pure diagnostic checks (getStoryblokConfigIssue), and virtual client intercept for offline CI fixture hydration</path>
         <path name="src/lib/dto">Data Transfer Objects, payload sanitization (sanitizeStoryPayload.ts), and centralized Storyblok error handling (storyblok/storyblokErrorHandler.ts)</path>
@@ -39,6 +80,7 @@
         <path name="tests/fixtures">Standardized CMS response fixtures (storyblok-fixture.json) for zero-egress CI/CD compilation and deterministic testing</path>
       </src_architecture>
     </repository_map>
+    
     <cms_architectural_invariants>
       <invariant id="CMS-01">Decoupled Headless Contract: Storyblok owns zero HTML, CSS, or molecular components in production. It operates strictly as a decoupled JSON data store returning content arrays of typed bloks.</invariant>
       <invariant id="CMS-02">Zero Production Iframe: The application renders native Next.js Server Components. Iframes are strictly isolated to the Storyblok Visual Editor administrative preview (app.storyblok.com) via window.postMessage bridge listeners.</invariant>
@@ -57,7 +99,9 @@
     <entry phase="Pre-Stage Credentials">COMPLETED: Task 1.8 closed. Formulated sanitized .env.example template, verified server vs. client token segregation, aligned getStoryblokToken() lookup cascade, and mapped GitHub Actions repository secrets.</entry>
     <entry phase="CI/CD Architecture">COMPLETED: Hardened GitHub Actions CI pipeline (.github/workflows/ci.yml) deployed with offline cached fixture strategy.</entry>
     <entry phase="Tier 4 Security Hardening">COMPLETED: External anchors locked with rel="noopener noreferrer". Parameter reflection sanitized via sanitizeParams.ts. Security regression suite created in e2e/security.spec.ts.</entry>
-    <entry phase="Milestone Review">COMPLETED: All Tier 1-4 technical tasks reconciled. Moving to Live CMS Verification and Staging Smoke Testing.</entry>
+    <entry phase="Image Pipeline Hardening">COMPLETED: Configured next.config.ts remotePatterns to authorize Storyblok CDN (a.storyblok.com). Hardened BlogCard.tsx with defensive hasValidImage check and styled SVG document watermarks to eradicate 400 Bad Request errors. Set priority={true} on MissionBanner hero asset to eliminate Next.js LCP warnings.</entry>
+    <entry phase="Space Discovery &amp; Reconciliation">COMPLETED: Full Storyblok space audit discovered 12 active stories. Resolved 'who-we-are' 404 anomaly (Storyblok slug is 'about-us' under 'About Us Content').</entry>
+    <entry phase="Active Pipeline">ACTIVE: Task 1.10. Aligning HomeContent.tsx front-page flow by wiring TabbedInterface (Classified search vs Hiring Feedback) and PromoBanner (3-free-posts mobile/desktop). Registering component resolvers for newly cataloged Storyblok content types.</entry>
   </execution_log>
 
   <governance_topology id="section_8_triad">
@@ -99,9 +143,13 @@
         <subtask status="COMPLETED">Deploy Playwright test assertions in e2e/security.spec.ts.</subtask>
       </task>
       <task id="1.10" name="Pre-Demo CMS Verification &amp; Visual Smoke Test" status="ACTIVE">
-        <subtask status="ACTIVE">Execute isolated local script to test live Storyblok Delivery API token and retrieve draft/published home story.</subtask>
-        <subtask status="PENDING">Verify local rendering in Next.js development server without fixture mocking.</subtask>
-        <subtask status="PENDING">Conduct visual audit of Tailwind CSS v4 design tokens and responsive layout against live CMS text.</subtask>
+        <subtask status="COMPLETED">Execute isolated local script to test live Storyblok Delivery API token and retrieve draft/published home story.</subtask>
+        <subtask status="COMPLETED">Fix image pipeline 400 Bad Request errors and LCP warnings across BlogGrid and MissionBanner.</subtask>
+        <subtask status="ACTIVE">Wire TabbedInterface (Classified search vs Hiring Feedback) into HomeContent.tsx.</subtask>
+        <subtask status="ACTIVE">Wire PromoBanner (BannerMobile and BannerDesktop) into HomeContent.tsx.</subtask>
+        <subtask status="ACTIVE">Reconcile MissionBanner CTA target from '/who-we-are' to '/about-us' (or configure Next.js redirect).</subtask>
+        <subtask status="PENDING">Test live fetch on '/about-us' using node scripts/test-cms-fetch.mjs about-us.</subtask>
+        <subtask status="PENDING">Conduct visual audit of Tailwind CSS v4 design tokens and responsive layout against live CMS text prior to demonstration.</subtask>
       </task>
     </category>
   </task_and_query_ledger>

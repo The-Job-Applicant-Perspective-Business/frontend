@@ -1,9 +1,15 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Optional: Disable image optimization if you aren't using a custom loader,
-  // as standard Next.js image optimization relies on the Node.js server.
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
   images: {
-    unoptimized: true,
+    // Allows Next.js to safely render images hosted on Storyblok's CDN
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'a.storyblok.com',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
