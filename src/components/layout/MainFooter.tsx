@@ -1,8 +1,8 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { storyblokEditable } from '@storyblok/react';
-import { Button } from '@/components/ui/Button';
-import { FormInput } from '@/components/blocks/FormInput';
 
 export interface SocialLinkItem {
   platform: 'facebook' | 'twitter' | 'instagram' | 'linkedin';
@@ -55,10 +55,6 @@ export const MainFooter = ({ blok, className = '' }: MainFooterProps) => {
   const copyrightText =
     blok?.CopyrightText || `Copyright © ${currentYear} • thejobapplicantperspective`;
 
-  const inputOverrides =
-    'border-slate-400 bg-transparent text-white placeholder:text-slate-300 ' +
-    'focus-visible:ring-white focus-visible:ring-offset-[#081F48]';
-
   const editableProps = blok ? storyblokEditable(blok) : {};
 
   return (
@@ -88,50 +84,79 @@ export const MainFooter = ({ blok, className = '' }: MainFooterProps) => {
             {/* Right Column: Contact Form */}
             <div className="mt-[40px] w-full md:mt-0 md:flex-1">
               <form className="flex w-full flex-col" action="/api/contact" method="POST">
-                <div className="flex w-full flex-col gap-[12px] text-white md:flex-row md:gap-[26px]">
+                <div className="flex w-full flex-col gap-[16px] text-white md:flex-row md:gap-[26px]">
+                  {/* Name Input */}
                   <div className="w-full">
-                    <FormInput
+                    <label
+                      htmlFor="footer-name"
+                      className="mb-1.5 block text-xs font-semibold text-slate-200"
+                    >
+                      Name{' '}
+                      <span className="text-rose-400" aria-hidden="true">
+                        *
+                      </span>
+                    </label>
+                    <input
                       id="footer-name"
                       name="name"
-                      placeholder="Name"
                       type="text"
                       required
-                      label="Name"
-                      className={inputOverrides}
+                      placeholder="Name"
+                      className="w-full rounded-lg border border-slate-400/50 bg-transparent px-4 py-3 text-white placeholder-slate-400 focus:border-white focus:ring-2 focus:ring-white/20 focus:outline-none"
                     />
                   </div>
+
+                  {/* Email Input */}
                   <div className="w-full">
-                    <FormInput
+                    <label
+                      htmlFor="footer-email"
+                      className="mb-1.5 block text-xs font-semibold text-slate-200"
+                    >
+                      Email{' '}
+                      <span className="text-rose-400" aria-hidden="true">
+                        *
+                      </span>
+                    </label>
+                    <input
                       id="footer-email"
                       name="email"
-                      placeholder="Email"
                       type="email"
                       required
-                      label="Email"
-                      className={inputOverrides}
+                      placeholder="Email"
+                      className="w-full rounded-lg border border-slate-400/50 bg-transparent px-4 py-3 text-white placeholder-slate-400 focus:border-white focus:ring-2 focus:ring-white/20 focus:outline-none"
                     />
                   </div>
                 </div>
 
-                <div className="mt-[16px] md:mt-[36px]">
-                  <FormInput
+                {/* Message Input */}
+                <div className="mt-[16px] md:mt-[24px]">
+                  <label
+                    htmlFor="footer-message"
+                    className="mb-1.5 block text-xs font-semibold text-slate-200"
+                  >
+                    Message{' '}
+                    <span className="text-rose-400" aria-hidden="true">
+                      *
+                    </span>
+                  </label>
+                  <textarea
                     id="footer-message"
                     name="message"
-                    placeholder="Message"
-                    type="textarea"
+                    rows={6}
                     required
-                    label="Message"
-                    className={`h-[212px] w-full resize-none ${inputOverrides}`}
+                    placeholder="Message"
+                    className="h-[212px] w-full resize-none rounded-lg border border-slate-400/50 bg-transparent p-4 text-white placeholder-slate-400 focus:border-white focus:ring-2 focus:ring-white/20 focus:outline-none"
                   />
                 </div>
 
-                <div className="mt-[16px] md:mt-[37px]">
-                  <Button
+                {/* Submit Action */}
+                <div className="mt-[20px] md:mt-[28px]">
+                  <button
                     type="submit"
-                    className="text-primary min-h-12 rounded-[8px] bg-[#FAFAFA] px-[20px] py-[10px] font-[600] hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#081F48]"
+                    className="inline-flex min-h-12 items-center justify-center rounded-md bg-white px-6 py-2.5 text-sm font-bold text-[#081F48] shadow-sm transition-colors hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#081F48] focus-visible:outline-none"
                   >
                     Send Message
-                  </Button>
+                  </button>
                 </div>
               </form>
             </div>
