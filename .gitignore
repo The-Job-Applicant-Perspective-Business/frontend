@@ -44,3 +44,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# --- Playwright (Automated Verification) ---
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+.auth/
