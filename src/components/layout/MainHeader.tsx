@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { NavLink } from '@/components/ui/NavLink';
+import { MainNav } from '@/components/layout/MainNav';
 
 export interface MainHeaderProps {
   logoSrc?: string;
@@ -25,7 +25,7 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
 
   return (
     <header className={`absolute top-0 z-50 w-full bg-transparent ${className}`.trim()}>
-      {/* Mobile Navigation Bar */}
+      {/* Mobile Bar */}
       <div className="px-gutter flex items-center justify-between py-6 lg:hidden">
         <Link
           href="/"
@@ -60,7 +60,7 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
         </Button>
       </div>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile Drawer */}
       {isMobileMenuOpen && (
         <div
           id="mobile-navigation-menu"
@@ -69,45 +69,11 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
           aria-label="Mobile Navigation"
           className="border-border bg-background px-gutter border-b py-6 shadow-lg lg:hidden"
         >
-          <nav aria-label="Mobile Navigation Menu">
-            <ul className="m-0 flex list-none flex-col gap-2 p-0">
-              <li>
-                <NavLink
-                  href="/who-we-are"
-                  onClick={closeMobileMenu}
-                  className="flex min-h-12 items-center font-semibold text-[var(--text-fluid-base)]"
-                >
-                  About Us
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  href="/job-insights"
-                  onClick={closeMobileMenu}
-                  className="flex min-h-12 items-center font-semibold text-[var(--text-fluid-base)]"
-                >
-                  Job Insights
-                </NavLink>
-              </li>
-              <li className="pt-2">
-                <Link
-                  href="https://hr.thejobapplicantperspective.com/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="focus-visible:outline-none"
-                >
-                  <Button variant="primary" size="md" className="min-h-12 w-full">
-                    Sign in as employer
-                    <span className="sr-only"> (opens in a new tab)</span>
-                  </Button>
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <MainNav isMobile onItemClick={closeMobileMenu} />
         </div>
       )}
 
-      {/* Desktop Navigation Bar */}
+      {/* Desktop Bar */}
       <div className="px-gutter hidden w-full items-center justify-between bg-transparent py-8 lg:flex">
         <Link
           href="/"
@@ -116,33 +82,7 @@ export const MainHeader = ({ logoSrc = '/logosm.svg', className = '' }: MainHead
         >
           <Image src={logoSrc} alt="TJAP Logo" width={247} height={41} priority />
         </Link>
-        <nav aria-label="Main Desktop Navigation" className="flex items-center">
-          <ul className="m-0 flex list-none items-center gap-8 p-0">
-            <li>
-              <NavLink href="/who-we-are" className="font-semibold text-[var(--text-fluid-base)]">
-                About Us
-              </NavLink>
-            </li>
-            <li>
-              <NavLink href="/job-insights" className="font-semibold text-[var(--text-fluid-base)]">
-                Job Insights
-              </NavLink>
-            </li>
-            <li>
-              <Link
-                href="https://hr.thejobapplicantperspective.com/login"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="focus-visible:outline-none"
-              >
-                <Button variant="primary" size="md" className="min-h-12">
-                  Sign in as employer
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </Button>
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <MainNav />
       </div>
     </header>
   );

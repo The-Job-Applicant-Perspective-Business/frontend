@@ -1,6 +1,12 @@
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 import { PageBlok } from '@/components/storyblok/PageBlok';
 import { HomeContent } from '@/components/storyblok/HomeContent';
+import { AboutUsContent } from '@/components/storyblok/AboutUsContent';
+import { BlogListingContent } from '@/components/storyblok/BlogListingContent';
+import { LegalDocumentContent } from '@/components/storyblok/LegalDocumentContent';
+import { ResourceHubContent } from '@/components/storyblok/ResourceHubContent';
+import { EventDirectoryContent } from '@/components/storyblok/EventDirectoryContent';
+import { ToolingAuditContent } from '@/components/storyblok/ToolingAuditContent';
 import {
   HeroSection,
   TabbedInterface,
@@ -13,9 +19,20 @@ import cachedStoryFixture from '../tests/fixtures/storyblok-fixture.json';
 
 export const components = {
   page: PageBlok,
-  // Register both variants to resolve the exact technical name returned by the API
+  // Root page schemas
   'Home Content': HomeContent,
   home_content: HomeContent,
+  'About us Content': AboutUsContent,
+  about_us_content: AboutUsContent,
+  'Blog List': BlogListingContent,
+  blog_list: BlogListingContent,
+  'Privacy Policy Content': LegalDocumentContent,
+  privacy_policy_content: LegalDocumentContent,
+  'Self Care Content': ResourceHubContent,
+  'Financial Support Content': ResourceHubContent,
+  'Career Fairs Content': EventDirectoryContent,
+  'A I Tools Content': ToolingAuditContent,
+  // Block-level schemas
   hero_section: HeroSection,
   tabbed_interface: TabbedInterface,
   promo_banner: PromoBanner,
@@ -42,7 +59,6 @@ export const isFixtureMode = (): boolean => {
 };
 
 export const getStoryblokConfigIssue = (): string | null => {
-  // If running in fixture mode, bypass config errors to allow offline static compilation
   if (isFixtureMode()) {
     return null;
   }
@@ -73,7 +89,6 @@ export const getStoryblokApi = () => {
   if (isFixtureMode()) {
     return {
       get: async (_slug: string, _params?: Record<string, unknown>) => {
-        // Return fixture wrapped in the exact envelope Storyblok API emits
         return {
           data: cachedStoryFixture,
           headers: {},

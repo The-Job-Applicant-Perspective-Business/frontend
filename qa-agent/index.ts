@@ -34,7 +34,7 @@ const generateWithBackoff = async (agent: GenerativeModel, prompt: string, maxRe
 export const runAgenticQA = async (taskFileName: string) => {
   const agent = getQaAgent();
 
-  const taskPath = path.join(__dirname, '..', 'docs', 'qa-tasks', `${taskFileName}.md`);
+  const taskPath = path.join(__dirname, 'docs', 'qa-tasks', `${taskFileName}.md`);
 
   if (!fs.existsSync(taskPath)) {
     console.error(`[System Error] QA Task not found at: ${taskPath}`);
@@ -107,7 +107,7 @@ export const runAgenticQA = async (taskFileName: string) => {
         `[System Error] Screenshot not found in ${screenshotDir}. Proceeding with text-only log.`,
       );
       // 🚀 THE FIX 2: Actually write the text-only report!
-      const fallbackDir = path.join(__dirname, '..', 'docs', 'bug-reports');
+      const fallbackDir = path.join(__dirname, 'docs', 'bug-reports');
       const fallbackPath = path.join(fallbackDir, `${taskFileName}-syntax-fault.md`);
       const fallbackContent = `# [SYNTAX FAULT] Feral Agent Compilation Error\n\n**System Audit:** The AI generated invalid Playwright syntax or crashed before execution. No visual evidence was captured.\n\n## Raw Black Box Log\n\`\`\`text\n${execution.log}\n\`\`\`\n`;
       fs.writeFileSync(fallbackPath, fallbackContent);

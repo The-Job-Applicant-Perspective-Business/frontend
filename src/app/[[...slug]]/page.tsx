@@ -124,11 +124,25 @@ export const generateMetadata = async ({ params }: DynamicPageProps): Promise<Me
   }
 
   const { story } = result;
+  const content = story.content;
+
+  // Resolved cascade: SeoTitle -> meta_title -> story.name -> fallback
   const metaTitle =
-    (story.content.meta_title as string) || story.name || 'The Job Applicant Perspective';
+    (content.SeoTitle as string) ||
+    (content.meta_title as string) ||
+    story.name ||
+    'The Job Applicant Perspective';
+
+  // Resolved cascade: SeoDescription -> meta_description -> fallback
   const metaDescription =
-    (story.content.meta_description as string) ||
+    (content.SeoDescription as string) ||
+    (content.meta_description as string) ||
     'Documenting the applicant timeline and market dynamics.';
+
+  const seoImageUrl =
+    typeof content.SeoImage === 'object' && content.SeoImage !== null
+      ? (content.SeoImage as { filename?: string }).filename
+      : undefined;
 
   return {
     title: metaTitle,
@@ -136,11 +150,13 @@ export const generateMetadata = async ({ params }: DynamicPageProps): Promise<Me
     openGraph: {
       title: metaTitle,
       description: metaDescription,
+      images: seoImageUrl ? [{ url: seoImageUrl }] : undefined,
     },
     twitter: {
       card: 'summary_large_image',
       title: metaTitle,
       description: metaDescription,
+      images: seoImageUrl ? [seoImageUrl] : undefined,
     },
   };
 };
@@ -150,12 +166,10 @@ const DynamicPage = async ({ params, searchParams }: DynamicPageProps) => {
 
   const sanitizedSlug = sanitizeSlugSegments(resolvedParams.slug);
 
-  // If path contains traversal or illegal characters, reject immediately at the edge.
   if (sanitizedSlug === null) {
     notFound();
   }
 
-  // Sanitize query parameters before downstream consumption.
   const cleanSearchParams = sanitizeSearchParams(resolvedSearchParams);
   void cleanSearchParams;
 

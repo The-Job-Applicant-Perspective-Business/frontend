@@ -18,7 +18,8 @@ export default tseslint.config(
       "node_modules/**",
       "next-env.d.ts",
       "tailwind.config.ts",
-      "**/.eslintcache"
+      "**/.eslintcache",
+      "qa-agent/@quarantine/**",
     ],
   },
 

@@ -10,6 +10,11 @@
     "start": "next start",
     "lint": "eslint src",
     "test:security": "playwright test e2e/security.spec.ts",
+    "test:e2e": "playwright test --project=default-e2e",
+    "test:quarantine": "playwright test --project=qa-quarantine",
+    "agent:qa": "tsx qa-agent/index.ts",
+    "test:all": "playwright test",
+    "test:report": "playwright show-report",
     "verify": "npm run lint && tsc --noEmit --pretty false",
     "prepare": "husky"
   },
@@ -34,6 +39,7 @@
     "zod": "4.6.2"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@eslint/js": "^9.39.5",
     "@next/eslint-plugin-next": "^16.3.3",
     "@playwright/test": "^1.62.1",
@@ -56,10 +62,12 @@
     "prettier": "^3.9.6",
     "prettier-plugin-tailwindcss": "0.8.1",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5",
     "typescript-eslint": "^8.68.0"
   },
   "allowScripts": {
-    "unrs-resolver@1.12.2": true
+    "unrs-resolver@1.12.2": true,
+    "esbuild@0.28.2": true
   }
 }
