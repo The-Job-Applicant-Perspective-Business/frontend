@@ -39,6 +39,7 @@
     "zod": "4.6.2"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@eslint/js": "^9.39.5",
     "@next/eslint-plugin-next": "^16.3.3",
     "@playwright/test": "^1.62.1",
@@ -66,6 +67,7 @@
     "typescript-eslint": "^8.68.0"
   },
   "allowScripts": {
-    "unrs-resolver@1.12.2": true
+    "unrs-resolver@1.12.2": true,
+    "esbuild@0.28.2": true
   }
 }

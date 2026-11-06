@@ -3,7 +3,7 @@
     <project_name>The Job Applicant Perspective (TJAP) Technical Remediation</project_name>
     <primary_stakeholder>Sarah Springsteen Trumble</primary_stakeholder>
     <purpose>Initialize Mode-Locked Governance, re-seat zero-trust project architecture, track active milestone progression, maintain deterministic state across sessions, and preserve legacy SEO routing invariants.</purpose>
-    <current_status>Tiers 1, 2, 3, and 4 Complete[cite: 4]. Storyblok space inventory verified; flat Home Content schema confirmed (0 child bloks in body) with editorial fields bound to Hero, Promo, Local Jobs, and Blog sections[cite: 4]. TabbedInterface isolated as a pure client application widget decoupled from Storyblok, wired to URL query state (?jobId=&amp;tab=classified vs ?tab=review), and mocked against the /api/v1/jobs schema with Lottie empty-state fallback handling[cite: 4]. MainHeader refactored with extracted MainNav component featuring an accessible keyboard-navigable 'Job App Tools' dropdown[cite: 4]. MainFooter contact form labels remediated to text-slate-200 with aria-hidden asterisks to satisfy WCAG 2.2 AA (SC 1.3.1, 1.4.3, 3.3.2), and submit button inverted to high-contrast white with navy text[cite: 4, 8, 9]. Feral QA Agent pipeline active with Gemini 2.5 Flash, Golden Schematic RAG injection, Industrial Solder regex, and Sentinel Catch multimodal analysis[cite: 4, 10]. Playwright configuration verified with dual project runners (default-e2e and qa-quarantine) passing test discovery (9 tests in 3 files)[cite: 2, 4]. Active Phase: Resolving local QA Agent task directory pathing in qa-agent/index.ts, executing first quarantined test run on homepage-navigation.md, and completing automated responsive viewport validation[cite: 4, 10, 11].</current_status>
+    <current_status>Tiers 1, 2, 3, and 4 Complete[cite: 4]. Initial Playwright test runner and Feral QA Agent pipeline integration verified (ESM/CJS boundaries reconciled via qa-agent/package.json, core-io.ts paths normalized, and about:blank origin SecurityError mitigated)[cite: 2, 10]. Storyblok space inventory mapped[cite: 4]. TabbedInterface decoupled and mocked[cite: 4]. MainHeader/MainNav dropdown extracted and keyboard-accessible[cite: 4]. MainFooter labels remediated for WCAG 2.2 AA (SC 1.3.1, 1.4.3, 3.3.2)[cite: 4, 8, 9]. Active Phase: Automated WCAG 2.2 AA / Section 508 accessibility smoke testing, base page load verification patterns, and multi-breakpoint responsive viewport validation[cite: 4].</current_status>
     <enforced_mode>/saiph (Sovereign CTO)</enforced_mode>
   </metadata>
 
@@ -15,7 +15,7 @@
       <ui_primitives>Radix UI (Dialog, Slot, Visually-Hidden, Tabs, ScrollArea), lucide-react (^1.48.0)</ui_primitives>
       <backend_and_security>zod (4.6.2) [@upstash/ratelimit and @upstash/redis deferred to post-launch]</backend_and_security>
       <ai_integration>@google/generative-ai (^0.24.1) [gemini-2.5-flash via QA Agent engine]</ai_integration>
-      <testing_and_qa>@playwright/test (^1.62.1), eslint-plugin-playwright (^2.11.0), Feral QA Agent (Golden Schematic RAG + Sentinel Catch)</testing_and_qa>
+      <testing_and_qa>@playwright/test (^1.62.1), eslint-plugin-playwright (^2.11.0), @axe-core/playwright, Feral QA Agent (Golden Schematic RAG + Sentinel Catch)</testing_and_qa>
       <ci_cd>GitHub Actions (.github/workflows/ci.yml) with offline fixture pre-rendering and protected branch gates</ci_cd>
       <monetization status="FUTURE">Stripe Integration (Customer Portal, Webhooks, Paid Verification/Audits)</monetization>
     </tech_stack>
@@ -27,6 +27,8 @@
       <script name="build:offline">USE_STORYBLOK_FIXTURES=true next build --no-lint</script>
       <script name="test:e2e">playwright test --project=default-e2e</script>
       <script name="test:quarantine">playwright test --project=qa-quarantine</script>
+      <script name="test:a11y">playwright test e2e/accessibility.spec.ts</script>
+      <script name="test:responsive">playwright test e2e/responsive.spec.ts</script>
       <script name="test:security">playwright test e2e/security.spec.ts</script>
       <script name="agent:qa">tsx qa-agent/index.ts</script>
     </build_and_execution>
@@ -152,7 +154,7 @@
         <path name="src/lib/security">Route and query parameter sanitization modules (sanitizeParams.ts)[cite: 4]</path>
         <path name="tests/fixtures">Standardized CMS response fixtures (storyblok-fixture.json) for zero-egress CI/CD compilation and deterministic testing[cite: 4]</path>
         <path name="qa-agent">Agentic testing engine: index.ts (runner), core-io.ts (Brute Force Solder &amp; Sentinel Catch reporter), system-prompt.ts (Stealth Feral Logic &amp; Gemini Flash setup), golden-template.ts (RAG schematic), @quarantine (isolated test output), docs/qa-tasks (markdown task specs), docs/bug-reports (April-Approved markdown defect reports)[cite: 4, 10, 11]</path>
-        <path name="e2e">Deterministic human-verified Playwright test suites (airlock.spec.ts, security-links.spec.ts, security.spec.ts)[cite: 2, 4]</path>
+        <path name="e2e">Deterministic human-verified Playwright test suites (airlock.spec.ts, security-links.spec.ts, security.spec.ts, accessibility.spec.ts, responsive.spec.ts)</path>
       </src_architecture>
     </repository_map>
     
@@ -183,8 +185,8 @@
     <entry phase="Navigation Decoupling">COMPLETED: Extracted MainNav.tsx from MainHeader.tsx. Built accessible, keyboard-navigable 'Job App Tools' dropdown covering /career-fairs, /ai-tools, /self-care-tools, and /us-govt-financial-support with mobile drawer parity[cite: 4].</entry>
     <entry phase="TabbedInterface Decompile &amp; Mock">COMPLETED: Forensically audited Home Content JSON (0 child bloks in body). Decoupled TabbedInterface as a native client component mounted between Hero and PromoBanner. Synchronized tabs to searchParams (?jobId=&amp;tab=classified vs ?tab=review), and mocked against /api/v1/jobs query structure with empty-state Lottie fallback handling[cite: 4].</entry>
     <entry phase="MainFooter WCAG Remediation">COMPLETED: Remediated contact form labels from low-contrast black to text-slate-200 with aria-hidden asterisks to satisfy WCAG 2.2 AA (SC 1.3.1, 1.4.3, 3.3.2). Inverted submit button to high-contrast white with navy text (#081F48)[cite: 4, 8, 9].</entry>
-    <entry phase="QA Agent &amp; Playwright Integration">COMPLETED: Ingested Feral QA Agent architecture (Gemini 2.5 Flash, Golden Schematic RAG injection, Brute Force Solder regex, Sentinel Catch multimodal failure analysis). Reconciled playwright.config.ts for dual projects (default-e2e and qa-quarantine) with 9 passing human-verified tests[cite: 2, 4, 10].</entry>
-    <entry phase="Active Pipeline">ACTIVE: Task 1.10 &amp; 1.11. Aligning qa-agent/index.ts internal task pathing to qa-agent/docs/qa-tasks/ and running the first autonomous agent test generation pass[cite: 4, 10, 11].</entry>
+    <entry phase="QA Agent Initial Setup">COMPLETED: Ingested Feral QA Agent codebase (qa-agent/index.ts, core-io.ts, system-prompt.ts, golden-template.ts). Reconciled playwright.config.ts with dual-project runners (default-e2e and qa-quarantine). Resolved ESM boundary via qa-agent/package.json ("type": "module"), normalized POSIX forward slashes in core-io.ts, and fixed about:blank localStorage security crash in golden-template.ts[cite: 2, 4, 10].</entry>
+    <entry phase="Active Pipeline">ACTIVE: Task 1.10 &amp; 1.11. Establishing automated WCAG 2.2 AA / Section 508 accessibility smoke tests, standardizing base page verification patterns, and constructing automated multi-breakpoint responsive viewport suites[cite: 4].</entry>
   </execution_log>
 
   <governance_topology id="section_8_triad">
@@ -198,7 +200,7 @@
     <tier_1 allocation="20%" status="COMPLETED">Hemorrhage Control &amp; Diagnostics. Decoupled server error boundaries, enforced strict DTO schema sanitization, and stabilized Storyblok client/server bridge integration with centralized diagnostics[cite: 4].</tier_1>
     <tier_2 allocation="30%" status="COMPLETED">Accessibility &amp; Semantic Integrity. WCAG 2.2 AA, ARIA bindings, programmatic escape hatches, Focus Management, high-contrast form label remediation, and ESLint scrollable region compliance[cite: 4].</tier_2>
     <tier_3 allocation="30%" status="COMPLETED">Substrate Decoupling &amp; Component Hydration. Layout DOM extraction, JIT eradication, UI primitive tokenization, presentational block refactoring, dynamic catch-all route mapping, MainNav extraction, and TabbedInterface client widget isolation complete[cite: 4].</tier_3>
-    <tier_4 allocation="20%" status="COMPLETED">Zero-Trust Security Perimeter &amp; Production Hardening. CI/CD offline build decoupling, GitHub repository secrets, branch protection status checks, external link security locks, and parameter reflection sanitization complete[cite: 4]. Upstash rate-limiting deferred[cite: 4].</tier_4>
+    <tier_4 allocation="20%" status="COMPLETED">Zero-Trust Security Perimeter &amp; Production Hardening. CI/CD offline build decoupling, GitHub repository secrets, branch protection status checks, external link security locks, and parameter reflection sanitization complete. Upstash rate-limiting deferred[cite: 4].</tier_4>
   </milestone_architecture>
 
   <equity_and_ip_custody id="liability_surface_management">
@@ -234,17 +236,18 @@
         <subtask status="COMPLETED">Extract MainNav.tsx with accessible Job App Tools dropdown and update MainHeader.tsx[cite: 4].</subtask>
         <subtask status="COMPLETED">Decompile and mock TabbedInterface.tsx with URL search parameter state handling[cite: 4].</subtask>
         <subtask status="COMPLETED">Remediate MainFooter.tsx contact form labels for WCAG 2.2 AA compliance and invert submit button[cite: 4].</subtask>
-        <subtask status="COMPLETED">Reconcile Playwright configuration and configure dual project runners (default-e2e and qa-quarantine)[cite: 2, 4].</subtask>
-        <subtask status="ACTIVE">Execute comprehensive Playwright test pass across navigation, accessibility, and security suites.</subtask>
-        <subtask status="PENDING">Conduct responsive viewport audit (mobile 375px, tablet 768px, desktop 1280px) and keyboard focus-trap validation[cite: 4].</subtask>
+        <subtask status="COMPLETED">Reconcile Playwright configuration and configure dual project runners (default-e2e and qa-quarantine).</subtask>
+        <subtask status="ACTIVE">Establish WCAG 2.2 AA / Section 508 accessibility smoke tests via @axe-core/playwright across all mapped canonical routes.</subtask>
+        <subtask status="ACTIVE">Deploy automated responsive viewport audit suite across mobile (375px), tablet (768px), and desktop (1280px) viewports.</subtask>
       </task>
-      <task id="1.11" name="Feral QA Agent Automation Pipeline" status="ACTIVE">
+      <task id="1.11" name="Feral QA Agent Automation Pipeline" status="COMPLETED">
         <subtask status="COMPLETED">Ingest QA Agent codebase (qa-agent/index.ts, core-io.ts, system-prompt.ts, golden-template.ts)[cite: 4, 10].</subtask>
-        <subtask status="COMPLETED">Verify Golden Schematic RAG injection and Reverend Silvertongue Protocol constraints.</subtask>
-        <subtask status="COMPLETED">Verify Brute Force Solder regex parsing for Playwright test.step() callbacks.</subtask>
-        <subtask status="COMPLETED">Configure GEMINI_API_KEY environment binding in .env.local for gemini-2.5-flash model invocation.</subtask>
-        <subtask status="ACTIVE">Patch qa-agent/index.ts internal task resolution path from root docs/ to qa-agent/docs/[cite: 10, 11].</subtask>
-        <subtask status="PENDING">Execute autonomous test generation on homepage-navigation.md and verify isolated test output in qa-agent/@quarantine/[cite: 10, 11].</subtask>
+        <subtask status="COMPLETED">Verify Golden Schematic RAG injection and Reverend Silvertongue Protocol constraints[cite: 10].</subtask>
+        <subtask status="COMPLETED">Verify Brute Force Solder regex parsing for Playwright test.step() callbacks[cite: 10].</subtask>
+        <subtask status="COMPLETED">Configure GEMINI_API_KEY environment binding in .env.local for gemini-2.5-flash model invocation[cite: 10].</subtask>
+        <subtask status="COMPLETED">Reconcile path resolution in index.ts and core-io.ts to target qa-agent/docs and qa-agent/@quarantine[cite: 10, 11].</subtask>
+        <subtask status="COMPLETED">Isolate ES module scope via qa-agent/package.json to satisfy import.meta dependencies.</subtask>
+        <subtask status="COMPLETED">Execute autonomous test generation on homepage-navigation.md and verify isolated output in qa-agent/@quarantine/[cite: 10, 11].</subtask>
       </task>
       <task id="1.12" name="Post-Launch Monetization &amp; Rate-Limiting" status="FUTURE">
         <subtask status="FUTURE">Deploy Stripe Customer Portal, Checkout Sessions, and webhook listeners for paid candidate services and employer verification[cite: 4].</subtask>
@@ -259,6 +262,6 @@
     <directive>3. SYNTAX MANDATE: All React components must strictly utilize ES6 fat arrow function syntax[cite: 4].</directive>
     <directive>4. CI INTEGRITY: Maintain offline fixture fallback support across any Storyblok API updates to ensure continuous headless build validity[cite: 4].</directive>
     <directive>5. SEO INVARIANCE: Preserve existing canonical URLs (/who-we-are, /job-insights, /us-govt-financial-support, /self-care-tools) through server-side rewrites rather than exposing raw CMS slug discrepancies to visitors or search engines[cite: 4].</directive>
-    <directive>6. QA AGENT GOVERNANCE: All autonomous AI-generated tests must remain in qa-agent/@quarantine/ with the '@quarantine' tag; human-verified tests live in e2e/.</directive>
+    <directive>6. QA AGENT GOVERNANCE: All autonomous AI-generated tests must remain in qa-agent/@quarantine/ with the '@quarantine' tag; human-verified tests live in e2e/[cite: 10].</directive>
   </llm_execution_directives>
 </system_context_override>
