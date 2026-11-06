@@ -10,6 +10,11 @@
     "start": "next start",
     "lint": "eslint src",
     "test:security": "playwright test e2e/security.spec.ts",
+    "test:e2e": "playwright test --project=default-e2e",
+    "test:quarantine": "playwright test --project=qa-quarantine",
+    "agent:qa": "tsx qa-agent/index.ts",
+    "test:all": "playwright test",
+    "test:report": "playwright show-report",
     "verify": "npm run lint && tsc --noEmit --pretty false",
     "prepare": "husky"
   },
@@ -56,6 +61,7 @@
     "prettier": "^3.9.6",
     "prettier-plugin-tailwindcss": "0.8.1",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5",
     "typescript-eslint": "^8.68.0"
   },
