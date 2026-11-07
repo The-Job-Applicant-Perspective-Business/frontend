@@ -2,80 +2,87 @@
   <metadata>
     <project_name>The Job Applicant Perspective (TJAP) Technical Remediation</project_name>
     <primary_stakeholder>Sarah Springsteen Trumble</primary_stakeholder>
-    <purpose>Initialize Mode-Locked Governance, re-seat zero-trust project architecture, track active milestone progression, maintain deterministic state across sessions, and preserve legacy SEO routing invariants.</purpose>
-    <current_status>Tiers 1, 2, 3, and 4 Complete. Playwright test runner and Feral QA Agent pipeline integration verified (ESM scope established via qa-agent/package.json, POSIX pathing normalized in core-io.ts, about:blank localStorage security crash eliminated, and @quarantine directory ignored in ESLint)[cite: 2, 10, 12]. Base route health smoke suite (e2e/smoke-test.spec.ts) 100% passing across all 8 canonical routes (HTTP 200, single banner/main/contentinfo landmarks, zero console exceptions). Responsive viewport matrix (e2e/responsive.spec.ts) 100% passing (14/14 tests) across mobile (375px), tablet (768px), and desktop (1280px) with zero horizontal scroll leakage. Active Phase: Automated WCAG 2.2 AA / Section 508 accessibility scanning via @axe-core/playwright, final static build verification, and full-spectrum subdomain/URL infrastructure discovery.</current_status>
+    <purpose>Initialize Mode-Locked Governance, re-seat zero-trust project architecture, track active milestone progression, maintain deterministic state across sessions, and preserve legacy SEO routing invariants[cite: 4].</purpose>
+    <current_status>Tiers 1, 2, 3, and 4 Complete[cite: 4]. Storyblok dynamic blog routing and root-level slug fallback successfully resolved in src/app/[[...slug]]/page.tsx[cite: 4, 6]. BlogArticleContent.tsx reconciled with canonical light-theme layout (#ffffff, #0d3276, #434343) and sticky author metadata aside[cite: 10, 11]. BlogCard.tsx and BlogGrid.tsx aligned to live production DOM specs and canonical /job-insights/[slug] link resolution[cite: 4, 7, 13]. Husky/lint-staged pre-commit file locks bypassed and 18 core files staged on branch jhood/playwright-updates[cite: 3]. Active Phase: Visual styling and semantic landmark alignment across all 'Job App Tools' subpages (/career-fairs, /ai-tools, /self-care-tools, /us-govt-financial-support), followed by automated WCAG 2.2 AA / Section 508 scanning via @axe-core/playwright, static build verification, and architecture execution for the Feral QA Agent in-repo documentation pipeline[cite: 4].</current_status>
     <enforced_mode>/saiph (Sovereign CTO)</enforced_mode>
   </metadata>
 
   <environment_state id="tjap_infrastructure">
     <tech_stack>
-      <core>Next.js (16.3.3), React &amp; React-DOM (19.2.8), TypeScript (^5)</core>
-      <styling>Tailwind CSS (^4), @tailwindcss/postcss</styling>
-      <cms>@storyblok/react (^7.3.1)</cms>
-      <ui_primitives>Radix UI (Dialog, Slot, Visually-Hidden, Tabs, ScrollArea), lucide-react (^1.48.0)</ui_primitives>
-      <backend_and_security>zod (4.6.2) [@upstash/ratelimit and @upstash/redis deferred to post-launch]</backend_and_security>
+      <core>Next.js (16.3.3), React &amp; React-DOM (19.2.8), TypeScript (^5)[cite: 4]</core>
+      <styling>Tailwind CSS (^4), @tailwindcss/postcss[cite: 4]</styling>
+      <cms>@storyblok/react (^7.3.1)[cite: 4]</cms>
+      <ui_primitives>Radix UI (Dialog, Slot, Visually-Hidden, Tabs, ScrollArea), lucide-react (^1.48.0)[cite: 4]</ui_primitives>
+      <backend_and_security>zod (4.6.2) [@upstash/ratelimit and @upstash/redis deferred to post-launch][cite: 4]</backend_and_security>
       <ai_integration>@google/generative-ai (^0.24.1) [gemini-2.5-flash via QA Agent engine][cite: 4, 10]</ai_integration>
       <testing_and_qa>@playwright/test (^1.62.1), eslint-plugin-playwright (^2.11.0), @axe-core/playwright, Feral QA Agent (Golden Schematic RAG + Sentinel Catch)[cite: 4, 10]</testing_and_qa>
-      <ci_cd>GitHub Actions (.github/workflows/ci.yml) with offline fixture pre-rendering and protected branch gates</ci_cd>
-      <monetization status="FUTURE">Stripe Integration (Customer Portal, Webhooks, Paid Verification/Audits)</monetization>
+      <ci_cd>GitHub Actions (.github/workflows/ci.yml) with offline fixture pre-rendering and protected branch gates[cite: 4]</ci_cd>
+      <monetization status="FUTURE">Stripe Integration (Customer Portal, Webhooks, Paid Verification/Audits)[cite: 4]</monetization>
     </tech_stack>
     
     <build_and_execution>
-      <script name="dev">concurrently Next.js + TSC watch (--noEmit)</script>
-      <script name="dev:full">concurrently Next.js + TSC watch + Supabase local start</script>
-      <script name="verify">ESLint + TSC strict check (pre-commit/CI pipeline)</script>
-      <script name="build:offline">USE_STORYBLOK_FIXTURES=true next build --no-lint</script>
-      <script name="test:e2e">playwright test --project=default-e2e</script>
-      <script name="test:quarantine">playwright test --project=qa-quarantine</script>
-      <script name="test:smoke">playwright test e2e/smoke-test.spec.ts --project=default-e2e</script>
-      <script name="test:responsive">playwright test e2e/responsive.spec.ts --project=default-e2e</script>
-      <script name="test:a11y">playwright test e2e/accessibility.spec.ts --project=default-e2e</script>
-      <script name="test:security">playwright test e2e/security.spec.ts --project=default-e2e</script>
-      <script name="agent:qa">tsx qa-agent/index.ts</script>
+      <script name="dev">concurrently Next.js + TSC watch (--noEmit)[cite: 4]</script>
+      <script name="dev:full">concurrently Next.js + TSC watch + Supabase local start[cite: 4]</script>
+      <script name="verify">ESLint + TSC strict check (pre-commit/CI pipeline)[cite: 4]</script>
+      <script name="build:offline">USE_STORYBLOK_FIXTURES=true next build --no-lint[cite: 4]</script>
+      <script name="test:e2e">playwright test --project=default-e2e[cite: 4]</script>
+      <script name="test:quarantine">playwright test --project=qa-quarantine[cite: 4]</script>
+      <script name="test:smoke">playwright test e2e/smoke-test.spec.ts --project=default-e2e[cite: 4]</script>
+      <script name="test:responsive">playwright test e2e/responsive.spec.ts --project=default-e2e[cite: 4]</script>
+      <script name="test:a11y">playwright test e2e/accessibility.spec.ts --project=default-e2e[cite: 4]</script>
+      <script name="test:security">playwright test e2e/security.spec.ts --project=default-e2e[cite: 4]</script>
+      <script name="agent:qa">tsx qa-agent/index.ts[cite: 4]</script>
     </build_and_execution>
 
     <seo_route_rewrites_and_aliases>
       <rule id="SEO-01">
         <public_path>/who-we-are</public_path>
         <storyblok_target_slug>about-us</storyblok_target_slug>
-        <strategy>Next.js internal rewrite via next.config.ts</strategy>
+        <strategy>Next.js internal rewrite via next.config.ts[cite: 4]</strategy>
         <status>VERIFIED_IN_CONFIG</status>
-        <reason>Preserves legacy search engine rankings, backlinks, and public bookmarks without forcing Storyblok content reorganization.</reason>
+        <reason>Preserves legacy search engine rankings, backlinks, and public bookmarks without forcing Storyblok content reorganization[cite: 4].</reason>
       </rule>
       <rule id="SEO-02">
         <public_path>/job-insights</public_path>
         <storyblok_target_slug>blog-listing</storyblok_target_slug>
-        <strategy>Next.js internal rewrite via next.config.ts</strategy>
+        <strategy>Next.js internal rewrite via next.config.ts[cite: 4]</strategy>
         <status>VERIFIED_IN_CONFIG</status>
-        <reason>Aligns primary navigation label with internal Storyblok listing taxonomy.</reason>
+        <reason>Aligns primary navigation label with internal Storyblok listing taxonomy[cite: 4].</reason>
       </rule>
       <rule id="SEO-03">
         <public_path>/us-govt-financial-support</public_path>
         <storyblok_target_slug>financial-support</storyblok_target_slug>
-        <strategy>Next.js internal rewrite via next.config.ts</strategy>
+        <strategy>Next.js internal rewrite via next.config.ts[cite: 4]</strategy>
         <status>VERIFIED_IN_CONFIG</status>
         <reason>Preserves legacy search indexing and inbound links for government aid resources without altering internal Storyblok slugs[cite: 4].</reason>
       </rule>
       <rule id="SEO-04">
         <public_path>/self-care-tools</public_path>
         <storyblok_target_slug>self-care</storyblok_target_slug>
-        <strategy>Next.js internal rewrite via next.config.ts</strategy>
+        <strategy>Next.js internal rewrite via next.config.ts[cite: 4]</strategy>
         <status>VERIFIED_IN_CONFIG</status>
         <reason>Prevents broken inbound backlinks from candidate advocacy channels linking to the self-care directory[cite: 4].</reason>
       </rule>
       <rule id="SEO-05">
         <public_path>/ai-tools</public_path>
         <storyblok_target_slug>ai-tools</storyblok_target_slug>
-        <strategy>1:1 native catch-all resolution via src/app/[[...slug]]/page.tsx</strategy>
+        <strategy>1:1 native catch-all resolution via src/app/[[...slug]]/page.tsx[cite: 4]</strategy>
         <status>VERIFIED_NATIVE</status>
         <reason>Public canonical URL precisely matches CMS slug[cite: 4].</reason>
       </rule>
       <rule id="SEO-06">
         <public_path>/career-fairs</public_path>
         <storyblok_target_slug>career-fairs</storyblok_target_slug>
-        <strategy>1:1 native catch-all resolution via src/app/[[...slug]]/page.tsx</strategy>
+        <strategy>1:1 native catch-all resolution via src/app/[[...slug]]/page.tsx[cite: 4]</strategy>
         <status>VERIFIED_NATIVE</status>
         <reason>Public canonical URL precisely matches CMS slug[cite: 4].</reason>
+      </rule>
+      <rule id="SEO-07">
+        <public_path>/job-insights/:slug*</public_path>
+        <storyblok_target_slug>:slug* (Root-level lookup with blog/:slug* fallback)[cite: 4, 6]</storyblok_target_slug>
+        <strategy>Server-side dynamic catch-all resolution with wildcard matching in src/app/[[...slug]]/page.tsx[cite: 6]</strategy>
+        <status>VERIFIED_IN_CODE</status>
+        <reason>Resolves individual blog entries nested under /job-insights/ directly to Storyblok's root-level article entries regardless of folder depth[cite: 4, 6].</reason>
       </rule>
     </seo_route_rewrites_and_aliases>
 
@@ -83,79 +90,79 @@
       <story name="Home" slug="home" content_type="Home Content" status="MAPPED">
         <public_route>/</public_route>
         <component_adapter>HomeContent.tsx</component_adapter>
-        <notes>Verified flat schema with 0 child bloks in body. Maps Title, Description, CardTitle, CardDescription, CardImage, BannerDesktop, BannerMobile, JobBoardTitle, JobBoard array (6 regional links), and BlogSectionTitle/Description. TabbedInterface is rendered as an isolated client component[cite: 4].</notes>
+        <notes>Verified flat schema with 0 child bloks in body[cite: 4]. Maps Title, Description, CardTitle, CardDescription, CardImage, BannerDesktop, BannerMobile, JobBoardTitle, JobBoard array (6 regional links), and BlogSectionTitle/Description[cite: 4]. TabbedInterface is rendered as an isolated client component[cite: 4].</notes>
       </story>
       <story name="About Us" slug="about-us" content_type="About Us Content" status="MAPPED">
-        <public_route>/who-we-are (via rewrite) and /about-us</public_route>
+        <public_route>/who-we-are (via rewrite) and /about-us[cite: 4]</public_route>
         <component_adapter>AboutUsContent.tsx</component_adapter>
-        <notes>Reconciles public '/who-we-are' CTA and backlink structure. Maps Stories array, Team array, and Donation blocks. Inner hero header converted to semantic section[cite: 4, 14].</notes>
+        <notes>Reconciles public '/who-we-are' CTA and backlink structure[cite: 4]. Maps Stories array, Team array, and Donation blocks[cite: 4]. Inner hero header converted to semantic section[cite: 4].</notes>
       </story>
       <story name="Blog Listing" slug="blog-listing" content_type="Blog List" status="MAPPED">
-        <public_route>/job-insights (via rewrite) and /blog-listing</public_route>
+        <public_route>/job-insights (via rewrite) and /blog-listing[cite: 4]</public_route>
         <component_adapter>BlogListingContent.tsx</component_adapter>
-        <notes>Aggregator directory for published labor analytics. Prop types aligned with BlogCard. Inner hero header converted to semantic section[cite: 4, 14].</notes>
+        <notes>Aggregator directory for published labor analytics[cite: 4]. Features responsive category filter rail, 3-column card grid, and client-side pagination matching live DOM[cite: 12]. Inner hero header converted to semantic section[cite: 4].</notes>
       </story>
       <story name="Privacy Policy" slug="privacy-policy" content_type="Privacy Policy Content" status="MAPPED">
         <public_route>/privacy-policy</public_route>
         <component_adapter>LegalDocumentContent.tsx</component_adapter>
-        <notes>Zero-knowledge applicant anonymity terms and compliance disclosure. Strict SbRichTextDoc typing and WCAG 2.2 AA landmark structure. Inner header converted to semantic section[cite: 4, 14].</notes>
+        <notes>Zero-knowledge applicant anonymity terms and compliance disclosure[cite: 4]. Strict SbRichTextDoc typing and WCAG 2.2 AA landmark structure[cite: 4]. Inner header converted to semantic section[cite: 4].</notes>
       </story>
-      <story name="Self Care" slug="self-care" content_type="Self Care Content" status="MAPPED">
-        <public_route>/self-care-tools (via rewrite) and /self-care</public_route>
+      <story name="Self Care" slug="self-care" content_type="Self Care Content" status="STYLE_REMEDIATION_PENDING">
+        <public_route>/self-care-tools (via rewrite) and /self-care[cite: 4]</public_route>
         <component_adapter>ResourceHubContent.tsx</component_adapter>
-        <notes>Candidate mental health and resilience hub. Verified live heading 'Staying Sane While Job Searching Matters!'. Fully mapped OnlineProvidersCards, MentalHealthProvidersCards, and Testimonial blocks. Inner header converted to semantic section[cite: 4, 14].</notes>
+        <notes>Candidate mental health and resilience hub[cite: 4]. Verified live heading 'Staying Sane While Job Searching Matters!'[cite: 4]. Fully mapped OnlineProvidersCards, MentalHealthProvidersCards, and Testimonial blocks[cite: 4]. Scheduled for Task 1.14 light-theme styling pass.</notes>
       </story>
-      <story name="Financial Support" slug="financial-support" content_type="Financial Support Content" status="MAPPED">
-        <public_route>/us-govt-financial-support (via rewrite) and /financial-support</public_route>
+      <story name="Financial Support" slug="financial-support" content_type="Financial Support Content" status="STYLE_REMEDIATION_PENDING">
+        <public_route>/us-govt-financial-support (via rewrite) and /financial-support[cite: 4]</public_route>
         <component_adapter>ResourceHubContent.tsx</component_adapter>
-        <notes>Candidate emergency relief, unemployment routing, and mutual aid directory. Inner header converted to semantic section[cite: 4, 14].</notes>
+        <notes>Candidate emergency relief, unemployment routing, and mutual aid directory[cite: 4]. Scheduled for Task 1.14 light-theme styling pass.</notes>
       </story>
-      <story name="Career Fairs" slug="career-fairs" content_type="Career Fairs Content" status="MAPPED">
-        <public_route>/career-fairs</public_route>
+      <story name="Career Fairs" slug="career-fairs" content_type="Career Fairs Content" status="STYLE_REMEDIATION_PENDING">
+        <public_route>/career-fairs[cite: 4]</public_route>
         <component_adapter>EventDirectoryContent.tsx</component_adapter>
-        <notes>Regional and virtual hiring fairs directory. Fully accessible with Lucide icon indicators and metadata tags. Inner header converted to semantic section[cite: 4, 14].</notes>
+        <notes>Regional and virtual hiring fairs directory[cite: 4]. Fully accessible with Lucide icon indicators and metadata tags[cite: 4]. Scheduled for Task 1.14 light-theme styling pass.</notes>
       </story>
-      <story name="AI Tools" slug="ai-tools" content_type="AI Tools Content" status="MAPPED">
-        <public_route>/ai-tools</public_route>
+      <story name="AI Tools" slug="ai-tools" content_type="AI Tools Content" status="STYLE_REMEDIATION_PENDING">
+        <public_route>/ai-tools[cite: 4]</public_route>
         <component_adapter>ToolingAuditContent.tsx</component_adapter>
-        <notes>Registered 'AI Tools Content' key in src/lib/storyblok.ts. Fully mapped Sections array (AI Card) and nested Tools array (AI Tool Card) with Cost and Link bindings. Inner header converted to semantic section[cite: 4, 14].</notes>
+        <notes>Registered 'AI Tools Content' key in src/lib/storyblok.ts[cite: 4]. Fully mapped Sections array (AI Card) and nested Tools array (AI Tool Card) with Cost and Link bindings[cite: 4]. Scheduled for Task 1.14 light-theme styling pass.</notes>
       </story>
       <story name="Footer" slug="footer" content_type="Footer Content" status="MAPPED">
-        <public_route>N/A (Global Layout Component)</public_route>
+        <public_route>N/A (Global Layout Component)[cite: 4]</public_route>
         <component_adapter>MainFooter.tsx</component_adapter>
-        <notes>Verified against live DOM: #081F48 navy section, contact form with text-slate-200 accessible labels, white high-contrast submit button, /who-we-are and /privacy-policy links, and 4-channel social icon row[cite: 4, 8, 9].</notes>
+        <notes>Verified against live DOM: #081F48 navy section, contact form with text-slate-200 accessible labels, white high-contrast submit button, /who-we-are and /privacy-policy links, and 4-channel social icon row[cite: 4].</notes>
+      </story>
+      <story name="Blog Content Stories (51 Total)" slug="[root-slugs]" content_type="Blog Content" status="MAPPED">
+        <public_route>/job-insights/[slug] and /blog/[slug][cite: 4, 6]</public_route>
+        <component_adapter>BlogArticleContent.tsx[cite: 10]</component_adapter>
+        <notes>Individual research papers and forensic audits (e.g., building-the-future-of-job-searching-academically, Why-online-hiring-fails-job-seekers)[cite: 4]. Fully reconciled with canonical light-theme layout (#ffffff, #0d3276, #434343), top clearance header bar, rich text prose container, and sticky author metadata aside[cite: 10, 11].</notes>
       </story>
       <story name="Michael-Smith-Who?" slug="michael-smith-who-" content_type="Root" status="DRAFT_EXCLUDED">
-        <public_route>/michael-smith-who-</public_route>
-        <component_adapter>EXCLUDED</component_adapter>
-        <notes>Draft case study story. Excluded from production navigation and sitemap index[cite: 4].</notes>
+        <public_route>/michael-smith-who-[cite: 4]</public_route>
+        <component_adapter>EXCLUDED[cite: 4]</component_adapter>
+        <notes>Draft case study story[cite: 4]. Excluded from production navigation and sitemap index[cite: 4].</notes>
       </story>
       <story name="Deloitte Manpower" slug="deloitte-manpower" content_type="Blog Content" status="DRAFT_EXCLUDED">
-        <public_route>/blog/deloitte-manpower</public_route>
-        <component_adapter>EXCLUDED</component_adapter>
-        <notes>Draft investigative post. Excluded from production listing and build indexing[cite: 4].</notes>
-      </story>
-      <story name="Blog" slug="blog" content_type="Blog Content" status="DISCOVERED">
-        <public_route>/blog</public_route>
-        <component_adapter>BlogArticleContent.tsx (Pending)</component_adapter>
-        <notes>Primary featured insight entry[cite: 4].</notes>
+        <public_route>/blog/deloitte-manpower[cite: 4]</public_route>
+        <component_adapter>EXCLUDED[cite: 4]</component_adapter>
+        <notes>Draft investigative post[cite: 4]. Excluded from production listing and build indexing[cite: 4].</notes>
       </story>
     </storyblok_space_inventory>
 
     <repository_map>
-      <root_directories>.github, src, public, docs, e2e, qa-agent, tests/fixtures, test-results, playwright-report</root_directories>
+      <root_directories>.github, src, public, docs, e2e, qa-agent, tests/fixtures, test-results, playwright-report[cite: 4]</root_directories>
       <src_architecture>
-        <path name="src/app/[[...slug]]">Dynamic catch-all routing (Receives Storyblok story JSON, unwraps story.content.body, isolates DTO errors via Zod, deduplicates requests via React.cache, handles 404 vs 500 boundaries via handleStoryblokError, sanitizes route/query params, resolves SEO URL rewrites, and renders full-width layout inside Suspense boundaries)[cite: 4]</path>
+        <path name="src/app/[[...slug]]">Dynamic catch-all routing (Receives Storyblok story JSON, unwraps story.content.body, isolates DTO errors via Zod, deduplicates requests via React.cache, handles 404 vs 500 boundaries via handleStoryblokError, sanitizes route/query params, resolves SEO URL rewrites, handles multi-candidate slug resolution with wildcard fallback, and renders full-width layout inside Suspense boundaries)[cite: 4, 6]</path>
         <path name="src/components/blocks">Presentational and composite components with centralized index.ts barrel export (HeroSection, TabbedInterface, PromoBanner, LocalJobsGrid, MissionBanner, BlogGrid, BlogCard, JobLinkCard, FormInput)[cite: 4]</path>
         <path name="src/components/layout">Global layout shells (MainHeader, MainNav, MainFooter)[cite: 4]</path>
-        <path name="src/components/storyblok">CMS-bound component wrappers and client-side bridge resolver (PageBlok, HomeContent, AboutUsContent, BlogListingContent, LegalDocumentContent, ResourceHubContent, EventDirectoryContent, ToolingAuditContent)[cite: 4]</path>
+        <path name="src/components/storyblok">CMS-bound component wrappers and client-side bridge resolver (PageBlok, HomeContent, AboutUsContent, BlogListingContent, BlogArticleContent, LegalDocumentContent, ResourceHubContent, EventDirectoryContent, ToolingAuditContent)[cite: 4, 10]</path>
         <path name="src/components/ui">Base interactive primitives (Button, SearchInput, Tabs, NavLink)[cite: 4]</path>
-        <path name="src/lib">Storyblok client initialization (storyblok.ts) with unified component map registry and virtual client intercept for offline CI fixture hydration[cite: 4]</path>
+        <path name="src/lib">Storyblok client initialization (storyblok.ts) with unified component map registry including 'Blog Content' and virtual client intercept for offline CI fixture hydration[cite: 4]</path>
         <path name="src/lib/dto">Data Transfer Objects, payload sanitization (sanitizeStoryPayload.ts), and centralized Storyblok error handling (storyblok/storyblokErrorHandler.ts)[cite: 4]</path>
         <path name="src/lib/security">Route and query parameter sanitization modules (sanitizeParams.ts)[cite: 4]</path>
         <path name="tests/fixtures">Standardized CMS response fixtures (storyblok-fixture.json) for zero-egress CI/CD compilation and deterministic testing[cite: 4]</path>
-        <path name="qa-agent">Agentic testing engine: index.ts (runner), core-io.ts (Brute Force Solder &amp; Sentinel Catch reporter), system-prompt.ts (Stealth Feral Logic &amp; Gemini Flash setup), golden-template.ts (RAG schematic), @quarantine (isolated test output), docs/qa-tasks (markdown task specs), docs/bug-reports (April-Approved markdown defect reports)[cite: 4, 10, 11]</path>
-        <path name="e2e">Deterministic human-verified Playwright test suites (airlock.spec.ts, security-links.spec.ts, security.spec.ts, smoke-test.spec.ts, responsive.spec.ts, accessibility.spec.ts)[cite: 2, 4]</path>
+        <path name="qa-agent">Agentic testing engine: index.ts (runner), core-io.ts (Brute Force Solder &amp; Sentinel Catch reporter), system-prompt.ts (Stealth Feral Logic &amp; Gemini Flash setup), golden-template.ts (RAG schematic), @quarantine (isolated test output), docs/qa-tasks (markdown task specs), docs/bug-reports (April-Approved markdown defect reports)[cite: 4, 10]</path>
+        <path name="e2e">Deterministic human-verified Playwright test suites (airlock.spec.ts, security-links.spec.ts, security.spec.ts, smoke-test.spec.ts, responsive.spec.ts, accessibility.spec.ts)[cite: 4]</path>
       </src_architecture>
     </repository_map>
     
@@ -164,7 +171,7 @@
       <invariant id="CMS-02">Zero Production Iframe: The application renders native Next.js Server Components. Iframes are strictly isolated to the Storyblok Visual Editor administrative preview (app.storyblok.com) via window.postMessage bridge listeners[cite: 4].</invariant>
       <invariant id="CMS-03">Presentation Sovereignty: All styling, fluid typography, WCAG 2.2 AA focus indicators, and layout constraints remain 100% under local Tailwind CSS v4 CSS-first token custody[cite: 4].</invariant>
       <invariant id="CMS-04">Offline CI Determinism: CI runners execute static generation and type audits against local fixture JSON, eliminating build-time network dependencies, API token exposure, and rate-limiting failure states[cite: 4].</invariant>
-      <invariant id="CMS-05">SEO URL Invariance: Established public-facing URL routes (/who-we-are, /job-insights, /us-govt-financial-support, /self-care-tools) remain fixed at the routing layer via server-side rewrites in next.config.ts, regardless of internal Storyblok slug variations[cite: 4].</invariant>
+      <invariant id="CMS-05">SEO URL Invariance: Established public-facing URL routes (/who-we-are, /job-insights, /us-govt-financial-support, /self-care-tools) and nested article routes (/job-insights/:slug*) remain fixed at the routing layer via server-side rewrites and dynamic normalization in next.config.ts and page.tsx, regardless of internal Storyblok slug variations[cite: 4, 6].</invariant>
       <invariant id="CMS-06">Application Widget Decoupling: Interactive functional interfaces (TabbedInterface search engine, MainNav dropdown menus, and contact form handlers) reside in native application code and are NOT treated as Storyblok CMS bloks[cite: 4].</invariant>
     </cms_architectural_invariants>
   </environment_state>
@@ -180,16 +187,17 @@
     <entry phase="CI/CD Architecture">COMPLETED: Hardened GitHub Actions CI pipeline (.github/workflows/ci.yml) deployed with offline cached fixture strategy[cite: 4].</entry>
     <entry phase="Tier 4 Security Hardening">COMPLETED: External anchors locked with rel="noopener noreferrer". Parameter reflection sanitized via sanitizeParams.ts. Security regression suite created in e2e/security.spec.ts[cite: 4].</entry>
     <entry phase="Image Pipeline Hardening">COMPLETED: Configured next.config.ts remotePatterns to authorize Storyblok CDN (a.storyblok.com). Hardened BlogCard.tsx with defensive image checks and SVG fallbacks. Eliminated Next.js LCP warnings on MissionBanner[cite: 4].</entry>
-    <entry phase="Space Discovery &amp; Reconciliation">COMPLETED: Full Storyblok space audit discovered 12 active stories. Resolved slug discrepancies for /who-we-are, /job-insights, /us-govt-financial-support, and /self-care-tools via next.config.ts rewrites. Confirmed 'Deloitte Manpower' and 'Michael-Smith-Who?' are draft items and excluded[cite: 4].</entry>
+    <entry phase="Space Discovery &amp; Reconciliation">COMPLETED: Full Storyblok space audit discovered 12 active stories[cite: 4]. Resolved slug discrepancies for /who-we-are, /job-insights, /us-govt-financial-support, and /self-care-tools via next.config.ts rewrites[cite: 4]. Confirmed 'Deloitte Manpower' and 'Michael-Smith-Who?' are draft items and excluded[cite: 4].</entry>
     <entry phase="About Us Implementation">COMPLETED: Created AboutUsContent.tsx mapping Stories, Team Roster, and Donation blocks[cite: 4].</entry>
     <entry phase="SEO Routing &amp; Adapters Completion">COMPLETED: Built BlogListingContent.tsx, LegalDocumentContent.tsx, ResourceHubContent.tsx, EventDirectoryContent.tsx, and ToolingAuditContent.tsx. Resolved all TS2322 and ESLint violations[cite: 4].</entry>
     <entry phase="Navigation Decoupling">COMPLETED: Extracted MainNav.tsx from MainHeader.tsx. Built accessible, keyboard-navigable 'Job App Tools' dropdown covering /career-fairs, /ai-tools, /self-care-tools, and /us-govt-financial-support with mobile drawer parity[cite: 4].</entry>
     <entry phase="TabbedInterface Decompile &amp; Mock">COMPLETED: Forensically audited Home Content JSON (0 child bloks in body). Decoupled TabbedInterface as a native client component mounted between Hero and PromoBanner. Synchronized tabs to searchParams (?jobId=&amp;tab=classified vs ?tab=review), and mocked against /api/v1/jobs query structure with empty-state Lottie fallback handling[cite: 4].</entry>
-    <entry phase="MainFooter WCAG Remediation">COMPLETED: Remediated contact form labels from low-contrast black to text-slate-200 with aria-hidden asterisks to satisfy WCAG 2.2 AA (SC 1.3.1, 1.4.3, 3.3.2). Inverted submit button to high-contrast white with navy text (#081F48)[cite: 4, 8, 9].</entry>
-    <entry phase="QA Agent Initial Setup">COMPLETED: Initial setup and integration of the Feral QA Agent is finished[cite: 4, 10]. Ingested qa-agent/ codebase (index.ts, core-io.ts, system-prompt.ts, golden-template.ts)[cite: 4, 10]. Scoped ESM execution using qa-agent/package.json ("type": "module"), resolved Windows POSIX path formatting in core-io.ts, eliminated about:blank localStorage security crash in golden-template.ts, and added qa-agent/@quarantine/** to eslint.config.mjs global ignores[cite: 2, 10, 12].</entry>
-    <entry phase="Base Route Smoke Verification">COMPLETED: Reconciled subpage inner headers from &lt;header&gt; to semantic &lt;section&gt; containers, eliminating duplicate banner collisions[cite: 14]. Bound exact Storyblok Delivery API component key 'AI Tools Content' and mapped live headings for /self-care-tools ('Staying Sane While Job Searching Matters!') and /who-we-are[cite: 4]. All 8 canonical routes 100% passing in e2e/smoke-test.spec.ts[cite: 4].</entry>
-    <entry phase="Responsive Viewport Verification">COMPLETED: Multi-breakpoint responsive suite (e2e/responsive.spec.ts) achieved 100% pass rate (14/14 tests) across mobile (375px), tablet (768px), and desktop (1280px). Verified zero horizontal scroll overflow and confirmed responsive drawer navigation transitions aligned to Tailwind lg boundary[cite: 8].</entry>
-    <entry phase="Active Pipeline">ACTIVE: Task 1.10 &amp; 1.13. Executing automated WCAG 2.2 AA / Section 508 accessibility scanning (@axe-core/playwright), running offline production build audit, and conducting comprehensive URL/subdomain reconnaissance (e.g., hr.thejobapplicantperspective.com, api.thejobapplicantperspective.com)[cite: 4].</entry>
+    <entry phase="MainFooter WCAG Remediation">COMPLETED: Remediated contact form labels from low-contrast black to text-slate-200 with aria-hidden asterisks to satisfy WCAG 2.2 AA (SC 1.3.1, 1.4.3, 3.3.2). Inverted submit button to high-contrast white with navy text (#081F48)[cite: 4].</entry>
+    <entry phase="QA Agent Initial Setup">COMPLETED: Initial setup and integration of the Feral QA Agent is finished[cite: 4]. Ingested qa-agent/ codebase (index.ts, core-io.ts, system-prompt.ts, golden-template.ts)[cite: 4]. Scoped ESM execution using qa-agent/package.json ("type": "module"), resolved Windows POSIX path formatting in core-io.ts, eliminated about:blank localStorage security crash in golden-template.ts, and added qa-agent/@quarantine/** to eslint.config.mjs global ignores[cite: 4].</entry>
+    <entry phase="Base Route Smoke Verification">COMPLETED: Reconciled subpage inner headers from &lt;header&gt; to semantic &lt;section&gt; containers, eliminating duplicate banner collisions. Bound exact Storyblok Delivery API component key 'AI Tools Content' and mapped live headings for /self-care-tools ('Staying Sane While Job Searching Matters!') and /who-we-are[cite: 4]. All 8 canonical routes 100% passing in e2e/smoke-test.spec.ts[cite: 4].</entry>
+    <entry phase="Responsive Viewport Verification">COMPLETED: Multi-breakpoint responsive suite (e2e/responsive.spec.ts) achieved 100% pass rate (14/14 tests) across mobile (375px), tablet (768px), and desktop (1280px). Verified zero horizontal scroll overflow and confirmed responsive drawer navigation transitions aligned to Tailwind lg boundary[cite: 4].</entry>
+    <entry phase="Blog Routing &amp; Article Adapter Architecture">COMPLETED: Built BlogArticleContent.tsx with semantic light-theme layout (#ffffff, #0d3276, #434343), top header clearance bar, rich text prose container, and sticky author metadata aside matching live DOM[cite: 10, 11]. Updated src/app/[[...slug]]/page.tsx with multi-candidate slug resolution and Phase 2 wildcard search fallback (by_slugs: *${target}*) to resolve truncated slugs and case-sensitivity mismatches[cite: 6]. Re-anchored BlogCard.tsx and BlogGrid.tsx to link cleanly through /job-insights/[slug][cite: 7, 13]. Staged 18 modified files on branch jhood/playwright-updates[cite: 3].</entry>
+    <entry phase="Active Pipeline">ACTIVE: Task 1.10 (WCAG 2.2 AA / Section 508 automation scan via @axe-core/playwright and offline build gate), Task 1.14 (Job App Tools subpage styling refactor), Task 2.2 (Feral QA Agent Self-Documentation &amp; In-Repo Coverage Telemetry Architecture), and Task 1.13 (Subdomain/DNS reconnaissance)[cite: 4].</entry>
   </execution_log>
 
   <governance_topology id="section_8_triad">
@@ -202,7 +210,7 @@
   <milestone_architecture id="four_tier_remediation">
     <tier_1 allocation="20%" status="COMPLETED">Hemorrhage Control &amp; Diagnostics. Decoupled server error boundaries, enforced strict DTO schema sanitization, and stabilized Storyblok client/server bridge integration with centralized diagnostics[cite: 4].</tier_1>
     <tier_2 allocation="30%" status="COMPLETED">Accessibility &amp; Semantic Integrity. WCAG 2.2 AA, ARIA bindings, programmatic escape hatches, Focus Management, high-contrast form label remediation, and ESLint scrollable region compliance[cite: 4].</tier_2>
-    <tier_3 allocation="30%" status="COMPLETED">Substrate Decoupling &amp; Component Hydration. Layout DOM extraction, JIT eradication, UI primitive tokenization, presentational block refactoring, dynamic catch-all route mapping, MainNav extraction, and TabbedInterface client widget isolation complete[cite: 4].</tier_3>
+    <tier_3 allocation="30%" status="COMPLETED">Substrate Decoupling &amp; Component Hydration. Layout DOM extraction, JIT eradication, UI primitive tokenization, presentational block refactoring, dynamic catch-all route mapping, MainNav extraction, TabbedInterface client widget isolation, and Blog Content story routing complete[cite: 4].</tier_3>
     <tier_4 allocation="20%" status="COMPLETED">Zero-Trust Security Perimeter &amp; Production Hardening. CI/CD offline build decoupling, GitHub repository secrets, branch protection status checks, external link security locks, and parameter reflection sanitization complete. Upstash rate-limiting deferred[cite: 4].</tier_4>
   </milestone_architecture>
 
@@ -239,20 +247,12 @@
         <subtask status="COMPLETED">Extract MainNav.tsx with accessible Job App Tools dropdown and update MainHeader.tsx[cite: 4].</subtask>
         <subtask status="COMPLETED">Decompile and mock TabbedInterface.tsx with URL search parameter state handling[cite: 4].</subtask>
         <subtask status="COMPLETED">Remediate MainFooter.tsx contact form labels for WCAG 2.2 AA compliance and invert submit button[cite: 4].</subtask>
-        <subtask status="COMPLETED">Reconcile Playwright configuration and configure dual project runners (default-e2e and qa-quarantine)[cite: 2, 4].</subtask>
+        <subtask status="COMPLETED">Reconcile Playwright configuration and configure dual project runners (default-e2e and qa-quarantine)[cite: 4].</subtask>
         <subtask status="COMPLETED">Construct core route health test patterns verifying standard page loading, primary landmark rendering, and absence of console error leakage (e2e/smoke-test.spec.ts passed 8/8)[cite: 4].</subtask>
-        <subtask status="COMPLETED">Build automated multi-breakpoint responsive viewport suite asserting layout stability and navigation adaptation across mobile (375px), tablet (768px), and desktop (1280px) viewports (e2e/responsive.spec.ts passed 14/14)[cite: 8].</subtask>
+        <subtask status="COMPLETED">Build automated multi-breakpoint responsive viewport suite asserting layout stability and navigation adaptation across mobile (375px), tablet (768px), and desktop (1280px) viewports (e2e/responsive.spec.ts passed 14/14)[cite: 4].</subtask>
+        <subtask status="COMPLETED">Build BlogArticleContent.tsx adapter and resolve dynamic catch-all route mapping in src/app/[[...slug]]/page.tsx for all 51 Storyblok 'Blog Content' stories[cite: 6, 10].</subtask>
         <subtask status="ACTIVE">Execute automated WCAG 2.2 AA / Section 508 accessibility smoke tests via @axe-core/playwright across all mapped canonical routes.</subtask>
         <subtask status="PENDING">Execute offline production build gate (npm run build:offline) to ensure zero static-compilation regressions.</subtask>
-      </task>
-      <task id="1.11" name="Feral QA Agent Automation Pipeline" status="COMPLETED">
-        <subtask status="COMPLETED">Ingest QA Agent codebase (qa-agent/index.ts, core-io.ts, system-prompt.ts, golden-template.ts)[cite: 4, 10].</subtask>
-        <subtask status="COMPLETED">Verify Golden Schematic RAG injection and Reverend Silvertongue Protocol constraints[cite: 10].</subtask>
-        <subtask status="COMPLETED">Verify Brute Force Solder regex parsing for Playwright test.step() callbacks[cite: 10].</subtask>
-        <subtask status="COMPLETED">Configure GEMINI_API_KEY environment binding in .env.local for gemini-2.5-flash model invocation[cite: 10].</subtask>
-        <subtask status="COMPLETED">Resolve internal task resolution pathing in index.ts and execution pathing in core-io.ts to map qa-agent/docs and qa-agent/@quarantine[cite: 10, 11].</subtask>
-        <subtask status="COMPLETED">Isolate ES module scope via qa-agent/package.json to satisfy import.meta dependencies.</subtask>
-        <subtask status="COMPLETED">Resolve pre-navigation localStorage security exception in golden-template.ts and verify first autonomous test run generation in @quarantine/[cite: 10, 11].</subtask>
       </task>
       <task id="1.12" name="Post-Launch Monetization &amp; Rate-Limiting" status="FUTURE">
         <subtask status="FUTURE">Deploy Stripe Customer Portal, Checkout Sessions, and webhook listeners for paid candidate services and employer verification[cite: 4].</subtask>
@@ -264,15 +264,86 @@
         <subtask status="PENDING">Audit hr.thejobapplicantperspective.com architectural posture, hosting provider, and integration boundaries with the canonical Next.js application.</subtask>
         <subtask status="PENDING">Document complete public exposure surface and zero-trust perimeter routing map for all active TJAP hostnames.</subtask>
       </task>
+      <task id="1.14" name="Job App Tools Subpage Visual &amp; Semantic Alignment" status="ACTIVE">
+        <subtask status="PENDING">Audit and align EventDirectoryContent.tsx (/career-fairs) with the canonical light-theme palette (#ffffff, #0d3276, #434343), top header clearance bar, and responsive card grid tokens[cite: 4, 11].</subtask>
+        <subtask status="PENDING">Audit and align ToolingAuditContent.tsx (/ai-tools) with semantic sections, accessible link buttons, and responsive grid spacing[cite: 4, 11].</subtask>
+        <subtask status="PENDING">Audit and align ResourceHubContent.tsx (/self-care-tools and /us-govt-financial-support) with verified live typography tokens, provider card structures, and testimonial blocks[cite: 4, 11].</subtask>
+        <subtask status="PENDING">Verify zero landmark collisions, single semantic main landmarks, and clean focus indicators across all 4 Job App Tools subpages.</subtask>
+      </task>
+    </category>
+
+    <category id="2" name="FERAL QA &amp; Playwright">
+      <task id="2.1" name="Feral QA Agent Automation Pipeline" status="COMPLETED">
+        <subtask status="COMPLETED">Ingest QA Agent codebase (qa-agent/index.ts, core-io.ts, system-prompt.ts, golden-template.ts)[cite: 4].</subtask>
+        <subtask status="COMPLETED">Verify Golden Schematic RAG injection and Reverend Silvertongue Protocol constraints[cite: 4].</subtask>
+        <subtask status="COMPLETED">Verify Brute Force Solder regex parsing for Playwright test.step() callbacks[cite: 4].</subtask>
+        <subtask status="COMPLETED">Configure GEMINI_API_KEY environment binding in .env.local for gemini-2.5-flash model invocation[cite: 4].</subtask>
+        <subtask status="COMPLETED">Resolve internal task resolution pathing in index.ts and execution pathing in core-io.ts to map qa-agent/docs and qa-agent/@quarantine[cite: 4].</subtask>
+        <subtask status="COMPLETED">Isolate ES module scope via qa-agent/package.json to satisfy import.meta dependencies[cite: 4].</subtask>
+        <subtask status="COMPLETED">Resolve pre-navigation localStorage security exception in golden-template.ts and verify first autonomous test run generation in @quarantine/[cite: 4].</subtask>
+      </task>
+
+      <task id="2.2" name="Feral QA Agent Self-Documentation &amp; In-Repo Coverage Telemetry" status="ROADMAP">
+        <subtask status="ROADMAP">Design QA Agent Automated Documentation Writer: Extend core-io.ts to automatically serialize test results, failure traces, and code coverage metrics into docs/qa-coverage/ as structured Markdown and JSON reports[cite: 4].</subtask>
+        <subtask status="ROADMAP">Implement In-Repo Commit &amp; PR Telemetry: Model a post-execution workflow where the agent writes its own test generation logs, test specifications, and coverage badges directly to Git branches, eliminating silent execution and proving audit integrity[cite: 4].</subtask>
+        <subtask status="ROADMAP">Incorporate Virginia Company Historical Telemetry: Decompile legacy test coverage architectures to enforce visible proof-of-work reporting for non-technical stakeholders (April-Approved Artifacts)[cite: 1, 4].</subtask>
+        <subtask status="ROADMAP">Deploy Full Feral QA Agent &amp; Accessibility Drone on TJAP: Integrate an un-sanded Feral Sentinel chaos tester featuring a 3-Stage Ferality Dial (Level 1: Passive Reconnaissance, Level 2: Agitated Fuzzing Brawler Mode, Level 3: Maximum Ferality / Agentic Override) combined with a Multimodal Accessibility Drone (Level 1: Guided RAG Reconnaissance, Level 2: Autonomous Feral Crawl)[cite: 1, 19]. Execute continuous WCAG 2.2 AA / Section 508 audits using real-time Playwright page console/network listeners, Negative Space Debugging, and off-leash adversarial payload mutation to rip site flows apart, ensuring no UI focus traps, infinite spinners, or transient rendering overlays bypass the zero-trust execution gate[cite: 1, 19].</subtask>
+      </task>
+
+      <tjap_feral_qa_architecture>
+        <metadata>
+          <target_system>TJAP (The Job Applicant Project)</target_system>
+          <engine_type>Un-sanded Multimodal Feral QA &amp; Accessibility Drone</engine_type>
+          <governance>Zero-Trust Architecture &amp; WCAG 2.2 AA / Section 508 Continuous Enforcement</governance>
+        </metadata>
+
+        <architectural_components>
+          <component name="Multimodal Accessibility Drone">
+            <level_1_guided_reconnaissance>
+              <description>Audits critical TJAP application flows (form submission, document upload, auth gates) using the Golden Schematic as a rigid RAG constraint to eliminate AI syntax drift and Playwright hallucinations.</description>
+              <verification_target>WCAG 2.2 AA / Section 508 compliance across static DOM structures and pre-approved user journeys.</verification_target>
+            </level_1_guided_reconnaissance>
+            <level_2_autonomous_reconnaissance>
+              <description>Operates unconstrained under the Feral Grit Mandate, autonomously crawling dynamic routes to expose transitional popups, unannounced visual state changes, and focus traps that static DOM scanners miss.</description>
+              <verification_target>Real-time visual rendering traps and screen reader barriers across unscripted site paths.</verification_target>
+            </level_2_autonomous_reconnaissance>
+          </component>
+
+          <component name="Feral Sentinel &amp; Ferality Dial">
+            <level_1_passive_reconnaissance>
+              <description>Standard flow verification with strict schema validation and active listeners attached directly to Playwright page console and network traffic.</description>
+              <throttle_protocol>Intercepts HTTP 429 API Bouncer rate-limit errors, cooling down for 20 seconds with exponential backoff.</throttle_protocol>
+            </level_1_passive_reconnaissance>
+            <level_2_agitated_fuzzing>
+              <description>Adopts a brawler mentality—mutating form inputs, injecting unexpected character streams, and double-clicking submission buttons to stress asynchronous network states.</description>
+            </level_2_agitated_fuzzing>
+            <level_3_maximum_ferality>
+              <description>Agentic Override off-leash mode. Invents zero-day edge cases based on page context, analyzes intercepted network headers, and bypasses the visual frontend to fire malformed payloads directly at backend endpoints.</description>
+            </level_3_maximum_ferality>
+          </component>
+
+          <component name="Sentinel Catch &amp; Negative Space Debugging">
+            <phase_4_sentinel_catch>
+              <description>Captures failure state screenshots (.png) and Playwright text logs upon execution faults, converting PNG artifacts into base64 image buffers for multimodal vision model evaluation.</description>
+            </phase_4_sentinel_catch>
+            <negative_space_analysis>
+              <description>Analyzes total visual context to identify physical UI blockers (z-index traps, invisible overlays, loading spinners, low-contrast text) blocking the user experience.</description>
+            </negative_space_analysis>
+            <phase_5_artifact_generation>
+              <description>Compiles April-Approved Artifacts—impeccably formatted bugtemplate.md reports detailing actual vs. expected behavior, impact on human OS flow, and direct local evidence file paths (trace.zip and PNGs).</description>
+            </phase_5_artifact_generation>
+          </component>
+        </architectural_components>
+      </tjap_feral_qa_architecture>
     </category>
   </task_and_query_ledger>
 
   <llm_execution_directives>
     <directive>1. ZERO-TRUST CONTEXT: Treat this XML as immutable ground truth[cite: 4].</directive>
-    <directive>2. MODE-LOCK: Enforce /saiph (Sovereign CTO) mode for all code and architecture generation[cite: 4, 7].</directive>
+    <directive>2. MODE-LOCK: Enforce /saiph (Sovereign CTO) mode for all code and architecture generation[cite: 4, 15].</directive>
     <directive>3. SYNTAX MANDATE: All React components must strictly utilize ES6 fat arrow function syntax[cite: 4].</directive>
     <directive>4. CI INTEGRITY: Maintain offline fixture fallback support across any Storyblok API updates to ensure continuous headless build validity[cite: 4].</directive>
-    <directive>5. SEO INVARIANCE: Preserve existing canonical URLs (/who-we-are, /job-insights, /us-govt-financial-support, /self-care-tools) through server-side rewrites rather than exposing raw CMS slug discrepancies to visitors or search engines[cite: 4].</directive>
-    <directive>6. QA AGENT GOVERNANCE: Initial pipeline setup and integration is verified and complete[cite: 4, 10]. Future agent task specs are scheduled for later test cycles; all active human-verified smoke, accessibility, and responsive suites reside in e2e/[cite: 10].</directive>
+    <directive>5. SEO INVARIANCE: Preserve existing canonical URLs (/who-we-are, /job-insights, /us-govt-financial-support, /self-care-tools, and /job-insights/:slug*) through server-side rewrites and dynamic normalization rather than exposing raw CMS slug discrepancies to visitors or search engines[cite: 4, 6].</directive>
+    <directive>6. QA AGENT GOVERNANCE: Initial pipeline setup and integration is verified and complete[cite: 4]. Active test suites reside in e2e/[cite: 4]. Future QA agent in-repo self-documentation and coverage telemetry features are mapped in Task 2.2 for scheduled implementation[cite: 4].</directive>
   </llm_execution_directives>
 </system_context_override>
