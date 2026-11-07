@@ -55,7 +55,7 @@ export const LegalDocumentContent: React.FC<LegalDocumentContentProps> = ({ blok
       className="px-gutter mx-auto flex w-full max-w-4xl flex-col py-12 md:py-16"
     >
       {/* 1. Document Header & Effective Date Landmark */}
-      <header className="border-border/60 mb-10 flex flex-col items-start border-b pb-8 text-left">
+      <section className="border-border/60 mb-10 flex flex-col items-start border-b pb-8 text-left">
         <span className="text-muted-foreground mb-3 text-xs font-bold tracking-wider uppercase">
           Legal &amp; Compliance Disclosure
         </span>
@@ -73,7 +73,7 @@ export const LegalDocumentContent: React.FC<LegalDocumentContentProps> = ({ blok
             {effectiveDate}
           </time>
         </div>
-      </header>
+      </section>
 
       {/* 2. Structured Policy Body */}
       <section aria-label="Policy Provisions" className="w-full">

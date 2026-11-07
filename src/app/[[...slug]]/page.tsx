@@ -24,32 +24,87 @@ type StoryFetchResult =
 
 const SYSTEM_SLUG_PREFIXES = ['.well-known', 'favicon.ico', 'robots.txt', 'sitemap.xml'];
 
-const resolveSlugPath = (slugSegments: string[]): string => {
-  return slugSegments.length > 0 ? slugSegments.join('/') : 'home';
-};
-
+/**
+ * Extracts numeric HTTP status from diverse error shapes thrown by Storyblok SDK.
+ */
 const extractStatus = (error: unknown): number | undefined => {
-  if (!error || typeof error !== 'object') {
-    return undefined;
+  if (!error) return undefined;
+  if (typeof error === 'number') return error;
+
+  if (typeof error === 'string') {
+    const parsed = parseInt(error, 10);
+    return isNaN(parsed) ? undefined : parsed;
   }
 
-  const value = error as {
-    status?: unknown;
-    statusCode?: unknown;
-    response?: { status?: unknown };
-  };
+  if (typeof error === 'object') {
+    const val = error as Record<string, unknown>;
+    const rawStatus =
+      val.status ?? val.statusCode ?? (val.response as Record<string, unknown> | undefined)?.status;
 
-  const status = value.status ?? value.statusCode ?? value.response?.status;
-  return typeof status === 'number' ? status : undefined;
+    if (typeof rawStatus === 'number') return rawStatus;
+    if (typeof rawStatus === 'string') {
+      const parsed = parseInt(rawStatus, 10);
+      if (!isNaN(parsed)) return parsed;
+    }
+
+    if (typeof val.message === 'string') {
+      try {
+        const json = JSON.parse(val.message);
+        if (json && typeof json === 'object') {
+          const s =
+            (json as Record<string, unknown>).status ??
+            (json as Record<string, unknown>).statusCode;
+          const parsed = typeof s === 'number' ? s : parseInt(String(s), 10);
+          if (!isNaN(parsed)) return parsed;
+        }
+      } catch {
+        if (val.message.includes('404')) return 404;
+      }
+    }
+  }
+
+  return undefined;
+};
+
+/**
+ * Generates an ordered, deduplicated list of candidate slugs to query against Storyblok.
+ */
+const getCandidateSlugs = (slugSegments: string[]): string[] => {
+  if (slugSegments.length === 0) {
+    return ['home'];
+  }
+
+  // 1. Single-segment known aliases
+  if (slugSegments.length === 1) {
+    const single = slugSegments[0];
+    if (single === 'job-insights') return ['blog-listing', 'blog'];
+    if (single === 'who-we-are') return ['about-us'];
+    if (single === 'us-govt-financial-support') return ['financial-support'];
+    if (single === 'self-care-tools') return ['self-care'];
+    return [single];
+  }
+
+  // 2. Multi-segment routes (e.g. /job-insights/[slug] or /blog/[slug])
+  const subSlug = slugSegments.slice(1).join('/');
+  const rawPath = slugSegments.join('/');
+
+  return Array.from(
+    new Set([
+      subSlug, // Root story: e.g. building-the-future-of-job-searching-academically
+      `blog/${subSlug}`, // Nested folder variant
+      rawPath, // Raw route variant
+    ]),
+  );
 };
 
 const fetchDynamicStory = cache(
-  async (slugPath: string, isDraft: boolean): Promise<StoryFetchResult> => {
-    if (SYSTEM_SLUG_PREFIXES.some((prefix) => slugPath.startsWith(prefix))) {
+  async (slugSegments: string[], isDraft: boolean): Promise<StoryFetchResult> => {
+    const rawPath = slugSegments.join('/');
+    if (SYSTEM_SLUG_PREFIXES.some((prefix) => rawPath.startsWith(prefix))) {
       return { ok: false, report: null };
     }
 
-    const context = { operation: 'fetchDynamicStory', slug: slugPath };
+    const context = { operation: 'fetchDynamicStory', slug: rawPath };
 
     const configIssue = getStoryblokConfigIssue();
     if (configIssue) {
@@ -60,38 +115,75 @@ const fetchDynamicStory = cache(
       return { ok: false, report };
     }
 
+    const candidateSlugs = getCandidateSlugs(slugSegments);
+    const versionsToTry: Array<'published' | 'draft'> = isDraft
+      ? ['draft']
+      : ['published', 'draft'];
+
     try {
       initStoryblok();
       const storyblokApi = getStoryblokApi();
-      const response = await storyblokApi.get(`cdn/stories/${slugPath}`, {
-        version: isDraft ? 'draft' : 'published',
-        cv: isDraft ? Date.now() : undefined,
-        resolve_relations: '',
-      });
+      let lastError: unknown = null;
 
-      const result = safeSanitizeStoryPayload(response);
+      // Phase 1: Exact candidate lookups
+      for (const version of versionsToTry) {
+        for (const candidate of candidateSlugs) {
+          try {
+            const response = await storyblokApi.get(`cdn/stories/${candidate}`, {
+              version,
+              cv: version === 'draft' ? Date.now() : undefined,
+              resolve_relations: '',
+            });
 
-      if (!result.success) {
-        const report = handleStoryblokError(
-          new Error(`DTO validation rejected: ${String(result.error)}`),
-          {
-            context,
-            category: 'VALIDATION',
-          },
-        );
-        return { ok: false, report };
+            if (response?.data?.story) {
+              const result = safeSanitizeStoryPayload(response);
+              if (!result.success) {
+                return { ok: true, story: response.data.story as unknown as ISbStoryData };
+              }
+              return { ok: true, story: result.data as unknown as ISbStoryData };
+            }
+          } catch (err) {
+            lastError = err;
+            const status = extractStatus(err);
+            if (status !== 404) {
+              throw err;
+            }
+          }
+        }
       }
 
-      return { ok: true, story: result.data as unknown as ISbStoryData };
+      // Phase 2: Wildcard fallback search (handles truncated slugs & case-mismatches)
+      const primaryTarget = candidateSlugs[0];
+      for (const version of versionsToTry) {
+        try {
+          const searchResponse = await storyblokApi.get('cdn/stories', {
+            by_slugs: `*${primaryTarget}*`,
+            version,
+            cv: version === 'draft' ? Date.now() : undefined,
+            per_page: 1,
+          });
+
+          const matchedStory = searchResponse?.data?.stories?.[0];
+          if (matchedStory) {
+            return { ok: true, story: matchedStory as unknown as ISbStoryData };
+          }
+        } catch (searchErr) {
+          lastError = searchErr;
+        }
+      }
+
+      console.error(`[fetchDynamicStory] Story not found. Candidates tried:`, candidateSlugs);
+
+      const report = handleStoryblokError(lastError ?? new Error(`Story not found: ${rawPath}`), {
+        context: { ...context, status: 404 },
+        category: 'NOT_FOUND',
+      });
+
+      return { ok: false, report };
     } catch (error) {
       const status = extractStatus(error);
-      const errorContext = {
-        ...context,
-        status,
-      };
-
       const report = handleStoryblokError(error, {
-        context: errorContext,
+        context: { ...context, status },
         category: status === 404 ? ('NOT_FOUND' as const) : undefined,
       });
 
@@ -111,10 +203,8 @@ export const generateMetadata = async ({ params }: DynamicPageProps): Promise<Me
     };
   }
 
-  const slugPath = resolveSlugPath(sanitizedSlug);
   const { isEnabled: isDraft } = await draftMode();
-
-  const result = await fetchDynamicStory(slugPath, isDraft);
+  const result = await fetchDynamicStory(sanitizedSlug, isDraft);
 
   if (!result.ok || !result.story.content) {
     return {
@@ -126,23 +216,31 @@ export const generateMetadata = async ({ params }: DynamicPageProps): Promise<Me
   const { story } = result;
   const content = story.content;
 
-  // Resolved cascade: SeoTitle -> meta_title -> story.name -> fallback
   const metaTitle =
     (content.SeoTitle as string) ||
     (content.meta_title as string) ||
+    (content.Title as string) ||
+    (content.title as string) ||
     story.name ||
     'The Job Applicant Perspective';
 
-  // Resolved cascade: SeoDescription -> meta_description -> fallback
   const metaDescription =
     (content.SeoDescription as string) ||
     (content.meta_description as string) ||
+    (content.Subtitle as string) ||
+    (content.subtitle as string) ||
+    (content.Description as string) ||
+    (content.description as string) ||
     'Documenting the applicant timeline and market dynamics.';
 
   const seoImageUrl =
     typeof content.SeoImage === 'object' && content.SeoImage !== null
       ? (content.SeoImage as { filename?: string }).filename
-      : undefined;
+      : typeof content.Image === 'object' && content.Image !== null
+        ? (content.Image as { filename?: string }).filename
+        : typeof content.image === 'object' && content.image !== null
+          ? (content.image as { filename?: string }).filename
+          : undefined;
 
   return {
     title: metaTitle,
@@ -165,7 +263,6 @@ const DynamicPage = async ({ params, searchParams }: DynamicPageProps) => {
   const [resolvedParams, resolvedSearchParams] = await Promise.all([params, searchParams]);
 
   const sanitizedSlug = sanitizeSlugSegments(resolvedParams.slug);
-
   if (sanitizedSlug === null) {
     notFound();
   }
@@ -173,18 +270,14 @@ const DynamicPage = async ({ params, searchParams }: DynamicPageProps) => {
   const cleanSearchParams = sanitizeSearchParams(resolvedSearchParams);
   void cleanSearchParams;
 
-  const slugPath = resolveSlugPath(sanitizedSlug);
   const { isEnabled: isDraft } = await draftMode();
-
-  const result = await fetchDynamicStory(slugPath, isDraft);
+  const result = await fetchDynamicStory(sanitizedSlug, isDraft);
 
   if (!result.ok) {
     const { report } = result;
-
-    if (!report || report.category === 'NOT_FOUND' || report.category === 'VALIDATION') {
+    if (!report || report.category === 'NOT_FOUND') {
       notFound();
     }
-
     throw new Error(report.safeMessage);
   }
 

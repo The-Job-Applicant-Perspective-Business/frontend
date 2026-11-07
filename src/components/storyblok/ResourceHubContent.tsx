@@ -74,7 +74,7 @@ export const ResourceHubContent: React.FC<ResourceHubContentProps> = ({ blok }) 
       className="px-gutter mx-auto flex w-full max-w-7xl flex-col py-12 md:py-16"
     >
       {/* 1. Directory Header Landmark */}
-      <header className="border-border/60 mb-10 flex flex-col items-start border-b pb-8 text-left md:mb-14">
+      <section className="border-border/60 mb-10 flex flex-col items-start border-b pb-8 text-left md:mb-14">
         <span className="text-muted-foreground mb-3 inline-flex items-center gap-1.5 text-xs font-bold tracking-wider uppercase">
           <Bookmark className="text-primary h-3.5 w-3.5" aria-hidden="true" />
           Community Assistance &amp; Guidance
@@ -88,7 +88,7 @@ export const ResourceHubContent: React.FC<ResourceHubContentProps> = ({ blok }) 
           </p>
         )}
         {blok.Introduction && <div className="mt-6 max-w-3xl">{renderIntro()}</div>}
-      </header>
+      </section>
 
       {/* 2. Resource Grid */}
       <section aria-label="Available Resources and Aid Programs" className="w-full">

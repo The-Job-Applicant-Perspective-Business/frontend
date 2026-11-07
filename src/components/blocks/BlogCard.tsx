@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -6,68 +6,78 @@ export interface BlogCardProps {
   imageSrc?: string;
   imageAlt?: string;
   metaText?: string;
-  category?: string;
+  author?: string;
   date?: string;
+  category?: string;
   title: string;
   description: string;
   href?: string;
+  slug?: string;
   tags?: string[];
   featured?: boolean;
   className?: string;
 }
 
-export const BlogCard = ({
+export const BlogCard: React.FC<BlogCardProps> = ({
   imageSrc,
   imageAlt = '',
   metaText,
-  category,
+  author,
   date,
+  category,
   title,
   description,
   href,
+  slug,
   tags = [],
-  featured = false,
   className = '',
-}: BlogCardProps) => {
-  // Validate presence of image source to prevent next/image runtime crashes
+}) => {
   const hasValidImage = typeof imageSrc === 'string' && imageSrc.trim().length > 0;
 
-  // Derive metadata display string from explicit metaText or category/date pairing
-  const displayMeta =
-    metaText ||
-    [category, date]
-      .filter((val): val is string => Boolean(val && val.trim().length > 0))
-      .join(' • ');
+  // Build the meta string (e.g., "Sarah Springsteen Trumble • July 23, 2025")
+  const displayMeta = useMemo(() => {
+    if (metaText) return metaText;
+    if (author && date) return `${author} • ${date}`;
+    if (category && date) return `${category} • ${date}`;
+    return author || date || category || '';
+  }, [metaText, author, date, category]);
+
+  // Standardize href resolution to enforce canonical /job-insights/[slug]
+  const targetHref = useMemo(() => {
+    const rawLink = href || slug;
+    if (!rawLink) return undefined;
+
+    if (rawLink.startsWith('http://') || rawLink.startsWith('https://')) {
+      return rawLink;
+    }
+
+    const cleanSlug = rawLink
+      .replace(/^\/+/, '')
+      .replace(/^blog\//, '')
+      .replace(/^job-insights\//, '');
+
+    return `/job-insights/${cleanSlug}`;
+  }, [href, slug]);
 
   const CardContent = (
-    <>
-      {/* Aspect ratio container locks layout dimensions and prevents CLS */}
-      <div
-        className={`bg-muted border-border/40 relative w-full overflow-hidden border-b ${
-          featured ? 'aspect-16/10 md:aspect-21/9' : 'aspect-16/10'
-        }`}
-      >
+    <div className="w-full cursor-pointer">
+      {/* 1. Image Container (240px fixed height matching live design) */}
+      <div className="relative h-[240px] w-full overflow-hidden rounded-[14px] bg-[#F4F6F8]">
         {hasValidImage ? (
           <Image
             src={imageSrc}
-            alt={imageAlt}
-            aria-hidden={imageAlt === '' ? 'true' : undefined}
+            alt={imageAlt || title}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-            sizes={
-              featured
-                ? '(max-width: 1200px) 100vw, 1200px'
-                : '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-            }
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 380px"
+            className="h-[240px] w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
           />
         ) : (
-          /* Zero-Trust Fallback: Branded placeholder when image asset is missing */
           <div
             aria-hidden="true"
-            className="from-muted via-accent-bg/20 to-muted flex h-full w-full items-center justify-center bg-gradient-to-br"
+            className="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200"
           >
             <svg
-              className="text-muted-foreground/30 h-12 w-12"
+              className="h-12 w-12 text-slate-300"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -83,51 +93,55 @@ export const BlogCard = ({
         )}
       </div>
 
-      <div className={`flex flex-1 flex-col ${featured ? 'p-6 md:p-8' : 'p-6'}`}>
-        {displayMeta && (
-          <span className="text-muted-foreground mb-2 text-xs font-bold tracking-wider uppercase">
-            {displayMeta}
-          </span>
-        )}
-        <h3
-          className={`text-foreground group-hover:text-primary mb-3 font-bold transition-colors ${
-            featured ? 'text-2xl md:text-3xl' : 'text-xl'
-          }`}
-        >
-          {title}
-        </h3>
-        <p
-          className={`text-muted-foreground mb-4 line-clamp-3 flex-1 text-sm leading-relaxed ${
-            featured ? 'md:text-base' : ''
-          }`}
-        >
-          {description}
-        </p>
+      {/* 2. Metadata Tag Line */}
+      {displayMeta && (
+        <h6 className="text-primary mt-[32px] text-[14px] font-[600]">{displayMeta}</h6>
+      )}
 
-        {tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 pt-2">
-            {tags.map((tag, index) => (
-              <span
-                key={`${tag}-${index}`}
-                className="bg-accent-bg text-accent-text inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
+      {/* 3. Title */}
+      <h3 className="group-hover:text-primary mt-[12px] text-[24px] leading-[32px] font-[600] text-[#434343] transition-colors">
+        {title}
+      </h3>
+
+      {/* 4. Description / Subtitle */}
+      <p className="mt-[12px] line-clamp-2 min-h-[48px] text-[16px] leading-[24px] font-[400] text-[#7C7C7C]">
+        {description}
+      </p>
+
+      {/* 5. Footer: Tags + Read More */}
+      <div className="mt-[24px] flex flex-col gap-[24px] md:flex-row md:items-center md:justify-between md:gap-[32px]">
+        <ul className="hide-scrollbar flex w-full flex-wrap gap-[6px] overflow-x-auto">
+          {tags.map((tag, index) => (
+            <li
+              key={`${tag}-${index}`}
+              className="min-w-fit rounded-[16px] bg-[#EEF4FF] px-[10px] py-[2px] text-[14px] font-[500] text-[#3538CD]"
+            >
+              {tag}
+            </li>
+          ))}
+        </ul>
+
+        <div className="text-primary flex shrink-0 items-center gap-1.5">
+          <span className="text-[16px] leading-[24px] font-[700]">Read more</span>
+          <span
+            aria-hidden="true"
+            className="font-bold transition-transform group-hover:translate-x-1"
+          >
+            &gt;
+          </span>
+        </div>
       </div>
-    </>
+    </div>
   );
 
   const containerClasses =
-    `group flex flex-col w-full overflow-hidden rounded-xl border border-border bg-background shadow-sm transition-all duration-200 hover:shadow-md ${className}`.trim();
+    `group flex flex-col w-full text-left transition-all duration-200 ${className}`.trim();
 
-  if (href) {
+  if (targetHref) {
     return (
       <Link
-        href={href}
-        className={`${containerClasses} focus-visible:ring-focus-ring focus-visible:ring-offset-background focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none`}
+        href={targetHref}
+        className={`${containerClasses} focus-visible:ring-primary rounded-[14px] focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none`}
       >
         {CardContent}
       </Link>

@@ -80,7 +80,7 @@ export const EventDirectoryContent: React.FC<EventDirectoryContentProps> = ({ bl
       className="px-gutter mx-auto flex w-full max-w-7xl flex-col py-12 md:py-16"
     >
       {/* 1. Directory Header Landmark */}
-      <header className="border-border/60 mb-10 flex flex-col items-start border-b pb-8 text-left md:mb-14">
+      <section className="border-border/60 mb-10 flex flex-col items-start border-b pb-8 text-left md:mb-14">
         <span className="text-muted-foreground mb-3 inline-flex items-center gap-1.5 text-xs font-bold tracking-wider uppercase">
           <Calendar className="text-primary h-3.5 w-3.5" aria-hidden="true" />
           Hiring Opportunities &amp; Fair Directory
@@ -94,7 +94,7 @@ export const EventDirectoryContent: React.FC<EventDirectoryContentProps> = ({ bl
           </p>
         )}
         {blok.Introduction && <div className="mt-6 max-w-3xl">{renderIntro()}</div>}
-      </header>
+      </section>
 
       {/* 2. Events Grid */}
       <section aria-label="Scheduled Hiring Events" className="w-full">

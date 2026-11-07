@@ -4,7 +4,7 @@
       "C:\\Program Files\\nodejs\\node.exe",
       "C:\\code\\frontend\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "e2e/smoke-test.spec.ts",
+      "e2e/responsive.spec.ts",
       "--project=default-e2e"
     ],
     "configFile": "C:\\code\\frontend\\playwright.config.ts",
@@ -97,604 +97,518 @@
   },
   "suites": [
     {
-      "title": "e2e\\smoke-test.spec.ts",
-      "file": "e2e/smoke-test.spec.ts",
+      "title": "e2e\\responsive.spec.ts",
+      "file": "e2e/responsive.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Base Route Smoke & Landmark Verification Suite",
-          "file": "e2e/smoke-test.spec.ts",
-          "line": 19,
+          "title": "Responsive Breakpoint & Layout Integrity Matrix",
+          "file": "e2e/responsive.spec.ts",
+          "line": 18,
           "column": 6,
-          "specs": [
+          "specs": [],
+          "suites": [
             {
-              "title": "Route \"/\" loads with 200 status, valid landmarks, and zero console exceptions",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "title": "Viewport: Mobile (375px)",
+              "file": "e2e/responsive.spec.ts",
+              "line": 20,
+              "column": 10,
+              "specs": [
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "default-e2e",
-                  "projectName": "default-e2e",
-                  "results": [
+                  "title": "Verify layout integrity and zero horizontal overflow on \"/\"",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7633,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-11-06T18:34:37.876Z",
+                      "timeout": 30000,
                       "annotations": [],
-                      "attachments": []
+                      "expectedStatus": "passed",
+                      "projectId": "default-e2e",
+                      "projectName": "default-e2e",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 4219,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-11-06T23:32:35.527Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
                     }
                   ],
-                  "status": "expected"
+                  "id": "e0223b006feb3d306446-4bf067d39d4b32f142b1",
+                  "file": "e2e/responsive.spec.ts",
+                  "line": 26,
+                  "column": 13
+                },
+                {
+                  "title": "Verify layout integrity and zero horizontal overflow on \"/who-we-are\"",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "default-e2e",
+                      "projectName": "default-e2e",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 4474,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-11-06T23:32:35.385Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "e0223b006feb3d306446-e8305afc600be81dbfad",
+                  "file": "e2e/responsive.spec.ts",
+                  "line": 26,
+                  "column": 13
+                },
+                {
+                  "title": "Verify layout integrity and zero horizontal overflow on \"/job-insights\"",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "default-e2e",
+                      "projectName": "default-e2e",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 6678,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-11-06T23:32:40.461Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "e0223b006feb3d306446-408e463ac87b0c9ad3f2",
+                  "file": "e2e/responsive.spec.ts",
+                  "line": 26,
+                  "column": 13
+                },
+                {
+                  "title": "Verify layout integrity and zero horizontal overflow on \"/ai-tools\"",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "default-e2e",
+                      "projectName": "default-e2e",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 6726,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-11-06T23:32:40.539Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "e0223b006feb3d306446-aa6bfc962571d5099074",
+                  "file": "e2e/responsive.spec.ts",
+                  "line": 26,
+                  "column": 13
+                },
+                {
+                  "title": "Verify navigation drawer open, link traversal, and close states",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "default-e2e",
+                      "projectName": "default-e2e",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 5688,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-11-06T23:32:47.176Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "e0223b006feb3d306446-355cc2f7c311a38a9963",
+                  "file": "e2e/responsive.spec.ts",
+                  "line": 56,
+                  "column": 13
                 }
-              ],
-              "id": "3f58d441499060f9c0b2-6be087a531886eb8f4c6",
-              "file": "e2e/smoke-test.spec.ts",
-              "line": 21,
-              "column": 9
+              ]
             },
             {
-              "title": "Route \"/who-we-are\" loads with 200 status, valid landmarks, and zero console exceptions",
-              "ok": false,
-              "tags": [],
-              "tests": [
+              "title": "Viewport: Tablet (768px)",
+              "file": "e2e/responsive.spec.ts",
+              "line": 20,
+              "column": 10,
+              "specs": [
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "default-e2e",
-                  "projectName": "default-e2e",
-                  "results": [
+                  "title": "Verify layout integrity and zero horizontal overflow on \"/\"",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 11564,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    14 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    14 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n    at C:\\code\\frontend\\e2e\\smoke-test.spec.ts:47:36",
-                        "location": {
-                          "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                          "column": 36,
-                          "line": 47
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m       \u001b[36mawait\u001b[39m expect(headerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m       \u001b[36mawait\u001b[39m expect(footerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// Verify landmarks are visible and interactable\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                            "column": 36,
-                            "line": 47
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    14 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m       \u001b[36mawait\u001b[39m expect(headerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m       \u001b[36mawait\u001b[39m expect(footerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// Verify landmarks are visible and interactable\u001b[39m\u001b[0m\n\u001b[2m    at C:\\code\\frontend\\e2e\\smoke-test.spec.ts:47:36\u001b[22m"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-11-06T18:34:37.829Z",
+                      "timeout": 30000,
                       "annotations": [],
-                      "attachments": [
+                      "expectedStatus": "passed",
+                      "projectId": "default-e2e",
+                      "projectName": "default-e2e",
+                      "results": [
                         {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-772f0-and-zero-console-exceptions-default-e2e\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-772f0-and-zero-console-exceptions-default-e2e\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-772f0-and-zero-console-exceptions-default-e2e\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-772f0-and-zero-console-exceptions-default-e2e\\trace.zip"
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2458,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-11-06T23:32:47.306Z",
+                          "annotations": [],
+                          "attachments": []
                         }
                       ],
-                      "errorLocation": {
-                        "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                        "column": 36,
-                        "line": 47
-                      }
+                      "status": "expected"
                     }
                   ],
-                  "status": "unexpected"
+                  "id": "e0223b006feb3d306446-89a59f8b8ad403007ef3",
+                  "file": "e2e/responsive.spec.ts",
+                  "line": 26,
+                  "column": 13
+                },
+                {
+                  "title": "Verify layout integrity and zero horizontal overflow on \"/who-we-are\"",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "default-e2e",
+                      "projectName": "default-e2e",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2516,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-11-06T23:32:49.802Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "e0223b006feb3d306446-49d0dc731f510cad3950",
+                  "file": "e2e/responsive.spec.ts",
+                  "line": 26,
+                  "column": 13
+                },
+                {
+                  "title": "Verify layout integrity and zero horizontal overflow on \"/job-insights\"",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "default-e2e",
+                      "projectName": "default-e2e",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2795,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-11-06T23:32:52.367Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "e0223b006feb3d306446-f3615d2f8a08813a03b6",
+                  "file": "e2e/responsive.spec.ts",
+                  "line": 26,
+                  "column": 13
+                },
+                {
+                  "title": "Verify layout integrity and zero horizontal overflow on \"/ai-tools\"",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "default-e2e",
+                      "projectName": "default-e2e",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 9236,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-11-06T23:32:52.898Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "e0223b006feb3d306446-4ad5d88415d9967053b2",
+                  "file": "e2e/responsive.spec.ts",
+                  "line": 26,
+                  "column": 13
+                },
+                {
+                  "title": "Verify navigation drawer open, link traversal, and close states",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "default-e2e",
+                      "projectName": "default-e2e",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 6353,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-11-06T23:32:55.206Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "e0223b006feb3d306446-84d628e530169c508f7b",
+                  "file": "e2e/responsive.spec.ts",
+                  "line": 56,
+                  "column": 13
                 }
-              ],
-              "id": "3f58d441499060f9c0b2-9709a420be4f46207459",
-              "file": "e2e/smoke-test.spec.ts",
-              "line": 21,
-              "column": 9
+              ]
             },
             {
-              "title": "Route \"/job-insights\" loads with 200 status, valid landmarks, and zero console exceptions",
-              "ok": false,
-              "tags": [],
-              "tests": [
+              "title": "Viewport: Desktop (1280px)",
+              "file": "e2e/responsive.spec.ts",
+              "line": 20,
+              "column": 10,
+              "specs": [
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "default-e2e",
-                  "projectName": "default-e2e",
-                  "results": [
+                  "title": "Verify layout integrity and zero horizontal overflow on \"/\"",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 8720,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    14 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    14 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n    at C:\\code\\frontend\\e2e\\smoke-test.spec.ts:47:36",
-                        "location": {
-                          "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                          "column": 36,
-                          "line": 47
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m       \u001b[36mawait\u001b[39m expect(headerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m       \u001b[36mawait\u001b[39m expect(footerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// Verify landmarks are visible and interactable\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                            "column": 36,
-                            "line": 47
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    14 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m       \u001b[36mawait\u001b[39m expect(headerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m       \u001b[36mawait\u001b[39m expect(footerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// Verify landmarks are visible and interactable\u001b[39m\u001b[0m\n\u001b[2m    at C:\\code\\frontend\\e2e\\smoke-test.spec.ts:47:36\u001b[22m"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-11-06T18:34:46.969Z",
+                      "timeout": 30000,
                       "annotations": [],
-                      "attachments": [
+                      "expectedStatus": "passed",
+                      "projectId": "default-e2e",
+                      "projectName": "default-e2e",
+                      "results": [
                         {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-daba2-and-zero-console-exceptions-default-e2e\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-daba2-and-zero-console-exceptions-default-e2e\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-daba2-and-zero-console-exceptions-default-e2e\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-daba2-and-zero-console-exceptions-default-e2e\\trace.zip"
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2965,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-11-06T23:33:01.617Z",
+                          "annotations": [],
+                          "attachments": []
                         }
                       ],
-                      "errorLocation": {
-                        "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                        "column": 36,
-                        "line": 47
-                      }
+                      "status": "expected"
                     }
                   ],
-                  "status": "unexpected"
-                }
-              ],
-              "id": "3f58d441499060f9c0b2-00bf858ff45a5604d03f",
-              "file": "e2e/smoke-test.spec.ts",
-              "line": 21,
-              "column": 9
-            },
-            {
-              "title": "Route \"/privacy-policy\" loads with 200 status, valid landmarks, and zero console exceptions",
-              "ok": false,
-              "tags": [],
-              "tests": [
+                  "id": "e0223b006feb3d306446-a62c1f6bcba028fd0162",
+                  "file": "e2e/responsive.spec.ts",
+                  "line": 26,
+                  "column": 13
+                },
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "default-e2e",
-                  "projectName": "default-e2e",
-                  "results": [
+                  "title": "Verify layout integrity and zero horizontal overflow on \"/who-we-are\"",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 8395,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    13 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    13 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n    at C:\\code\\frontend\\e2e\\smoke-test.spec.ts:47:36",
-                        "location": {
-                          "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                          "column": 36,
-                          "line": 47
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m       \u001b[36mawait\u001b[39m expect(headerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m       \u001b[36mawait\u001b[39m expect(footerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// Verify landmarks are visible and interactable\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                            "column": 36,
-                            "line": 47
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    13 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m       \u001b[36mawait\u001b[39m expect(headerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m       \u001b[36mawait\u001b[39m expect(footerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// Verify landmarks are visible and interactable\u001b[39m\u001b[0m\n\u001b[2m    at C:\\code\\frontend\\e2e\\smoke-test.spec.ts:47:36\u001b[22m"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-11-06T18:34:51.919Z",
+                      "timeout": 30000,
                       "annotations": [],
-                      "attachments": [
+                      "expectedStatus": "passed",
+                      "projectId": "default-e2e",
+                      "projectName": "default-e2e",
+                      "results": [
                         {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-f7dc9-and-zero-console-exceptions-default-e2e\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-f7dc9-and-zero-console-exceptions-default-e2e\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-f7dc9-and-zero-console-exceptions-default-e2e\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-f7dc9-and-zero-console-exceptions-default-e2e\\trace.zip"
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 4349,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-11-06T23:33:02.199Z",
+                          "annotations": [],
+                          "attachments": []
                         }
                       ],
-                      "errorLocation": {
-                        "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                        "column": 36,
-                        "line": 47
-                      }
+                      "status": "expected"
                     }
                   ],
-                  "status": "unexpected"
-                }
-              ],
-              "id": "3f58d441499060f9c0b2-5de8d28e12c5983cf97b",
-              "file": "e2e/smoke-test.spec.ts",
-              "line": 21,
-              "column": 9
-            },
-            {
-              "title": "Route \"/self-care-tools\" loads with 200 status, valid landmarks, and zero console exceptions",
-              "ok": false,
-              "tags": [],
-              "tests": [
+                  "id": "e0223b006feb3d306446-524715bf824e31e94cb7",
+                  "file": "e2e/responsive.spec.ts",
+                  "line": 26,
+                  "column": 13
+                },
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "default-e2e",
-                  "projectName": "default-e2e",
-                  "results": [
+                  "title": "Verify layout integrity and zero horizontal overflow on \"/job-insights\"",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 7794,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    14 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    14 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n    at C:\\code\\frontend\\e2e\\smoke-test.spec.ts:47:36",
-                        "location": {
-                          "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                          "column": 36,
-                          "line": 47
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m       \u001b[36mawait\u001b[39m expect(headerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m       \u001b[36mawait\u001b[39m expect(footerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// Verify landmarks are visible and interactable\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                            "column": 36,
-                            "line": 47
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    14 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m       \u001b[36mawait\u001b[39m expect(headerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m       \u001b[36mawait\u001b[39m expect(footerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// Verify landmarks are visible and interactable\u001b[39m\u001b[0m\n\u001b[2m    at C:\\code\\frontend\\e2e\\smoke-test.spec.ts:47:36\u001b[22m"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-11-06T18:34:57.355Z",
+                      "timeout": 30000,
                       "annotations": [],
-                      "attachments": [
+                      "expectedStatus": "passed",
+                      "projectId": "default-e2e",
+                      "projectName": "default-e2e",
+                      "results": [
                         {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-5b058-and-zero-console-exceptions-default-e2e\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-5b058-and-zero-console-exceptions-default-e2e\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-5b058-and-zero-console-exceptions-default-e2e\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-5b058-and-zero-console-exceptions-default-e2e\\trace.zip"
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2851,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-11-06T23:33:04.683Z",
+                          "annotations": [],
+                          "attachments": []
                         }
                       ],
-                      "errorLocation": {
-                        "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                        "column": 36,
-                        "line": 47
-                      }
+                      "status": "expected"
                     }
                   ],
-                  "status": "unexpected"
-                }
-              ],
-              "id": "3f58d441499060f9c0b2-25a2eebade24eccb08d8",
-              "file": "e2e/smoke-test.spec.ts",
-              "line": 21,
-              "column": 9
-            },
-            {
-              "title": "Route \"/us-govt-financial-support\" loads with 200 status, valid landmarks, and zero console exceptions",
-              "ok": false,
-              "tags": [],
-              "tests": [
+                  "id": "e0223b006feb3d306446-f10c7673f49af5fb8304",
+                  "file": "e2e/responsive.spec.ts",
+                  "line": 26,
+                  "column": 13
+                },
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "default-e2e",
-                  "projectName": "default-e2e",
-                  "results": [
+                  "title": "Verify layout integrity and zero horizontal overflow on \"/ai-tools\"",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 8126,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    13 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    13 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n    at C:\\code\\frontend\\e2e\\smoke-test.spec.ts:47:36",
-                        "location": {
-                          "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                          "column": 36,
-                          "line": 47
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m       \u001b[36mawait\u001b[39m expect(headerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m       \u001b[36mawait\u001b[39m expect(footerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// Verify landmarks are visible and interactable\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                            "column": 36,
-                            "line": 47
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    13 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m       \u001b[36mawait\u001b[39m expect(headerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m       \u001b[36mawait\u001b[39m expect(footerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// Verify landmarks are visible and interactable\u001b[39m\u001b[0m\n\u001b[2m    at C:\\code\\frontend\\e2e\\smoke-test.spec.ts:47:36\u001b[22m"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-11-06T18:35:01.884Z",
+                      "timeout": 30000,
                       "annotations": [],
-                      "attachments": [
+                      "expectedStatus": "passed",
+                      "projectId": "default-e2e",
+                      "projectName": "default-e2e",
+                      "results": [
                         {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-79d76-and-zero-console-exceptions-default-e2e\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-79d76-and-zero-console-exceptions-default-e2e\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-79d76-and-zero-console-exceptions-default-e2e\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-79d76-and-zero-console-exceptions-default-e2e\\trace.zip"
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 4313,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-11-06T23:33:06.597Z",
+                          "annotations": [],
+                          "attachments": []
                         }
                       ],
-                      "errorLocation": {
-                        "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                        "column": 36,
-                        "line": 47
-                      }
+                      "status": "expected"
                     }
                   ],
-                  "status": "unexpected"
+                  "id": "e0223b006feb3d306446-ba17ae26b66299cddd33",
+                  "file": "e2e/responsive.spec.ts",
+                  "line": 26,
+                  "column": 13
                 }
-              ],
-              "id": "3f58d441499060f9c0b2-a2c4d5c6f043654de2eb",
-              "file": "e2e/smoke-test.spec.ts",
-              "line": 21,
-              "column": 9
-            },
-            {
-              "title": "Route \"/career-fairs\" loads with 200 status, valid landmarks, and zero console exceptions",
-              "ok": false,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "default-e2e",
-                  "projectName": "default-e2e",
-                  "results": [
-                    {
-                      "workerIndex": 5,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 8386,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    13 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    13 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n    at C:\\code\\frontend\\e2e\\smoke-test.spec.ts:47:36",
-                        "location": {
-                          "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                          "column": 36,
-                          "line": 47
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m       \u001b[36mawait\u001b[39m expect(headerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m       \u001b[36mawait\u001b[39m expect(footerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// Verify landmarks are visible and interactable\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                            "column": 36,
-                            "line": 47
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('header')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('header')\u001b[22m\n\u001b[2m    13 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m       \u001b[36mawait\u001b[39m expect(headerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m       \u001b[36mawait\u001b[39m expect(footerElements)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// Verify landmarks are visible and interactable\u001b[39m\u001b[0m\n\u001b[2m    at C:\\code\\frontend\\e2e\\smoke-test.spec.ts:47:36\u001b[22m"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-11-06T18:35:06.587Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-299b3-and-zero-console-exceptions-default-e2e\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-299b3-and-zero-console-exceptions-default-e2e\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-299b3-and-zero-console-exceptions-default-e2e\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-299b3-and-zero-console-exceptions-default-e2e\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                        "column": 36,
-                        "line": 47
-                      }
-                    }
-                  ],
-                  "status": "unexpected"
-                }
-              ],
-              "id": "3f58d441499060f9c0b2-bdfdcf06482443430089",
-              "file": "e2e/smoke-test.spec.ts",
-              "line": 21,
-              "column": 9
-            },
-            {
-              "title": "Route \"/ai-tools\" loads with 200 status, valid landmarks, and zero console exceptions",
-              "ok": false,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "default-e2e",
-                  "projectName": "default-e2e",
-                  "results": [
-                    {
-                      "workerIndex": 6,
-                      "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 6762,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\u001b[2m    13 × locator resolved to <main tabindex=\"-1\" id=\"main-content\" class=\"w-full flex-grow focus:outline-none\">…</main>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\u001b[2m    13 × locator resolved to <main tabindex=\"-1\" id=\"main-content\" class=\"w-full flex-grow focus:outline-none\">…</main>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n    at C:\\code\\frontend\\e2e\\smoke-test.spec.ts:51:34",
-                        "location": {
-                          "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                          "column": 34,
-                          "line": 51
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// Verify landmarks are visible and interactable\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 51 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainElements)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 52 |\u001b[39m       \u001b[36mawait\u001b[39m expect(headerElements)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 53 |\u001b[39m       \u001b[36mawait\u001b[39m expect(footerElements)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 54 |\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                            "column": 34,
-                            "line": 51
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\u001b[2m    13 × locator resolved to <main tabindex=\"-1\" id=\"main-content\" class=\"w-full flex-grow focus:outline-none\">…</main>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// Verify landmarks are visible and interactable\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 51 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainElements)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 52 |\u001b[39m       \u001b[36mawait\u001b[39m expect(headerElements)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 53 |\u001b[39m       \u001b[36mawait\u001b[39m expect(footerElements)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 54 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\code\\frontend\\e2e\\smoke-test.spec.ts:51:34\u001b[22m"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-11-06T18:35:11.423Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-54369-and-zero-console-exceptions-default-e2e\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-54369-and-zero-console-exceptions-default-e2e\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-54369-and-zero-console-exceptions-default-e2e\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\code\\frontend\\test-results\\smoke-test-Base-Route-Smok-54369-and-zero-console-exceptions-default-e2e\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\code\\frontend\\e2e\\smoke-test.spec.ts",
-                        "column": 34,
-                        "line": 51
-                      }
-                    }
-                  ],
-                  "status": "unexpected"
-                }
-              ],
-              "id": "3f58d441499060f9c0b2-3b10dfb1dfb26f5cad00",
-              "file": "e2e/smoke-test.spec.ts",
-              "line": 21,
-              "column": 9
+              ]
             }
           ]
         }
@@ -703,11 +617,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-06T18:34:15.314Z",
-    "duration": 63737.632,
-    "expected": 1,
+    "startTime": "2026-11-06T23:32:17.263Z",
+    "duration": 54241.966,
+    "expected": 14,
     "skipped": 0,
-    "unexpected": 7,
+    "unexpected": 0,
     "flaky": 0
   }
 }
