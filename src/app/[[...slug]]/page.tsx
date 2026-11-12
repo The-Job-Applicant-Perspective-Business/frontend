@@ -24,6 +24,12 @@ type StoryFetchResult =
 
 const SYSTEM_SLUG_PREFIXES = ['.well-known', 'favicon.ico', 'robots.txt', 'sitemap.xml'];
 
+const EXCLUDED_SLUGS = new Set([
+  'michael-smith-who-',
+  'deloitte-manpower',
+  'blog/deloitte-manpower',
+]);
+
 /**
  * Extracts numeric HTTP status from diverse error shapes thrown by Storyblok SDK.
  */
@@ -68,31 +74,33 @@ const extractStatus = (error: unknown): number | undefined => {
 
 /**
  * Generates an ordered, deduplicated list of candidate slugs to query against Storyblok.
+ * Supports root-level stories, legacy SEO aliases, and stories organized under a `pages/` folder.
  */
 const getCandidateSlugs = (slugSegments: string[]): string[] => {
   if (slugSegments.length === 0) {
     return ['home'];
   }
 
-  // 1. Single-segment known aliases
+  // 1. Single-segment known aliases + root/pages fallback
   if (slugSegments.length === 1) {
     const single = slugSegments[0];
     if (single === 'job-insights') return ['blog-listing', 'blog'];
     if (single === 'who-we-are') return ['about-us'];
     if (single === 'us-govt-financial-support') return ['financial-support'];
     if (single === 'self-care-tools') return ['self-care'];
-    return [single];
+    return [single, `pages/${single}`];
   }
 
-  // 2. Multi-segment routes (e.g. /job-insights/[slug] or /blog/[slug])
+  // 2. Multi-segment routes (e.g. /job-insights/[slug], /blog/[slug], or nested pages)
   const subSlug = slugSegments.slice(1).join('/');
   const rawPath = slugSegments.join('/');
 
   return Array.from(
     new Set([
       subSlug, // Root story: e.g. building-the-future-of-job-searching-academically
-      `blog/${subSlug}`, // Nested folder variant
-      rawPath, // Raw route variant
+      `blog/${subSlug}`, // Nested blog folder variant
+      rawPath, // Direct nested path variant
+      `pages/${rawPath}`, // Nested pages folder variant
     ]),
   );
 };
@@ -100,7 +108,10 @@ const getCandidateSlugs = (slugSegments: string[]): string[] => {
 const fetchDynamicStory = cache(
   async (slugSegments: string[], isDraft: boolean): Promise<StoryFetchResult> => {
     const rawPath = slugSegments.join('/');
-    if (SYSTEM_SLUG_PREFIXES.some((prefix) => rawPath.startsWith(prefix))) {
+    if (
+      SYSTEM_SLUG_PREFIXES.some((prefix) => rawPath.startsWith(prefix)) ||
+      EXCLUDED_SLUGS.has(rawPath.toLowerCase())
+    ) {
       return { ok: false, report: null };
     }
 
@@ -136,6 +147,11 @@ const fetchDynamicStory = cache(
             });
 
             if (response?.data?.story) {
+              const fullSlug = String(response.data.story.full_slug || '').toLowerCase();
+              if (EXCLUDED_SLUGS.has(fullSlug)) {
+                continue;
+              }
+
               const result = safeSanitizeStoryPayload(response);
               if (!result.success) {
                 return { ok: true, story: response.data.story as unknown as ISbStoryData };
@@ -160,12 +176,19 @@ const fetchDynamicStory = cache(
             by_slugs: `*${primaryTarget}*`,
             version,
             cv: version === 'draft' ? Date.now() : undefined,
-            per_page: 1,
+            per_page: 5,
           });
 
-          const matchedStory = searchResponse?.data?.stories?.[0];
+          const matchedStory = (searchResponse?.data?.stories as ISbStoryData[] | undefined)?.find(
+            (s) => !EXCLUDED_SLUGS.has(String(s.full_slug || '').toLowerCase()),
+          );
+
           if (matchedStory) {
-            return { ok: true, story: matchedStory as unknown as ISbStoryData };
+            const sanitized = safeSanitizeStoryPayload({ data: { story: matchedStory } });
+            if (!sanitized.success) {
+              return { ok: true, story: matchedStory };
+            }
+            return { ok: true, story: sanitized.data as unknown as ISbStoryData };
           }
         } catch (searchErr) {
           lastError = searchErr;

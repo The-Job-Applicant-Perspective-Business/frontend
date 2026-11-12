@@ -1,4 +1,6 @@
-import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
+import React from 'react';
+import { apiPlugin, storyblokInit, storyblokEditable } from '@storyblok/react/rsc';
+import type { SbBlokData } from '@storyblok/react/rsc';
 import { PageBlok } from '@/components/storyblok/PageBlok';
 import { HomeContent } from '@/components/storyblok/HomeContent';
 import { AboutUsContent } from '@/components/storyblok/AboutUsContent';
@@ -8,6 +10,7 @@ import { ResourceHubContent } from '@/components/storyblok/ResourceHubContent';
 import { EventDirectoryContent } from '@/components/storyblok/EventDirectoryContent';
 import { ToolingAuditContent } from '@/components/storyblok/ToolingAuditContent';
 import { BlogArticleContent } from '@/components/storyblok/BlogArticleContent';
+import { StandardPageContent } from '@/components/storyblok/StandardPageContent';
 import {
   HeroSection,
   TabbedInterface,
@@ -18,8 +21,68 @@ import {
 } from '@/components/blocks';
 import cachedStoryFixture from '../tests/fixtures/storyblok-fixture.json';
 
+interface FallbackBlokProps {
+  blok: SbBlokData & {
+    body?: SbBlokData[];
+    [key: string]: unknown;
+  };
+}
+
+/**
+ * Zero-crash safety fallback for newly created or unmapped Storyblok Content Types.
+ * Automatically renders nested `body` bloks if present so new CMS pages never fail silently.
+ */
+export const FallbackBlok: React.FC<FallbackBlokProps> = ({ blok }) => {
+  const nestedBody = Array.isArray(blok?.body) ? blok.body : [];
+  const content =
+    nestedBody.length > 0
+      ? React.createElement(
+          'div',
+          { className: 'mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-12 sm:px-6 lg:px-8' },
+          nestedBody.map((nestedBlok) => {
+            const Component =
+              (nestedBlok.component
+                ? (components as Record<string, React.ElementType>)[nestedBlok.component]
+                : undefined) ?? FallbackBlok;
+            return React.createElement(Component, {
+              blok: nestedBlok,
+              key: nestedBlok._uid,
+            });
+          }),
+        )
+      : process.env.NODE_ENV !== 'production'
+        ? React.createElement(
+            'div',
+            {
+              role: 'status',
+              className:
+                'mx-auto my-8 max-w-3xl rounded-lg border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900',
+            },
+            'Unmapped Storyblok component: ',
+            React.createElement('code', null, blok?.component || 'unknown'),
+          )
+        : null;
+
+  return React.createElement(
+    'div',
+    {
+      ...storyblokEditable(blok),
+      'data-testid': 'storyblok-fallback-blok',
+      className: 'w-full bg-[#ffffff] text-[#434343]',
+    },
+    content,
+  );
+};
+
 export const components = {
   page: PageBlok,
+
+  // Universal zero-code page templates for dynamic slug creation
+  'Standard Page': StandardPageContent,
+  'standard-page': StandardPageContent,
+  standard_page: StandardPageContent,
+  'General Page': StandardPageContent,
+  general_page: StandardPageContent,
 
   // Root page schemas
   'Home Content': HomeContent,
@@ -91,7 +154,7 @@ export const getStoryblokConfigIssue = (): string | null => {
   return null;
 };
 
-// Initialize the real Storyblok RSC SDK
+// Initialize the real Storyblok RSC SDK with fallback protection
 const realStoryblokApi = storyblokInit({
   accessToken: getStoryblokToken() || 'dummy-init-token',
   use: [apiPlugin],
@@ -99,6 +162,8 @@ const realStoryblokApi = storyblokInit({
     region: getStoryblokRegion(),
   },
   components,
+  enableFallbackComponent: true,
+  customFallbackComponent: FallbackBlok,
 });
 
 /**
