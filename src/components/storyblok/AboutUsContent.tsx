@@ -49,13 +49,13 @@ export const AboutUsContent = ({ blok }: AboutUsContentProps) => {
       className="flex w-full flex-col"
     >
       {/* 1. Page Header */}
-      <header className="border-border from-accent-bg/30 via-background to-background relative w-full border-b bg-gradient-to-b pt-24 pb-12 sm:pt-32 sm:pb-16 md:pt-36 md:pb-20">
+      <section className="border-border from-accent-bg/30 via-background to-background relative w-full border-b bg-gradient-to-b pt-24 pb-12 sm:pt-32 sm:pb-16 md:pt-36 md:pb-20">
         <div className="px-gutter mx-auto w-full max-w-7xl text-center">
           <h1 className="text-foreground leading-tight font-extrabold tracking-tight text-[var(--text-fluid-hero)]">
             {blok.Heading || 'Who We Are'}
           </h1>
         </div>
-      </header>
+      </section>
 
       {/* 2. Narrative Stories Section */}
       {blok.Stories && blok.Stories.length > 0 && (

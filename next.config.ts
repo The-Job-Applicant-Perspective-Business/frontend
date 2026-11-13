@@ -22,6 +22,10 @@ const nextConfig: NextConfig = {
         source: '/job-insights',
         destination: '/blog-listing',
       },
+      {
+        source: '/job-insights/:slug',
+        destination: '/blog/:slug',
+      },
       // Rule SEO-03: Government financial support & emergency aid
       {
         source: '/us-govt-financial-support',
