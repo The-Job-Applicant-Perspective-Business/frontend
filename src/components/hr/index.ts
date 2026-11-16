@@ -1,0 +1,1 @@
+export { HrLoginForm } from './HrLoginForm';
