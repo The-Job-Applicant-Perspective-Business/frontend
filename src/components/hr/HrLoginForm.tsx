@@ -3,13 +3,19 @@
 import { useState, type FormEvent } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Eye, EyeOff } from 'lucide-react';
+import { HrLoginResponseSchema } from '@/lib/dto/hrAuth';
 
 interface HrLoginFormProps {
   logoSrc?: string;
 }
 
+const HR_TOKEN_STORAGE_KEY = 'tjap_hr_token';
+const HR_USER_STORAGE_KEY = 'tjap_hr_user';
+
 export const HrLoginForm = ({ logoSrc = '/images/tjap-logo.png' }: HrLoginFormProps) => {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -31,23 +37,37 @@ export const HrLoginForm = ({ logoSrc = '/images/tjap-logo.png' }: HrLoginFormPr
       const apiBaseUrl =
         process.env.NEXT_PUBLIC_TJAP_API_URL ?? 'https://api.thejobapplicantperspective.com';
 
-      const response = await fetch(`${apiBaseUrl}/auth/login`, {
+      const response = await fetch(`${apiBaseUrl}/api/v1/auth/login`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify({ email: trimmedEmail, password }),
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: trimmedEmail,
+          password,
+          role: 'hr',
+        }),
       });
 
+      const rawPayload: unknown = await response.json().catch(() => null);
+
       if (!response.ok) {
-        const data = (await response.json().catch(() => null)) as {
-          message?: string;
-        } | null;
+        const errorBody = rawPayload as { message?: string } | null;
         throw new Error(
-          data?.message ?? 'Invalid credentials. Please check your email and password.',
+          errorBody?.message ?? 'Invalid credentials. Please check your email and password.',
         );
       }
 
-      window.location.assign('/');
+      const parsed = HrLoginResponseSchema.safeParse(rawPayload);
+      if (!parsed.success) {
+        throw new Error('Unexpected authentication response format from server.');
+      }
+
+      window.localStorage.setItem(HR_TOKEN_STORAGE_KEY, parsed.data.data.token);
+      window.localStorage.setItem(HR_USER_STORAGE_KEY, JSON.stringify(parsed.data.data.user));
+
+      router.push('/');
     } catch (error) {
       setErrorMessage(
         error instanceof Error ? error.message : 'Unable to sign in right now. Please try again.',
@@ -59,13 +79,11 @@ export const HrLoginForm = ({ logoSrc = '/images/tjap-logo.png' }: HrLoginFormPr
 
   return (
     <div className="relative min-h-screen w-full bg-[#F8FAFC]">
-      {/* Top half brand navy backdrop matching .auth-background h-1/2 */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-1/2 bg-[#0D3276]"
       />
 
-      {/* Brand Header */}
       <header className="relative z-10 mx-auto flex w-full justify-center px-[5vw] py-10 md:fixed md:justify-start">
         <Link
           href="/"
@@ -82,7 +100,6 @@ export const HrLoginForm = ({ logoSrc = '/images/tjap-logo.png' }: HrLoginFormPr
         </Link>
       </header>
 
-      {/* Main Auth Container */}
       <main className="relative z-10 flex min-h-[calc(100vh-121px)] w-full items-end md:grid md:min-h-screen md:place-items-center md:px-4">
         <div className="w-full rounded-t-2xl bg-white px-[5vw] pt-10 pb-16 shadow-[0_8px_30px_rgba(0,0,0,0.08)] md:w-[570px] md:rounded-2xl md:px-16 md:py-10">
           <h1 className="text-center text-2xl font-bold tracking-tight text-[#111827]">HR Login</h1>
@@ -98,7 +115,6 @@ export const HrLoginForm = ({ logoSrc = '/images/tjap-logo.png' }: HrLoginFormPr
           )}
 
           <form onSubmit={handleSubmit} noValidate className="mt-8 flex flex-col gap-4">
-            {/* Email Field */}
             <div className="flex w-full flex-col">
               <label htmlFor="hr-login-email" className="text-base font-medium text-[#374151]">
                 Email
@@ -115,7 +131,6 @@ export const HrLoginForm = ({ logoSrc = '/images/tjap-logo.png' }: HrLoginFormPr
               />
             </div>
 
-            {/* Password Field */}
             <div className="flex w-full flex-col">
               <label htmlFor="hr-login-password" className="text-base font-medium text-[#374151]">
                 Password
@@ -147,7 +162,6 @@ export const HrLoginForm = ({ logoSrc = '/images/tjap-logo.png' }: HrLoginFormPr
               </div>
             </div>
 
-            {/* Forgot Password Link */}
             <div className="w-full text-end">
               <Link
                 href="/verify"
@@ -157,7 +171,6 @@ export const HrLoginForm = ({ logoSrc = '/images/tjap-logo.png' }: HrLoginFormPr
               </Link>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={isSubmitting}
@@ -167,10 +180,8 @@ export const HrLoginForm = ({ logoSrc = '/images/tjap-logo.png' }: HrLoginFormPr
             </button>
           </form>
 
-          {/* Divider */}
           <p className="my-4 text-center text-base font-bold text-[#595959]">or</p>
 
-          {/* Sign Up Link */}
           <div className="flex items-center justify-center gap-2 text-center text-base font-bold text-[#595959] md:mb-6">
             <span>Don&apos;t have an account?</span>
             <Link
