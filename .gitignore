@@ -45,9 +45,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# --- Playwright (Automated Verification) ---
-test-results/
-playwright-report/
-blob-report/
-playwright/.cache/
-.auth/
+# --- Playwright & QA Agent Artifacts ---
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/.auth/
+/qa-agent/@quarantine/
