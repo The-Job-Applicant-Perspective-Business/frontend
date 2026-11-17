@@ -272,7 +272,7 @@ export const BlogListingContent: React.FC<BlogListingContentProps> = ({ blok }) 
                   className={`focus-visible:ring-primary min-w-fit cursor-pointer rounded-full px-4 py-1.5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none ${
                     isActive
                       ? 'bg-primary text-[#FAFAFA]'
-                      : 'text-[#7C7C7C] hover:bg-slate-100 hover:text-[#121212]'
+                      : 'text-[#595959] hover:bg-slate-100 hover:text-[#121212]'
                   }`}
                 >
                   {cat}
@@ -298,7 +298,7 @@ export const BlogListingContent: React.FC<BlogListingContentProps> = ({ blok }) 
               />
             ))
           ) : (
-            <div className="col-span-full py-16 text-center text-[#7C7C7C]">
+            <div className="col-span-full py-16 text-center text-[#595959]">
               No articles currently indexed under the &quot;{activeCategory}&quot; category.
             </div>
           )}

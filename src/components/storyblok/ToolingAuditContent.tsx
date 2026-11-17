@@ -209,10 +209,12 @@ export const ToolingAuditContent: React.FC<ToolingAuditContentProps> = ({ blok }
                 href={safeHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Visit ${toolName} (opens in a new tab)`}
                 className="group/link inline-flex items-center gap-1.5 rounded-sm text-sm font-semibold text-[#0d3276] underline-offset-4 hover:text-[#081F48] hover:underline focus-visible:ring-2 focus-visible:ring-[#0d3276] focus-visible:ring-offset-2 focus-visible:outline-none"
               >
-                <span>Visit Tool</span>
+                <span>
+                  Visit Tool
+                  <span className="sr-only"> — {toolName} (opens in a new tab)</span>
+                </span>
                 <ExternalLink
                   className="h-4 w-4 transition-transform group-hover/link:translate-x-0.5"
                   aria-hidden="true"
@@ -221,10 +223,12 @@ export const ToolingAuditContent: React.FC<ToolingAuditContentProps> = ({ blok }
             ) : (
               <Link
                 href={safeHref}
-                aria-label={`Read full audit for ${toolName}`}
                 className="group/link inline-flex items-center gap-1.5 rounded-sm text-sm font-semibold text-[#0d3276] underline-offset-4 hover:text-[#081F48] hover:underline focus-visible:ring-2 focus-visible:ring-[#0d3276] focus-visible:ring-offset-2 focus-visible:outline-none"
               >
-                <span>Read Full Audit</span>
+                <span>
+                  Read Full Audit
+                  <span className="sr-only"> — {toolName}</span>
+                </span>
                 <ArrowRight
                   className="h-4 w-4 transition-transform group-hover/link:translate-x-0.5"
                   aria-hidden="true"

@@ -4,7 +4,7 @@
       "C:\\Program Files\\nodejs\\node.exe",
       "C:\\code\\frontend\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "e2e/responsive.spec.ts",
+      "e2e/accessibility.spec.ts",
       "--project=default-e2e"
     ],
     "configFile": "C:\\code\\frontend\\playwright.config.ts",
@@ -97,518 +97,391 @@
   },
   "suites": [
     {
-      "title": "e2e\\responsive.spec.ts",
-      "file": "e2e/responsive.spec.ts",
+      "title": "e2e\\accessibility.spec.ts",
+      "file": "e2e/accessibility.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Responsive Breakpoint & Layout Integrity Matrix",
-          "file": "e2e/responsive.spec.ts",
-          "line": 18,
+          "title": "WCAG 2.2 AA & Section 508 Accessibility Smoke Suite",
+          "file": "e2e/accessibility.spec.ts",
+          "line": 31,
           "column": 6,
-          "specs": [],
-          "suites": [
+          "specs": [
             {
-              "title": "Viewport: Mobile (375px)",
-              "file": "e2e/responsive.spec.ts",
-              "line": 20,
-              "column": 10,
-              "specs": [
+              "title": "Route \"/\" passes WCAG 2.2 AA, Section 508, and landmark invariants",
+              "ok": true,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "Verify layout integrity and zero horizontal overflow on \"/\"",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "default-e2e",
+                  "projectName": "default-e2e",
+                  "results": [
                     {
-                      "timeout": 30000,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6752,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-17T20:03:12.586Z",
                       "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "default-e2e",
-                      "projectName": "default-e2e",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 4219,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2026-11-06T23:32:35.527Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
+                      "attachments": []
                     }
                   ],
-                  "id": "e0223b006feb3d306446-4bf067d39d4b32f142b1",
-                  "file": "e2e/responsive.spec.ts",
-                  "line": 26,
-                  "column": 13
-                },
-                {
-                  "title": "Verify layout integrity and zero horizontal overflow on \"/who-we-are\"",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "default-e2e",
-                      "projectName": "default-e2e",
-                      "results": [
-                        {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 4474,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2026-11-06T23:32:35.385Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "e0223b006feb3d306446-e8305afc600be81dbfad",
-                  "file": "e2e/responsive.spec.ts",
-                  "line": 26,
-                  "column": 13
-                },
-                {
-                  "title": "Verify layout integrity and zero horizontal overflow on \"/job-insights\"",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "default-e2e",
-                      "projectName": "default-e2e",
-                      "results": [
-                        {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 6678,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2026-11-06T23:32:40.461Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "e0223b006feb3d306446-408e463ac87b0c9ad3f2",
-                  "file": "e2e/responsive.spec.ts",
-                  "line": 26,
-                  "column": 13
-                },
-                {
-                  "title": "Verify layout integrity and zero horizontal overflow on \"/ai-tools\"",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "default-e2e",
-                      "projectName": "default-e2e",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 6726,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2026-11-06T23:32:40.539Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "e0223b006feb3d306446-aa6bfc962571d5099074",
-                  "file": "e2e/responsive.spec.ts",
-                  "line": 26,
-                  "column": 13
-                },
-                {
-                  "title": "Verify navigation drawer open, link traversal, and close states",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "default-e2e",
-                      "projectName": "default-e2e",
-                      "results": [
-                        {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 5688,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2026-11-06T23:32:47.176Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "e0223b006feb3d306446-355cc2f7c311a38a9963",
-                  "file": "e2e/responsive.spec.ts",
-                  "line": 56,
-                  "column": 13
+                  "status": "expected"
                 }
-              ]
+              ],
+              "id": "ddd864604af8a6a0198f-343b545821a439f8cee1",
+              "file": "e2e/accessibility.spec.ts",
+              "line": 33,
+              "column": 9
             },
             {
-              "title": "Viewport: Tablet (768px)",
-              "file": "e2e/responsive.spec.ts",
-              "line": 20,
-              "column": 10,
-              "specs": [
+              "title": "Route \"/who-we-are\" passes WCAG 2.2 AA, Section 508, and landmark invariants",
+              "ok": true,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "Verify layout integrity and zero horizontal overflow on \"/\"",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "default-e2e",
+                  "projectName": "default-e2e",
+                  "results": [
                     {
-                      "timeout": 30000,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5938,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-17T20:03:12.532Z",
                       "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "default-e2e",
-                      "projectName": "default-e2e",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 2458,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2026-11-06T23:32:47.306Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
+                      "attachments": []
                     }
                   ],
-                  "id": "e0223b006feb3d306446-89a59f8b8ad403007ef3",
-                  "file": "e2e/responsive.spec.ts",
-                  "line": 26,
-                  "column": 13
-                },
-                {
-                  "title": "Verify layout integrity and zero horizontal overflow on \"/who-we-are\"",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "default-e2e",
-                      "projectName": "default-e2e",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 2516,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2026-11-06T23:32:49.802Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "e0223b006feb3d306446-49d0dc731f510cad3950",
-                  "file": "e2e/responsive.spec.ts",
-                  "line": 26,
-                  "column": 13
-                },
-                {
-                  "title": "Verify layout integrity and zero horizontal overflow on \"/job-insights\"",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "default-e2e",
-                      "projectName": "default-e2e",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 2795,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2026-11-06T23:32:52.367Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "e0223b006feb3d306446-f3615d2f8a08813a03b6",
-                  "file": "e2e/responsive.spec.ts",
-                  "line": 26,
-                  "column": 13
-                },
-                {
-                  "title": "Verify layout integrity and zero horizontal overflow on \"/ai-tools\"",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "default-e2e",
-                      "projectName": "default-e2e",
-                      "results": [
-                        {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 9236,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2026-11-06T23:32:52.898Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "e0223b006feb3d306446-4ad5d88415d9967053b2",
-                  "file": "e2e/responsive.spec.ts",
-                  "line": 26,
-                  "column": 13
-                },
-                {
-                  "title": "Verify navigation drawer open, link traversal, and close states",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "default-e2e",
-                      "projectName": "default-e2e",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 6353,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2026-11-06T23:32:55.206Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "e0223b006feb3d306446-84d628e530169c508f7b",
-                  "file": "e2e/responsive.spec.ts",
-                  "line": 56,
-                  "column": 13
+                  "status": "expected"
                 }
-              ]
+              ],
+              "id": "ddd864604af8a6a0198f-43e5a89d40a995e8dc3c",
+              "file": "e2e/accessibility.spec.ts",
+              "line": 33,
+              "column": 9
             },
             {
-              "title": "Viewport: Desktop (1280px)",
-              "file": "e2e/responsive.spec.ts",
-              "line": 20,
-              "column": 10,
-              "specs": [
+              "title": "Route \"/job-insights\" passes WCAG 2.2 AA, Section 508, and landmark invariants",
+              "ok": true,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "Verify layout integrity and zero horizontal overflow on \"/\"",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "default-e2e",
+                  "projectName": "default-e2e",
+                  "results": [
                     {
-                      "timeout": 30000,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5534,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-17T20:03:18.776Z",
                       "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "default-e2e",
-                      "projectName": "default-e2e",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 2965,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2026-11-06T23:33:01.617Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
+                      "attachments": []
                     }
                   ],
-                  "id": "e0223b006feb3d306446-a62c1f6bcba028fd0162",
-                  "file": "e2e/responsive.spec.ts",
-                  "line": 26,
-                  "column": 13
-                },
-                {
-                  "title": "Verify layout integrity and zero horizontal overflow on \"/who-we-are\"",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "default-e2e",
-                      "projectName": "default-e2e",
-                      "results": [
-                        {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 4349,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2026-11-06T23:33:02.199Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "e0223b006feb3d306446-524715bf824e31e94cb7",
-                  "file": "e2e/responsive.spec.ts",
-                  "line": 26,
-                  "column": 13
-                },
-                {
-                  "title": "Verify layout integrity and zero horizontal overflow on \"/job-insights\"",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "default-e2e",
-                      "projectName": "default-e2e",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 2851,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2026-11-06T23:33:04.683Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "e0223b006feb3d306446-f10c7673f49af5fb8304",
-                  "file": "e2e/responsive.spec.ts",
-                  "line": 26,
-                  "column": 13
-                },
-                {
-                  "title": "Verify layout integrity and zero horizontal overflow on \"/ai-tools\"",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "default-e2e",
-                      "projectName": "default-e2e",
-                      "results": [
-                        {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 4313,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2026-11-06T23:33:06.597Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "e0223b006feb3d306446-ba17ae26b66299cddd33",
-                  "file": "e2e/responsive.spec.ts",
-                  "line": 26,
-                  "column": 13
+                  "status": "expected"
                 }
-              ]
+              ],
+              "id": "ddd864604af8a6a0198f-074a9823eecf7bc94b3e",
+              "file": "e2e/accessibility.spec.ts",
+              "line": 33,
+              "column": 9
+            },
+            {
+              "title": "Route \"/privacy-policy\" passes WCAG 2.2 AA, Section 508, and landmark invariants",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "default-e2e",
+                  "projectName": "default-e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6488,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-17T20:03:19.618Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-cd60a0d3d29926003ec3",
+              "file": "e2e/accessibility.spec.ts",
+              "line": 33,
+              "column": 9
+            },
+            {
+              "title": "Route \"/self-care-tools\" passes WCAG 2.2 AA, Section 508, and landmark invariants",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "default-e2e",
+                  "projectName": "default-e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5764,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-17T20:03:24.340Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-a8f55bef069d8ea1577b",
+              "file": "e2e/accessibility.spec.ts",
+              "line": 33,
+              "column": 9
+            },
+            {
+              "title": "Route \"/us-govt-financial-support\" passes WCAG 2.2 AA, Section 508, and landmark invariants",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "default-e2e",
+                  "projectName": "default-e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6111,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-17T20:03:26.142Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-6e42a493f8e44fb325e4",
+              "file": "e2e/accessibility.spec.ts",
+              "line": 33,
+              "column": 9
+            },
+            {
+              "title": "Route \"/career-fairs\" passes WCAG 2.2 AA, Section 508, and landmark invariants",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "default-e2e",
+                  "projectName": "default-e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4787,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-17T20:03:30.140Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-71e0475cd71a0a3169fd",
+              "file": "e2e/accessibility.spec.ts",
+              "line": 33,
+              "column": 9
+            },
+            {
+              "title": "Route \"/ai-tools\" passes WCAG 2.2 AA, Section 508, and landmark invariants",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "default-e2e",
+                  "projectName": "default-e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 15039,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-17T20:03:32.291Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-77a7dfb4bc6e98edc67c",
+              "file": "e2e/accessibility.spec.ts",
+              "line": 33,
+              "column": 9
+            },
+            {
+              "title": "Dynamic blog article route (/job-insights/[slug]) passes accessibility scan",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "default-e2e",
+                  "projectName": "default-e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 12409,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-17T20:03:34.958Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-c8931afaf9d73dec8ad8",
+              "file": "e2e/accessibility.spec.ts",
+              "line": 55,
+              "column": 7
+            },
+            {
+              "title": "MainNav Job App Tools dropdown supports keyboard navigation and Escape dismissal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "default-e2e",
+                  "projectName": "default-e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4897,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-17T20:03:47.364Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-35f22bfd74d408f23c67",
+              "file": "e2e/accessibility.spec.ts",
+              "line": 81,
+              "column": 7
+            },
+            {
+              "title": "MainFooter contact form enforces WCAG 2.2 AA label, contrast, and focus criteria",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "default-e2e",
+                  "projectName": "default-e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5093,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-17T20:03:47.413Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-e9a974e84362871c8982",
+              "file": "e2e/accessibility.spec.ts",
+              "line": 101,
+              "column": 7
             }
           ]
         }
@@ -617,9 +490,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-06T23:32:17.263Z",
-    "duration": 54241.966,
-    "expected": 14,
+    "startTime": "2026-11-17T20:03:10.318Z",
+    "duration": 43433.924999999996,
+    "expected": 11,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

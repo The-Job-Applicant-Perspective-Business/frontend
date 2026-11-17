@@ -186,13 +186,12 @@ export const MainNav = ({ className = '', onItemClick, isMobile = false }: MainN
           </NavLink>
         </li>
 
-        {/* Desktop Job App Tools Dropdown */}
+        {/* Desktop Job App Tools Disclosure Dropdown */}
         <li className="relative" ref={dropdownRef}>
           <button
             ref={triggerRef}
             type="button"
             id="job-app-tools-trigger"
-            aria-haspopup="true"
             aria-expanded={isDropdownOpen}
             aria-controls="job-app-tools-menu"
             onClick={toggleDropdown}
@@ -208,29 +207,28 @@ export const MainNav = ({ className = '', onItemClick, isMobile = false }: MainN
           </button>
 
           {isDropdownOpen && (
-            <div
+            <ul
               id="job-app-tools-menu"
-              role="menu"
               aria-labelledby="job-app-tools-trigger"
-              className="animate-in fade-in-0 zoom-in-95 absolute top-full left-0 mt-2 w-72 rounded-lg border border-gray-100 bg-white p-2 shadow-xl ring-1 ring-black/5"
+              className="animate-in fade-in-0 zoom-in-95 absolute top-full left-0 m-0 mt-2 w-72 list-none rounded-lg border border-gray-100 bg-white p-2 shadow-xl ring-1 ring-black/5"
             >
               {JOB_APP_TOOLS.map((tool) => (
-                <Link
-                  key={tool.href}
-                  href={tool.href}
-                  role="menuitem"
-                  onClick={handleLinkClick}
-                  className="group block rounded-md p-2.5 transition-colors hover:bg-slate-50 focus:bg-slate-50 focus:outline-none"
-                >
-                  <span className="block text-[15px] font-semibold text-gray-900 group-hover:text-blue-600">
-                    {tool.title}
-                  </span>
-                  <span className="mt-0.5 block text-[13px] leading-snug text-gray-500">
-                    {tool.description}
-                  </span>
-                </Link>
+                <li key={tool.href}>
+                  <Link
+                    href={tool.href}
+                    onClick={handleLinkClick}
+                    className="group block rounded-md p-2.5 transition-colors hover:bg-slate-50 focus:bg-slate-50 focus:outline-none"
+                  >
+                    <span className="block text-[15px] font-semibold text-gray-900 group-hover:text-blue-600">
+                      {tool.title}
+                    </span>
+                    <span className="mt-0.5 block text-[13px] leading-snug text-gray-600">
+                      {tool.description}
+                    </span>
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           )}
         </li>
 

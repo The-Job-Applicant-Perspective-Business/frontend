@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { HR_EMPLOYMENT_COUNT_OPTIONS, HR_INDUSTRY_OPTIONS } from '@/lib/constants/hrOptions';
 
 export const HrSocialLinkSchema = z.object({
   name: z.string(),
@@ -37,6 +38,20 @@ export const HrUserDetailsResponseSchema = z.object({
   message: z.string(),
 });
 
+export const HrCreateAccountStepOneSchema = z.object({
+  name: z.string().trim().min(2, 'Full name is required.'),
+  email: z.string().trim().email('Please enter a valid work email address.'),
+  companyName: z.string().trim().min(1, 'Company name is required.'),
+  industry: z.enum(HR_INDUSTRY_OPTIONS, {
+    message: 'Please select an industry.',
+  }),
+  employmentCount: z.enum(HR_EMPLOYMENT_COUNT_OPTIONS, {
+    message: 'Please select company size.',
+  }),
+  location: z.string().trim().min(2, 'Location is required.'),
+});
+
 export type HrUser = z.infer<typeof HrUserSchema>;
 export type HrLoginResponse = z.infer<typeof HrLoginResponseSchema>;
 export type HrUserDetailsResponse = z.infer<typeof HrUserDetailsResponseSchema>;
+export type HrCreateAccountStepOne = z.infer<typeof HrCreateAccountStepOneSchema>;

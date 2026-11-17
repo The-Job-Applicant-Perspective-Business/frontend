@@ -84,9 +84,12 @@ export const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ blok, st
   const featuredImage = blok.Image?.filename || blok.image?.filename;
   const imageAlt = blok.Image?.alt || blok.image?.alt || articleTitle;
 
-  // 7. Rich Text Document Resolution
+  // 7. Rich Text Document Resolution (demote any CMS h1 tags to h2 to preserve single-h1 invariant)
   const richTextBody = blok.Content || blok.content || blok.Body || blok.body;
-  const renderedHtml = richTextBody ? renderRichText(richTextBody) : null;
+  const rawRenderedHtml = richTextBody ? renderRichText(richTextBody) : null;
+  const renderedHtml = rawRenderedHtml
+    ? rawRenderedHtml.replace(/<h1(\b[^>]*)>/gi, '<h2$1>').replace(/<\/h1>/gi, '</h2>')
+    : null;
 
   return (
     <div className="relative w-full bg-white text-[#171717]">
@@ -110,7 +113,7 @@ export const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ blok, st
             <span className="text-primary text-[16px] font-[700]">Go back</span>
           </Link>
           <div className="hidden h-[12px] w-[1px] bg-[#8D90D5] md:flex" aria-hidden="true" />
-          <div className="flex gap-1 text-[16px] font-[500] text-[#7C7C7C]">{categoryTag}</div>
+          <div className="flex gap-1 text-[16px] font-[500] text-[#595959]">{categoryTag}</div>
         </div>
 
         {/* Primary Article Heading */}
@@ -118,17 +121,17 @@ export const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ blok, st
           {articleTitle}
         </h1>
 
-        {/* Subheading / Academic Hook */}
+        {/* Subheading / Academic Hook (rendered as <p> to prevent h1 -> h4 hierarchy skip) */}
         {articleSubtitle && (
-          <h4 className="mt-[16px] text-[14px] font-[400] text-[#7C7C7C] md:text-[20px] md:font-[600]">
+          <p className="mt-[16px] text-[14px] font-[400] text-[#595959] md:text-[20px] md:font-[600]">
             {articleSubtitle}
-          </h4>
+          </p>
         )}
 
         {/* Mobile-Only Metadata Pill */}
-        <div className="mt-4 flex items-center gap-3 text-sm text-[#7C7C7C] md:hidden">
+        <div className="mt-4 flex items-center gap-3 text-sm text-[#595959] md:hidden">
           <span>By {authorName}</span>
-          <span>•</span>
+          <span aria-hidden="true">•</span>
           <span>{displayDate}</span>
         </div>
 
@@ -163,11 +166,11 @@ export const BlogArticleContent: React.FC<BlogArticleContentProps> = ({ blok, st
             aria-label="Article Publication Details"
             className="sticky top-[40px] hidden max-h-[400px] w-[20vw] shrink-0 rounded-[12px] border-l-[1px] border-[#CBD5E1] md:block md:pr-[20px] md:pl-[20px] lg:pr-[43px] lg:pl-[60px]"
           >
-            <p className="text-[14px] font-[600] text-[#A2A2A2]">Written By</p>
-            <p className="text-[16px] font-[600] text-[#7C7C7C]">{authorName}</p>
+            <p className="text-[14px] font-[600] text-[#595959]">Written By</p>
+            <p className="text-[16px] font-[600] text-[#434343]">{authorName}</p>
 
-            <p className="mt-[40px] text-[14px] font-[600] text-[#A2A2A2]">POSTED ON</p>
-            <p className="text-[16px] font-[600] text-[#7C7C7C]">{displayDate}</p>
+            <p className="mt-[40px] text-[14px] font-[600] text-[#595959]">POSTED ON</p>
+            <p className="text-[16px] font-[600] text-[#434343]">{displayDate}</p>
           </aside>
         </div>
       </section>

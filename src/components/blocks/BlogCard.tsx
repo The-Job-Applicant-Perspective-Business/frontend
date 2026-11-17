@@ -104,7 +104,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
       </h3>
 
       {/* 4. Description / Subtitle */}
-      <p className="mt-[12px] line-clamp-2 min-h-[48px] text-[16px] leading-[24px] font-[400] text-[#7C7C7C]">
+      <p className="mt-[12px] line-clamp-2 min-h-[48px] text-[16px] leading-[24px] font-[400] text-[#595959]">
         {description}
       </p>
 

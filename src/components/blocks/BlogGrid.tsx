@@ -88,7 +88,7 @@ export const BlogGrid: React.FC<BlogGridProps> = ({
         </div>
 
         <div className="w-full md:max-w-1/2">
-          <p className="mt-[8px] text-[16px] text-[#7C7C7C] md:mt-0">{description}</p>
+          <p className="mt-[8px] text-[16px] text-[#595959] md:mt-0">{description}</p>
 
           <Link
             href={viewAllHref}
