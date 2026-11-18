@@ -1,6 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 
+/* BASE BRANDED STYLES FROM SARAH, have to verify if these were ever used and her choices respected*
+Titles: Jost
+Subtitle: Manrope
+
+Color scheme: 
+#e7ebf1
+#9cabc7
+#733aab0
+#36558d
+#0d3276
+#092353
+#081f48
+/
+
 /* stylelint-disable at-rule-no-unknown */
 @theme {
   /*
