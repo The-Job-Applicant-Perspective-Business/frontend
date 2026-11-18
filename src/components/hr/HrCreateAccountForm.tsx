@@ -4,20 +4,53 @@ import { useState, type FormEvent } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ChevronDown, Eye, EyeOff } from 'lucide-react';
+import { ChevronDown, Eye, EyeOff, Minus } from 'lucide-react';
 import { HR_EMPLOYMENT_COUNT_OPTIONS, HR_INDUSTRY_OPTIONS } from '@/lib/constants/hrOptions';
 import { HrCreateAccountStepOneSchema, HrLoginResponseSchema } from '@/lib/dto/hrAuth';
 import { HR_TOKEN_STORAGE_KEY, HR_USER_STORAGE_KEY } from '@/lib/api/hrSession';
+
+type SocialPlatform = '' | 'facebook' | 'instagram' | 'linkedin' | 'general';
+
+interface SocialLinkRow {
+  id: string;
+  name: SocialPlatform;
+  link: string;
+}
 
 interface HrCreateAccountFormProps {
   logoSrc?: string;
 }
 
-export const HrCreateAccountForm = ({
-  logoSrc = '/images/tjap-logo.png',
-}: HrCreateAccountFormProps) => {
+const MAX_SOCIAL_LINKS = 10;
+
+const SOCIAL_PLATFORM_OPTIONS: ReadonlyArray<{
+  value: Exclude<SocialPlatform, ''>;
+  label: string;
+}> = [
+  { value: 'facebook', label: 'Facebook' },
+  { value: 'instagram', label: 'Instagram' },
+  { value: 'linkedin', label: 'LinkedIn' },
+  { value: 'general', label: 'Website' },
+];
+
+const createEmptySocialRow = (seed: number): SocialLinkRow => ({
+  id: `social-row-${seed}`,
+  name: '',
+  link: '',
+});
+
+const isValidHttpUrl = (value: string): boolean => {
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch {
+    return false;
+  }
+};
+
+export const HrCreateAccountForm = ({ logoSrc = '/logosm.svg' }: HrCreateAccountFormProps) => {
   const router = useRouter();
-  const [step, setStep] = useState<1 | 2>(1);
+  const [step, setStep] = useState<1 | 2 | 3>(1);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [companyName, setCompanyName] = useState('');
@@ -27,6 +60,9 @@ export const HrCreateAccountForm = ({
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [hasSessionToken, setHasSessionToken] = useState(false);
+  const [socialLinks, setSocialLinks] = useState<SocialLinkRow[]>(() => [createEmptySocialRow(0)]);
+  const [nextRowSeed, setNextRowSeed] = useState(1);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -105,11 +141,10 @@ export const HrCreateAccountForm = ({
       if (parsed.success) {
         window.localStorage.setItem(HR_TOKEN_STORAGE_KEY, parsed.data.data.token);
         window.localStorage.setItem(HR_USER_STORAGE_KEY, JSON.stringify(parsed.data.data.user));
-        router.push('/');
-        return;
+        setHasSessionToken(true);
       }
 
-      router.push('/login');
+      setStep(3);
     } catch (error) {
       setErrorMessage(
         error instanceof Error ? error.message : 'Unable to create your HR account right now.',
@@ -118,6 +153,131 @@ export const HrCreateAccountForm = ({
       setIsSubmitting(false);
     }
   };
+
+  const handleAddSocialRow = () => {
+    if (socialLinks.length >= MAX_SOCIAL_LINKS) return;
+    setSocialLinks((prev) => [...prev, createEmptySocialRow(nextRowSeed)]);
+    setNextRowSeed((prev) => prev + 1);
+  };
+
+  const handleRemoveSocialRow = (id: string) => {
+    if (socialLinks.length <= 1) return;
+    setSocialLinks((prev) => prev.filter((row) => row.id !== id));
+  };
+
+  const handleUpdateSocialRow = (id: string, field: 'name' | 'link', value: string) => {
+    setSocialLinks((prev) =>
+      prev.map((row) =>
+        row.id === id
+          ? {
+              ...row,
+              [field]: field === 'name' ? (value as SocialPlatform) : value,
+            }
+          : row,
+      ),
+    );
+  };
+
+  const handleSaveSocialLinks = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setErrorMessage(null);
+
+    const populatedRows = socialLinks.filter(
+      (row) => row.name.trim().length > 0 || row.link.trim().length > 0,
+    );
+
+    if (populatedRows.length === 0) {
+      router.push(hasSessionToken ? '/' : '/login');
+      return;
+    }
+
+    for (let i = 0; i < populatedRows.length; i += 1) {
+      const row = populatedRows[i];
+      if (!row.name) {
+        setErrorMessage(`Please select a platform for social link #${i + 1}.`);
+        return;
+      }
+      if (!row.link.trim() || !isValidHttpUrl(row.link.trim())) {
+        setErrorMessage(`Please enter a valid http:// or https:// URL for social link #${i + 1}.`);
+        return;
+      }
+    }
+
+    const sanitizedLinks = populatedRows.map((row) => ({
+      name: row.name,
+      link: row.link.trim(),
+    }));
+
+    const token = window.localStorage.getItem(HR_TOKEN_STORAGE_KEY);
+    if (!token) {
+      router.push('/login');
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const apiBaseUrl =
+        process.env.NEXT_PUBLIC_TJAP_API_URL ?? 'https://api.thejobapplicantperspective.com';
+      const profilePath =
+        process.env.NEXT_PUBLIC_TJAP_HR_PROFILE_PATH ?? '/api/v1/auth/update-profile';
+
+      const response = await fetch(`${apiBaseUrl}${profilePath}`, {
+        method: 'PATCH',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          socialLinks: sanitizedLinks,
+        }),
+      });
+
+      const rawPayload: unknown = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        const errorBody = rawPayload as { message?: string } | null;
+        throw new Error(
+          errorBody?.message ?? 'Unable to save social media links. You can also skip this step.',
+        );
+      }
+
+      const existingUserRaw = window.localStorage.getItem(HR_USER_STORAGE_KEY);
+      if (existingUserRaw) {
+        try {
+          const existingUser = JSON.parse(existingUserRaw) as Record<string, unknown>;
+          window.localStorage.setItem(
+            HR_USER_STORAGE_KEY,
+            JSON.stringify({ ...existingUser, socialLinks: sanitizedLinks }),
+          );
+        } catch {
+          // Ignore malformed local cache; HrAuthProvider re-hydrates via /auth/me on mount
+        }
+      }
+
+      router.push('/');
+    } catch (error) {
+      setErrorMessage(
+        error instanceof Error ? error.message : 'Unable to save company social links right now.',
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const stepHeading =
+    step === 1
+      ? 'Create an HR account'
+      : step === 2
+        ? 'Secure your account'
+        : 'Add more details about your company';
+
+  const stepSubtitle =
+    step === 1
+      ? 'Step 1 of 3 — Organization Profile'
+      : step === 2
+        ? 'Step 2 of 3 — Create a strong password for your account'
+        : 'Step 3 of 3 — Company Social Profiles (Optional)';
 
   return (
     <div className="relative min-h-screen w-full bg-[#F8FAFC]">
@@ -143,13 +303,15 @@ export const HrCreateAccountForm = ({
       </header>
 
       <main className="relative z-10 flex min-h-[calc(100vh-121px)] w-full items-end md:grid md:min-h-screen md:place-items-center md:px-4 md:py-24">
-        <div className="w-full rounded-t-2xl bg-white px-[5vw] pt-10 pb-16 shadow-[0_8px_30px_rgba(0,0,0,0.08)] md:w-[765px] md:rounded-2xl md:px-16 md:py-10">
+        <div
+          className={`w-full rounded-t-2xl bg-white px-[5vw] pt-10 pb-16 shadow-[0_8px_30px_rgba(0,0,0,0.08)] md:rounded-2xl md:px-16 md:py-10 ${
+            step === 1 ? 'md:w-[765px]' : 'md:w-[570px]'
+          }`}
+        >
           <h1 className="text-center text-2xl font-bold tracking-tight text-[#111827]">
-            Create an HR account
+            {stepHeading}
           </h1>
-          <p className="mt-2 text-center text-sm font-medium text-[#595959]">
-            Step {step} of 2 — {step === 1 ? 'Organization Profile' : 'Account Security'}
-          </p>
+          <p className="mt-2 text-center text-sm font-medium text-[#595959]">{stepSubtitle}</p>
 
           {errorMessage && (
             <div
@@ -161,7 +323,7 @@ export const HrCreateAccountForm = ({
             </div>
           )}
 
-          {step === 1 ? (
+          {step === 1 && (
             <form onSubmit={handleNextStep} noValidate className="mt-8 flex flex-col gap-4">
               {/* Row 1: Full Name & Email */}
               <div className="flex flex-col gap-4 md:flex-row md:gap-3">
@@ -320,14 +482,16 @@ export const HrCreateAccountForm = ({
                 Next
               </button>
             </form>
-          ) : (
+          )}
+
+          {step === 2 && (
             <form onSubmit={handleCreateAccount} noValidate className="mt-8 flex flex-col gap-4">
               <div className="flex w-full flex-col">
                 <label
                   htmlFor="hr-register-password"
                   className="text-base font-medium text-[#374151]"
                 >
-                  Password
+                  New password
                 </label>
                 <div className="relative mt-1 w-full">
                   <input
@@ -361,7 +525,7 @@ export const HrCreateAccountForm = ({
                   htmlFor="hr-register-confirm-password"
                   className="text-base font-medium text-[#374151]"
                 >
-                  Confirm Password
+                  Confirm password
                 </label>
                 <input
                   id="hr-register-confirm-password"
@@ -384,30 +548,138 @@ export const HrCreateAccountForm = ({
                   }}
                   className="w-full rounded-lg border border-[#D0D9E9] bg-white px-6 py-4 text-base font-bold text-[#0D3276] transition-colors hover:bg-[#F1F5F9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276] sm:w-1/3"
                 >
-                  Back
+                  Go back
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full rounded-lg bg-[#0D3276] px-6 py-4 text-base font-bold text-white transition-colors hover:bg-[#081F48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276] disabled:cursor-not-allowed disabled:opacity-60 sm:w-2/3"
                 >
-                  {isSubmitting ? 'Creating account...' : 'Create Account'}
+                  {isSubmitting ? 'Creating account...' : 'Create account'}
                 </button>
               </div>
             </form>
           )}
 
-          <p className="my-4 text-center text-base font-bold text-[#595959]">or</p>
+          {step === 3 && (
+            <form onSubmit={handleSaveSocialLinks} noValidate className="mt-8 flex flex-col gap-5">
+              <div className="flex items-center justify-between">
+                <h2 className="text-base font-bold text-[#374151]">
+                  Add social media links{' '}
+                  <span className="ml-1 text-sm font-medium text-[#595959]">(Optional)</span>
+                </h2>
+                <button
+                  type="button"
+                  onClick={handleAddSocialRow}
+                  disabled={socialLinks.length >= MAX_SOCIAL_LINKS}
+                  className="rounded px-2 py-1 text-sm font-bold text-[#0D3276] hover:bg-[#F1F5F9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276] disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  +Add
+                </button>
+              </div>
 
-          <div className="flex items-center justify-center gap-2 text-center text-base font-bold text-[#595959] md:mb-6">
-            <span>Already have an account?</span>
-            <Link
-              href="/login"
-              className="rounded text-[#0D3276] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276]"
-            >
-              Sign in
-            </Link>
-          </div>
+              <div className="flex flex-col gap-4">
+                {socialLinks.map((row, index) => {
+                  const inputId = `socialLinks.${index}.link`;
+                  const selectId = `socialLinks.${index}.name`;
+
+                  return (
+                    <div key={row.id} className="flex flex-col gap-1.5">
+                      <label htmlFor={inputId} className="text-sm font-medium text-[#374151]">
+                        Paste URL
+                      </label>
+                      <div className="flex items-stretch gap-2">
+                        <div className="flex min-w-0 grow items-center rounded-lg border border-[#D0D9E9] bg-white px-3 focus-within:border-[#0D3276]">
+                          <div className="relative shrink-0">
+                            <select
+                              id={selectId}
+                              name={selectId}
+                              aria-label={`Social media platform ${index + 1}`}
+                              value={row.name}
+                              onChange={(event) =>
+                                handleUpdateSocialRow(row.id, 'name', event.target.value)
+                              }
+                              className="h-13 appearance-none bg-transparent pr-7 pl-1 text-sm font-medium text-[#111827] capitalize focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276]"
+                            >
+                              <option value="">Select</option>
+                              {SOCIAL_PLATFORM_OPTIONS.map((opt) => (
+                                <option key={opt.value} value={opt.value}>
+                                  {opt.label}
+                                </option>
+                              ))}
+                            </select>
+                            <ChevronDown
+                              aria-hidden="true"
+                              className="pointer-events-none absolute top-1/2 right-1.5 h-4 w-4 -translate-y-1/2 text-[#434343]"
+                            />
+                          </div>
+
+                          <div
+                            aria-hidden="true"
+                            className="mx-2 h-5 w-[1px] shrink-0 bg-[#CBD5E1]"
+                          />
+
+                          <input
+                            id={inputId}
+                            name={inputId}
+                            type="url"
+                            placeholder="https://"
+                            value={row.link}
+                            onChange={(event) =>
+                              handleUpdateSocialRow(row.id, 'link', event.target.value)
+                            }
+                            className="h-13 min-w-0 grow bg-transparent px-1 text-base text-[#111827] placeholder:text-[#595959] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276]"
+                          />
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveSocialRow(row.id)}
+                          disabled={socialLinks.length <= 1}
+                          aria-label={`Remove social link ${index + 1}`}
+                          className="flex w-13 shrink-0 items-center justify-center rounded-lg bg-[#FFF0F0] text-[#B91C1C] transition-opacity hover:opacity-85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276] disabled:cursor-not-allowed disabled:opacity-35"
+                        >
+                          <Minus className="h-4 w-4" aria-hidden="true" />
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="mt-2 flex flex-col gap-3 sm:flex-row-reverse">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full rounded-lg bg-[#0D3276] px-6 py-4 text-base font-bold text-white transition-colors hover:bg-[#081F48] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276] disabled:cursor-not-allowed disabled:opacity-60 sm:w-1/2"
+                >
+                  {isSubmitting ? 'Saving...' : 'Add'}
+                </button>
+                <Link
+                  href={hasSessionToken ? '/' : '/login'}
+                  className="inline-flex w-full items-center justify-center rounded-lg border border-[#D0D9E9] bg-white px-6 py-4 text-base font-bold text-[#0D3276] transition-colors hover:bg-[#F1F5F9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276] sm:w-1/2"
+                >
+                  Skip
+                </Link>
+              </div>
+            </form>
+          )}
+
+          {step !== 3 && (
+            <>
+              <p className="my-4 text-center text-base font-bold text-[#595959]">or</p>
+
+              <div className="flex items-center justify-center gap-2 text-center text-base font-bold text-[#595959] md:mb-6">
+                <span>Already have an account?</span>
+                <Link
+                  href="/login"
+                  className="rounded text-[#0D3276] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276]"
+                >
+                  Sign in
+                </Link>
+              </div>
+            </>
+          )}
         </div>
       </main>
     </div>

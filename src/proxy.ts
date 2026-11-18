@@ -6,11 +6,18 @@ const HR_HOSTS = new Set([
   'hr.localhost',
 ]);
 
-export const middleware = (request: NextRequest) => {
+const STATIC_ASSET_REGEX = /\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff2?|ttf|eot|css|js|map)$/i;
+
+export const proxy = (request: NextRequest) => {
   const host = request.headers.get('host')?.toLowerCase() ?? '';
   const { pathname } = request.nextUrl;
 
-  if (pathname.startsWith('/_next') || pathname.startsWith('/api') || pathname === '/favicon.ico') {
+  if (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/api') ||
+    pathname === '/favicon.ico' ||
+    STATIC_ASSET_REGEX.test(pathname)
+  ) {
     return NextResponse.next();
   }
 
@@ -32,5 +39,7 @@ export const middleware = (request: NextRequest) => {
 };
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+  matcher: [
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff2?|ttf|eot)$).*)',
+  ],
 };

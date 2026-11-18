@@ -14,7 +14,7 @@ interface HrLoginFormProps {
 const HR_TOKEN_STORAGE_KEY = 'tjap_hr_token';
 const HR_USER_STORAGE_KEY = 'tjap_hr_user';
 
-export const HrLoginForm = ({ logoSrc = '/images/tjap-logo.png' }: HrLoginFormProps) => {
+export const HrLoginForm = ({ logoSrc = '/logosm.svg' }: HrLoginFormProps) => {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

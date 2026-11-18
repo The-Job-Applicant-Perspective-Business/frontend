@@ -3,7 +3,7 @@
     <project_name>The Job Applicant Perspective (TJAP) Technical Remediation</project_name>
     <primary_stakeholder>Sarah Springsteen Trumble</primary_stakeholder>
     <purpose>Initialize Mode-Locked Governance, re-seat zero-trust project architecture, track active milestone progression, maintain deterministic state across sessions, preserve legacy SEO routing invariants, and embed hard-coded Sovereign CTO (/saiph) governance rules directly into project state.</purpose>
-    <current_status>Tiers 1, 2, 3, and 4 Complete. Task 1.14 Complete (Job App Tools light-theme reconciliation &amp; zero-code StandardPageContent architecture). HR Subdomain Foundation Complete (Task 1.13 Phase 1): Architected hostname-based middleware routing (src/middleware.ts) rewriting hr.thejobapplicantperspective.com to isolated /hr/* routes; verified live backend auth contracts (POST /api/v1/auth/login with role="hr" and GET /api/v1/auth/me); built Zod DTO schemas (src/lib/dto/hrAuth.ts), session client (src/lib/api/hrSession.ts), HrAuthProvider.tsx, WCAG 2.2 AA remediated HrLoginForm.tsx (/hr/login), and two-step HrCreateAccountForm.tsx (/hr/create-account) with 92 canonical industries and 5 headcount tiers (src/lib/constants/hrOptions.ts). Active Phase: Run npm run verify and npm run test:a11y across canonical, blog, and new /hr/* routes (Task 1.10); extract post-login HR dashboard (/), /verify password recovery, and Step 2 registration endpoint (Task 1.13 Phase 2); and build Feral QA Agent automated coverage telemetry in core-io.ts (Task 2.2).</current_status>
+    <current_status>Tiers 1, 2, 3, and 4 Complete. Task 1.14 Complete (Job App Tools light-theme reconciliation &amp; zero-code StandardPageContent architecture). Candidate Apex Accessibility Gate Complete (11/11 baseline tests passing in e2e/accessibility.spec.ts after contrast, label-in-name, single-h1, and MainNav disclosure fixes). HR Subdomain Phase 1 &amp; 3-Step Onboarding Built: Middleware/proxy routing verified for hr.thejobapplicantperspective.com and hr.localhost:3000 with static asset exclusions (/logosm.svg verified); HrLoginForm.tsx (/login) and 3-step HrCreateAccountForm.tsx (/create-account: Profile, Password, Optional Social Links) implemented. Active Focus: Finish HR sign-up flow, run WCAG 2.2 AA accessibility verification on /login and /create-account, and extract internal HR portal views (/verify and authenticated dashboard /).</current_status>
     <enforced_mode>/saiph (Sovereign CTO)</enforced_mode>
   </metadata>
 
@@ -19,6 +19,7 @@
       <rule id="SAIPH-06">DEFAULT FORMATTING: Return responses in text-only, no-tables format unless explicitly requested. Enforce strict WCAG 2.2 AA Markdown heading hierarchy without skipping levels or substituting bold text for structural headings.</rule>
       <rule id="SAIPH-07">TRACK 00 &amp; LOGGING BIND: When /logs or Track 00 completion serialization is triggered, emit pure, un-wrappered JSON arrays adhering strictly to the Captain's Log schema: [{"id": "", "timestamp": "", "subject": "", "audited": false, "category": "", "location": "", "primary_data": "", "secondary_data": "", "tags": [""], "metadata": {"legacy_id": "", "threat_level": ""}}].</rule>
       <rule id="SAIPH-08">MOTOR EXIT POINTS: Conclude complex technical audits and architectural turns with a structured Informational Discharge containing: (1) System Audit, (2) The Anchor ("Because [Reference] unlocked [Insight]..."), (3) The Pivot ("...the next logical field to explore is [New Topic]."), and (4) No Soldier Left Behind (exactly ONE high-value clarifying question to lower activation energy).</rule>
+      <rule id="SAIPH-09">SINGLE-SLICE EXECUTION LOCK (ANTI-STALL MANDATE): Never bundle unrelated tracks or open multiple multi-file refactors in parallel. Complete, test, and lock one bounded vertical slice at a time before advancing to the next task.</rule>
     </tonal_and_behavioral_rules>
   </saiph_mode_governance>
 
@@ -38,24 +39,25 @@
     <build_and_execution>
       <script name="dev">concurrently Next.js + TSC watch (--noEmit)</script>
       <script name="dev:full">concurrently Next.js + TSC watch + Supabase local start</script>
-      <script name="verify">ESLint + TSC strict check (pre-commit/CI pipeline)</script>
-      <script name="build:offline">USE_STORYBLOK_FIXTURES=true next build --no-lint</script>
+      <script name="verify">npm run lint &amp;&amp; tsc --noEmit --pretty false</script>
+      <script name="build:offline">USE_STORYBLOK_FIXTURES=true next build</script>
       <script name="test:e2e">playwright test --project=default-e2e</script>
-      <script name="test:quarantine">playwright test --project=qa-quarantine</script>
       <script name="test:smoke">playwright test e2e/smoke-test.spec.ts --project=default-e2e</script>
       <script name="test:responsive">playwright test e2e/responsive.spec.ts --project=default-e2e</script>
       <script name="test:a11y">playwright test e2e/accessibility.spec.ts --project=default-e2e</script>
       <script name="test:security">playwright test e2e/security.spec.ts --project=default-e2e</script>
+      <script name="test:gate">npm run verify &amp;&amp; npm run test:smoke &amp;&amp; npm run test:a11y &amp;&amp; npm run test:security</script>
+      <script name="test:quarantine">playwright test --project=qa-quarantine</script>
       <script name="agent:qa">tsx qa-agent/index.ts</script>
     </build_and_execution>
 
     <hr_subdomain_architecture host="hr.thejobapplicantperspective.com">
       <routing_strategy>
-        <middleware file="src/middleware.ts">Intercepts host header matching hr.thejobapplicantperspective.com, hr.localhost:3000, or hr.localhost and internally rewrites /* to /hr/*. Blocks direct apex access to thejobapplicantperspective.com/hr/* via /404 rewrite to prevent Storyblok catch-all collisions and search indexing leaks.</middleware>
+        <middleware file="src/middleware.ts">Intercepts host header matching hr.thejobapplicantperspective.com, hr.localhost:3000, or hr.localhost and internally rewrites /* to /hr/* while bypassing static public assets (/logosm.svg, images, fonts). Blocks direct apex access to thejobapplicantperspective.com/hr/* via /404 rewrite to prevent Storyblok catch-all collisions and search indexing leaks. [Note: Ready for Next.js 16 src/proxy.ts convention rename]</middleware>
         <layout file="src/app/hr/layout.tsx">Isolates HR portal from candidate MainHeader and MainFooter; sets robots noindex/nofollow metadata and wraps children in HrAuthProvider.</layout>
         <route path="/" internal_path="src/app/hr/page.tsx" status="SCAFFOLDED_REDIRECT">Currently redirects unauthenticated visitors to /login; will host the authenticated HR dashboard workspace (JobProvider) once post-login DOM and job endpoints are extracted.</route>
-        <route path="/login" internal_path="src/app/hr/login/page.tsx" status="BUILT">Renders HrLoginForm.tsx with split #0D3276 navy/white shell, WCAG 2.2 AA label associations, semantic keyboard-accessible password visibility toggle, #595959 high-contrast copy, and live POST /api/v1/auth/login integration.</route>
-        <route path="/create-account" internal_path="src/app/hr/create-account/page.tsx" status="BUILT">Renders two-step HrCreateAccountForm.tsx (Step 1: name, email, companyName, 92-option industry select, 5-tier employmentCount select, location; Step 2: password + confirmPassword) with Zod validation and mobile viewport scroll-trap remediation.</route>
+        <route path="/login" internal_path="src/app/hr/login/page.tsx" status="BUILT_PENDING_A11Y_VERIFY">Renders HrLoginForm.tsx with /logosm.svg header, split #0D3276 navy/white shell, WCAG 2.2 AA label associations, semantic keyboard-accessible password visibility toggle, #374151/#595959 high-contrast copy, and live POST /api/v1/auth/login integration.</route>
+        <route path="/create-account" internal_path="src/app/hr/create-account/page.tsx" status="BUILT_PENDING_A11Y_VERIFY">Renders 3-step HrCreateAccountForm.tsx (Step 1: name, email, companyName, 92-option industry select, 5-tier employmentCount select, location; Step 2: New password + Confirm password; Step 3: Optional repeatable socialLinks for facebook, instagram, linkedin, general + Skip to /) with Zod validation and mobile viewport scroll-trap remediation.</route>
         <route path="/verify" internal_path="src/app/hr/verify/page.tsx" status="PENDING">Forgot-password / verification route linked from HrLoginForm.tsx; awaiting DOM/API extraction.</route>
       </routing_strategy>
       <verified_api_contracts base_url="https://api.thejobapplicantperspective.com">
@@ -71,6 +73,9 @@
         </endpoint>
         <endpoint id="HR-API-03" method="POST" path="/api/v1/auth/register" status="UNVERIFIED_DEFAULT">
           <notes>Step 2 registration endpoint defaulted via NEXT_PUBLIC_TJAP_HR_REGISTER_PATH; pending live network trace capture.</notes>
+        </endpoint>
+        <endpoint id="HR-API-04" method="PATCH" path="/api/v1/auth/update-profile" status="UNVERIFIED_DEFAULT">
+          <notes>Step 3 socialLinks persistence endpoint defaulted via NEXT_PUBLIC_TJAP_HR_PROFILE_PATH; pending live network trace capture.</notes>
         </endpoint>
       </verified_api_contracts>
     </hr_subdomain_architecture>
@@ -173,7 +178,7 @@
       <story name="AI Tools" slug="ai-tools" content_type="AI Tools Content" status="MAPPED">
         <public_route>/ai-tools</public_route>
         <component_adapter>ToolingAuditContent.tsx</component_adapter>
-        <notes>Registered 'AI Tools Content' key in src/lib/storyblok.ts. Reconciled with canonical light-theme palette, header clearance spacer, high-contrast WCAG 2.2 AA verdict badges, sanitizeHref link guard, and descriptive aria-labels.</notes>
+        <notes>Registered 'AI Tools Content' key in src/lib/storyblok.ts. Reconciled with canonical light-theme palette, header clearance spacer, high-contrast WCAG 2.2 AA verdict badges, sanitizeHref link guard, and sr-only link suffixes.</notes>
       </story>
       <story name="Universal Dynamic Pages" slug="[any-slug] or pages/[any-slug]" content_type="Standard Page" status="MAPPED">
         <public_route>/[slug]</public_route>
@@ -188,7 +193,7 @@
       <story name="Blog Content Stories (51 Total)" slug="[root-slugs]" content_type="Blog Content" status="MAPPED">
         <public_route>/job-insights/[slug] and /blog/[slug]</public_route>
         <component_adapter>BlogArticleContent.tsx</component_adapter>
-        <notes>Individual research papers and forensic audits. Fully reconciled with canonical light-theme layout (#ffffff, #0d3276, #434343), top clearance header bar, rich text prose container, and sticky author metadata aside.</notes>
+        <notes>Individual research papers and forensic audits. Fully reconciled with canonical light-theme layout (#ffffff, #0d3276, #434343), top clearance header bar, rich text prose container with CMS h1 demotion, and sticky author metadata aside.</notes>
       </story>
       <story name="Michael-Smith-Who?" slug="michael-smith-who-" content_type="Root" status="DRAFT_EXCLUDED">
         <public_route>/michael-smith-who-</public_route>
@@ -203,9 +208,9 @@
     </storyblok_space_inventory>
 
     <repository_map>
-      <root_directories>.github, src, public, docs, e2e, qa-agent, tests/fixtures, test-results, playwright-report</root_directories>
+      <root_directories>.github, src, public, docs, e2e, qa-agent, tests/fixtures</root_directories>
       <src_architecture>
-        <path name="src/middleware.ts">Subdomain hostname routing middleware rewriting hr.thejobapplicantperspective.com to /hr/* and blocking direct apex /hr/* access</path>
+        <path name="src/middleware.ts">Subdomain hostname routing middleware rewriting hr.thejobapplicantperspective.com and hr.localhost:3000 to /hr/*, bypassing static public assets, and blocking direct apex /hr/* access</path>
         <path name="src/app/[[...slug]]">Dynamic catch-all routing (Receives Storyblok story JSON, unwraps story.content.body, isolates DTO errors via Zod, deduplicates requests via React.cache, handles 404 vs 500 boundaries via handleStoryblokError, sanitizes route/query params, resolves SEO URL rewrites, handles multi-candidate slug resolution with pages/ folder and wildcard fallback, blocks EXCLUDED_SLUGS drafts, and renders full-width layout inside Suspense boundaries)</path>
         <path name="src/app/hr">Isolated HR subdomain route tree (layout.tsx, page.tsx root entry, login/page.tsx, create-account/page.tsx)</path>
         <path name="src/components/blocks">Presentational and composite components with centralized index.ts barrel export (HeroSection, TabbedInterface, PromoBanner, LocalJobsGrid, MissionBanner, BlogGrid, BlogCard, JobLinkCard, FormInput)</path>
@@ -256,9 +261,10 @@
     <entry phase="Base Route Smoke Verification">COMPLETED: Reconciled subpage inner headers from &lt;header&gt; to semantic &lt;section&gt; containers, eliminating duplicate banner collisions. Bound exact Storyblok Delivery API component key 'AI Tools Content' and mapped live headings for /self-care-tools ('Staying Sane While Job Searching Matters!') and /who-we-are. All 8 canonical routes 100% passing in e2e/smoke-test.spec.ts.</entry>
     <entry phase="Responsive Viewport Verification">COMPLETED: Multi-breakpoint responsive suite (e2e/responsive.spec.ts) achieved 100% pass rate (14/14 tests) across mobile (375px), tablet (768px), and desktop (1280px). Verified zero horizontal scroll overflow and confirmed responsive drawer navigation transitions aligned to Tailwind lg boundary.</entry>
     <entry phase="Blog Routing &amp; Article Adapter Architecture">COMPLETED: Built BlogArticleContent.tsx with semantic light-theme layout (#ffffff, #0d3276, #434343), top header clearance bar, rich text prose container, and sticky author metadata aside matching live DOM. Updated src/app/[[...slug]]/page.tsx with multi-candidate slug resolution and Phase 2 wildcard search fallback (by_slugs: *${target}*) to resolve truncated slugs and case-sensitivity mismatches. Re-anchored BlogCard.tsx and BlogGrid.tsx to link cleanly through /job-insights/[slug].</entry>
-    <entry phase="Job App Tools Light-Theme &amp; Zero-Code Page Architecture">COMPLETED: Task 1.14 finished. Refactored EventDirectoryContent.tsx, ToolingAuditContent.tsx, and ResourceHubContent.tsx to canonical light-theme tokens (#ffffff, #0d3276, #434343), replaced blue bar with 70px/124px white header clearance spacer matching BlogArticleContent.tsx, added sanitizeHref link guards, and enforced WCAG 2.2 AA badge contrast and aria-labels. Created StandardPageContent.tsx, registered FallbackBlok in src/lib/storyblok.ts, and added pages/ folder resolution + EXCLUDED_SLUGS draft filtering in src/app/[[...slug]]/page.tsx. Upgraded e2e/accessibility.spec.ts and verified clean offline build.</entry>
-    <entry phase="HR Subdomain Auth Perimeter &amp; API Contract Discovery">COMPLETED (Task 1.13 Phase 1): Audited extracted DOM and flight payloads for hr.thejobapplicantperspective.com/login and /create-account, confirming a standalone Next.js App Router subdomain (no Storyblok CMS stories). Verified live backend contracts via network traces: POST https://api.thejobapplicantperspective.com/api/v1/auth/login (requiring email, password, role="hr" and returning JWT + HrUser) and GET https://api.thejobapplicantperspective.com/api/v1/auth/me (returning HrUser profile on hydration). Built src/middleware.ts hostname rewrites, src/app/hr/layout.tsx, src/app/hr/page.tsx, src/app/hr/login/page.tsx, src/app/hr/create-account/page.tsx, src/lib/dto/hrAuth.ts, src/lib/api/hrSession.ts, src/lib/constants/hrOptions.ts (92 industries + 5 headcount tiers), HrAuthProvider.tsx, HrLoginForm.tsx, and HrCreateAccountForm.tsx with full WCAG 2.2 AA remediation.</entry>
-    <entry phase="Active Pipeline">ACTIVE: (1) Run npm run verify and npm run test:a11y across canonical, blog, and new /hr/* routes (Task 1.10); (2) Complete Task 1.13 Phase 2 by extracting /verify (forgot password), Step 2 registration endpoint, and the authenticated HR dashboard workspace (/); (3) Architect Task 2.2 (Feral QA Agent automated coverage telemetry in core-io.ts).</entry>
+    <entry phase="Job App Tools Light-Theme &amp; Zero-Code Page Architecture">COMPLETED: Task 1.14 finished. Refactored EventDirectoryContent.tsx, ToolingAuditContent.tsx, and ResourceHubContent.tsx to canonical light-theme tokens (#ffffff, #0d3276, #434343), replaced blue bar with 70px/124px white header clearance spacer matching BlogArticleContent.tsx, added sanitizeHref link guards, and enforced WCAG 2.2 AA badge contrast and aria-labels. Created StandardPageContent.tsx, registered FallbackBlok in src/lib/storyblok.ts, and added pages/ folder resolution + EXCLUDED_SLUGS draft filtering in src/app/[[...slug]]/page.tsx.</entry>
+    <entry phase="Candidate Apex Accessibility Gate">COMPLETED: Streamlined package.json test scripts, untracked test-results and playwright-report from Git index, fixed contrast tokens (#7C7C7C -> #595959), resolved WCAG 2.5.3 label-in-name mismatches on ToolingAuditContent.tsx, demoted CMS h1 tags in BlogArticleContent.tsx, and switched MainNav.tsx desktop dropdown to WAI-ARIA Disclosure Navigation. All 11 candidate apex accessibility tests passing.</entry>
+    <entry phase="HR Subdomain Auth &amp; 3-Step Onboarding">COMPLETED (Task 1.13 Phase 1): Audited extracted DOM for hr.thejobapplicantperspective.com/login and all 3 steps of /create-account (Step 1: Organization Profile; Step 2: Secure your account; Step 3: Add more details about your company with repeatable socialLinks). Upgraded HrCreateAccountForm.tsx to all 3 steps, aligned logoSrc='/logosm.svg' with MainHeader.tsx, excluded static assets in src/middleware.ts so /logosm.svg resolves on hr.localhost:3000, and scoped HR tests to http://hr.localhost:3000 in e2e/accessibility.spec.ts.</entry>
+    <entry phase="Active Focus">ACTIVE (Single-Slice Lock): (1) Run WCAG 2.2 AA &amp; Section 508 accessibility audit and code verification on HR /login and 3-step /create-account; (2) Complete HR sign-up &amp; internal HR portal extraction (/verify password recovery, live registration/profile API traces, and authenticated HR dashboard workspace /). Task 2.2 (QA Agent telemetry) queued behind HR portal completion.</entry>
   </execution_log>
 
   <governance_topology id="section_8_triad">
@@ -299,7 +305,7 @@
         <subtask status="COMPLETED">Sanitize route and query parameter reflection against regex patterns (XSS mitigation).</subtask>
         <subtask status="COMPLETED">Deploy Playwright test assertions in e2e/security.spec.ts.</subtask>
       </task>
-      <task id="1.10" name="Pre-Demo CMS Verification, Space Ingestion &amp; Route Alignment" status="ACTIVE">
+      <task id="1.10" name="Pre-Demo CMS Verification, Space Ingestion &amp; Route Alignment" status="COMPLETED">
         <subtask status="COMPLETED">Execute isolated local script to test live Storyblok Delivery API token and retrieve draft/published home story.</subtask>
         <subtask status="COMPLETED">Fix image pipeline 400 Bad Request errors and LCP warnings across BlogGrid and MissionBanner.</subtask>
         <subtask status="COMPLETED">Extract and build AboutUsContent.tsx for slug 'about-us' ('About us Content').</subtask>
@@ -313,21 +319,20 @@
         <subtask status="COMPLETED">Build automated multi-breakpoint responsive viewport suite asserting layout stability and navigation adaptation across mobile (375px), tablet (768px), and desktop (1280px) viewports (e2e/responsive.spec.ts passed 14/14).</subtask>
         <subtask status="COMPLETED">Build BlogArticleContent.tsx adapter and resolve dynamic catch-all route mapping in src/app/[[...slug]]/page.tsx for all 51 Storyblok 'Blog Content' stories.</subtask>
         <subtask status="COMPLETED">Implement StandardPageContent.tsx, FallbackBlok, and pages/ folder candidate slug resolution with draft exclusion guards.</subtask>
-        <subtask status="COMPLETED">Verify offline production build gate (npm run build:offline) with zero static-compilation regressions.</subtask>
-        <subtask status="ACTIVE">Run hardened e2e/accessibility.spec.ts (@axe-core/playwright) across all mapped canonical routes, dynamic blog articles, MainNav keyboard interactions, and new /hr/* auth routes (npm run test:a11y).</subtask>
+        <subtask status="COMPLETED">Verify offline production build gate (npm run build:offline) and pass all 11 candidate apex WCAG 2.2 AA &amp; Section 508 accessibility tests in e2e/accessibility.spec.ts.</subtask>
       </task>
       <task id="1.12" name="Post-Launch Monetization &amp; Rate-Limiting" status="FUTURE">
         <subtask status="FUTURE">Deploy Stripe Customer Portal, Checkout Sessions, and webhook listeners for paid candidate services and employer verification.</subtask>
         <subtask status="FUTURE">Deploy Upstash Layer 7 rate limiting (@upstash/ratelimit) on dynamic routes and submission endpoints.</subtask>
       </task>
       <task id="1.13" name="Domain &amp; Subdomain Infrastructure Discovery &amp; HR Portal Rebuild" status="ACTIVE">
-        <subtask status="COMPLETED">Architect Next.js subdomain routing via src/middleware.ts rewriting hr.thejobapplicantperspective.com to /hr/* and blocking apex /hr/* collisions.</subtask>
+        <subtask status="COMPLETED">Architect Next.js subdomain routing via src/middleware.ts rewriting hr.thejobapplicantperspective.com and hr.localhost:3000 to /hr/*, bypassing static public assets, and blocking apex /hr/* collisions.</subtask>
         <subtask status="COMPLETED">Verify live auth API contracts on api.thejobapplicantperspective.com: POST /api/v1/auth/login (role="hr") and GET /api/v1/auth/me.</subtask>
-        <subtask status="COMPLETED">Extract and build WCAG 2.2 AA remediated HR auth views: HrLoginForm.tsx (/hr/login), two-step HrCreateAccountForm.tsx (/hr/create-account) with 92 industry options, HrAuthProvider.tsx, src/lib/dto/hrAuth.ts, and src/lib/api/hrSession.ts.</subtask>
-        <subtask status="PENDING">Verify local logo asset (public/images/tjap-logo.png) and run npm run verify + npm run build:offline to validate new HR modules.</subtask>
-        <subtask status="PENDING">Extract and build /verify (forgot password / OTP flow) and confirm Step 2 registration endpoint path (NEXT_PUBLIC_TJAP_HR_REGISTER_PATH).</subtask>
-        <subtask status="PENDING">Extract post-login HR dashboard root (hr.thejobapplicantperspective.com/) DOM and job-management API contracts (JobProvider) to replace the temporary redirect in src/app/hr/page.tsx.</subtask>
-        <subtask status="PENDING">Document complete CORS, DNS, and zero-trust perimeter routing map across apex, hr., and api. hostnames.</subtask>
+        <subtask status="COMPLETED">Extract and build HR auth views with /logosm.svg header parity: HrLoginForm.tsx (/login) and 3-step HrCreateAccountForm.tsx (/create-account: Profile, Password, Optional Social Links), HrAuthProvider.tsx, src/lib/dto/hrAuth.ts, and src/lib/api/hrSession.ts.</subtask>
+        <subtask status="ACTIVE">Execute WCAG 2.2 AA &amp; Section 508 accessibility audit and code verification (npm run verify &amp;&amp; npm run test:a11y) across HR /login and all 3 steps of /create-account, remediating any surfaced violations.</subtask>
+        <subtask status="PENDING">Extract and build /verify (forgot password / OTP flow) and confirm live Step 2 registration (POST) and Step 3 socialLinks profile update (PATCH) API contracts.</subtask>
+        <subtask status="PENDING">Extract post-login HR dashboard root (hr.thejobapplicantperspective.com/) DOM and job-management API contracts (JobProvider) to replace the temporary redirect in src/app/hr/page.tsx, and verify dashboard WCAG 2.2 AA accessibility.</subtask>
+        <subtask status="PENDING">Migrate src/middleware.ts to Next.js 16 src/proxy.ts convention and verify clean production offline build.</subtask>
       </task>
       <task id="1.14" name="Job App Tools Subpage Visual &amp; Semantic Alignment" status="COMPLETED">
         <subtask status="COMPLETED">Audited and aligned EventDirectoryContent.tsx (/career-fairs) with canonical light-theme palette (#ffffff, #0d3276, #434343), 70px/124px white header clearance spacer, semantic dl/dt/dd metadata, sanitizeHref guard, and descriptive aria-labels.</subtask>
@@ -348,69 +353,24 @@
         <subtask status="COMPLETED">Resolve pre-navigation localStorage security exception in golden-template.ts and verify first autonomous test run generation in @quarantine/.</subtask>
       </task>
 
-      <task id="2.2" name="Feral QA Agent Self-Documentation &amp; In-Repo Coverage Telemetry" status="ACTIVE">
-        <subtask status="ACTIVE">Design QA Agent Automated Documentation Writer: Extend core-io.ts to automatically serialize test results, failure traces, and code coverage metrics into docs/qa-coverage/ as structured Markdown and JSON reports.</subtask>
+      <task id="2.2" name="Feral QA Agent Self-Documentation &amp; In-Repo Coverage Telemetry" status="QUEUED">
+        <subtask status="QUEUED">Design QA Agent Automated Documentation Writer: Extend core-io.ts to automatically serialize test results, failure traces, and code coverage metrics into docs/qa-coverage/ as structured Markdown and JSON reports (queued until Task 1.13 HR Portal completion).</subtask>
         <subtask status="PENDING">Implement In-Repo Commit &amp; PR Telemetry: Model a post-execution workflow where the agent writes its own test generation logs, test specifications, and coverage badges directly to Git branches, eliminating silent execution and proving audit integrity.</subtask>
         <subtask status="PENDING">Incorporate Virginia Company Historical Telemetry: Decompile legacy test coverage architectures to enforce visible proof-of-work reporting for non-technical stakeholders (April-Approved Artifacts).</subtask>
         <subtask status="PENDING">Deploy Full Feral QA Agent &amp; Accessibility Drone on TJAP: Integrate an un-sanded Feral Sentinel chaos tester featuring a 3-Stage Ferality Dial (Level 1: Passive Reconnaissance, Level 2: Agitated Fuzzing Brawler Mode, Level 3: Maximum Ferality / Agentic Override) combined with a Multimodal Accessibility Drone (Level 1: Guided RAG Reconnaissance, Level 2: Autonomous Feral Crawl). Execute continuous WCAG 2.2 AA / Section 508 audits using real-time Playwright page console/network listeners, Negative Space Debugging, and off-leash adversarial payload mutation to rip site flows apart, ensuring no UI focus traps, infinite spinners, or transient rendering overlays bypass the zero-trust execution gate.</subtask>
       </task>
-
-      <tjap_feral_qa_architecture>
-        <metadata>
-          <target_system>TJAP (The Job Applicant Project)</target_system>
-          <engine_type>Un-sanded Multimodal Feral QA &amp; Accessibility Drone</engine_type>
-          <governance>Zero-Trust Architecture &amp; WCAG 2.2 AA / Section 508 Continuous Enforcement</governance>
-        </metadata>
-
-        <architectural_components>
-          <component name="Multimodal Accessibility Drone">
-            <level_1_guided_reconnaissance>
-              <description>Audits critical TJAP application flows (form submission, document upload, auth gates) using the Golden Schematic as a rigid RAG constraint to eliminate AI syntax drift and Playwright hallucinations.</description>
-              <verification_target>WCAG 2.2 AA / Section 508 compliance across static DOM structures and pre-approved user journeys.</verification_target>
-            </level_1_guided_reconnaissance>
-            <level_2_autonomous_reconnaissance>
-              <description>Operates unconstrained under the Feral Grit Mandate, autonomously crawling dynamic routes to expose transitional popups, unannounced visual state changes, and focus traps that static DOM scanners miss.</description>
-              <verification_target>Real-time visual rendering traps and screen reader barriers across unscripted site paths.</verification_target>
-            </level_2_autonomous_reconnaissance>
-          </component>
-
-          <component name="Feral Sentinel &amp; Ferality Dial">
-            <level_1_passive_reconnaissance>
-              <description>Standard flow verification with strict schema validation and active listeners attached directly to Playwright page console and network traffic.</description>
-              <throttle_protocol>Intercepts HTTP 429 API Bouncer rate-limit errors, cooling down for 20 seconds with exponential backoff.</throttle_protocol>
-            </level_1_passive_reconnaissance>
-            <level_2_agitated_fuzzing>
-              <description>Adopts a brawler mentality—mutating form inputs, injecting unexpected character streams, and double-clicking submission buttons to stress asynchronous network states.</description>
-            </level_2_agitated_fuzzing>
-            <level_3_maximum_ferality>
-              <description>Agentic Override off-leash mode. Invents zero-day edge cases based on page context, analyzes intercepted network headers, and bypasses the visual frontend to fire malformed payloads directly at backend endpoints.</description>
-            </level_3_maximum_ferality>
-          </component>
-
-          <component name="Sentinel Catch &amp; Negative Space Debugging">
-            <phase_4_sentinel_catch>
-              <description>Captures failure state screenshots (.png) and Playwright text logs upon execution faults, converting PNG artifacts into base64 image buffers for multimodal vision model evaluation.</description>
-            </phase_4_sentinel_catch>
-            <negative_space_analysis>
-              <description>Analyzes total visual context to identify physical UI blockers (z-index traps, invisible overlays, loading spinners, low-contrast text) blocking the user experience.</description>
-            </negative_space_analysis>
-            <phase_5_artifact_generation>
-              <description>Compiles April-Approved Artifacts—impeccably formatted bugtemplate.md reports detailing actual vs. expected behavior, impact on human OS flow, and direct local evidence file paths (trace.zip and PNGs).</description>
-            </phase_5_artifact_generation>
-          </component>
-        </architectural_components>
-      </tjap_feral_qa_architecture>
     </category>
   </task_and_query_ledger>
 
   <llm_execution_directives>
     <directive>1. ZERO-TRUST CONTEXT: Treat this XML as immutable ground truth.</directive>
     <directive>2. MODE-LOCK: Enforce /saiph (Sovereign CTO) mode for all code and architecture generation using the embedded saiph_mode_governance ruleset.</directive>
-    <directive>3. SYNTAX MANDATE: All React components must strictly utilize ES6 fat arrow function syntax.</directive>
-    <directive>4. CI INTEGRITY: Maintain offline fixture fallback support across any Storyblok API updates to ensure continuous headless build validity.</directive>
-    <directive>5. SEO INVARIANCE: Preserve existing canonical URLs (/who-we-are, /job-insights, /us-govt-financial-support, /self-care-tools, and /job-insights/:slug*) through server-side rewrites and dynamic normalization rather than exposing raw CMS slug discrepancies to visitors or search engines.</directive>
-    <directive>6. ZERO-CODE PAGE PARITY: Maintain StandardPageContent.tsx and FallbackBlok in src/lib/storyblok.ts alongside pages/ folder resolution in src/app/[[...slug]]/page.tsx so non-technical stakeholders can spin up new CMS routes independently.</directive>
-    <directive>7. HR SUBDOMAIN ISOLATION: Keep hr.thejobapplicantperspective.com strictly decoupled from Storyblok CMS queries via src/middleware.ts hostname rewrites into src/app/hr/* and src/components/hr/*.</directive>
-    <directive>8. QA AGENT GOVERNANCE: Initial pipeline setup and integration is verified and complete. Active test suites reside in e2e/. QA agent in-repo self-documentation and coverage telemetry features are active in Task 2.2 for immediate implementation.</directive>
+    <directive>3. SINGLE-SLICE EXECUTION: Never bundle unrelated tracks or open multiple multi-file refactors simultaneously. Complete and verify one discrete vertical slice at a time.</directive>
+    <directive>4. SYNTAX MANDATE: All React components must strictly utilize ES6 fat arrow function syntax.</directive>
+    <directive>5. CI INTEGRITY: Maintain offline fixture fallback support across any Storyblok API updates to ensure continuous headless build validity.</directive>
+    <directive>6. SEO INVARIANCE: Preserve existing canonical URLs (/who-we-are, /job-insights, /us-govt-financial-support, /self-care-tools, and /job-insights/:slug*) through server-side rewrites and dynamic normalization rather than exposing raw CMS slug discrepancies to visitors or search engines.</directive>
+    <directive>7. ZERO-CODE PAGE PARITY: Maintain StandardPageContent.tsx and FallbackBlok in src/lib/storyblok.ts alongside pages/ folder resolution in src/app/[[...slug]]/page.tsx so non-technical stakeholders can spin up new CMS routes independently.</directive>
+    <directive>8. HR SUBDOMAIN ISOLATION: Keep hr.thejobapplicantperspective.com strictly decoupled from Storyblok CMS queries via src/middleware.ts hostname rewrites into src/app/hr/* and src/components/hr/*.</directive>
+    <directive>9. QA AGENT GOVERNANCE: Active human-verified test suites reside in e2e/. Task 2.2 (QA agent coverage telemetry) remains queued behind Task 1.13 HR Portal completion to enforce single-slice execution.</directive>
   </llm_execution_directives>
 </system_context_override>

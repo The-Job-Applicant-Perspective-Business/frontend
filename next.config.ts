@@ -11,7 +11,26 @@ const nextConfig: NextConfig = {
     ],
   },
   async rewrites() {
+    const devHrAliases =
+      process.env.NODE_ENV === 'development'
+        ? [
+            {
+              source: '/login',
+              destination: '/hr/login',
+            },
+            {
+              source: '/create-account',
+              destination: '/hr/create-account',
+            },
+            {
+              source: '/verify',
+              destination: '/hr/verify',
+            },
+          ]
+        : [];
+
     return [
+      ...devHrAliases,
       // Rule SEO-01: Canonical About page
       {
         source: '/who-we-are',

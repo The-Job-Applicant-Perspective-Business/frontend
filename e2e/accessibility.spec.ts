@@ -12,7 +12,7 @@ const CANONICAL_ROUTES = [
   '/ai-tools',
 ];
 
-const HR_ROUTES = ['/hr/login', '/hr/create-account'];
+const HR_SUBDOMAIN_ROUTES = ['/login', '/create-account'];
 
 const WCAG_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'section508'];
 
@@ -53,99 +53,6 @@ test.describe('WCAG 2.2 AA & Section 508 Accessibility Smoke Suite', () => {
       ).toEqual([]);
     });
   }
-
-  for (const hrRoute of HR_ROUTES) {
-    test(`HR Subdomain route "${hrRoute}" passes WCAG 2.2 AA, Section 508, and landmark invariants`, async ({
-      page,
-    }) => {
-      await page.goto(hrRoute);
-
-      const mainLandmark = page.locator('main');
-      await expect(mainLandmark).toHaveCount(1);
-      await expect(mainLandmark).toBeVisible();
-
-      // Enforce single top-level heading hierarchy and zero dead '#' anchors
-      await expect(page.locator('h1')).toHaveCount(1);
-      await expect(page.locator('a[href="#"]')).toHaveCount(0);
-
-      const accessibilityScanResults = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();
-
-      expect(
-        accessibilityScanResults.violations,
-        formatAxeViolations(hrRoute, accessibilityScanResults.violations),
-      ).toEqual([]);
-    });
-  }
-
-  test('HR Login form supports accessible password visibility toggle and label bindings', async ({
-    page,
-  }) => {
-    await page.goto('/hr/login');
-
-    const emailInput = page.getByLabel(/Email/i);
-    const passwordInput = page.getByLabel(/^Password/i);
-    const toggleBtn = page.getByRole('button', { name: /show password|hide password/i });
-
-    await expect(emailInput).toBeVisible();
-    await expect(passwordInput).toBeVisible();
-    await expect(passwordInput).toHaveAttribute('type', 'password');
-
-    await toggleBtn.focus();
-    await page.keyboard.press('Enter');
-    await expect(passwordInput).toHaveAttribute('type', 'text');
-
-    await page.keyboard.press('Enter');
-    await expect(passwordInput).toHaveAttribute('type', 'password');
-  });
-
-  test('HR Create Account Step 2 passes WCAG 2.2 AA scan after Step 1 completion', async ({
-    page,
-  }) => {
-    await page.goto('/hr/create-account');
-
-    await page
-      .getByLabel(/Full Name|Your Name|Name/i)
-      .first()
-      .fill('Jane Doe');
-    await page
-      .getByLabel(/Work Email|Email/i)
-      .first()
-      .fill('jane.doe@example.com');
-    await page
-      .getByLabel(/Company Name|Company/i)
-      .first()
-      .fill('Acme Corp');
-
-    const selects = page.locator('select');
-    const selectCount = await selects.count();
-    for (let i = 0; i < selectCount; i += 1) {
-      const selectEl = selects.nth(i);
-      const optionValues = await selectEl
-        .locator('option')
-        .evaluateAll((opts) =>
-          opts.map((o) => (o as HTMLOptionElement).value).filter((val) => val.trim().length > 0),
-        );
-      if (optionValues.length > 0) {
-        await selectEl.selectOption(optionValues[0]);
-      }
-    }
-
-    const locationInput = page.getByLabel(/Location|City/i).first();
-    if ((await locationInput.count()) > 0) {
-      await locationInput.fill('Huntsville, AL');
-    }
-
-    const continueBtn = page.getByRole('button', { name: /next|continue/i });
-    await continueBtn.click();
-
-    await expect(page.locator('h1')).toHaveCount(1);
-    const step2ScanResults = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();
-
-    expect(
-      step2ScanResults.violations,
-      formatAxeViolations('/hr/create-account (Step 2)', step2ScanResults.violations),
-    ).toEqual([]);
-  });
 
   test('Dynamic blog article route (/job-insights/[slug]) passes accessibility scan', async ({
     page,
@@ -217,5 +124,109 @@ test.describe('WCAG 2.2 AA & Section 508 Accessibility Smoke Suite', () => {
 
     await submitBtn.focus();
     await expect(submitBtn).toBeFocused();
+  });
+});
+
+test.describe('HR Subdomain Accessibility Suite (hr.localhost:3000)', () => {
+  test.use({ baseURL: 'http://hr.localhost:3000' });
+
+  for (const hrRoute of HR_SUBDOMAIN_ROUTES) {
+    test(`HR Subdomain route "${hrRoute}" passes WCAG 2.2 AA, Section 508, and landmark invariants`, async ({
+      page,
+    }) => {
+      await page.goto(hrRoute);
+
+      const mainLandmark = page.locator('main');
+      await expect(mainLandmark).toHaveCount(1);
+      await expect(mainLandmark).toBeVisible();
+
+      // Enforce single top-level heading hierarchy and zero dead '#' anchors
+      await expect(page.locator('h1')).toHaveCount(1);
+      await expect(page.locator('a[href="#"]')).toHaveCount(0);
+
+      const accessibilityScanResults = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();
+
+      expect(
+        accessibilityScanResults.violations,
+        formatAxeViolations(`hr.localhost:3000${hrRoute}`, accessibilityScanResults.violations),
+      ).toEqual([]);
+    });
+  }
+
+  test('HR Login form supports accessible password visibility toggle and label bindings', async ({
+    page,
+  }) => {
+    await page.goto('/login');
+
+    const emailInput = page.getByLabel(/Email/i);
+    const passwordInput = page.getByLabel(/^Password/i);
+    const toggleBtn = page.getByRole('button', { name: /show password|hide password/i });
+
+    await expect(emailInput).toBeVisible();
+    await expect(passwordInput).toBeVisible();
+    await expect(passwordInput).toHaveAttribute('type', 'password');
+
+    await toggleBtn.focus();
+    await page.keyboard.press('Enter');
+    await expect(passwordInput).toHaveAttribute('type', 'text');
+
+    await page.keyboard.press('Enter');
+    await expect(passwordInput).toHaveAttribute('type', 'password');
+  });
+
+  test('HR Create Account Steps 2 and 3 pass WCAG 2.2 AA scan', async ({ page }) => {
+    await page.route('**/api/v1/auth/register', async (route) => {
+      await route.fulfill({
+        status: 201,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          success: true,
+          message: 'Registration success',
+          data: {
+            token: 'mock-hr-jwt-token',
+            user: {
+              _id: 'mock-hr-id',
+              email: 'jane.doe@example.com',
+              role: 'hr',
+              name: 'Jane Doe',
+              companyName: 'Acme Corp',
+            },
+          },
+        }),
+      });
+    });
+
+    await page.goto('/create-account');
+
+    await page.getByLabel(/Full Name/i).fill('Jane Doe');
+    await page.getByLabel(/^Email/i).fill('jane.doe@example.com');
+    await page.getByLabel(/Company Name/i).fill('Acme Corp');
+    await page.getByLabel(/Industry/i).selectOption({ index: 1 });
+    await page.getByLabel(/No of employees/i).selectOption({ index: 1 });
+    await page.getByLabel(/Location/i).fill('Huntsville, AL');
+
+    await page.getByRole('button', { name: /^Next$/i }).click();
+
+    await expect(
+      page.getByRole('heading', { level: 1, name: /Secure your account/i }),
+    ).toBeVisible();
+    const step2Scan = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();
+    expect(
+      step2Scan.violations,
+      formatAxeViolations('hr.localhost:3000/create-account (Step 2)', step2Scan.violations),
+    ).toEqual([]);
+
+    await page.getByLabel(/^New password/i).fill('StrongPass123!');
+    await page.getByLabel(/^Confirm password/i).fill('StrongPass123!');
+    await page.getByRole('button', { name: /^Create account$/i }).click();
+
+    await expect(
+      page.getByRole('heading', { level: 1, name: /Add more details about your company/i }),
+    ).toBeVisible();
+    const step3Scan = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();
+    expect(
+      step3Scan.violations,
+      formatAxeViolations('hr.localhost:3000/create-account (Step 3)', step3Scan.violations),
+    ).toEqual([]);
   });
 });

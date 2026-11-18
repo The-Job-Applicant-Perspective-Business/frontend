@@ -21,7 +21,7 @@ export default defineConfig({
 
   use: {
     baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3000',
-    colorScheme: 'dark',
+    colorScheme: 'light',
 
     // Negative space & diagnostic trace capture
     trace: 'retain-on-failure',
