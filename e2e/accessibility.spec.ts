@@ -12,7 +12,7 @@ const CANONICAL_ROUTES = [
   '/ai-tools',
 ];
 
-const HR_SUBDOMAIN_ROUTES = ['/login', '/create-account'];
+const HR_SUBDOMAIN_ROUTES = ['/login', '/create-account', '/verify'];
 
 const WCAG_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'section508'];
 
@@ -175,7 +175,20 @@ test.describe('HR Subdomain Accessibility Suite (hr.localhost:3000)', () => {
   });
 
   test('HR Create Account Steps 2 and 3 pass WCAG 2.2 AA scan', async ({ page }) => {
-    await page.route('**/api/v1/auth/register', async (route) => {
+    await page.route('**/api/v1/auth/check-exist', async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          success: true,
+          data: {
+            exist: false,
+          },
+        }),
+      });
+    });
+
+    await page.route('**/api/v1/auth/signup', async (route) => {
       await route.fulfill({
         status: 201,
         contentType: 'application/json',
@@ -192,6 +205,17 @@ test.describe('HR Subdomain Accessibility Suite (hr.localhost:3000)', () => {
               companyName: 'Acme Corp',
             },
           },
+        }),
+      });
+    });
+
+    await page.route('**/api/v1/users/mock-hr-id', async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          success: true,
+          message: 'User updated successfully',
         }),
       });
     });
@@ -223,10 +247,52 @@ test.describe('HR Subdomain Accessibility Suite (hr.localhost:3000)', () => {
     await expect(
       page.getByRole('heading', { level: 1, name: /Add more details about your company/i }),
     ).toBeVisible();
+
+    await page.getByLabel(/Social media platform 1/i).selectOption('linkedin');
+    await page.getByLabel(/Paste URL/i).fill('https://www.linkedin.com/company/acme-corp');
+
     const step3Scan = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();
     expect(
       step3Scan.violations,
       formatAxeViolations('hr.localhost:3000/create-account (Step 3)', step3Scan.violations),
     ).toEqual([]);
+  });
+
+  test('HR Verify form enforces accessible label bindings, alert feedback, and password reset dispatch', async ({
+    page,
+  }) => {
+    let capturedPayload: unknown = null;
+
+    await page.route('**/api/v1/auth/forgot-password', async (route) => {
+      capturedPayload = route.request().postDataJSON();
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          success: true,
+          message: 'Verification email sent',
+        }),
+      });
+    });
+
+    await page.goto('/verify');
+
+    const emailInput = page.getByLabel(/^Email/i);
+    const submitBtn = page.getByRole('button', { name: /^Send$/i });
+
+    await expect(emailInput).toBeVisible();
+    await submitBtn.click();
+
+    const alertBanner = page.getByRole('alert');
+    await expect(alertBanner).toBeVisible();
+
+    await emailInput.fill('jane.doe@example.com');
+    await submitBtn.click();
+
+    await expect(page).toHaveURL(/\/login$/);
+    expect(capturedPayload).toEqual({
+      email: 'jane.doe@example.com',
+      role: 'hr',
+    });
   });
 });
