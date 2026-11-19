@@ -125,12 +125,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9952,
+                      "duration": 4258,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-18T04:30:48.270Z",
+                      "startTime": "2026-11-19T16:52:29.276Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -159,12 +159,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 8679,
+                      "duration": 5570,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-18T04:30:48.311Z",
+                      "startTime": "2026-11-19T16:52:29.316Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -190,15 +190,15 @@
                   "projectName": "default-e2e",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 8127,
+                      "duration": 3685,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-18T04:30:57.372Z",
+                      "startTime": "2026-11-19T16:52:33.707Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -224,15 +224,15 @@
                   "projectName": "default-e2e",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 9171,
+                      "duration": 4621,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-18T04:30:58.505Z",
+                      "startTime": "2026-11-19T16:52:35.135Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -258,15 +258,15 @@
                   "projectName": "default-e2e",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7065,
+                      "duration": 4394,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-18T04:31:05.564Z",
+                      "startTime": "2026-11-19T16:52:37.412Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -292,15 +292,15 @@
                   "projectName": "default-e2e",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 8419,
+                      "duration": 3798,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-18T04:31:07.714Z",
+                      "startTime": "2026-11-19T16:52:39.779Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -326,15 +326,15 @@
                   "projectName": "default-e2e",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6568,
+                      "duration": 3628,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-18T04:31:12.668Z",
+                      "startTime": "2026-11-19T16:52:41.833Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -360,15 +360,15 @@
                   "projectName": "default-e2e",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 17228,
+                      "duration": 12469,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-18T04:31:16.164Z",
+                      "startTime": "2026-11-19T16:52:43.597Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -394,15 +394,15 @@
                   "projectName": "default-e2e",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 12587,
+                      "duration": 9771,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-18T04:31:19.268Z",
+                      "startTime": "2026-11-19T16:52:45.488Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -428,15 +428,15 @@
                   "projectName": "default-e2e",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4009,
+                      "duration": 4072,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-18T04:31:31.885Z",
+                      "startTime": "2026-11-19T16:52:55.291Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -462,15 +462,15 @@
                   "projectName": "default-e2e",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 6751,
+                      "duration": 3746,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-18T04:31:33.473Z",
+                      "startTime": "2026-11-19T16:52:56.098Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -493,86 +493,7 @@
           "specs": [
             {
               "title": "HR Subdomain route \"/login\" passes WCAG 2.2 AA, Section 508, and landmark invariants",
-              "ok": false,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "default-e2e",
-                  "projectName": "default-e2e",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 10032,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('main')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\u001b[2m    13 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('main')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\u001b[2m    13 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n    at C:\\code\\frontend\\e2e\\accessibility.spec.ts:140:34",
-                        "location": {
-                          "file": "C:\\code\\frontend\\e2e\\accessibility.spec.ts",
-                          "column": 34,
-                          "line": 140
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 138 |\u001b[39m\n \u001b[90m 139 |\u001b[39m       \u001b[36mconst\u001b[39m mainLandmark \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'main'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 140 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainLandmark)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 141 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainLandmark)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 142 |\u001b[39m\n \u001b[90m 143 |\u001b[39m       \u001b[90m// Enforce single top-level heading hierarchy and zero dead '#' anchors\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\code\\frontend\\e2e\\accessibility.spec.ts",
-                            "column": 34,
-                            "line": 140
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('main')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\u001b[2m    13 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 138 |\u001b[39m\n \u001b[90m 139 |\u001b[39m       \u001b[36mconst\u001b[39m mainLandmark \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'main'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 140 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainLandmark)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 141 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainLandmark)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 142 |\u001b[39m\n \u001b[90m 143 |\u001b[39m       \u001b[90m// Enforce single top-level heading hierarchy and zero dead '#' anchors\u001b[39m\u001b[0m\n\u001b[2m    at C:\\code\\frontend\\e2e\\accessibility.spec.ts:140:34\u001b[22m"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-11-18T04:31:35.953Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-8e5f7-508-and-landmark-invariants-default-e2e\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-8e5f7-508-and-landmark-invariants-default-e2e\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-8e5f7-508-and-landmark-invariants-default-e2e\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-8e5f7-508-and-landmark-invariants-default-e2e\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\code\\frontend\\e2e\\accessibility.spec.ts",
-                        "column": 34,
-                        "line": 140
-                      }
-                    }
-                  ],
-                  "status": "unexpected"
-                }
-              ],
-              "id": "ddd864604af8a6a0198f-3b4cd6e82f32cf9e056d",
-              "file": "e2e/accessibility.spec.ts",
-              "line": 134,
-              "column": 9
-            },
-            {
-              "title": "HR Subdomain route \"/create-account\" passes WCAG 2.2 AA, Section 508, and landmark invariants",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -585,73 +506,28 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 8741,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('main')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\u001b[2m    13 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('main')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\u001b[2m    13 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n    at C:\\code\\frontend\\e2e\\accessibility.spec.ts:140:34",
-                        "location": {
-                          "file": "C:\\code\\frontend\\e2e\\accessibility.spec.ts",
-                          "column": 34,
-                          "line": 140
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 138 |\u001b[39m\n \u001b[90m 139 |\u001b[39m       \u001b[36mconst\u001b[39m mainLandmark \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'main'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 140 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainLandmark)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 141 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainLandmark)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 142 |\u001b[39m\n \u001b[90m 143 |\u001b[39m       \u001b[90m// Enforce single top-level heading hierarchy and zero dead '#' anchors\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\code\\frontend\\e2e\\accessibility.spec.ts",
-                            "column": 34,
-                            "line": 140
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('main')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\u001b[2m    13 × locator resolved to 2 elements\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 138 |\u001b[39m\n \u001b[90m 139 |\u001b[39m       \u001b[36mconst\u001b[39m mainLandmark \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'main'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 140 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainLandmark)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 141 |\u001b[39m       \u001b[36mawait\u001b[39m expect(mainLandmark)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 142 |\u001b[39m\n \u001b[90m 143 |\u001b[39m       \u001b[90m// Enforce single top-level heading hierarchy and zero dead '#' anchors\u001b[39m\u001b[0m\n\u001b[2m    at C:\\code\\frontend\\e2e\\accessibility.spec.ts:140:34\u001b[22m"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 3624,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-18T04:31:40.257Z",
+                      "startTime": "2026-11-19T16:52:59.395Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-cf067-508-and-landmark-invariants-default-e2e\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-cf067-508-and-landmark-invariants-default-e2e\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-cf067-508-and-landmark-invariants-default-e2e\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-cf067-508-and-landmark-invariants-default-e2e\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\code\\frontend\\e2e\\accessibility.spec.ts",
-                        "column": 34,
-                        "line": 140
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
-              "id": "ddd864604af8a6a0198f-aa9c983dd71cb6269d44",
+              "id": "ddd864604af8a6a0198f-3b4cd6e82f32cf9e056d",
               "file": "e2e/accessibility.spec.ts",
               "line": 134,
               "column": 9
             },
             {
-              "title": "HR Login form supports accessible password visibility toggle and label bindings",
-              "ok": false,
+              "title": "HR Subdomain route \"/create-account\" passes WCAG 2.2 AA, Section 508, and landmark invariants",
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -662,65 +538,88 @@
                   "projectName": "default-e2e",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 1,
                       "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 2424,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByLabel(/Email/i)\nExpected: visible\nError: strict mode violation: getByLabel(/Email/i) resolved to 2 elements:\n    1) <input value=\"\" required=\"\" type=\"email\" name=\"email\" id=\"hr-login-email\" autocomplete=\"email\" class=\"mt-1 rounded-lg border border-[#D1D5DB] bg-white p-4 text-base text-[#111827] transition-colors focus:border-[#0D3276] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276]\"/> aka getByLabel('Email', { exact: true })\n    2) <input required=\"\" type=\"email\" name=\"email\" id=\"footer-email\" placeholder=\"Email\" class=\"w-full rounded-lg border border-slate-400/50 bg-transparent px-4 py-3 text-white placeholder-slate-400 focus:border-white focus:ring-2 focus:ring-white/20 focus:outline-none\"/> aka getByPlaceholder('Email')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel(/Email/i)\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByLabel(/Email/i)\nExpected: visible\nError: strict mode violation: getByLabel(/Email/i) resolved to 2 elements:\n    1) <input value=\"\" required=\"\" type=\"email\" name=\"email\" id=\"hr-login-email\" autocomplete=\"email\" class=\"mt-1 rounded-lg border border-[#D1D5DB] bg-white p-4 text-base text-[#111827] transition-colors focus:border-[#0D3276] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276]\"/> aka getByLabel('Email', { exact: true })\n    2) <input required=\"\" type=\"email\" name=\"email\" id=\"footer-email\" placeholder=\"Email\" class=\"w-full rounded-lg border border-slate-400/50 bg-transparent px-4 py-3 text-white placeholder-slate-400 focus:border-white focus:ring-2 focus:ring-white/20 focus:outline-none\"/> aka getByPlaceholder('Email')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel(/Email/i)\u001b[22m\n\n    at C:\\code\\frontend\\e2e\\accessibility.spec.ts:165:30",
-                        "location": {
-                          "file": "C:\\code\\frontend\\e2e\\accessibility.spec.ts",
-                          "column": 30,
-                          "line": 165
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 163 |\u001b[39m     \u001b[36mconst\u001b[39m toggleBtn \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[35m/show password|hide password/i\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 164 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 165 |\u001b[39m     \u001b[36mawait\u001b[39m expect(emailInput)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 166 |\u001b[39m     \u001b[36mawait\u001b[39m expect(passwordInput)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 167 |\u001b[39m     \u001b[36mawait\u001b[39m expect(passwordInput)\u001b[33m.\u001b[39mtoHaveAttribute(\u001b[32m'type'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'password'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 168 |\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\code\\frontend\\e2e\\accessibility.spec.ts",
-                            "column": 30,
-                            "line": 165
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByLabel(/Email/i)\nExpected: visible\nError: strict mode violation: getByLabel(/Email/i) resolved to 2 elements:\n    1) <input value=\"\" required=\"\" type=\"email\" name=\"email\" id=\"hr-login-email\" autocomplete=\"email\" class=\"mt-1 rounded-lg border border-[#D1D5DB] bg-white p-4 text-base text-[#111827] transition-colors focus:border-[#0D3276] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276]\"/> aka getByLabel('Email', { exact: true })\n    2) <input required=\"\" type=\"email\" name=\"email\" id=\"footer-email\" placeholder=\"Email\" class=\"w-full rounded-lg border border-slate-400/50 bg-transparent px-4 py-3 text-white placeholder-slate-400 focus:border-white focus:ring-2 focus:ring-white/20 focus:outline-none\"/> aka getByPlaceholder('Email')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel(/Email/i)\u001b[22m\n\n\n\u001b[0m \u001b[90m 163 |\u001b[39m     \u001b[36mconst\u001b[39m toggleBtn \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[35m/show password|hide password/i\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 164 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 165 |\u001b[39m     \u001b[36mawait\u001b[39m expect(emailInput)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 166 |\u001b[39m     \u001b[36mawait\u001b[39m expect(passwordInput)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 167 |\u001b[39m     \u001b[36mawait\u001b[39m expect(passwordInput)\u001b[33m.\u001b[39mtoHaveAttribute(\u001b[32m'type'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'password'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 168 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\code\\frontend\\e2e\\accessibility.spec.ts:165:30\u001b[22m"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 4362,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-18T04:31:48.312Z",
+                      "startTime": "2026-11-19T16:52:59.874Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-f4849-y-toggle-and-label-bindings-default-e2e\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-f4849-y-toggle-and-label-bindings-default-e2e\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-f4849-y-toggle-and-label-bindings-default-e2e\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-f4849-y-toggle-and-label-bindings-default-e2e\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\code\\frontend\\e2e\\accessibility.spec.ts",
-                        "column": 30,
-                        "line": 165
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-aa9c983dd71cb6269d44",
+              "file": "e2e/accessibility.spec.ts",
+              "line": 134,
+              "column": 9
+            },
+            {
+              "title": "HR Subdomain route \"/verify\" passes WCAG 2.2 AA, Section 508, and landmark invariants",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "default-e2e",
+                  "projectName": "default-e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3817,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-19T16:53:03.053Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-186c47b754c210bbb24d",
+              "file": "e2e/accessibility.spec.ts",
+              "line": 134,
+              "column": 9
+            },
+            {
+              "title": "HR Login form supports accessible password visibility toggle and label bindings",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "default-e2e",
+                  "projectName": "default-e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1797,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-19T16:53:04.265Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
               "id": "ddd864604af8a6a0198f-ff29a2b965f76442103c",
@@ -730,7 +629,7 @@
             },
             {
               "title": "HR Create Account Steps 2 and 3 pass WCAG 2.2 AA scan",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -741,71 +640,60 @@
                   "projectName": "default-e2e",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 2879,
-                      "error": {
-                        "message": "Error: locator.fill: Error: strict mode violation: getByLabel(/^Email/i) resolved to 2 elements:\n    1) <input value=\"\" required=\"\" type=\"email\" name=\"email\" autocomplete=\"email\" id=\"hr-register-email\" class=\"mt-1 h-14 rounded-lg border border-[#D0D9E9] bg-white px-4 text-base text-[#111827] transition-colors focus:border-[#0D3276] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276]\"/> aka getByLabel('Email', { exact: true })\n    2) <input required=\"\" type=\"email\" name=\"email\" id=\"footer-email\" placeholder=\"Email\" class=\"w-full rounded-lg border border-slate-400/50 bg-transparent px-4 py-3 text-white placeholder-slate-400 focus:border-white focus:ring-2 focus:ring-white/20 focus:outline-none\"/> aka getByPlaceholder('Email')\n\nCall log:\n\u001b[2m  - waiting for getByLabel(/^Email/i)\u001b[22m\n",
-                        "stack": "Error: locator.fill: Error: strict mode violation: getByLabel(/^Email/i) resolved to 2 elements:\n    1) <input value=\"\" required=\"\" type=\"email\" name=\"email\" autocomplete=\"email\" id=\"hr-register-email\" class=\"mt-1 h-14 rounded-lg border border-[#D0D9E9] bg-white px-4 text-base text-[#111827] transition-colors focus:border-[#0D3276] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276]\"/> aka getByLabel('Email', { exact: true })\n    2) <input required=\"\" type=\"email\" name=\"email\" id=\"footer-email\" placeholder=\"Email\" class=\"w-full rounded-lg border border-slate-400/50 bg-transparent px-4 py-3 text-white placeholder-slate-400 focus:border-white focus:ring-2 focus:ring-white/20 focus:outline-none\"/> aka getByPlaceholder('Email')\n\nCall log:\n\u001b[2m  - waiting for getByLabel(/^Email/i)\u001b[22m\n\n    at C:\\code\\frontend\\e2e\\accessibility.spec.ts:202:38",
-                        "location": {
-                          "file": "C:\\code\\frontend\\e2e\\accessibility.spec.ts",
-                          "column": 38,
-                          "line": 202
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 200 |\u001b[39m\n \u001b[90m 201 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[35m/Full Name/i\u001b[39m)\u001b[33m.\u001b[39mfill(\u001b[32m'Jane Doe'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 202 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[35m/^Email/i\u001b[39m)\u001b[33m.\u001b[39mfill(\u001b[32m'jane.doe@example.com'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 203 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[35m/Company Name/i\u001b[39m)\u001b[33m.\u001b[39mfill(\u001b[32m'Acme Corp'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 204 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[35m/Industry/i\u001b[39m)\u001b[33m.\u001b[39mselectOption({ index\u001b[33m:\u001b[39m \u001b[35m1\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 205 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[35m/No of employees/i\u001b[39m)\u001b[33m.\u001b[39mselectOption({ index\u001b[33m:\u001b[39m \u001b[35m1\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\code\\frontend\\e2e\\accessibility.spec.ts",
-                            "column": 38,
-                            "line": 202
-                          },
-                          "message": "Error: locator.fill: Error: strict mode violation: getByLabel(/^Email/i) resolved to 2 elements:\n    1) <input value=\"\" required=\"\" type=\"email\" name=\"email\" autocomplete=\"email\" id=\"hr-register-email\" class=\"mt-1 h-14 rounded-lg border border-[#D0D9E9] bg-white px-4 text-base text-[#111827] transition-colors focus:border-[#0D3276] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D3276]\"/> aka getByLabel('Email', { exact: true })\n    2) <input required=\"\" type=\"email\" name=\"email\" id=\"footer-email\" placeholder=\"Email\" class=\"w-full rounded-lg border border-slate-400/50 bg-transparent px-4 py-3 text-white placeholder-slate-400 focus:border-white focus:ring-2 focus:ring-white/20 focus:outline-none\"/> aka getByPlaceholder('Email')\n\nCall log:\n\u001b[2m  - waiting for getByLabel(/^Email/i)\u001b[22m\n\n\n\u001b[0m \u001b[90m 200 |\u001b[39m\n \u001b[90m 201 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[35m/Full Name/i\u001b[39m)\u001b[33m.\u001b[39mfill(\u001b[32m'Jane Doe'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 202 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[35m/^Email/i\u001b[39m)\u001b[33m.\u001b[39mfill(\u001b[32m'jane.doe@example.com'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 203 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[35m/Company Name/i\u001b[39m)\u001b[33m.\u001b[39mfill(\u001b[32m'Acme Corp'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 204 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[35m/Industry/i\u001b[39m)\u001b[33m.\u001b[39mselectOption({ index\u001b[33m:\u001b[39m \u001b[35m1\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 205 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[35m/No of employees/i\u001b[39m)\u001b[33m.\u001b[39mselectOption({ index\u001b[33m:\u001b[39m \u001b[35m1\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\code\\frontend\\e2e\\accessibility.spec.ts:202:38\u001b[22m"
-                        }
-                      ],
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 6221,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-18T04:31:53.356Z",
+                      "startTime": "2026-11-19T16:53:06.089Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-a47a9-and-3-pass-WCAG-2-2-AA-scan-default-e2e\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-a47a9-and-3-pass-WCAG-2-2-AA-scan-default-e2e\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-a47a9-and-3-pass-WCAG-2-2-AA-scan-default-e2e\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\code\\frontend\\test-results\\accessibility-HR-Subdomain-a47a9-and-3-pass-WCAG-2-2-AA-scan-default-e2e\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\code\\frontend\\e2e\\accessibility.spec.ts",
-                        "column": 38,
-                        "line": 202
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "ddd864604af8a6a0198f-25cca85c090aff37c92a",
               "file": "e2e/accessibility.spec.ts",
               "line": 177,
-              "column": 5
+              "column": 7
+            },
+            {
+              "title": "HR Verify form enforces accessible label bindings, alert feedback, and password reset dispatch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "default-e2e",
+                  "projectName": "default-e2e",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4312,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-19T16:53:06.897Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ddd864604af8a6a0198f-a1a21db46278b6f484be",
+              "file": "e2e/accessibility.spec.ts",
+              "line": 261,
+              "column": 7
             }
           ]
         }
@@ -814,11 +702,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-18T04:30:45.479Z",
-    "duration": 71383.595,
-    "expected": 11,
+    "startTime": "2026-11-19T16:52:27.294Z",
+    "duration": 45255.842,
+    "expected": 17,
     "skipped": 0,
-    "unexpected": 4,
+    "unexpected": 0,
     "flaky": 0
   }
 }

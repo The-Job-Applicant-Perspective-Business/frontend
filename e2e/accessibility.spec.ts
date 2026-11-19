@@ -283,8 +283,9 @@ test.describe('HR Subdomain Accessibility Suite (hr.localhost:3000)', () => {
     await expect(emailInput).toBeVisible();
     await submitBtn.click();
 
-    const alertBanner = page.getByRole('alert');
+    const alertBanner = page.locator('main [role="alert"]');
     await expect(alertBanner).toBeVisible();
+    await expect(alertBanner).toHaveText(/Email is required\./i);
 
     await emailInput.fill('jane.doe@example.com');
     await submitBtn.click();
