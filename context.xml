@@ -3,7 +3,7 @@
     <project_name>The Job Applicant Perspective (TJAP) Technical Remediation</project_name>
     <primary_stakeholder>Sarah Springsteen Trumble</primary_stakeholder>
     <purpose>Initialize Mode-Locked Governance, re-seat zero-trust project architecture, track active milestone progression, maintain deterministic state across sessions, preserve legacy SEO routing invariants, and embed hard-coded Sovereign CTO (/saiph) governance rules directly into project state.</purpose>
-    <current_status>Tiers 1, 2, 3, and 4 Complete. Task 1.14 Complete (Job App Tools light-theme reconciliation &amp; zero-code StandardPageContent architecture). Route Group Layout Split Complete: Decoupled candidate chrome (MainHeader, MainFooter, StoryblokProvider, outer main) into src/app/(candidate)/layout.tsx and relocated [[...slug]] into src/app/(candidate)/[[...slug]], eliminating duplicate main landmarks on hr.localhost:3000 (16/17 tests passing in e2e/accessibility.spec.ts). HR Auth &amp; Recovery Complete: HrLoginForm.tsx (/login), reconciled 3-step HrCreateAccountForm.tsx (/create-account: check-exist, signup, PUT /users/:id), and HrVerifyForm.tsx (/verify: forgot-password) built. HR Dashboard Shell Built: JobProvider.tsx and HrDashboardWorkspace.tsx mounted at src/app/hr/page.tsx with Approved/Under review tabs, debounced search, filters, and unread notifications badge. Active Focus: Patch main [role="alert"] selector in e2e/accessibility.spec.ts to lock 17/17 a11y pass + add authenticated dashboard a11y test, build Create/Edit Job &amp; Job Detail drawers, build /job-applications, and migrate src/middleware.ts to src/proxy.ts.</current_status>
+    <current_status>Tiers 1, 2, 3, and 4 Complete. Task 1.14 Complete (Job App Tools light-theme reconciliation &amp; zero-code StandardPageContent architecture). Route Group Layout Split Complete: Decoupled candidate chrome (MainHeader, MainFooter, StoryblokProvider, outer main) into src/app/(candidate)/layout.tsx and relocated [[...slug]] into src/app/(candidate)/[[...slug]], eliminating duplicate main landmarks on hr.localhost:3000 (16/17 tests passing in e2e/accessibility.spec.ts). HR Auth &amp; Dashboard Shell Built (HrLoginForm.tsx, 3-step HrCreateAccountForm.tsx, HrVerifyForm.tsx, JobProvider.tsx, HrDashboardWorkspace.tsx). STRATEGIC PRIORITY PIVOT (Task 1.13 HR Drawers &amp; /job-applications PAUSED): Immediate critical path shifted to (1) AWS Amplify Gen 1 (d3i9qng4qdadgr, stack amplify-tjapusertest-staging-a8ef2 in ap-south-1) local CLI installation, local staging emulation/pull, and live data-pull verification (Task 1.16); (2) Admin portal reconnaissance, route isolation, and buildout on verified API/AWS data (Task 1.17); (3) Global brand typography &amp; styling reconciliation (Jost headings + Manrope body via next/font and Tailwind v4 @theme tokens, Task 1.18); and (4) Pre-launch CI/CD gates and AWS Amplify repository repointing to go live.</current_status>
     <enforced_mode>/saiph (Sovereign CTO)</enforced_mode>
   </metadata>
 
@@ -26,10 +26,10 @@
   <environment_state id="tjap_infrastructure">
     <tech_stack>
       <core>Next.js (16.3.3), React &amp; React-DOM (19.2.8), TypeScript (^5)</core>
-      <styling>Tailwind CSS (^4), @tailwindcss/postcss</styling>
-      <cms>@storyblok/react (^7.3.1) [Candidate apex domain only; hr.thejobapplicantperspective.com is 100% code-owned]</cms>
+      <styling>Tailwind CSS (^4), @tailwindcss/postcss [Target Brand Fonts: Jost for headings, Manrope for body/subtitles via next/font/google]</styling>
+      <cms>@storyblok/react (^7.3.1) [Candidate apex domain only; HR and Admin portals are 100% code-owned]</cms>
       <ui_primitives>Radix UI (Dialog, Slot, Visually-Hidden, Tabs, ScrollArea), lucide-react (^1.48.0)</ui_primitives>
-      <backend_and_security>zod (4.6.2), REST API integration (https://api.thejobapplicantperspective.com/api/v1) with Bearer JWT auth [@upstash/ratelimit and @upstash/redis deferred to post-launch]</backend_and_security>
+      <backend_and_security>zod (4.6.2), AWS Amplify Gen 1 (AppId: d3i9qng4qdadgr, Stack: amplify-tjapusertest-staging-a8ef2, Region: ap-south-1, Account: 339712895738), REST API integration (https://api.thejobapplicantperspective.com/api/v1) with Bearer JWT auth [@upstash/ratelimit and @upstash/redis deferred to post-launch]</backend_and_security>
       <ai_integration>@google/generative-ai (^0.24.1) [gemini-2.5-flash via QA Agent engine]</ai_integration>
       <testing_and_qa>@playwright/test (^1.62.1), eslint-plugin-playwright (^2.11.0), @axe-core/playwright, Feral QA Agent (Golden Schematic RAG + Sentinel Catch)</testing_and_qa>
       <ci_cd>GitHub Actions (.github/workflows/ci.yml) with offline fixture pre-rendering and protected branch gates</ci_cd>
@@ -51,17 +51,63 @@
       <script name="agent:qa">tsx qa-agent/index.ts</script>
     </build_and_execution>
 
-    <hr_subdomain_architecture host="hr.thejobapplicantperspective.com">
+    <aws_amplify_and_local_runtime_architecture app_id="d3i9qng4qdadgr" region="ap-south-1">
+      <cloud_topology>
+        <stack_name>amplify-tjapusertest-staging-a8ef2</stack_name>
+        <stack_id>arn:aws:cloudformation:ap-south-1:339712895738:stack/amplify-tjapusertest-staging-a8ef2/0a684d50-6f71-11ef-b6d4-06a58a360d33</stack_id>
+        <aws_account_id>339712895738</aws_account_id>
+        <deployment_bucket>amplify-tjapusertest-staging-a8ef2-deployment</deployment_bucket>
+        <iam_roles>amplify-tjapusertest-staging-a8ef2-authRole, amplify-tjapusertest-staging-a8ef2-unauthRole</iam_roles>
+        <critical_invariant>Never delete or recreate Amplify App d3i9qng4qdadgr; execute in-place repository repointing to preserve custom domains, Cognito user pools, and staging datastore bindings.</critical_invariant>
+      </cloud_topology>
+      <local_installation_and_setup>
+        <step order="1" name="Install AWS CLI v2 and Amplify Gen 1 CLI">
+          <commands>
+            aws --version || curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" &amp;&amp; unzip awscliv2.zip &amp;&amp; sudo ./aws/install
+            npm install -g @aws-amplify/cli
+            npm install aws-amplify
+          </commands>
+          <notes>Install @aws-amplify/cli globally for Gen 1 stack pulling/mocking and aws-amplify locally in package.json for Next.js client/SSR runtime configuration.</notes>
+        </step>
+        <step order="2" name="Configure IAM Profile Locked to ap-south-1">
+          <commands>aws configure --profile tjap-staging</commands>
+          <parameters>Region: ap-south-1 | Output: json (Must use IAM user/role authorized on Account 339712895738 for CloudFormation, Amplify, Cognito, S3, and AppSync/API Gateway).</parameters>
+        </step>
+        <step order="3" name="Pull Live Staging Backend Config (Bypassing Stale JSON)">
+          <commands>AWS_PROFILE=tjap-staging amplify pull --appId d3i9qng4qdadgr --envName staging</commands>
+          <artifacts_generated>src/aws-exports.js (or src/amplifyconfiguration.json) and amplify/backend/ metadata. Ensure aws-exports.js is gitignored or sanitized per environment policy.</artifacts_generated>
+        </step>
+        <step order="4" name="Local Execution Modes (Hybrid Live-Staging vs Offline Mock)">
+          <mode name="Hybrid Localhost -> Live Staging Backend (Primary Verification)">Run Next.js locally (npm run dev) configured with Amplify.configure(awsExports, { ssr: true }) and NEXT_PUBLIC_API_BASE_URL=https://api.thejobapplicantperspective.com/api/v1. Executes local UI/API changes directly against real staging Cognito auth and live data.</mode>
+          <mode name="Local Amplify Category Emulation (amplify mock)">Use 'amplify mock api' / 'amplify mock storage' (requires Java JRE for local DynamoDB emulation) when testing GraphQL/AppSync or S3 triggers offline without mutating staging records. Note: Cognito User Pools do not have a native local Amplify mock; use staging Cognito or a local JWT/Docker Cognito stub when offline.</mode>
+          <mode name="Docker LocalStack / Local API Stub (Optional Air-Gapped)">Run LocalStack (Cognito/DynamoDB/S3) or local REST mock container on localhost when zero external AWS egress is required.</mode>
+        </step>
+        <step order="5" name="Production Repository Cutover">
+          <commands>aws amplify update-app --region ap-south-1 --app-id d3i9qng4qdadgr --repository &lt;NEW_GITHUB_REPO_URL&gt; --access-token &lt;CLASSIC_GITHUB_PAT&gt;</commands>
+          <notes>Execute only after local data-pull smoke test, Admin portal buildout, Jost/Manrope styling reconciliation, and npm run test:gate pass.</notes>
+        </step>
+      </local_installation_and_setup>
+    </aws_amplify_and_local_runtime_architecture>
+
+    <admin_portal_architecture status="QUEUED_NEXT">
+      <objective>Build out the Admin portal surface on top of verified AWS Amplify / REST API data pipelines prior to site launch.</objective>
+      <gap_analysis>
+        <unverified_contracts>Admin subdomain/route path (admin.thejobapplicantperspective.com vs /admin), Admin JWT role claim ('admin' vs 'superadmin'), and Admin-only moderation endpoints (job approval/rejection, user management) are not yet captured in repository fixtures. Do not fabricate endpoints; inspect legacy Admin DOM/chunks or CloudFormation/API routes before coding Admin mutations.</unverified_contracts>
+        <env_overrides>NEXT_PUBLIC_TJAP_ADMIN_HOST, NEXT_PUBLIC_TJAP_ADMIN_JOBS_PATH, NEXT_PUBLIC_TJAP_ADMIN_USERS_PATH</env_overrides>
+      </gap_analysis>
+    </admin_portal_architecture>
+
+    <hr_subdomain_architecture host="hr.thejobapplicantperspective.com" status="PAUSED_AT_DASHBOARD_SHELL">
       <routing_strategy>
         <middleware file="src/middleware.ts">Intercepts host header matching hr.thejobapplicantperspective.com, hr.localhost:3000, or hr.localhost and internally rewrites /* to /hr/* while bypassing static public assets (/logosm.svg, images, fonts). Blocks direct apex access to thejobapplicantperspective.com/hr/* via /404 rewrite to prevent Storyblok catch-all collisions and search indexing leaks. [Note: Ready for Next.js 16 src/proxy.ts convention rename]</middleware>
-        <root_layout file="src/app/layout.tsx">Minimal global HTML/body/Geist font shell shared across all route groups without candidate header, footer, or outer main landmark.</root_layout>
+        <root_layout file="src/app/layout.tsx">Minimal global HTML/body/font shell shared across all route groups without candidate header, footer, or outer main landmark.</root_layout>
         <candidate_layout file="src/app/(candidate)/layout.tsx">Encapsulates skip link, StoryblokProvider, MainHeader, primary candidate main landmark, and MainFooter for src/app/(candidate)/[[...slug]].</candidate_layout>
         <hr_layout file="src/app/hr/layout.tsx">Isolates HR portal directly beneath minimal RootLayout; sets robots noindex/nofollow metadata and wraps children in HrAuthProvider.</hr_layout>
-        <route path="/" internal_path="src/app/hr/page.tsx" status="BUILT_DRAWERS_PENDING">Mounts JobProvider and HrDashboardWorkspace.tsx (desktop sidebar, mobile drawer, top bar with notifications badge and logout menu, Approved/Under review tabs synchronized to ?tab=approved|pending, 500ms debounced search, workplace/type/salary/date filters, and job posting cards). Create/Edit Job and Job Detail drawers queued next.</route>
-        <route path="/login" internal_path="src/app/hr/login/page.tsx" status="A11Y_VERIFIED">Renders HrLoginForm.tsx with /logosm.svg header, split #0D3276 navy/white shell, WCAG 2.2 AA label associations, semantic keyboard-accessible password visibility toggle, #374151/#595959 high-contrast copy, and live POST /api/v1/auth/login integration. Passed axe-core WCAG 2.2 AA &amp; Section 508 scan.</route>
-        <route path="/create-account" internal_path="src/app/hr/create-account/page.tsx" status="A11Y_VERIFIED">Renders 3-step HrCreateAccountForm.tsx reconciled with live API contracts: Step 1 Organization Profile + POST /api/v1/auth/check-exist; Step 2 Password with 4-rule complexity regex (/^(?=.*[0-9])(?=.*[#?!@$%^&amp;*-])(?=.*[A-Z]).{8,}$/) + POST /api/v1/auth/signup; Step 3 Optional repeatable socialLinks + PUT /api/v1/users/:hrId. Passed axe-core WCAG 2.2 AA &amp; Section 508 scan across all 3 steps.</route>
-        <route path="/verify" internal_path="src/app/hr/verify/page.tsx" status="BUILT_PENDING_SELECTOR_FIX">Renders HrVerifyForm.tsx wired to POST /api/v1/auth/forgot-password ({ email, role: "hr" }) with NEXT_PUBLIC_TJAP_HR_VERIFY_PATH override. Passed axe-core WCAG 2.2 AA scan; interaction test requires scoping alert locator to main [role="alert"] to bypass Next.js #__next-route-announcer__.</route>
-        <route path="/job-applications" internal_path="src/app/hr/job-applications/page.tsx" status="PENDING">Extracted from Chunk 865 (GET /api/v1/jobs?status=jobApplication); queued after dashboard drawers.</route>
+        <route path="/" internal_path="src/app/hr/page.tsx" status="BUILT_DRAWERS_PAUSED">Mounts JobProvider and HrDashboardWorkspace.tsx (desktop sidebar, mobile drawer, top bar with notifications badge and logout menu, Approved/Under review tabs synchronized to ?tab=approved|pending, 500ms debounced search, workplace/type/salary/date filters, and job posting cards). Drawers paused until AWS &amp; Admin launch critical path completes.</route>
+        <route path="/login" internal_path="src/app/hr/login/page.tsx" status="A11Y_VERIFIED">Renders HrLoginForm.tsx wired to POST /api/v1/auth/login. Passed axe-core WCAG 2.2 AA &amp; Section 508 scan.</route>
+        <route path="/create-account" internal_path="src/app/hr/create-account/page.tsx" status="A11Y_VERIFIED">Renders 3-step HrCreateAccountForm.tsx (check-exist, signup, PUT /users/:hrId). Passed axe-core WCAG 2.2 AA &amp; Section 508 scan across all 3 steps.</route>
+        <route path="/verify" internal_path="src/app/hr/verify/page.tsx" status="BUILT_PAUSED">Renders HrVerifyForm.tsx wired to POST /api/v1/auth/forgot-password ({ email, role: "hr" }).</route>
+        <route path="/job-applications" internal_path="src/app/hr/job-applications/page.tsx" status="PAUSED">Queued post-Admin/AWS cutover.</route>
       </routing_strategy>
       <verified_api_contracts base_url="https://api.thejobapplicantperspective.com">
         <endpoint id="HR-API-01" method="POST" path="/api/v1/auth/login" status="VERIFIED_BUNDLE_AND_LIVE">
@@ -77,30 +123,24 @@
         <endpoint id="HR-API-03" method="POST" path="/api/v1/auth/check-exist" status="VERIFIED_BUNDLE">
           <request_body>{"email": "string"}</request_body>
           <response_envelope>{"success": true, "data": {"exist": "boolean"}}</response_envelope>
-          <notes>Executed at Step 1 of HrCreateAccountForm.tsx prior to advancing to password creation; overridable via NEXT_PUBLIC_TJAP_HR_CHECK_EMAIL_PATH.</notes>
         </endpoint>
         <endpoint id="HR-API-04" method="POST" path="/api/v1/auth/signup" status="VERIFIED_BUNDLE">
           <request_body>{"name": "string", "email": "string", "companyName": "string", "industry": "string", "employmentCount": "string", "location": "string", "password": "string", "role": "hr"}</request_body>
           <response_envelope>{"success": true, "data": {"user": "HrUser", "token": "HS256 JWT"}}</response_envelope>
-          <notes>Executed at Step 2 of HrCreateAccountForm.tsx; overridable via NEXT_PUBLIC_TJAP_HR_REGISTER_PATH.</notes>
         </endpoint>
         <endpoint id="HR-API-05" method="PUT" path="/api/v1/users/:hrId" status="VERIFIED_BUNDLE">
           <headers>Authorization: Bearer &lt;token&gt;</headers>
           <request_body>{"name": "string", "email": "string", "companyName": "string", "industry": "string", "employmentCount": "string", "location": "string", "socialLinks": [{"name": "linkedin|instagram|facebook|general", "link": "string"}]}</request_body>
-          <notes>Executed at Step 3 of HrCreateAccountForm.tsx; overridable via NEXT_PUBLIC_TJAP_HR_USERS_PATH.</notes>
         </endpoint>
         <endpoint id="HR-API-06" method="POST" path="/api/v1/auth/forgot-password" status="VERIFIED_BUNDLE">
           <request_body>{"email": "string", "role": "hr"}</request_body>
-          <notes>Executed in HrVerifyForm.tsx (/verify); overridable via NEXT_PUBLIC_TJAP_HR_VERIFY_PATH. Completion endpoint is POST /api/v1/auth/forgot-password-complete.</notes>
         </endpoint>
         <endpoint id="HR-API-07" method="DELETE" path="/api/v1/auth/logout" status="VERIFIED_BUNDLE">
           <headers>Authorization: Bearer &lt;token&gt;</headers>
-          <notes>Executed in HrDashboardWorkspace.tsx on sign-out prior to clearing local storage and redirecting to /login.</notes>
         </endpoint>
         <endpoint id="HR-API-08" method="GET" path="/api/v1/jobs" status="VERIFIED_BUNDLE">
           <headers>Authorization: Bearer &lt;token&gt;</headers>
           <query_params>status (active|inactive|pending|rejected|jobApplication), search, jobSalary, jobLocation, datePosted, workPlaceType, jobType, page, limit (30), select</query_params>
-          <notes>Consumed by HrDashboardWorkspace.tsx and /job-applications.</notes>
         </endpoint>
         <endpoint id="HR-API-09" method="POST / PUT / PATCH / DELETE" path="/api/v1/jobs and /api/v1/jobs/:jobId" status="VERIFIED_BUNDLE">
           <headers>Authorization: Bearer &lt;token&gt;</headers>
@@ -112,11 +152,9 @@
         </endpoint>
         <endpoint id="HR-API-11" method="GET" path="/api/v1/notifications and /api/v1/notifications/unread-count" status="VERIFIED_BUNDLE">
           <headers>Authorization: Bearer &lt;token&gt;</headers>
-          <notes>GET /api/v1/notifications?page=1&amp;limit=7 and GET /api/v1/notifications/unread-count.</notes>
         </endpoint>
         <endpoint id="HR-API-12" method="GET" path="/api/v1/location/search" status="VERIFIED_BUNDLE">
           <query_params>country="United States(US)", search, page=1, limit=200, select="city"</query_params>
-          <notes>US city autocomplete endpoint used for onsite workplace locations.</notes>
         </endpoint>
       </verified_api_contracts>
     </hr_subdomain_architecture>
@@ -252,7 +290,7 @@
       <root_directories>.github, src, public, docs, e2e, qa-agent, tests/fixtures</root_directories>
       <src_architecture>
         <path name="src/middleware.ts">Subdomain hostname routing middleware rewriting hr.thejobapplicantperspective.com and hr.localhost:3000 to /hr/*, bypassing static public assets, and blocking direct apex /hr/* access</path>
-        <path name="src/app/layout.tsx">Minimal root HTML/body/Geist font wrapper shared across all route groups</path>
+        <path name="src/app/layout.tsx">Minimal root HTML/body/font wrapper shared across all route groups (target for next/font/google Jost and Manrope CSS variable injection)</path>
         <path name="src/app/(candidate)">Candidate apex route group containing layout.tsx (MainHeader, MainFooter, StoryblokProvider, outer main) and [[...slug]]/page.tsx</path>
         <path name="src/app/hr">Isolated HR subdomain route tree (layout.tsx, page.tsx dashboard entry, login/page.tsx, create-account/page.tsx, verify/page.tsx)</path>
         <path name="src/components/blocks">Presentational and composite components with centralized index.ts barrel export (HeroSection, TabbedInterface, PromoBanner, LocalJobsGrid, MissionBanner, BlogGrid, BlogCard, JobLinkCard, FormInput)</path>
@@ -277,7 +315,7 @@
       <invariant id="CMS-03">Presentation Sovereignty: All styling, fluid typography, WCAG 2.2 AA focus indicators, and layout constraints remain 100% under local Tailwind CSS v4 CSS-first token custody.</invariant>
       <invariant id="CMS-04">Offline CI Determinism: CI runners execute static generation and type audits against local fixture JSON, eliminating build-time network dependencies, API token exposure, and rate-limiting failure states.</invariant>
       <invariant id="CMS-05">SEO URL Invariance: Established public-facing URL routes (/who-we-are, /job-insights, /us-govt-financial-support, /self-care-tools) and nested article routes (/job-insights/:slug*) remain fixed at the routing layer via server-side rewrites and dynamic normalization in next.config.ts and page.tsx, regardless of internal Storyblok slug variations.</invariant>
-      <invariant id="CMS-06">Application Widget Decoupling: Interactive functional interfaces (TabbedInterface search engine, MainNav dropdown menus, contact form handlers, and the entire hr.thejobapplicantperspective.com subdomain) reside in native application code and are NOT treated as Storyblok CMS bloks.</invariant>
+      <invariant id="CMS-06">Application Widget Decoupling: Interactive functional interfaces (TabbedInterface search engine, MainNav dropdown menus, contact form handlers, and the entire hr.thejobapplicantperspective.com and Admin portals) reside in native application code and are NOT treated as Storyblok CMS bloks.</invariant>
       <invariant id="CMS-07">Zero-Code Dynamic Page Ingestion: Any new page created in Storyblok using 'Standard Page' (or unmapped blok types via FallbackBlok) resolves dynamically via src/app/(candidate)/[[...slug]]/page.tsx across root and pages/ folder paths without requiring new Next.js route files.</invariant>
     </cms_architectural_invariants>
   </environment_state>
@@ -306,7 +344,7 @@
     <entry phase="Job App Tools Light-Theme &amp; Zero-Code Page Architecture">COMPLETED: Task 1.14 finished. Refactored EventDirectoryContent.tsx, ToolingAuditContent.tsx, and ResourceHubContent.tsx to canonical light-theme tokens (#ffffff, #0d3276, #434343), replaced blue bar with 70px/124px white header clearance spacer matching BlogArticleContent.tsx, added sanitizeHref link guards, and enforced WCAG 2.2 AA badge contrast and aria-labels. Created StandardPageContent.tsx, registered FallbackBlok in src/lib/storyblok.ts, and added pages/ folder resolution + EXCLUDED_SLUGS draft filtering in src/app/[[...slug]]/page.tsx.</entry>
     <entry phase="Candidate Apex Accessibility Gate">COMPLETED: Streamlined package.json test scripts, untracked test-results and playwright-report from Git index, fixed contrast tokens (#7C7C7C -&gt; #595959), resolved WCAG 2.5.3 label-in-name mismatches on ToolingAuditContent.tsx, demoted CMS h1 tags in BlogArticleContent.tsx, and switched MainNav.tsx desktop dropdown to WAI-ARIA Disclosure Navigation. All 11 candidate apex accessibility tests passing.</entry>
     <entry phase="HR Bundle Extraction &amp; Route Group Split">COMPLETED: Decompiled production JS bundles (Chunks 665, 95, 466, 865, 707) and live dashboard HTML, uncovering all 12 api.thejobapplicantperspective.com/api/v1 endpoints. Reconciled HrCreateAccountForm.tsx (check-exist, signup, PUT /users/:id, 4-rule password complexity), built HrVerifyForm.tsx and src/app/hr/verify/page.tsx (forgot-password), split root layout into src/app/layout.tsx + src/app/(candidate)/layout.tsx (achieving 16/17 a11y pass across candidate and HR auth views), and implemented JobProvider.tsx + HrDashboardWorkspace.tsx at src/app/hr/page.tsx.</entry>
-    <entry phase="Active Focus">ACTIVE (Single-Slice Lock): (1) Patch main [role="alert"] selector in e2e/accessibility.spec.ts + add mocked authenticated HR dashboard accessibility scan and run npm run verify &amp;&amp; npm run test:a11y; (2) Build Create/Edit Job Drawer (POST/PUT /api/v1/jobs) and Job Detail / Applicant Export Drawer (PATCH/DELETE /api/v1/jobs, GET /api/v1/job-applications); (3) Build /job-applications page and migrate src/middleware.ts to Next.js 16 src/proxy.ts; (4) Implement RFC 8615 /.well-known/openapi.json discovery and interactive /api-docs explorer (Task 1.15). Task 2.2 (QA Agent telemetry) remains queued behind Task 1.13.</entry>
+    <entry phase="Active Focus">ACTIVE (Single-Slice Launch Critical Path — HR Drawers Paused): (1) Task 1.16: Install AWS CLI v2, @aws-amplify/cli, and aws-amplify locally; configure ap-south-1 profile; execute 'amplify pull --appId d3i9qng4qdadgr --envName staging'; configure hybrid localhost-to-staging and local mock workflows; and verify live data-pull connectivity; (2) Task 1.17: Audit legacy Admin portal DOM/chunks and build out isolated, WCAG 2.2 AA Admin portal views consuming live AWS/API data; (3) Task 1.18: Integrate Jost (headings) and Manrope (body/subtitles) via next/font/google and Tailwind CSS v4 @theme tokens and audit global brand color contrast; (4) Pre-Launch Gate &amp; Amplify Go-Live: Run npm run test:gate + npm run build:offline and repoint Amplify App d3i9qng4qdadgr to the new Next.js repository. Task 1.13 remaining HR drawers, Task 1.15 (OpenAPI/Swagger), and Task 2.2 (QA Agent telemetry) are queued post-launch.</entry>
   </execution_log>
 
   <governance_topology id="section_8_triad">
@@ -367,14 +405,14 @@
         <subtask status="FUTURE">Deploy Stripe Customer Portal, Checkout Sessions, and webhook listeners for paid candidate services and employer verification.</subtask>
         <subtask status="FUTURE">Deploy Upstash Layer 7 rate limiting (@upstash/ratelimit) on dynamic routes and submission endpoints.</subtask>
       </task>
-      <task id="1.13" name="Domain &amp; Subdomain Infrastructure Discovery &amp; HR Portal Rebuild" status="ACTIVE">
+      <task id="1.13" name="Domain &amp; Subdomain Infrastructure Discovery &amp; HR Portal Rebuild" status="PAUSED">
         <subtask status="COMPLETED">Architect Next.js subdomain routing via src/middleware.ts rewriting hr.thejobapplicantperspective.com and hr.localhost:3000 to /hr/*, bypassing static public assets, and blocking apex /hr/* collisions.</subtask>
         <subtask status="COMPLETED">Decompile production HR JS chunks (665, 95, 466, 865, 707) and live dashboard HTML, verifying all 12 api.thejobapplicantperspective.com/api/v1 endpoints.</subtask>
         <subtask status="COMPLETED">Decouple root layout into src/app/layout.tsx + src/app/(candidate)/layout.tsx route group, eliminating duplicate main landmarks on hr.localhost:3000.</subtask>
         <subtask status="COMPLETED">Reconcile HrCreateAccountForm.tsx (check-exist, signup, PUT /users/:id, 4-rule password complexity), build HrVerifyForm.tsx and src/app/hr/verify/page.tsx (forgot-password), and implement JobProvider.tsx + HrDashboardWorkspace.tsx at src/app/hr/page.tsx.</subtask>
-        <subtask status="ACTIVE">Patch main [role="alert"] selector in e2e/accessibility.spec.ts, add mocked authenticated HR dashboard accessibility scan, and run npm run verify &amp;&amp; npm run test:a11y.</subtask>
-        <subtask status="PENDING">Build Create/Edit Job Drawer (POST /api/v1/jobs, PUT /api/v1/jobs/:id with Base64 HTML encoding) and Job Detail / Applicant Export Drawer (PATCH/DELETE /api/v1/jobs/:id, GET /api/v1/job-applications).</subtask>
-        <subtask status="PENDING">Build /job-applications view (src/app/hr/job-applications/page.tsx), migrate src/middleware.ts to Next.js 16 src/proxy.ts convention, and verify clean production offline build.</subtask>
+        <subtask status="PAUSED">Patch main [role="alert"] selector in e2e/accessibility.spec.ts and add mocked authenticated HR dashboard accessibility scan (paused in favor of AWS/Admin launch pivot).</subtask>
+        <subtask status="PAUSED">Build Create/Edit Job Drawer (POST /api/v1/jobs, PUT /api/v1/jobs/:id with Base64 HTML encoding) and Job Detail / Applicant Export Drawer (PATCH/DELETE /api/v1/jobs/:id, GET /api/v1/job-applications).</subtask>
+        <subtask status="PAUSED">Build /job-applications view (src/app/hr/job-applications/page.tsx) and migrate src/middleware.ts to Next.js 16 src/proxy.ts convention.</subtask>
       </task>
       <task id="1.14" name="Job App Tools Subpage Visual &amp; Semantic Alignment" status="COMPLETED">
         <subtask status="COMPLETED">Audited and aligned EventDirectoryContent.tsx (/career-fairs) with canonical light-theme palette (#ffffff, #0d3276, #434343), 70px/124px white header clearance spacer, semantic dl/dt/dd metadata, sanitizeHref guard, and descriptive aria-labels.</subtask>
@@ -382,9 +420,25 @@
         <subtask status="COMPLETED">Audited and aligned ResourceHubContent.tsx (/self-care-tools and /us-govt-financial-support) with canonical light-theme palette, header clearance spacer, sanitizeHref guard, and descriptive aria-labels.</subtask>
         <subtask status="COMPLETED">Verified zero landmark collisions, single semantic main landmarks, and clean focus indicators across all 4 Job App Tools subpages.</subtask>
       </task>
-      <task id="1.15" name="RFC 8615 .well-known OpenAPI Discovery &amp; Interactive API Explorer" status="PENDING">
-        <subtask status="PENDING">Generate versioned OpenAPI 3.1 JSON specification from Zod DTO contracts (hrAuth.ts, job payloads, Storyblok routes) served at /.well-known/openapi.json (and /.well-known/api-catalog per RFC 8615 / RFC 9727).</subtask>
-        <subtask status="PENDING">Build accessible interactive API schema explorer route (/api-docs) with Bearer JWT header injection and live payload testing, gated by environment/auth controls to prevent unauthenticated schema leakage in production.</subtask>
+      <task id="1.15" name="RFC 8615 .well-known OpenAPI Discovery &amp; Interactive API Explorer" status="DEFERRED_POST_LAUNCH">
+        <subtask status="DEFERRED_POST_LAUNCH">Generate versioned OpenAPI 3.1 JSON specification from Zod DTO contracts (hrAuth.ts, job payloads, Storyblok routes) served at /.well-known/openapi.json (and /.well-known/api-catalog per RFC 8615 / RFC 9727).</subtask>
+        <subtask status="DEFERRED_POST_LAUNCH">Build accessible interactive API schema explorer route (/api-docs) with Bearer JWT header injection and live payload testing, gated by environment/auth controls.</subtask>
+      </task>
+      <task id="1.16" name="AWS CLI &amp; Amplify Local Setup, Staging Pull &amp; Data-Pull Verification" status="ACTIVE">
+        <subtask status="ACTIVE">Install AWS CLI v2, global @aws-amplify/cli, and local aws-amplify SDK; configure IAM profile locked to ap-south-1 for Account 339712895738.</subtask>
+        <subtask status="PENDING">Audit CloudFormation stack outputs and environment variables for amplify-tjapusertest-staging-a8ef2 and run 'amplify pull --appId d3i9qng4qdadgr --envName staging' to generate fresh aws-exports.js / amplifyconfiguration.json.</subtask>
+        <subtask status="PENDING">Configure Amplify.configure(awsExports, { ssr: true }) in Next.js 16 and verify local runtime execution modes (Hybrid localhost-to-staging live data pull + 'amplify mock' / LocalStack offline emulation).</subtask>
+        <subtask status="PENDING">Execute an end-to-end read/auth data-pull smoke test confirming Cognito session persistence and live data retrieval prior to Admin UI construction.</subtask>
+      </task>
+      <task id="1.17" name="Admin Portal Reconnaissance, Route Isolation &amp; Buildout" status="PENDING">
+        <subtask status="PENDING">Ingest and audit legacy Admin portal HTML/DOM captures, JS chunks, and role-gated API endpoints to close the Admin API Gap Analysis.</subtask>
+        <subtask status="PENDING">Implement isolated Admin subdomain/route tree decoupled from Storyblok [[...slug]] catch-all routes with strict role-based auth guards.</subtask>
+        <subtask status="PENDING">Build core Admin management views (job moderation, user/employer oversight, platform telemetry) in React 19, TypeScript, Zod DTOs, and WCAG 2.2 AA semantics wired to verified AWS/API endpoints.</subtask>
+      </task>
+      <task id="1.18" name="Global Brand Typography, Color Contrast Reconciliation &amp; AWS Go-Live Cutover" status="PENDING">
+        <subtask status="PENDING">Configure Jost (headings) and Manrope (body/subtitles) via next/font/google CSS variables (--font-jost, --font-manrope) mapped into Tailwind CSS v4 @theme tokens (--font-heading, --font-sans), removing render-blocking @import rules.</subtask>
+        <subtask status="PENDING">Audit and reconcile global brand color tokens across candidate and Admin routes (resolving malformed hex #733aab0 and enforcing WCAG 2.2 AA contrast).</subtask>
+        <subtask status="PENDING">Execute full verification gate (npm run test:gate &amp;&amp; npm run build:offline) and repoint AWS Amplify App d3i9qng4qdadgr in ap-south-1 to the new Next.js repository for live deployment.</subtask>
       </task>
     </category>
 
@@ -400,7 +454,7 @@
       </task>
 
       <task id="2.2" name="Feral QA Agent Self-Documentation &amp; In-Repo Coverage Telemetry" status="QUEUED">
-        <subtask status="QUEUED">Design QA Agent Automated Documentation Writer: Extend core-io.ts to automatically serialize test results, failure traces, and code coverage metrics into docs/qa-coverage/ as structured Markdown and JSON reports (queued until Task 1.13 HR Portal completion).</subtask>
+        <subtask status="QUEUED">Design QA Agent Automated Documentation Writer: Extend core-io.ts to automatically serialize test results, failure traces, and code coverage metrics into docs/qa-coverage/ as structured Markdown and JSON reports (queued until post-launch).</subtask>
         <subtask status="PENDING">Implement In-Repo Commit &amp; PR Telemetry: Model a post-execution workflow where the agent writes its own test generation logs, test specifications, and coverage badges directly to Git branches, eliminating silent execution and proving audit integrity.</subtask>
         <subtask status="PENDING">Incorporate Virginia Company Historical Telemetry: Decompile legacy test coverage architectures to enforce visible proof-of-work reporting for non-technical stakeholders (April-Approved Artifacts).</subtask>
         <subtask status="PENDING">Deploy Full Feral QA Agent &amp; Accessibility Drone on TJAP: Integrate an un-sanded Feral Sentinel chaos tester featuring a 3-Stage Ferality Dial (Level 1: Passive Reconnaissance, Level 2: Agitated Fuzzing Brawler Mode, Level 3: Maximum Ferality / Agentic Override) combined with a Multimodal Accessibility Drone (Level 1: Guided RAG Reconnaissance, Level 2: Autonomous Feral Crawl). Execute continuous WCAG 2.2 AA / Section 508 audits using real-time Playwright page console/network listeners, Negative Space Debugging, and off-leash adversarial payload mutation to rip site flows apart, ensuring no UI focus traps, infinite spinners, or transient rendering overlays bypass the zero-trust execution gate.</subtask>
@@ -416,7 +470,7 @@
     <directive>5. CI INTEGRITY: Maintain offline fixture fallback support across any Storyblok API updates to ensure continuous headless build validity.</directive>
     <directive>6. SEO INVARIANCE: Preserve existing canonical URLs (/who-we-are, /job-insights, /us-govt-financial-support, /self-care-tools, and /job-insights/:slug*) through server-side rewrites and dynamic normalization rather than exposing raw CMS slug discrepancies to visitors or search engines.</directive>
     <directive>7. ZERO-CODE PAGE PARITY: Maintain StandardPageContent.tsx and FallbackBlok in src/lib/storyblok.ts alongside pages/ folder resolution in src/app/(candidate)/[[...slug]]/page.tsx so non-technical stakeholders can spin up new CMS routes independently.</directive>
-    <directive>8. HR SUBDOMAIN ISOLATION: Keep hr.thejobapplicantperspective.com strictly decoupled from Storyblok CMS queries via src/middleware.ts hostname rewrites into src/app/hr/* and src/components/hr/*, isolated beneath minimal RootLayout.</directive>
-    <directive>9. QA AGENT GOVERNANCE: Active human-verified test suites reside in e2e/. Task 2.2 (QA agent coverage telemetry) remains queued behind Task 1.13 HR Portal completion to enforce single-slice execution.</directive>
+    <directive>8. SUBDOMAIN &amp; PORTAL ISOLATION: Keep hr.thejobapplicantperspective.com and Admin routes strictly decoupled from Storyblok CMS queries via hostname/path rewrites beneath minimal RootLayout.</directive>
+    <directive>9. LAUNCH CRITICAL PATH GOVERNANCE: Follow strict sequence: Task 1.16 (AWS Amplify local install, pull &amp; data-pull verification) -&gt; Task 1.17 (Admin portal buildout) -&gt; Task 1.18 (Jost/Manrope Tailwind v4 styles &amp; Amplify cutover). Keep Task 1.13 remaining HR drawers, Task 1.15 (OpenAPI), and Task 2.2 (QA telemetry) paused/queued until after live deployment.</directive>
   </llm_execution_directives>
 </system_context_override>
