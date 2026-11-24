@@ -37,6 +37,9 @@ export interface HrJobPosting {
   createdAt: string;
 }
 
+const getApiBaseUrl = (): string =>
+  (process.env.NEXT_PUBLIC_TJAP_API_URL ?? '').trim().replace(/\/+$/, '');
+
 const formatCurrency = (amount: number): string => {
   if (!Number.isFinite(amount)) return '$0';
   return new Intl.NumberFormat('en-US', {
@@ -128,9 +131,8 @@ export const HrDashboardWorkspace = () => {
     setJobsError(null);
 
     try {
-      const apiBaseUrl =
-        process.env.NEXT_PUBLIC_TJAP_API_URL ?? 'https://api.thejobapplicantperspective.com';
-      const url = new URL(`${apiBaseUrl}/api/v1/jobs`);
+      const apiBaseUrl = getApiBaseUrl();
+      const url = new URL(`${apiBaseUrl}/api/v1/jobs`, window.location.origin);
       url.searchParams.set('page', '1');
       url.searchParams.set('limit', '30');
 
@@ -191,8 +193,7 @@ export const HrDashboardWorkspace = () => {
 
     const loadUnreadCount = async () => {
       try {
-        const apiBaseUrl =
-          process.env.NEXT_PUBLIC_TJAP_API_URL ?? 'https://api.thejobapplicantperspective.com';
+        const apiBaseUrl = getApiBaseUrl();
         const response = await fetch(`${apiBaseUrl}/api/v1/notifications/unread-count`, {
           headers: {
             Accept: 'application/json',
@@ -242,8 +243,7 @@ export const HrDashboardWorkspace = () => {
       typeof window !== 'undefined' ? window.localStorage.getItem(HR_TOKEN_STORAGE_KEY) : null;
     try {
       if (token) {
-        const apiBaseUrl =
-          process.env.NEXT_PUBLIC_TJAP_API_URL ?? 'https://api.thejobapplicantperspective.com';
+        const apiBaseUrl = getApiBaseUrl();
         await fetch(`${apiBaseUrl}/api/v1/auth/logout`, {
           method: 'DELETE',
           headers: {

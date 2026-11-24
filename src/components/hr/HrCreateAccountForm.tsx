@@ -39,6 +39,9 @@ const PLATFORM_URL_PATTERNS: Record<Exclude<SocialPlatform, '' | 'general'>, Reg
 
 const PASSWORD_COMPLEXITY_REGEX = /^(?=.*[0-9])(?=.*[#?!@$%^&*-])(?=.*[A-Z]).{8,}$/;
 
+const getApiBaseUrl = (): string =>
+  (process.env.NEXT_PUBLIC_TJAP_API_URL ?? '').trim().replace(/\/+$/, '');
+
 const createEmptySocialRow = (seed: number): SocialLinkRow => ({
   id: `social-row-${seed}`,
   name: '',
@@ -122,8 +125,7 @@ export const HrCreateAccountForm = ({ logoSrc = '/logosm.svg' }: HrCreateAccount
 
     setIsSubmitting(true);
     try {
-      const apiBaseUrl =
-        process.env.NEXT_PUBLIC_TJAP_API_URL ?? 'https://api.thejobapplicantperspective.com';
+      const apiBaseUrl = getApiBaseUrl();
       const checkEmailPath =
         process.env.NEXT_PUBLIC_TJAP_HR_CHECK_EMAIL_PATH ?? '/api/v1/auth/check-exist';
 
@@ -188,8 +190,7 @@ export const HrCreateAccountForm = ({ logoSrc = '/logosm.svg' }: HrCreateAccount
 
     setIsSubmitting(true);
     try {
-      const apiBaseUrl =
-        process.env.NEXT_PUBLIC_TJAP_API_URL ?? 'https://api.thejobapplicantperspective.com';
+      const apiBaseUrl = getApiBaseUrl();
       const registerPath = process.env.NEXT_PUBLIC_TJAP_HR_REGISTER_PATH ?? '/api/v1/auth/signup';
 
       const response = await fetch(`${apiBaseUrl}${registerPath}`, {
@@ -327,8 +328,7 @@ export const HrCreateAccountForm = ({ logoSrc = '/logosm.svg' }: HrCreateAccount
 
     setIsSubmitting(true);
     try {
-      const apiBaseUrl =
-        process.env.NEXT_PUBLIC_TJAP_API_URL ?? 'https://api.thejobapplicantperspective.com';
+      const apiBaseUrl = getApiBaseUrl();
       const usersBasePath = process.env.NEXT_PUBLIC_TJAP_HR_USERS_PATH ?? '/api/v1/users';
 
       const response = await fetch(

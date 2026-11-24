@@ -19,6 +19,9 @@ const HrVerifyEmailSchema = z.object({
     .email('Please enter a valid email address.'),
 });
 
+const getApiBaseUrl = (): string =>
+  (process.env.NEXT_PUBLIC_TJAP_API_URL ?? '').trim().replace(/\/+$/, '');
+
 export const HrVerifyForm = ({ logoSrc = '/logosm.svg' }: HrVerifyFormProps) => {
   const router = useRouter();
   const [email, setEmail] = useState('');
@@ -37,8 +40,7 @@ export const HrVerifyForm = ({ logoSrc = '/logosm.svg' }: HrVerifyFormProps) => 
 
     setIsSubmitting(true);
     try {
-      const apiBaseUrl =
-        process.env.NEXT_PUBLIC_TJAP_API_URL ?? 'https://api.thejobapplicantperspective.com';
+      const apiBaseUrl = getApiBaseUrl();
       const verifyPath =
         process.env.NEXT_PUBLIC_TJAP_HR_VERIFY_PATH ?? '/api/v1/auth/forgot-password';
 

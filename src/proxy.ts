@@ -11,18 +11,22 @@ const STATIC_ASSET_REGEX = /\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff2?|ttf|eot|cs
 export const proxy = (request: NextRequest) => {
   const host = request.headers.get('host')?.toLowerCase() ?? '';
   const { pathname } = request.nextUrl;
+  const normalizedPathname = pathname.toLowerCase();
 
   if (
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/api') ||
-    pathname === '/favicon.ico' ||
-    STATIC_ASSET_REGEX.test(pathname)
+    normalizedPathname.startsWith('/_next') ||
+    normalizedPathname.startsWith('/api') ||
+    normalizedPathname === '/favicon.ico' ||
+    STATIC_ASSET_REGEX.test(normalizedPathname)
   ) {
     return NextResponse.next();
   }
 
-  // Block direct access to /hr/* on the main apex domain
-  if (!HR_HOSTS.has(host) && (pathname === '/hr' || pathname.startsWith('/hr/'))) {
+  // Block direct access to /hr/* (case-insensitive) on the main apex domain
+  if (
+    !HR_HOSTS.has(host) &&
+    (normalizedPathname === '/hr' || normalizedPathname.startsWith('/hr/'))
+  ) {
     const url = request.nextUrl.clone();
     url.pathname = '/404';
     return NextResponse.rewrite(url);

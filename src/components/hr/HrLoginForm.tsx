@@ -14,6 +14,9 @@ interface HrLoginFormProps {
 const HR_TOKEN_STORAGE_KEY = 'tjap_hr_token';
 const HR_USER_STORAGE_KEY = 'tjap_hr_user';
 
+const getApiBaseUrl = (): string =>
+  (process.env.NEXT_PUBLIC_TJAP_API_URL ?? '').trim().replace(/\/+$/, '');
+
 export const HrLoginForm = ({ logoSrc = '/logosm.svg' }: HrLoginFormProps) => {
   const router = useRouter();
   const [email, setEmail] = useState('');
@@ -34,8 +37,7 @@ export const HrLoginForm = ({ logoSrc = '/logosm.svg' }: HrLoginFormProps) => {
 
     setIsSubmitting(true);
     try {
-      const apiBaseUrl =
-        process.env.NEXT_PUBLIC_TJAP_API_URL ?? 'https://api.thejobapplicantperspective.com';
+      const apiBaseUrl = getApiBaseUrl();
 
       const response = await fetch(`${apiBaseUrl}/api/v1/auth/login`, {
         method: 'POST',

@@ -1,5 +1,12 @@
 import type { NextConfig } from 'next';
 
+const RAW_UPSTREAM_API_ORIGIN = process.env.TJAP_UPSTREAM_API_ORIGIN?.trim();
+const UPSTREAM_API_ORIGIN = (
+  RAW_UPSTREAM_API_ORIGIN && RAW_UPSTREAM_API_ORIGIN.length > 0
+    ? RAW_UPSTREAM_API_ORIGIN
+    : 'https://api.thejobapplicantperspective.com'
+).replace(/\/+$/, '');
+
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -29,33 +36,42 @@ const nextConfig: NextConfig = {
           ]
         : [];
 
-    return [
-      ...devHrAliases,
-      // Rule SEO-01: Canonical About page
-      {
-        source: '/who-we-are',
-        destination: '/about-us',
-      },
-      // Rule SEO-02: Insights directory aggregator
-      {
-        source: '/job-insights',
-        destination: '/blog-listing',
-      },
-      {
-        source: '/job-insights/:slug',
-        destination: '/blog/:slug',
-      },
-      // Rule SEO-03: Government financial support & emergency aid
-      {
-        source: '/us-govt-financial-support',
-        destination: '/financial-support',
-      },
-      // Rule SEO-04: Self-care and burnout resources
-      {
-        source: '/self-care-tools',
-        destination: '/self-care',
-      },
-    ];
+    return {
+      beforeFiles: [
+        // Proxy all client /api/v1/* requests server-side to eliminate browser CORS preflight blocks
+        {
+          source: '/api/v1/:path*',
+          destination: `${UPSTREAM_API_ORIGIN}/api/v1/:path*`,
+        },
+      ],
+      afterFiles: [
+        ...devHrAliases,
+        // Rule SEO-01: Canonical About page
+        {
+          source: '/who-we-are',
+          destination: '/about-us',
+        },
+        // Rule SEO-02: Insights directory aggregator
+        {
+          source: '/job-insights',
+          destination: '/blog-listing',
+        },
+        {
+          source: '/job-insights/:slug',
+          destination: '/blog/:slug',
+        },
+        // Rule SEO-03: Government financial support & emergency aid
+        {
+          source: '/us-govt-financial-support',
+          destination: '/financial-support',
+        },
+        // Rule SEO-04: Self-care and burnout resources
+        {
+          source: '/self-care-tools',
+          destination: '/self-care',
+        },
+      ],
+    };
   },
 };
 
