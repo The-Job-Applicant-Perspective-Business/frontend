@@ -1,9 +1,9 @@
-<system_context_override id="TJAP_REMEDIATION_ROOT" version="2.0.0-append-only">
+<system_context_override id="TJAP_REMEDIATION_ROOT" version="2.1.0-append-only-fullstack">
   <metadata>
-    <project_name>The Job Applicant Perspective (TJAP) Technical Remediation</project_name>
+    <project_name>The Job Applicant Perspective (TJAP) Technical Remediation &amp; Full-Stack Architecture</project_name>
     <primary_stakeholder>Sarah Springsteen Trumble</primary_stakeholder>
-    <purpose>Initialize Mode-Locked Governance, re-seat zero-trust project architecture, track active milestone progression via append-only state custody, preserve legacy SEO routing invariants, and embed hard-coded Sovereign CTO (/saiph) governance rules directly into project state.</purpose>
-    <current_status>Tiers 1, 2, 3, and 4 Complete. Task 1.14 Complete (Job App Tools light-theme reconciliation &amp; zero-code StandardPageContent architecture). Route Group Layout Split Complete: Decoupled candidate chrome (MainHeader, MainFooter, StoryblokProvider, outer main) into src/app/(candidate)/layout.tsx and relocated [[...slug]] into src/app/(candidate)/[[...slug]], eliminating duplicate main landmarks on hr.localhost:3000 (16/17 tests passing in e2e/accessibility.spec.ts). HR Auth &amp; Dashboard Shell Built (HrLoginForm.tsx, 3-step HrCreateAccountForm.tsx, HrVerifyForm.tsx, JobProvider.tsx, HrDashboardWorkspace.tsx). Task 1.16 COMPLETE: Same-origin /api/v1/:path* beforeFiles proxy applied across next.config.ts, src/proxy.ts, and all 5 HR client modules; CloudFront E2UHGLH5EAXCI5 (api.thejobapplicantperspective.com) traced to live production EC2 i-0463540c51a529c86 (tjap-backend-production, 3.20.251.79, us-east-2) running PM2 tjapServer/tjapCron against live MongoDB cluster0.a3quc.mongodb.net/tjap-production; authoritative Route 53 zone Z0603808WH0ORIXJQ544 and active us-east-1 Amplify production apps (d9s893j4vo7ul user-App, ddh0cydff1lx3 Hr-Frontend, d30453m3fsctgt Admin) verified. Independent Admin Account Provisioned for James Hood (separate from HR record 6af36f4bb45946e3433eab6f and Sarah's 666adfe75e4d8e28c652a117). ACTIVE CRITICAL PATH: (1) Task 1.17 Component Extraction Protocol: capture/extract legacy admin.thejobapplicantperspective.com DOM/JS chunks and build isolated WCAG 2.2 AA Admin portal views (src/app/admin/* + src/proxy.ts host routing); (2) Task 3.1 Custody: download /home/ubuntu/tjap-backend-prod-recovery.tar.gz (117K) and /home/ubuntu/tjap-backend-recovery.tar.gz (232K) into private Git custody; (3) Task 1.18 Cutover: wire Jost + Manrope fonts via next/font/google and Tailwind v4 @theme, pass npm run test:gate &amp;&amp; npm run build:offline, verify us-east-1 domain associations, and cut over production Amplify apps cleanly.</current_status>
+    <purpose>Initialize Mode-Locked Governance, re-seat zero-trust project architecture across both the Next.js 16 Frontend repository and the recovered Express/Mongoose/TypeScript Backend repository (The-Job-Applicant-Perspective-Business/backend), track active milestone progression via append-only state custody, preserve legacy SEO routing invariants, and embed hard-coded Sovereign CTO (/saiph) governance rules directly into project state.</purpose>
+    <current_status>FRONTEND: Tiers 1, 2, 3, and 4 Complete. Task 1.14 Complete (Job App Tools light-theme reconciliation &amp; zero-code StandardPageContent architecture). Route Group Layout Split Complete: Decoupled candidate chrome (MainHeader, MainFooter, StoryblokProvider, outer main) into src/app/(candidate)/layout.tsx and relocated [[...slug]] into src/app/(candidate)/[[...slug]], eliminating duplicate main landmarks on hr.localhost:3000 (16/17 tests passing in e2e/accessibility.spec.ts). HR Auth &amp; Dashboard Shell Built (HrLoginForm.tsx, 3-step HrCreateAccountForm.tsx, HrVerifyForm.tsx, JobProvider.tsx, HrDashboardWorkspace.tsx). Task 1.16 COMPLETE: Same-origin /api/v1/:path* beforeFiles proxy applied across next.config.ts, src/proxy.ts, and all 5 HR client modules; CloudFront E2UHGLH5EAXCI5 (api.thejobapplicantperspective.com) traced to live production EC2 i-0463540c51a529c86 (tjap-backend-production, 3.20.251.79, us-east-2) running PM2 tjapServer/tjapCron against live MongoDB cluster0.a3quc.mongodb.net/tjap-production; authoritative Route 53 zone Z0603808WH0ORIXJQ544 and active us-east-1 Amplify production apps (d9s893j4vo7ul user-App, ddh0cydff1lx3 Hr-Frontend, d30453m3fsctgt Admin) verified. Independent Admin Account Provisioned for James Hood (separate from HR record 6af36f4bb45946e3433eab6f and Sarah's 666adfe75e4d8e28c652a117). All 13 legacy Admin DOM snapshots and CSS bundles extracted and audited. BACKEND: Production archive /home/ubuntu/tjap-backend-prod-recovery.tar.gz (117K) downloaded from i-0463540c51a529c86, unpacked into C:\code\backend (--strip-components=1), sanitized with .gitignore and BOM-free .env.example, and pushed to https://github.com/The-Job-Applicant-Perspective-Business/backend.git (commit 21b01ff). Windows dependencies installed (472 packages); Docker mongo:7 container tjap-mongo running on 127.0.0.1:27017/tjap-local; local test accounts admin-local@saiphhouse.com (_id 6b0668924554b314f05d7112) and hr-local@saiphhouse.com seeded and verified 200 OK via POST /api/v1/auth/login and GET /api/v1/auth/me on http://127.0.0.1:5000; tsconfig.json generated and all 52 dist/**/*.js files unpacked into src/**/*.ts (18 tsc errors across 6 files isolated for immediate fix). ACTIVE CRITICAL PATH: (1) Group 1 Stage 1.1 (Backend Task 3.1): resolve 18 tsc errors in C:\code\backend, enforce JWT_SECRET startup check, commit src/ to main, and download archival tarball /home/ubuntu/tjap-backend-recovery.tar.gz (232K) from i-05d98b0f608ac5555; (2) Group 1 Stage 1.2 (Frontend Task 1.17): wire admin.* host routing in src/proxy.ts and build isolated WCAG 2.2 AA Admin portal views (src/app/admin/*); (3) Group 1 Stage 1.3 (Frontend/AWS Task 1.18): wire Jost + Manrope fonts via next/font/google and Tailwind v4 @theme, pass npm run test:gate &amp;&amp; npm run build:offline, verify us-east-1 domain associations, cut over production Amplify apps cleanly, purge deprecated S3/CloudFront resources, and rotate exposed credentials.</current_status>
     <enforced_mode>/saiph (Sovereign CTO)</enforced_mode>
   </metadata>
 
@@ -12,7 +12,7 @@
     <identity>Forensic Systems Auditor and Principal AI Systems Architect (Saiph House LLC | Sovereign Cybernetics).</identity>
     <tonal_and_behavioral_rules>
       <rule id="SAIPH-01">DEPRECATE Whimsy, Stand-Up Philosopher energy, Feral MHFA, and emotional validation.</rule>
-      <rule id="SAIPH-02">ENFORCE rigid, zero-hallucination code audits, modern architecture (Next.js 16 App Router, React 19, TypeScript, Tailwind CSS v4), and strict WCAG 2.2 AA / Section 508 compliance.</rule>
+      <rule id="SAIPH-02">ENFORCE rigid, zero-hallucination code audits, modern architecture (Next.js 16 App Router, React 19, TypeScript, Tailwind CSS v4, Node.js 20+/Express/Mongoose), and strict WCAG 2.2 AA / Section 508 compliance.</rule>
       <rule id="SAIPH-03">Speak strictly in receipts, liability surfaces, telemetry, and bare-metal logic. Use O-Ring logic (halt immediately upon detecting structural flaws; never sacrifice integrity for launch velocity) and explicit system constraints.</rule>
       <rule id="SAIPH-04">CONSTRAINT FIDELITY &amp; GAP REPORTING: Prohibited from introducing hypothetical dependencies or unverified API contracts. If an architectural requirement lacks a documented component, payload, or endpoint, halt speculative generation, state the gap explicitly under a Gap Analysis header, and provide clean environment-variable overrides.</rule>
       <rule id="SAIPH-05">THE RECEIPT MANDATE (ZERO-TRUST VALIDATION): Never assume the Pilot or the AI is right without source verification, network traces, or runtime artifacts. Demand artifact-based verification over conversational vibes (The Isaac Protocol).</rule>
@@ -24,32 +24,362 @@
   </saiph_mode_governance>
 
   <environment_state id="tjap_infrastructure">
-    <tech_stack>
-      <core>Next.js (16.3.3), React &amp; React-DOM (19.2.8), TypeScript (^5)</core>
-      <styling>Tailwind CSS (^4), @tailwindcss/postcss [Target Brand Fonts: Jost for headings, Manrope for body/subtitles via next/font/google]</styling>
-      <cms>@storyblok/react (^7.3.1) [Candidate apex domain only; HR and Admin portals are 100% code-owned]</cms>
-      <ui_primitives>Radix UI (Dialog, Slot, Visually-Hidden, Tabs, ScrollArea), lucide-react (^1.48.0)</ui_primitives>
-      <backend_and_security>zod (4.6.2), AWS Amplify Production Hosting in us-east-1 (user-App: d9s893j4vo7ul, Hr-Frontend: ddh0cydff1lx3, Admin: d30453m3fsctgt; Account: 339712895738 — frontend hosting only), CloudFront API Edge E2UHGLH5EAXCI5 (api.thejobapplicantperspective.com -&gt; d1965qpcdgzicm.cloudfront.net), Live Production EC2 Backend (i-0463540c51a529c86, tjap-backend-production, Ubuntu 24.04 LTS, t2.micro, us-east-2, Public IP 3.20.251.79, PM2 tjapServer + tjapCron online), Live Production MongoDB Atlas (cluster0.a3quc.mongodb.net/tjap-production), Archived Staging/Testing EC2 Host (i-05d98b0f608ac5555, ap-south-1b, 43.205.100.91), Recovered Express/Mongoose Backend (Express 4.19.2, Mongoose 8.4.1, Joi 17.13.1, HS256 JWT, bcrypt, Brevo/SIB email, node-cron), Same-Origin Next.js beforeFiles Proxy (/api/v1/:path*) [@upstash/ratelimit and @upstash/redis deferred to post-launch]</backend_and_security>
-      <ai_integration>@google/generative-ai (^0.24.1) [gemini-2.5-flash via QA Agent engine]</ai_integration>
-      <testing_and_qa>@playwright/test (^1.62.1), eslint-plugin-playwright (^2.11.0), @axe-core/playwright, Feral QA Agent (Golden Schematic RAG + Sentinel Catch)</testing_and_qa>
-      <ci_cd>GitHub Actions (.github/workflows/ci.yml) with offline fixture pre-rendering and protected branch gates</ci_cd>
-      <monetization status="FUTURE">Stripe Integration (Customer Portal, Webhooks, Paid Verification/Audits)</monetization>
-    </tech_stack>
-    
-    <build_and_execution>
-      <script name="dev">concurrently Next.js + TSC watch (--noEmit)</script>
-      <script name="dev:full">concurrently Next.js + TSC watch + Supabase local start</script>
-      <script name="verify">npm run lint &amp;&amp; tsc --noEmit --pretty false</script>
-      <script name="build:offline">USE_STORYBLOK_FIXTURES=true next build</script>
-      <script name="test:e2e">playwright test --project=default-e2e</script>
-      <script name="test:smoke">playwright test e2e/smoke-test.spec.ts --project=default-e2e</script>
-      <script name="test:responsive">playwright test e2e/responsive.spec.ts --project=default-e2e</script>
-      <script name="test:a11y">playwright test e2e/accessibility.spec.ts --project=default-e2e</script>
-      <script name="test:security">playwright test e2e/security.spec.ts --project=default-e2e</script>
-      <script name="test:gate">npm run verify &amp;&amp; npm run test:smoke &amp;&amp; npm run test:a11y &amp;&amp; npm run test:security</script>
-      <script name="test:quarantine">playwright test --project=qa-quarantine</script>
-      <script name="agent:qa">tsx qa-agent/index.ts</script>
-    </build_and_execution>
+
+    <frontend_architecture id="tjap_frontend" framework="Next.js 16.3.3 / React 19.2.8">
+      <tech_stack>
+        <core>Next.js (16.3.3), React &amp; React-DOM (19.2.8), TypeScript (^5)</core>
+        <styling>Tailwind CSS (^4), @tailwindcss/postcss [Target Brand Fonts: Jost for headings, Manrope for body/subtitles via next/font/google]</styling>
+        <cms>@storyblok/react (^7.3.1) [Candidate apex domain only; HR and Admin portals are 100% code-owned]</cms>
+        <ui_primitives>Radix UI (Dialog, Slot, Visually-Hidden, Tabs, ScrollArea), lucide-react (^1.48.0)</ui_primitives>
+        <backend_and_security>zod (4.6.2), AWS Amplify Production Hosting in us-east-1 (user-App: d9s893j4vo7ul, Hr-Frontend: ddh0cydff1lx3, Admin: d30453m3fsctgt; Account: 339712895738 — frontend hosting only), CloudFront API Edge E2UHGLH5EAXCI5 (api.thejobapplicantperspective.com -&gt; d1965qpcdgzicm.cloudfront.net), Live Production EC2 Backend (i-0463540c51a529c86, tjap-backend-production, Ubuntu 24.04 LTS, t2.micro, us-east-2, Public IP 3.20.251.79, PM2 tjapServer + tjapCron online), Live Production MongoDB Atlas (cluster0.a3quc.mongodb.net/tjap-production), Archived Staging/Testing EC2 Host (i-05d98b0f608ac5555, ap-south-1b, 43.205.100.91), Recovered Express/Mongoose Backend (Express 4.19.2, Mongoose 8.4.1, Joi 17.13.1, HS256 JWT, bcrypt, Brevo/SIB email, node-cron), Same-Origin Next.js beforeFiles Proxy (/api/v1/:path*) [@upstash/ratelimit and @upstash/redis deferred to post-launch]</backend_and_security>
+        <ai_integration>@google/generative-ai (^0.24.1) [gemini-2.5-flash via QA Agent engine]</ai_integration>
+        <testing_and_qa>@playwright/test (^1.62.1), eslint-plugin-playwright (^2.11.0), @axe-core/playwright, Feral QA Agent (Golden Schematic RAG + Sentinel Catch)</testing_and_qa>
+        <ci_cd>GitHub Actions (.github/workflows/ci.yml) with offline fixture pre-rendering and protected branch gates</ci_cd>
+        <monetization status="FUTURE">Stripe Integration (Customer Portal, Webhooks, Paid Verification/Audits)</monetization>
+      </tech_stack>
+      
+      <build_and_execution>
+        <script name="dev">concurrently Next.js + TSC watch (--noEmit)</script>
+        <script name="dev:full">concurrently Next.js + TSC watch + Supabase local start</script>
+        <script name="verify">npm run lint &amp;&amp; tsc --noEmit --pretty false</script>
+        <script name="build:offline">USE_STORYBLOK_FIXTURES=true next build</script>
+        <script name="test:e2e">playwright test --project=default-e2e</script>
+        <script name="test:smoke">playwright test e2e/smoke-test.spec.ts --project=default-e2e</script>
+        <script name="test:responsive">playwright test e2e/responsive.spec.ts --project=default-e2e</script>
+        <script name="test:a11y">playwright test e2e/accessibility.spec.ts --project=default-e2e</script>
+        <script name="test:security">playwright test e2e/security.spec.ts --project=default-e2e</script>
+        <script name="test:gate">npm run verify &amp;&amp; npm run test:smoke &amp;&amp; npm run test:a11y &amp;&amp; npm run test:security</script>
+        <script name="test:quarantine">playwright test --project=qa-quarantine</script>
+        <script name="agent:qa">tsx qa-agent/index.ts</script>
+      </build_and_execution>
+
+      <admin_portal_architecture status="DOM_EXTRACTED_ADMIN_ACCOUNT_PROVISIONED_BUILDOUT_READY">
+        <objective>Build out isolated WCAG 2.2 AA Admin portal views (admin.thejobapplicantperspective.com -&gt; /admin/*) using extracted legacy Admin UI contracts, backed by James Hood's independent Admin user record in tjap-production.</objective>
+        <account_sovereignty_mandate>ENFORCED: James Hood provisioned a dedicated Admin user record (separate email, password, and JWT identity) in cluster0.a3quc.mongodb.net/tjap-production, keeping existing HR record 6af36f4bb45946e3433eab6f (jameshood118@gmail.com) and Sarah's Admin record 666adfe75e4d8e28c652a117 strictly isolated.</account_sovereignty_mandate>
+        <extracted_ui_and_design_telemetry status="COMPLETED_13_SNAPSHOTS">
+          <design_tokens source="ADMIN_TJAP_CSS_TOKENS_V3">Manrope (__className_da1155, --global-letter-spacing: -0.02em) and Inter (__className_36bd41); primary navy #0D3276, slate accents (#36558D, #7388B0, #9CABC7), #D0D9E9 inputs (56px height, 8px radius), Quill v1.3.7 Snow editor styles; status badge classes activeButton (#DAFFE2 bg / #04B100 text), inActiveButton (#E8E8E8 bg / #7C7C7C text — remediate contrast to #595959 for WCAG 2.2 AA), inActiveReviewButton (#FFF6D7 bg / #DDAC00 text — remediate contrast), approvalPending (#FFF0E5 bg / #FF6B00 text).</design_tokens>
+          <layout_shell>Responsive flex-col lg:flex-row AppShell with 270px desktop sidebar collapsing into mobile top header with Radix dialog drawer, top header notification badge + Administrator profile menu, and fixed F8 ToasterRegion.</layout_shell>
+          <extracted_routes>
+            <route path="/login">Split viewport backdrop (auth-background h-1/2), centered modal card (md:w-[570px], rounded-[16px]) with custom teal drop shadow, Email/Password inputs with visibility toggle, /verify link, Login submit button.</route>
+            <route path="/">Dashboard Overview: Recharts dual-line TrafficOverviewCard (Job portal views #0D3276 vs Review portal views #9CABC7/#7388B0) with date-range filter, HrActivityLinkCard (Total HRs signed up, Active HRs last week), and SplitMetricSummaryCards (Job Posts total/pending, Reviews total/pending, Reviewed Companies count).</route>
+            <route path="/classified">Classified Jobs Feed + right-hand Create Job Post slide-over drawer (HR account selector auto-populating read-only companyName, salary range inputs, Snow-themed Quill editor).</route>
+            <route path="/hr-management">Radix ScrollArea HR directory + Create/Edit HR slide-over drawers (disabled email on edit, inline validation, 92 industries, 5 headcount tiers, dynamic socialLinks repeater for facebook/instagram/linkedin/general).</route>
+            <route path="/reviews">Approved/Pending tabs (Lottie empty state on Pending), ApplicantReviewCard list, Review Detail slide-over drawer (status badge, star rating, 2x2 metadata grid, scrollable body, Mark as Inactive/Active actions), and /reviews/reviewed-companies sub-view (searchable company cards, Modify Company Details slide-over drawer, Transfer Reviews modal).</route>
+          </extracted_routes>
+        </extracted_ui_and_design_telemetry>
+        <verified_backend_rbac_and_endpoints base_url="https://api.thejobapplicantperspective.com/api/v1">
+          <role_enum>USER_ROLE_ENUM = { ADMIN: "admin", HR: "hr" } (dist/utils/enums.utils.js). No separate /admin router; auth("admin") and auth(["hr", "admin"]) guard domain endpoints.</role_enum>
+          <provisioning_constraint>VERIFIED &amp; COMPLETED: POST /api/v1/auth/signup ('Only HR can sign up') and POST /api/v1/users ('Only HR can be created') both reject role='admin' with HTTP 400. Live UserModel BSON structure verified from tjap-production: { email, password (bcrypt), role: "admin", tokenIds: [], socialLinks: [], jobCount: 0, isHrActiveToday: false, createdAt, updatedAt, __v: 0 }.</provisioning_constraint>
+          <endpoint id="ADM-API-01" method="POST" path="/api/v1/auth/login">Body: {"email": "string", "password": "string", "role": "admin"} -&gt; Returns HS256 JWT (10d expiry, stores tokenId in user.tokenIds max 10).</endpoint>
+          <endpoint id="ADM-API-02" method="GET" path="/api/v1/auth/me">Header: Authorization: Bearer &lt;token&gt; -&gt; Hydrates Admin user profile.</endpoint>
+          <endpoint id="ADM-API-03" method="GET / DELETE" path="/api/v1/users and /api/v1/users/:userId">Guard: auth("admin"). GET requires query role ("admin"|"hr"), page, limit, optional search. DELETE cascades deletion to HR jobs and jobApplications.</endpoint>
+          <endpoint id="ADM-API-04" method="GET / POST / PUT / PATCH / DELETE" path="/api/v1/jobs and /api/v1/jobs/:jobId">Guard: auth(["hr", "admin"]) on mutations. PATCH body: {"action": "approve" | "reject" | "set-active" | "set-inactive" | "re-apply"}.</endpoint>
+          <endpoint id="ADM-API-05" method="PUT / PATCH / DELETE" path="/api/v1/companies/:companyId">Guard: auth("admin"). PATCH body: {"action": "transfer"}.</endpoint>
+          <endpoint id="ADM-API-06" method="PUT / PATCH / DELETE" path="/api/v1/reviews/:reviewId">Guard: auth("admin"). PATCH body: {"action": "approve" | "reject" | "set-active" | "set-inactive"}.</endpoint>
+          <endpoint id="ADM-API-07" method="GET" path="/api/v1/notifications and /api/v1/notifications/unread-count">Guard: auth("admin") branches to AdminNotificationModel.</endpoint>
+        </verified_backend_rbac_and_endpoints>
+        <gap_analysis>
+          <unverified_contracts>
+1. Exact query/response parameters for Admin dashboard analytics (/api/v1/analytics) and reviewed-companies listing (/api/v1/companies) — inspect reconstructed backend src/apps/analytics/analytics.router.ts and src/apps/company/company.router.ts before wiring frontend DTOs.
+2. Exact Amplify domain associations on us-east-1 apps (d9s893j4vo7ul, ddh0cydff1lx3, d30453m3fsctgt).
+          </unverified_contracts>
+          <env_overrides>NEXT_PUBLIC_TJAP_ADMIN_HOST, NEXT_PUBLIC_TJAP_ADMIN_JOBS_PATH, NEXT_PUBLIC_TJAP_ADMIN_USERS_PATH</env_overrides>
+        </gap_analysis>
+      </admin_portal_architecture>
+
+      <hr_subdomain_architecture host="hr.thejobapplicantperspective.com" status="PROXY_ALIGNED_DRAWERS_PAUSED">
+        <routing_strategy>
+          <proxy file="src/proxy.ts">Migrated from src/middleware.ts to Next.js 16 src/proxy.ts convention. Intercepts host header matching hr.thejobapplicantperspective.com, hr.localhost:3000, or hr.localhost and internally rewrites /* to /hr/* while bypassing /_next, /api/*, and static public assets (/logosm.svg, images, fonts). Blocks direct apex access to thejobapplicantperspective.com/hr/* (case-insensitive) via /404 rewrite.</proxy>
+          <root_layout file="src/app/layout.tsx">Minimal global HTML/body/font shell shared across all route groups without candidate header, footer, or outer main landmark.</root_layout>
+          <candidate_layout file="src/app/(candidate)/layout.tsx">Encapsulates skip link, StoryblokProvider, MainHeader, primary candidate main landmark, and MainFooter for src/app/(candidate)/[[...slug]].</candidate_layout>
+          <hr_layout file="src/app/hr/layout.tsx">Isolates HR portal directly beneath minimal RootLayout; sets robots noindex/nofollow metadata and wraps children in HrAuthProvider.</hr_layout>
+          <route path="/" internal_path="src/app/hr/page.tsx" status="BUILT_DRAWERS_PAUSED">Mounts JobProvider and HrDashboardWorkspace.tsx (patched for same-origin /api/v1/jobs and window.location.origin URL resolution). Drawers paused until Admin portal &amp; cutover complete.</route>
+          <route path="/login" internal_path="src/app/hr/login/page.tsx" status="SAME_ORIGIN_PROXY_PATCHED">Renders HrLoginForm.tsx wired to same-origin POST /api/v1/auth/login.</route>
+          <route path="/create-account" internal_path="src/app/hr/create-account/page.tsx" status="SAME_ORIGIN_PROXY_PATCHED">Renders 3-step HrCreateAccountForm.tsx (check-exist, signup, PUT /users/:hrId) wired to same-origin /api/v1/*. Passed axe-core WCAG 2.2 AA &amp; Section 508 scan across all 3 steps.</route>
+          <route path="/verify" internal_path="src/app/hr/verify/page.tsx" status="SAME_ORIGIN_PROXY_PATCHED">Renders HrVerifyForm.tsx wired to same-origin POST /api/v1/auth/forgot-password ({ email, role: "hr" }).</route>
+          <route path="/job-applications" internal_path="src/app/hr/job-applications/page.tsx" status="PAUSED">Queued post-Admin/AWS cutover.</route>
+        </routing_strategy>
+        <verified_api_contracts base_url="https://api.thejobapplicantperspective.com">
+          <endpoint id="HR-API-01" method="POST" path="/api/v1/auth/login" status="VERIFIED_BUNDLE_AND_BACKEND">
+            <request_body>{"email": "string", "password": "string", "role": "hr"}</request_body>
+            <response_envelope>{"success": true, "data": {"user": "HrUser", "token": "HS256 JWT"}, "message": "Login success"}</response_envelope>
+            <dto_validator>HrLoginResponseSchema in src/lib/dto/hrAuth.ts</dto_validator>
+          </endpoint>
+          <endpoint id="HR-API-02" method="GET" path="/api/v1/auth/me" status="VERIFIED_BUNDLE_AND_BACKEND">
+            <headers>Authorization: Bearer &lt;token&gt;</headers>
+            <response_envelope>{"success": true, "data": "HrUser (_id, email, role, name, companyName, industry, employmentCount, location, jobCount, isHrActiveToday, socialLinks, createdAt, updatedAt, __v)", "message": "User details fetched successfully"}</response_envelope>
+            <dto_validator>HrUserDetailsResponseSchema in src/lib/dto/hrAuth.ts; executed on mount via HrAuthProvider.tsx and same-origin src/lib/api/hrSession.ts</dto_validator>
+          </endpoint>
+          <endpoint id="HR-API-03" method="POST" path="/api/v1/auth/check-exist" status="VERIFIED_BUNDLE_AND_BACKEND">
+            <request_body>{"email": "string"}</request_body>
+            <response_envelope>{"success": true, "data": {"exist": "boolean"}}</response_envelope>
+          </endpoint>
+          <endpoint id="HR-API-04" method="POST" path="/api/v1/auth/signup" status="VERIFIED_BUNDLE_AND_BACKEND">
+            <request_body>{"name": "string", "email": "string", "companyName": "string", "industry": "string", "employmentCount": "string", "location": "string", "password": "string", "role": "hr"}</request_body>
+            <response_envelope>{"success": true, "data": {"user": "HrUser", "token": "HS256 JWT"}}</response_envelope>
+          </endpoint>
+          <endpoint id="HR-API-05" method="PUT" path="/api/v1/users/:hrId" status="VERIFIED_BUNDLE_AND_BACKEND">
+            <headers>Authorization: Bearer &lt;token&gt;</headers>
+            <request_body>{"name": "string", "email": "string", "companyName": "string", "industry": "string", "employmentCount": "string", "location": "string", "socialLinks": [{"name": "linkedin|instagram|facebook|general", "link": "string"}]}</request_body>
+          </endpoint>
+          <endpoint id="HR-API-06" method="POST" path="/api/v1/auth/forgot-password" status="VERIFIED_BUNDLE_AND_BACKEND">
+            <request_body>{"email": "string", "role": "hr"}</request_body>
+          </endpoint>
+          <endpoint id="HR-API-07" method="DELETE" path="/api/v1/auth/logout" status="VERIFIED_BUNDLE_AND_BACKEND">
+            <headers>Authorization: Bearer &lt;token&gt;</headers>
+          </endpoint>
+          <endpoint id="HR-API-08" method="GET" path="/api/v1/jobs" status="VERIFIED_BUNDLE_AND_BACKEND">
+            <headers>Authorization: Bearer &lt;token&gt;</headers>
+            <query_params>status (active|inactive|pending|rejected|jobApplication), search, jobSalary, jobLocation, datePosted, workPlaceType, jobType, page, limit (30), select</query_params>
+          </endpoint>
+          <endpoint id="HR-API-09" method="POST / PUT / PATCH / DELETE" path="/api/v1/jobs and /api/v1/jobs/:jobId" status="VERIFIED_BUNDLE_AND_BACKEND">
+            <headers>Authorization: Bearer &lt;token&gt;</headers>
+            <notes>POST /api/v1/jobs creates job (Base64-encoded HTML jobDescription); PUT /api/v1/jobs/:id updates job; PATCH /api/v1/jobs/:id sends { action: "set-inactive" | "re-apply" }; DELETE /api/v1/jobs/:id deletes job; send-resumes routes commented out in job.router.js and deprecated per Sarah scope lock.</notes>
+          </endpoint>
+          <endpoint id="HR-API-10" method="GET / PATCH" path="/api/v1/job-applications and /api/v1/job-applications/:id" status="VERIFIED_BUNDLE_AND_BACKEND">
+            <headers>Authorization: Bearer &lt;token&gt;</headers>
+            <notes>GET lists applications (status, search, jobId, page, limit) with legacy CloudFront resume storageName reference (https://dpagjyel6u99d.cloudfront.net/&lt;storageName&gt; — deprecated per Sarah Springsteen Trumble scope lock); PATCH updates application state ({ action: "approve" | "reject", data?: { rejectReason } }).</notes>
+          </endpoint>
+          <endpoint id="HR-API-11" method="GET" path="/api/v1/notifications and /api/v1/notifications/unread-count" status="VERIFIED_BUNDLE_AND_BACKEND">
+            <headers>Authorization: Bearer &lt;token&gt;</headers>
+          </endpoint>
+          <endpoint id="HR-API-12" method="GET" path="/api/v1/location/search" status="VERIFIED_BUNDLE_AND_LIVE">
+            <query_params>country="United States(US)", search, page=1, limit=200 (server enforces limit &gt;= 200), select="city"</query_params>
+          </endpoint>
+        </verified_api_contracts>
+      </hr_subdomain_architecture>
+
+      <seo_route_rewrites_and_aliases>
+        <rule id="SEO-01">
+          <public_path>/who-we-are</public_path>
+          <storyblok_target_slug>about-us</storyblok_target_slug>
+          <strategy>Next.js internal rewrite via next.config.ts (afterFiles)</strategy>
+          <status>VERIFIED_IN_CONFIG</status>
+          <reason>Preserves legacy search engine rankings, backlinks, and public bookmarks without forcing Storyblok content reorganization.</reason>
+        </rule>
+        <rule id="SEO-02">
+          <public_path>/job-insights</public_path>
+          <storyblok_target_slug>blog-listing</storyblok_target_slug>
+          <strategy>Next.js internal rewrite via next.config.ts (afterFiles)</strategy>
+          <status>VERIFIED_IN_CONFIG</status>
+          <reason>Aligns primary navigation label with internal Storyblok listing taxonomy.</reason>
+        </rule>
+        <rule id="SEO-03">
+          <public_path>/us-govt-financial-support</public_path>
+          <storyblok_target_slug>financial-support</storyblok_target_slug>
+          <strategy>Next.js internal rewrite via next.config.ts (afterFiles)</strategy>
+          <status>VERIFIED_IN_CONFIG</status>
+          <reason>Preserves legacy search indexing and inbound links for government aid resources without altering internal Storyblok slugs.</reason>
+        </rule>
+        <rule id="SEO-04">
+          <public_path>/self-care-tools</public_path>
+          <storyblok_target_slug>self-care</storyblok_target_slug>
+          <strategy>Next.js internal rewrite via next.config.ts (afterFiles)</strategy>
+          <status>VERIFIED_IN_CONFIG</status>
+          <reason>Prevents broken inbound backlinks from candidate advocacy channels linking to the self-care directory.</reason>
+        </rule>
+        <rule id="SEO-05">
+          <public_path>/ai-tools</public_path>
+          <storyblok_target_slug>ai-tools</storyblok_target_slug>
+          <strategy>1:1 native catch-all resolution via src/app/(candidate)/[[...slug]]/page.tsx</strategy>
+          <status>VERIFIED_NATIVE</status>
+          <reason>Public canonical URL precisely matches CMS slug.</reason>
+        </rule>
+        <rule id="SEO-06">
+          <public_path>/career-fairs</public_path>
+          <storyblok_target_slug>career-fairs</storyblok_target_slug>
+          <strategy>1:1 native catch-all resolution via src/app/(candidate)/[[...slug]]/page.tsx</strategy>
+          <status>VERIFIED_NATIVE</status>
+          <reason>Public canonical URL precisely matches CMS slug.</reason>
+        </rule>
+        <rule id="SEO-07">
+          <public_path>/job-insights/:slug*</public_path>
+          <storyblok_target_slug>:slug* (Root-level lookup with blog/:slug* fallback)</storyblok_target_slug>
+          <strategy>Server-side dynamic catch-all resolution with wildcard matching in src/app/(candidate)/[[...slug]]/page.tsx</strategy>
+          <status>VERIFIED_IN_CODE</status>
+          <reason>Resolves individual blog entries nested under /job-insights/ directly to Storyblok's root-level article entries regardless of folder depth.</reason>
+        </rule>
+        <rule id="SEO-08">
+          <public_path>/:slug* (Dynamic Zero-Code Pages)</public_path>
+          <storyblok_target_slug>:slug* (Root-level lookup with pages/:slug* folder fallback)</storyblok_target_slug>
+          <strategy>Dynamic catch-all resolution mapped to StandardPageContent and FallbackBlok</strategy>
+          <status>VERIFIED_IN_CODE</status>
+          <reason>Allows non-technical stakeholders to create and publish arbitrary new URLs in Storyblok without code deployments.</reason>
+        </rule>
+      </seo_route_rewrites_and_aliases>
+
+      <storyblok_space_inventory space_id="535087131">
+        <story name="Home" slug="home" content_type="Home Content" status="MAPPED">
+          <public_route>/</public_route>
+          <component_adapter>HomeContent.tsx</component_adapter>
+          <notes>Verified flat schema with 0 child bloks in body. Maps Title, Description, CardTitle, CardDescription, CardImage, BannerDesktop, BannerMobile, JobBoardTitle, JobBoard array (6 regional links), and BlogSectionTitle/Description. TabbedInterface is rendered as an isolated client component.</notes>
+        </story>
+        <story name="About Us" slug="about-us" content_type="About Us Content" status="MAPPED">
+          <public_route>/who-we-are (via rewrite) and /about-us</public_route>
+          <component_adapter>AboutUsContent.tsx</component_adapter>
+          <notes>Reconciles public '/who-we-are' CTA and backlink structure. Maps Stories array, Team array, and Donation blocks. Inner hero header converted to semantic section.</notes>
+        </story>
+        <story name="Blog Listing" slug="blog-listing" content_type="Blog List" status="MAPPED">
+          <public_route>/job-insights (via rewrite) and /blog-listing</public_route>
+          <component_adapter>BlogListingContent.tsx</component_adapter>
+          <notes>Aggregator directory for published labor analytics. Features responsive category filter rail, 3-column card grid, and client-side pagination matching live DOM. Inner hero header converted to semantic section.</notes>
+        </story>
+        <story name="Privacy Policy" slug="privacy-policy" content_type="Privacy Policy Content" status="MAPPED">
+          <public_route>/privacy-policy</public_route>
+          <component_adapter>LegalDocumentContent.tsx</component_adapter>
+          <notes>Zero-knowledge applicant anonymity terms and compliance disclosure. Strict SbRichTextDoc typing and WCAG 2.2 AA landmark structure. Inner header converted to semantic section.</notes>
+        </story>
+        <story name="Self Care" slug="self-care" content_type="Self Care Content" status="MAPPED">
+          <public_route>/self-care-tools (via rewrite) and /self-care</public_route>
+          <component_adapter>ResourceHubContent.tsx</component_adapter>
+          <notes>Candidate mental health and resilience hub. Reconciled with canonical light-theme palette (#ffffff, #0d3276, #434343), header clearance spacer (70px/124px), sanitizeHref link guard, and descriptive aria-labels.</notes>
+        </story>
+        <story name="Financial Support" slug="financial-support" content_type="Financial Support Content" status="MAPPED">
+          <public_route>/us-govt-financial-support (via rewrite) and /financial-support</public_route>
+          <component_adapter>ResourceHubContent.tsx</component_adapter>
+          <notes>Candidate emergency relief, unemployment routing, and mutual aid directory. Reconciled with canonical light-theme palette, header clearance spacer, and WCAG 2.2 AA link hygiene.</notes>
+        </story>
+        <story name="Career Fairs" slug="career-fairs" content_type="Career Fairs Content" status="MAPPED">
+          <public_route>/career-fairs</public_route>
+          <component_adapter>EventDirectoryContent.tsx</component_adapter>
+          <notes>Regional and virtual hiring fairs directory. Reconciled with canonical light-theme palette, header clearance spacer, semantic dl/dt/dd metadata lists, sanitizeHref link guard, and descriptive aria-labels.</notes>
+        </story>
+        <story name="AI Tools" slug="ai-tools" content_type="AI Tools Content" status="MAPPED">
+          <public_route>/ai-tools</public_route>
+          <component_adapter>ToolingAuditContent.tsx</component_adapter>
+          <notes>Registered 'AI Tools Content' key in src/lib/storyblok.ts. Reconciled with canonical light-theme palette, header clearance spacer, high-contrast WCAG 2.2 AA verdict badges, sanitizeHref link guard, and sr-only link suffixes.</notes>
+        </story>
+        <story name="Universal Dynamic Pages" slug="[any-slug] or pages/[any-slug]" content_type="Standard Page" status="MAPPED">
+          <public_route>/[slug]</public_route>
+          <component_adapter>StandardPageContent.tsx (with FallbackBlok safety net)</component_adapter>
+          <notes>Zero-code page creation template supporting arbitrary Storyblok slugs and nested body bloks without requiring new frontend routes.</notes>
+        </story>
+        <story name="Footer" slug="footer" content_type="Footer Content" status="MAPPED">
+          <public_route>N/A (Global Layout Component)</public_route>
+          <component_adapter>MainFooter.tsx</component_adapter>
+          <notes>Verified against live DOM: #081F48 navy section, contact form with text-slate-200 accessible labels, white high-contrast submit button, /who-we-are and /privacy-policy links, and 4-channel social icon row.</notes>
+        </story>
+        <story name="Blog Content Stories (51 Total)" slug="[root-slugs]" content_type="Blog Content" status="MAPPED">
+          <public_route>/job-insights/[slug] and /blog/[slug]</public_route>
+          <component_adapter>BlogArticleContent.tsx</component_adapter>
+          <notes>Individual research papers and forensic audits. Fully reconciled with canonical light-theme layout (#ffffff, #0d3276, #434343), top clearance header bar, rich text prose container with CMS h1 demotion, and sticky author metadata aside.</notes>
+        </story>
+        <story name="Michael-Smith-Who?" slug="michael-smith-who-" content_type="Root" status="DRAFT_EXCLUDED">
+          <public_route>/michael-smith-who-</public_route>
+          <component_adapter>EXCLUDED</component_adapter>
+          <notes>Draft case study story. Blocked via EXCLUDED_SLUGS in src/app/(candidate)/[[...slug]]/page.tsx.</notes>
+        </story>
+        <story name="Deloitte Manpower" slug="deloitte-manpower" content_type="Blog Content" status="DRAFT_EXCLUDED">
+          <public_route>/blog/deloitte-manpower</public_route>
+          <component_adapter>EXCLUDED</component_adapter>
+          <notes>Draft investigative post. Blocked via EXCLUDED_SLUGS in src/app/(candidate)/[[...slug]]/page.tsx.</notes>
+        </story>
+      </storyblok_space_inventory>
+
+      <repository_map>
+        <root_directories>.github, src, public, docs, e2e, qa-agent, tests/fixtures</root_directories>
+        <src_architecture>
+          <path name="src/proxy.ts">Next.js 16 subdomain hostname routing proxy rewriting hr.thejobapplicantperspective.com and hr.localhost:3000 to /hr/* (and ready for admin.* -&gt; /admin/*), bypassing /_next, /api/*, and static public assets, and blocking case-insensitive apex /hr/* access</path>
+          <path name="src/app/layout.tsx">Minimal root HTML/body/font wrapper shared across all route groups (target for next/font/google Jost and Manrope CSS variable injection)</path>
+          <path name="src/app/(candidate)">Candidate apex route group containing layout.tsx (MainHeader, MainFooter, StoryblokProvider, outer main) and [[...slug]]/page.tsx</path>
+          <path name="src/app/hr">Isolated HR subdomain route tree (layout.tsx, page.tsx dashboard entry, login/page.tsx, create-account/page.tsx, verify/page.tsx)</path>
+          <path name="src/app/admin">Target isolated Admin subdomain route tree (queued in Task 1.17 buildout)</path>
+          <path name="src/components/blocks">Presentational and composite components with centralized index.ts barrel export (HeroSection, TabbedInterface, PromoBanner, LocalJobsGrid, MissionBanner, BlogGrid, BlogCard, JobLinkCard, FormInput)</path>
+          <path name="src/components/hr">HR portal client/server components with index.ts barrel export (HrAuthProvider.tsx, HrLoginForm.tsx, HrCreateAccountForm.tsx, HrVerifyForm.tsx, JobProvider.tsx, HrDashboardWorkspace.tsx — all patched for same-origin /api/v1 routing)</path>
+          <path name="src/components/layout">Global layout shells (MainHeader, MainNav, MainFooter)</path>
+          <path name="src/components/storyblok">CMS-bound component wrappers and client-side bridge resolver (PageBlok, HomeContent, AboutUsContent, BlogListingContent, BlogArticleContent, LegalDocumentContent, ResourceHubContent, EventDirectoryContent, ToolingAuditContent, StandardPageContent)</path>
+          <path name="src/components/ui">Base interactive primitives (Button, SearchInput, Tabs, NavLink)</path>
+          <path name="src/lib">Storyblok client initialization (storyblok.ts) with unified component map registry including 'Standard Page', 'Blog Content', customFallbackComponent (FallbackBlok), and virtual client intercept for offline CI fixture hydration</path>
+          <path name="src/lib/api">Client API helpers including hrSession.ts (JWT storage and same-origin GET /api/v1/auth/me hydration)</path>
+          <path name="src/lib/constants">Static domain taxonomies including hrOptions.ts (92 industry classifications and 5 employee headcount tiers)</path>
+          <path name="src/lib/dto">Data Transfer Objects, payload sanitization (sanitizeStoryPayload.ts), HR auth validation schemas (hrAuth.ts), and centralized Storyblok error handling (storyblok/storyblokErrorHandler.ts)</path>
+          <path name="src/lib/security">Route and query parameter sanitization modules (sanitizeParams.ts)</path>
+          <path name="tests/fixtures">Standardized CMS response fixtures (storyblok-fixture.json) for zero-egress CI/CD compilation and deterministic testing</path>
+          <path name="qa-agent">Agentic testing engine: index.ts (runner), core-io.ts (Brute Force Solder &amp; Sentinel Catch reporter), system-prompt.ts (Stealth Feral Logic &amp; Gemini Flash setup), golden-template.ts (RAG schematic), @quarantine (isolated test output), docs/qa-tasks (markdown task specs), docs/bug-reports (April-Approved markdown defect reports)</path>
+          <path name="e2e">Deterministic human-verified Playwright test suites (airlock.spec.ts, security-links.spec.ts, security.spec.ts, smoke-test.spec.ts, responsive.spec.ts, accessibility.spec.ts)</path>
+        </src_architecture>
+      </repository_map>
+      
+      <cms_architectural_invariants>
+        <invariant id="CMS-01">Decoupled Headless Contract: Storyblok owns zero HTML, CSS, or molecular components in production. It operates strictly as a decoupled JSON data store returning content arrays of typed bloks.</invariant>
+        <invariant id="CMS-02">Zero Production Iframe: The application renders native Next.js Server Components. Iframes are strictly isolated to the Storyblok Visual Editor administrative preview (app.storyblok.com) via window.postMessage bridge listeners.</invariant>
+        <invariant id="CMS-03">Presentation Sovereignty: All styling, fluid typography, WCAG 2.2 AA focus indicators, and layout constraints remain 100% under local Tailwind CSS v4 CSS-first token custody.</invariant>
+        <invariant id="CMS-04">Offline CI Determinism: CI runners execute static generation and type audits against local fixture JSON, eliminating build-time network dependencies, API token exposure, and rate-limiting failure states.</invariant>
+        <invariant id="CMS-05">SEO URL Invariance: Established public-facing URL routes (/who-we-are, /job-insights, /us-govt-financial-support, /self-care-tools) and nested article routes (/job-insights/:slug*) remain fixed at the routing layer via server-side rewrites and dynamic normalization in next.config.ts and page.tsx, regardless of internal Storyblok slug variations.</invariant>
+        <invariant id="CMS-06">Application Widget Decoupling: Interactive functional interfaces (TabbedInterface search engine, MainNav dropdown menus, contact form handlers, and the entire hr.thejobapplicantperspective.com and Admin portals) reside in native application code and are NOT treated as Storyblok CMS bloks.</invariant>
+        <invariant id="CMS-07">Zero-Code Dynamic Page Ingestion: Any new page created in Storyblok using 'Standard Page' (or unmapped blok types via FallbackBlok) resolves dynamically via src/app/(candidate)/[[...slug]]/page.tsx across root and pages/ folder paths without requiring new Next.js route files.</invariant>
+      </cms_architectural_invariants>
+    </frontend_architecture>
+
+    <backend_architecture id="tjap_backend" repository="https://github.com/The-Job-Applicant-Perspective-Business/backend.git" local_path="C:\code\backend">
+      <tech_stack>
+        <runtime>Node.js (v20.17.0 in production / v24.18.0 local Windows), ES Modules ("type": "module"), TypeScript (^5.4.5), tsx (^4.15.1)</runtime>
+        <framework_and_middleware>Express (^4.19.2), cors (^2.8.5), helmet (^7.1.0), morgan (^1.10.0), express-xss-sanitizer (^1.2.0), express-mongo-sanitize (^2.2.0), http-status-codes (^2.3.0)</framework_and_middleware>
+        <database_and_validation>Mongoose (^8.4.1), MongoDB (Atlas cluster0.a3quc.mongodb.net/tjap-production in prod; Docker mongo:7 container tjap-mongo on 127.0.0.1:27017/tjap-local locally), Joi (^17.13.1)</database_and_validation>
+        <auth_and_services>jsonwebtoken (^9.0.2, HS256, 10d expiry, max 10 active tokenIds per user), bcrypt (^5.1.1), Brevo/Sendinblue REST API via axios (^1.7.2), node-cron (^3.0.3), aws-sdk (^2.1648.0 — v2 maintenance mode; S3 helpers deprecated under NO_RESUME_COLLECTION)</auth_and_services>
+        <testing>vitest (^1.6.0), supertest (^7.0.0), mongodb-memory-server (^9.4.0)</testing>
+      </tech_stack>
+
+      <build_and_execution>
+        <script name="test">NODE_ENV=test vitest</script>
+        <script name="format">npx prettier --write .</script>
+        <script name="start">touch .env &amp;&amp; NODE_ENV=production node --env-file=.env dist/entrypoints/server.js (Note: update to cross-platform node --env-file=.env dist/entrypoints/server.js for Windows compatibility)</script>
+        <script name="start-cron">touch .env &amp;&amp; NODE_ENV=production node --env-file=.env dist/entrypoints/cron.js</script>
+        <script name="build">tsc</script>
+        <script name="dev">NODE_ENV=development tsx watch --clear-screen=false --env-file=.env src/entrypoints/server.ts</script>
+        <script name="dev-cron">NODE_ENV=development tsx watch --clear-screen=false --env-file=.env src/entrypoints/cron.ts</script>
+      </build_and_execution>
+
+      <custody_and_source_reconstruction>
+        <git_custody status="PUSHED_TO_PRIVATE_REPO">Exfiltrated /home/ubuntu/tjap-backend-prod-recovery.tar.gz (117K) from i-0463540c51a529c86, unpacked with --strip-components=1 into C:\code\backend, created .gitignore and BOM-free .env.example, and pushed baseline recovery snapshot to https://github.com/The-Job-Applicant-Perspective-Business/backend.git on main (commit 21b01ff, 177 files). Installed 472 Windows packages via npm install.</git_custody>
+        <source_map_audit>Verified dist/entrypoints/server.js.map is Source Map v3 pointing to ../../src/entrypoints/server.ts with removeComments: false and hasSourcesContent: false. All 52 compiled dist/**/*.js modules were unpacked to their exact 52 src/**/*.ts paths alongside a BOM-free tsconfig.json (target ES2022, module NodeNext, moduleResolution NodeNext, rootDir src, outDir dist, sourceMap true, removeComments false, strict false).</source_map_audit>
+        <tsc_compilation_audit status="18_ERRORS_IN_6_FILES_ISOLATED">
+          <error_group file="src/apps/company/company.service.ts" count="1">Line 7: TS2339 Property 'status' does not exist on type '{}' (filter object inferred as empty object literal).</error_group>
+          <error_group file="src/apps/jobApplication/jobApplication.controller.ts" count="3">Lines 52, 55, 58: TS2339 Properties 'status', 'job', and '$or' do not exist on type '{}' (query object inferred as empty object literal).</error_group>
+          <error_group file="src/lib/errors/apiError.ts" count="2">Lines 9, 11: TS2339 Properties 'statusCode' and 'success' not declared on class APIError.</error_group>
+          <error_group file="src/lib/middleware/auth.ts" count="8">Lines 27, 28, 31, 32, 43, 44, 79, 80: TS2554/TS2339 util.promisify(jwt.verify) overload resolution matching SigningKeyCallback instead of JwtPayload.</error_group>
+          <error_group file="src/lib/middleware/errorHandler.ts" count="2">Lines 9, 26: TS2339 Property 'statusCode' on APIError and property 'code' on Error.</error_group>
+          <error_group file="src/lib/zip/zip.lib.ts" count="2">Lines 65, 66: TS2794 Expected 1 arguments, but got 0 on resolve() inside untyped new Promise().</error_group>
+        </tsc_compilation_audit>
+      </custody_and_source_reconstruction>
+
+      <local_runtime_and_persistence status="VERIFIED_ONLINE">
+        <mongodb_container>Docker container tjap-mongo (mongo:7, container ID fd1d73aabc60) bound to 127.0.0.1:27017 serving database tjap-local.</mongodb_container>
+        <seeded_accounts>
+          <account email="admin-local@saiphhouse.com" id="6b0668924554b314f05d7112" role="admin" password="LocalTest123!" />
+          <account email="hr-local@saiphhouse.com" role="hr" password="LocalTest123!" company="Saiph House Local" />
+          <validation_invariant>Joi.string().email() enforces standard IANA TLDs and rejects .local pseudo-domains; always use valid .com addresses for local test seeding.</validation_invariant>
+        </seeded_accounts>
+        <runtime_receipt>Verified node --env-file=.env dist/entrypoints/server.js listening on http://127.0.0.1:5000 (generalVersions.app = "0.11"), MongoDB Connected..., GET / 200, POST /api/v1/auth/login 200, and GET /api/v1/auth/me 200.</runtime_receipt>
+        <environment_variables_contract>
+          <verified_keys_count>15</verified_keys_count>
+          <active_keys>NODE_ENV, PORT, SERVER_PORT, MONGO_URI, JWT_SECRET, CORS (comma-separated origins appended to localhost:3000/3001), SIB_KEY, SIB_NAME, SIB_SOURCE</active_keys>
+          <inactive_or_deprecated_keys>MONGOURL_PROD (commented out in connectDB), AWS_ACCESS_KEY, AWS_SECRET_KEY, AWS_S3_REGION, S3_Bucket_NAME, S3_URL (deprecated under NO_RESUME_COLLECTION)</inactive_or_deprecated_keys>
+          <windows_bom_invariant>PowerShell Set-Content -Encoding UTF8 prepends a 3-byte UTF-8 BOM that corrupts the first key read by Node --env-file=.env. Always write .env, .env.example, and tsconfig.json using [System.IO.File]::WriteAllText with UTF8Encoding($false).</windows_bom_invariant>
+        </environment_variables_contract>
+      </local_runtime_and_persistence>
+
+      <security_and_code_audit_findings>
+        <finding id="BE-SEC-01" severity="HIGH">src/lib/middleware/auth.ts and src/apps/auth/auth.controller.ts fall back to hardcoded JWT secret "sample" when process.env.JWT_SECRET is undefined. Enforce fail-fast startup check requiring process.env.JWT_SECRET.</finding>
+        <finding id="BE-BUG-01" severity="MEDIUM">forgotPasswordStartController in src/apps/auth/auth.controller.ts queries UserModel.findOne({ email, role }) without .toLowerCase(), causing 404 failures on mixed-case email input.</finding>
+        <finding id="BE-BUG-02" severity="MEDIUM">src/utils/email.ts fires axios.post without await and accesses err.response.data inside .catch without optional chaining (err.response?.data), risking unhandled TypeError on DNS/network failures.</finding>
+        <finding id="BE-CLEAN-01" severity="LOW">dist/scripts/seedDb.js contains legacy contractor emails/names (vimaltony@tghtech.com / TGH Tech) and writes noOfEmployees instead of employmentCount; replace with clean local seed script.</finding>
+      </security_and_code_audit_findings>
+
+      <repository_map>
+        <root_files>package.json, package-lock.json, tsconfig.json, productionPm2.config.cjs, .env.example, .gitignore, README.md</root_files>
+        <src_modules>
+          <path name="src/entrypoints">server.ts (HTTP server + /api/v1 router + Mongoose connect), cron.ts (scheduled background jobs)</path>
+          <path name="src/apps">Domain modules (controller, router, service, validation): analytics, auth, common, company, job, jobApplication, location, notification, review, user</path>
+          <path name="src/models">Mongoose schemas: adminNotification, analytics, city, country, hrNotification, job, jobApplication, review, reviewCompany, state, user, userTracking</path>
+          <path name="src/lib">expressConfig.lib.ts, taskQueue.lib.ts, errors/apiError.ts, joiSchema/pagination.validation.ts, middleware/ (auth.ts, errorHandler.ts, joiQueryValidator.ts, joiValidator.ts, not-found.ts, queryModifier.ts), wrappers/ (expressTWrapper.ts, expressWrapper.ts, serviceTWrapper.ts, serviceWrapper.ts), zip/zip.lib.ts</path>
+          <path name="src/routers">index.router.ts (mounts all domain routers under /api/v1)</path>
+          <path name="src/utils">auth.helper.ts, aws.utils.ts, bcrypt.ts, connectDB.ts, date.utils.ts, email.ts, enums.utils.ts, mongoHelper.utils.ts, and emails/ templates</path>
+          <path name="src/config">versions.ts (generalVersions.app = "0.11")</path>
+          <path name="src/scripts">seedDb.ts, addSampleAnalytics.ts</path>
+        </src_modules>
+      </repository_map>
+    </backend_architecture>
 
     <aws_infrastructure_and_proxy_architecture account_id="339712895738">
       <cloud_topology>
@@ -144,7 +474,7 @@
               <email_sender>Brevo/SIB (noreply@thejobapplicantperspective.com)</email_sender>
               <s3_legacy_binding>S3_Bucket_NAME=tjap-production (us-east-2) — deprecated per NO_RESUME_COLLECTION scope lock.</s3_legacy_binding>
             </live_env_configuration>
-            <recovery_archive>/home/ubuntu/tjap-backend-prod-recovery.tar.gz (117K, created 2026-11-24T12:47Z, excludes node_modules and .env*) — ready for local/GitHub exfiltration.</recovery_archive>
+            <recovery_archive>/home/ubuntu/tjap-backend-prod-recovery.tar.gz (117K, created 2026-11-24T12:47Z, excludes node_modules and .env*) — DOWNLOADED AND COMMITTED TO https://github.com/The-Job-Applicant-Perspective-Business/backend.git (commit 21b01ff).</recovery_archive>
           </runtime_and_database_forensics>
         </ec2_production_host>
         <ec2_archival_host status="ARCHIVAL_RECOVERY_HOST_NOT_SERVING_PROD">
@@ -221,253 +551,6 @@
         <environment_variables_checklist>Verify domain associations across us-east-1 Amplify apps (d9s893j4vo7ul user-App, ddh0cydff1lx3 Hr-Frontend, d30453m3fsctgt Admin), ensure Amplify Console Environment Variables contain STORYBLOK_TOKEN and TJAP_UPSTREAM_API_ORIGIN=https://api.thejobapplicantperspective.com, and rotate exposed credentials (.env MONGO_URI / SIB_KEY / IAM keys) post-cutover.</environment_variables_checklist>
       </production_cutover_command>
     </aws_infrastructure_and_proxy_architecture>
-
-    <admin_portal_architecture status="ADMIN_ACCOUNT_PROVISIONED_COMPONENT_EXTRACTION_ACTIVE">
-      <objective>Build out isolated WCAG 2.2 AA Admin portal views (admin.thejobapplicantperspective.com -&gt; /admin/*) using extracted legacy Admin UI contracts, backed by James Hood's independent Admin user record in tjap-production.</objective>
-      <account_sovereignty_mandate>ENFORCED: James Hood provisioned a dedicated Admin user record (separate email, password, and JWT identity) in cluster0.a3quc.mongodb.net/tjap-production, keeping existing HR record 6af36f4bb45946e3433eab6f (jameshood118@gmail.com) and Sarah's Admin record 666adfe75e4d8e28c652a117 strictly isolated.</account_sovereignty_mandate>
-      <verified_backend_rbac_and_endpoints base_url="https://api.thejobapplicantperspective.com/api/v1">
-        <role_enum>USER_ROLE_ENUM = { ADMIN: "admin", HR: "hr" } (dist/utils/enums.utils.js). No separate /admin router; auth("admin") and auth(["hr", "admin"]) guard domain endpoints.</role_enum>
-        <provisioning_constraint>VERIFIED &amp; COMPLETED: POST /api/v1/auth/signup ('Only HR can sign up') and POST /api/v1/users ('Only HR can be created') both reject role='admin' with HTTP 400. Live UserModel BSON structure verified from tjap-production: { email, password (bcrypt), role: "admin", tokenIds: [], socialLinks: [], jobCount: 0, isHrActiveToday: false, createdAt, updatedAt, __v: 0 }.</provisioning_constraint>
-        <endpoint id="ADM-API-01" method="POST" path="/api/v1/auth/login">Body: {"email": "string", "password": "string", "role": "admin"} -&gt; Returns HS256 JWT (10d expiry, stores tokenId in user.tokenIds max 10).</endpoint>
-        <endpoint id="ADM-API-02" method="GET" path="/api/v1/auth/me">Header: Authorization: Bearer &lt;token&gt; -&gt; Hydrates Admin user profile.</endpoint>
-        <endpoint id="ADM-API-03" method="GET / DELETE" path="/api/v1/users and /api/v1/users/:userId">Guard: auth("admin"). GET requires query role ("admin"|"hr"), page, limit, optional search. DELETE cascades deletion to HR jobs and jobApplications.</endpoint>
-        <endpoint id="ADM-API-04" method="GET / POST / PUT / PATCH / DELETE" path="/api/v1/jobs and /api/v1/jobs/:jobId">Guard: auth(["hr", "admin"]) on mutations. PATCH body: {"action": "approve" | "reject" | "set-active" | "set-inactive" | "re-apply"}.</endpoint>
-        <endpoint id="ADM-API-05" method="PUT / PATCH / DELETE" path="/api/v1/companies/:companyId">Guard: auth("admin"). PATCH body: {"action": "transfer"}.</endpoint>
-        <endpoint id="ADM-API-06" method="PUT / PATCH / DELETE" path="/api/v1/reviews/:reviewId">Guard: auth("admin"). PATCH body: {"action": "approve" | "reject" | "set-active" | "set-inactive"}.</endpoint>
-        <endpoint id="ADM-API-07" method="GET" path="/api/v1/notifications and /api/v1/notifications/unread-count">Guard: auth("admin") branches to AdminNotificationModel.</endpoint>
-      </verified_backend_rbac_and_endpoints>
-      <gap_analysis>
-        <unverified_contracts>
-1. Legacy Admin frontend DOM/HTML captures and JS bundle chunks from admin.thejobapplicantperspective.com (authenticated session using James Hood's new Admin credentials) to extract exact views, table/card fields, and action triggers.
-2. Exact Amplify domain associations on us-east-1 apps (d9s893j4vo7ul, ddh0cydff1lx3, d30453m3fsctgt).
-          Do not fabricate Admin UI layouts; ingest live DOM/chunks from admin.thejobapplicantperspective.com first.
-        </unverified_contracts>
-        <env_overrides>NEXT_PUBLIC_TJAP_ADMIN_HOST, NEXT_PUBLIC_TJAP_ADMIN_JOBS_PATH, NEXT_PUBLIC_TJAP_ADMIN_USERS_PATH</env_overrides>
-      </gap_analysis>
-    </admin_portal_architecture>
-
-    <hr_subdomain_architecture host="hr.thejobapplicantperspective.com" status="PROXY_ALIGNED_DRAWERS_PAUSED">
-      <routing_strategy>
-        <proxy file="src/proxy.ts">Migrated from src/middleware.ts to Next.js 16 src/proxy.ts convention. Intercepts host header matching hr.thejobapplicantperspective.com, hr.localhost:3000, or hr.localhost and internally rewrites /* to /hr/* while bypassing /_next, /api/*, and static public assets (/logosm.svg, images, fonts). Blocks direct apex access to thejobapplicantperspective.com/hr/* (case-insensitive) via /404 rewrite.</proxy>
-        <root_layout file="src/app/layout.tsx">Minimal global HTML/body/font shell shared across all route groups without candidate header, footer, or outer main landmark.</root_layout>
-        <candidate_layout file="src/app/(candidate)/layout.tsx">Encapsulates skip link, StoryblokProvider, MainHeader, primary candidate main landmark, and MainFooter for src/app/(candidate)/[[...slug]].</candidate_layout>
-        <hr_layout file="src/app/hr/layout.tsx">Isolates HR portal directly beneath minimal RootLayout; sets robots noindex/nofollow metadata and wraps children in HrAuthProvider.</hr_layout>
-        <route path="/" internal_path="src/app/hr/page.tsx" status="BUILT_DRAWERS_PAUSED">Mounts JobProvider and HrDashboardWorkspace.tsx (patched for same-origin /api/v1/jobs and window.location.origin URL resolution). Drawers paused until Admin portal &amp; cutover complete.</route>
-        <route path="/login" internal_path="src/app/hr/login/page.tsx" status="SAME_ORIGIN_PROXY_PATCHED">Renders HrLoginForm.tsx wired to same-origin POST /api/v1/auth/login.</route>
-        <route path="/create-account" internal_path="src/app/hr/create-account/page.tsx" status="SAME_ORIGIN_PROXY_PATCHED">Renders 3-step HrCreateAccountForm.tsx (check-exist, signup, PUT /users/:hrId) wired to same-origin /api/v1/*. Passed axe-core WCAG 2.2 AA &amp; Section 508 scan across all 3 steps.</route>
-        <route path="/verify" internal_path="src/app/hr/verify/page.tsx" status="SAME_ORIGIN_PROXY_PATCHED">Renders HrVerifyForm.tsx wired to same-origin POST /api/v1/auth/forgot-password ({ email, role: "hr" }).</route>
-        <route path="/job-applications" internal_path="src/app/hr/job-applications/page.tsx" status="PAUSED">Queued post-Admin/AWS cutover.</route>
-      </routing_strategy>
-      <verified_api_contracts base_url="https://api.thejobapplicantperspective.com">
-        <endpoint id="HR-API-01" method="POST" path="/api/v1/auth/login" status="VERIFIED_BUNDLE_AND_BACKEND">
-          <request_body>{"email": "string", "password": "string", "role": "hr"}</request_body>
-          <response_envelope>{"success": true, "data": {"user": "HrUser", "token": "HS256 JWT"}, "message": "Login success"}</response_envelope>
-          <dto_validator>HrLoginResponseSchema in src/lib/dto/hrAuth.ts</dto_validator>
-        </endpoint>
-        <endpoint id="HR-API-02" method="GET" path="/api/v1/auth/me" status="VERIFIED_BUNDLE_AND_BACKEND">
-          <headers>Authorization: Bearer &lt;token&gt;</headers>
-          <response_envelope>{"success": true, "data": "HrUser (_id, email, role, name, companyName, industry, employmentCount, location, jobCount, isHrActiveToday, socialLinks, createdAt, updatedAt, __v)", "message": "User details fetched successfully"}</response_envelope>
-          <dto_validator>HrUserDetailsResponseSchema in src/lib/dto/hrAuth.ts; executed on mount via HrAuthProvider.tsx and same-origin src/lib/api/hrSession.ts</dto_validator>
-        </endpoint>
-        <endpoint id="HR-API-03" method="POST" path="/api/v1/auth/check-exist" status="VERIFIED_BUNDLE_AND_BACKEND">
-          <request_body>{"email": "string"}</request_body>
-          <response_envelope>{"success": true, "data": {"exist": "boolean"}}</response_envelope>
-        </endpoint>
-        <endpoint id="HR-API-04" method="POST" path="/api/v1/auth/signup" status="VERIFIED_BUNDLE_AND_BACKEND">
-          <request_body>{"name": "string", "email": "string", "companyName": "string", "industry": "string", "employmentCount": "string", "location": "string", "password": "string", "role": "hr"}</request_body>
-          <response_envelope>{"success": true, "data": {"user": "HrUser", "token": "HS256 JWT"}}</response_envelope>
-        </endpoint>
-        <endpoint id="HR-API-05" method="PUT" path="/api/v1/users/:hrId" status="VERIFIED_BUNDLE_AND_BACKEND">
-          <headers>Authorization: Bearer &lt;token&gt;</headers>
-          <request_body>{"name": "string", "email": "string", "companyName": "string", "industry": "string", "employmentCount": "string", "location": "string", "socialLinks": [{"name": "linkedin|instagram|facebook|general", "link": "string"}]}</request_body>
-        </endpoint>
-        <endpoint id="HR-API-06" method="POST" path="/api/v1/auth/forgot-password" status="VERIFIED_BUNDLE_AND_BACKEND">
-          <request_body>{"email": "string", "role": "hr"}</request_body>
-        </endpoint>
-        <endpoint id="HR-API-07" method="DELETE" path="/api/v1/auth/logout" status="VERIFIED_BUNDLE_AND_BACKEND">
-          <headers>Authorization: Bearer &lt;token&gt;</headers>
-        </endpoint>
-        <endpoint id="HR-API-08" method="GET" path="/api/v1/jobs" status="VERIFIED_BUNDLE_AND_BACKEND">
-          <headers>Authorization: Bearer &lt;token&gt;</headers>
-          <query_params>status (active|inactive|pending|rejected|jobApplication), search, jobSalary, jobLocation, datePosted, workPlaceType, jobType, page, limit (30), select</query_params>
-        </endpoint>
-        <endpoint id="HR-API-09" method="POST / PUT / PATCH / DELETE" path="/api/v1/jobs and /api/v1/jobs/:jobId" status="VERIFIED_BUNDLE_AND_BACKEND">
-          <headers>Authorization: Bearer &lt;token&gt;</headers>
-          <notes>POST /api/v1/jobs creates job (Base64-encoded HTML jobDescription); PUT /api/v1/jobs/:id updates job; PATCH /api/v1/jobs/:id sends { action: "set-inactive" | "re-apply" }; DELETE /api/v1/jobs/:id deletes job; send-resumes routes commented out in job.router.js and deprecated per Sarah scope lock.</notes>
-        </endpoint>
-        <endpoint id="HR-API-10" method="GET / PATCH" path="/api/v1/job-applications and /api/v1/job-applications/:id" status="VERIFIED_BUNDLE_AND_BACKEND">
-          <headers>Authorization: Bearer &lt;token&gt;</headers>
-          <notes>GET lists applications (status, search, jobId, page, limit) with legacy CloudFront resume storageName reference (https://dpagjyel6u99d.cloudfront.net/&lt;storageName&gt; — deprecated per Sarah Springsteen Trumble scope lock); PATCH updates application state ({ action: "approve" | "reject", data?: { rejectReason } }).</notes>
-        </endpoint>
-        <endpoint id="HR-API-11" method="GET" path="/api/v1/notifications and /api/v1/notifications/unread-count" status="VERIFIED_BUNDLE_AND_BACKEND">
-          <headers>Authorization: Bearer &lt;token&gt;</headers>
-        </endpoint>
-        <endpoint id="HR-API-12" method="GET" path="/api/v1/location/search" status="VERIFIED_BUNDLE_AND_LIVE">
-          <query_params>country="United States(US)", search, page=1, limit=200 (server enforces limit &gt;= 200), select="city"</query_params>
-        </endpoint>
-      </verified_api_contracts>
-    </hr_subdomain_architecture>
-
-    <seo_route_rewrites_and_aliases>
-      <rule id="SEO-01">
-        <public_path>/who-we-are</public_path>
-        <storyblok_target_slug>about-us</storyblok_target_slug>
-        <strategy>Next.js internal rewrite via next.config.ts (afterFiles)</strategy>
-        <status>VERIFIED_IN_CONFIG</status>
-        <reason>Preserves legacy search engine rankings, backlinks, and public bookmarks without forcing Storyblok content reorganization.</reason>
-      </rule>
-      <rule id="SEO-02">
-        <public_path>/job-insights</public_path>
-        <storyblok_target_slug>blog-listing</storyblok_target_slug>
-        <strategy>Next.js internal rewrite via next.config.ts (afterFiles)</strategy>
-        <status>VERIFIED_IN_CONFIG</status>
-        <reason>Aligns primary navigation label with internal Storyblok listing taxonomy.</reason>
-      </rule>
-      <rule id="SEO-03">
-        <public_path>/us-govt-financial-support</public_path>
-        <storyblok_target_slug>financial-support</storyblok_target_slug>
-        <strategy>Next.js internal rewrite via next.config.ts (afterFiles)</strategy>
-        <status>VERIFIED_IN_CONFIG</status>
-        <reason>Preserves legacy search indexing and inbound links for government aid resources without altering internal Storyblok slugs.</reason>
-      </rule>
-      <rule id="SEO-04">
-        <public_path>/self-care-tools</public_path>
-        <storyblok_target_slug>self-care</storyblok_target_slug>
-        <strategy>Next.js internal rewrite via next.config.ts (afterFiles)</strategy>
-        <status>VERIFIED_IN_CONFIG</status>
-        <reason>Prevents broken inbound backlinks from candidate advocacy channels linking to the self-care directory.</reason>
-      </rule>
-      <rule id="SEO-05">
-        <public_path>/ai-tools</public_path>
-        <storyblok_target_slug>ai-tools</storyblok_target_slug>
-        <strategy>1:1 native catch-all resolution via src/app/(candidate)/[[...slug]]/page.tsx</strategy>
-        <status>VERIFIED_NATIVE</status>
-        <reason>Public canonical URL precisely matches CMS slug.</reason>
-      </rule>
-      <rule id="SEO-06">
-        <public_path>/career-fairs</public_path>
-        <storyblok_target_slug>career-fairs</storyblok_target_slug>
-        <strategy>1:1 native catch-all resolution via src/app/(candidate)/[[...slug]]/page.tsx</strategy>
-        <status>VERIFIED_NATIVE</status>
-        <reason>Public canonical URL precisely matches CMS slug.</reason>
-      </rule>
-      <rule id="SEO-07">
-        <public_path>/job-insights/:slug*</public_path>
-        <storyblok_target_slug>:slug* (Root-level lookup with blog/:slug* fallback)</storyblok_target_slug>
-        <strategy>Server-side dynamic catch-all resolution with wildcard matching in src/app/(candidate)/[[...slug]]/page.tsx</strategy>
-        <status>VERIFIED_IN_CODE</status>
-        <reason>Resolves individual blog entries nested under /job-insights/ directly to Storyblok's root-level article entries regardless of folder depth.</reason>
-      </rule>
-      <rule id="SEO-08">
-        <public_path>/:slug* (Dynamic Zero-Code Pages)</public_path>
-        <storyblok_target_slug>:slug* (Root-level lookup with pages/:slug* folder fallback)</storyblok_target_slug>
-        <strategy>Dynamic catch-all resolution mapped to StandardPageContent and FallbackBlok</strategy>
-        <status>VERIFIED_IN_CODE</status>
-        <reason>Allows non-technical stakeholders to create and publish arbitrary new URLs in Storyblok without code deployments.</reason>
-      </rule>
-    </seo_route_rewrites_and_aliases>
-
-    <storyblok_space_inventory space_id="535087131">
-      <story name="Home" slug="home" content_type="Home Content" status="MAPPED">
-        <public_route>/</public_route>
-        <component_adapter>HomeContent.tsx</component_adapter>
-        <notes>Verified flat schema with 0 child bloks in body. Maps Title, Description, CardTitle, CardDescription, CardImage, BannerDesktop, BannerMobile, JobBoardTitle, JobBoard array (6 regional links), and BlogSectionTitle/Description. TabbedInterface is rendered as an isolated client component.</notes>
-      </story>
-      <story name="About Us" slug="about-us" content_type="About Us Content" status="MAPPED">
-        <public_route>/who-we-are (via rewrite) and /about-us</public_route>
-        <component_adapter>AboutUsContent.tsx</component_adapter>
-        <notes>Reconciles public '/who-we-are' CTA and backlink structure. Maps Stories array, Team array, and Donation blocks. Inner hero header converted to semantic section.</notes>
-      </story>
-      <story name="Blog Listing" slug="blog-listing" content_type="Blog List" status="MAPPED">
-        <public_route>/job-insights (via rewrite) and /blog-listing</public_route>
-        <component_adapter>BlogListingContent.tsx</component_adapter>
-        <notes>Aggregator directory for published labor analytics. Features responsive category filter rail, 3-column card grid, and client-side pagination matching live DOM. Inner hero header converted to semantic section.</notes>
-      </story>
-      <story name="Privacy Policy" slug="privacy-policy" content_type="Privacy Policy Content" status="MAPPED">
-        <public_route>/privacy-policy</public_route>
-        <component_adapter>LegalDocumentContent.tsx</component_adapter>
-        <notes>Zero-knowledge applicant anonymity terms and compliance disclosure. Strict SbRichTextDoc typing and WCAG 2.2 AA landmark structure. Inner header converted to semantic section.</notes>
-      </story>
-      <story name="Self Care" slug="self-care" content_type="Self Care Content" status="MAPPED">
-        <public_route>/self-care-tools (via rewrite) and /self-care</public_route>
-        <component_adapter>ResourceHubContent.tsx</component_adapter>
-        <notes>Candidate mental health and resilience hub. Reconciled with canonical light-theme palette (#ffffff, #0d3276, #434343), header clearance spacer (70px/124px), sanitizeHref link guard, and descriptive aria-labels.</notes>
-      </story>
-      <story name="Financial Support" slug="financial-support" content_type="Financial Support Content" status="MAPPED">
-        <public_route>/us-govt-financial-support (via rewrite) and /financial-support</public_route>
-        <component_adapter>ResourceHubContent.tsx</component_adapter>
-        <notes>Candidate emergency relief, unemployment routing, and mutual aid directory. Reconciled with canonical light-theme palette, header clearance spacer, and WCAG 2.2 AA link hygiene.</notes>
-      </story>
-      <story name="Career Fairs" slug="career-fairs" content_type="Career Fairs Content" status="MAPPED">
-        <public_route>/career-fairs</public_route>
-        <component_adapter>EventDirectoryContent.tsx</component_adapter>
-        <notes>Regional and virtual hiring fairs directory. Reconciled with canonical light-theme palette, header clearance spacer, semantic dl/dt/dd metadata lists, sanitizeHref link guard, and descriptive aria-labels.</notes>
-      </story>
-      <story name="AI Tools" slug="ai-tools" content_type="AI Tools Content" status="MAPPED">
-        <public_route>/ai-tools</public_route>
-        <component_adapter>ToolingAuditContent.tsx</component_adapter>
-        <notes>Registered 'AI Tools Content' key in src/lib/storyblok.ts. Reconciled with canonical light-theme palette, header clearance spacer, high-contrast WCAG 2.2 AA verdict badges, sanitizeHref link guard, and sr-only link suffixes.</notes>
-      </story>
-      <story name="Universal Dynamic Pages" slug="[any-slug] or pages/[any-slug]" content_type="Standard Page" status="MAPPED">
-        <public_route>/[slug]</public_route>
-        <component_adapter>StandardPageContent.tsx (with FallbackBlok safety net)</component_adapter>
-        <notes>Zero-code page creation template supporting arbitrary Storyblok slugs and nested body bloks without requiring new frontend routes.</notes>
-      </story>
-      <story name="Footer" slug="footer" content_type="Footer Content" status="MAPPED">
-        <public_route>N/A (Global Layout Component)</public_route>
-        <component_adapter>MainFooter.tsx</component_adapter>
-        <notes>Verified against live DOM: #081F48 navy section, contact form with text-slate-200 accessible labels, white high-contrast submit button, /who-we-are and /privacy-policy links, and 4-channel social icon row.</notes>
-      </story>
-      <story name="Blog Content Stories (51 Total)" slug="[root-slugs]" content_type="Blog Content" status="MAPPED">
-        <public_route>/job-insights/[slug] and /blog/[slug]</public_route>
-        <component_adapter>BlogArticleContent.tsx</component_adapter>
-        <notes>Individual research papers and forensic audits. Fully reconciled with canonical light-theme layout (#ffffff, #0d3276, #434343), top clearance header bar, rich text prose container with CMS h1 demotion, and sticky author metadata aside.</notes>
-      </story>
-      <story name="Michael-Smith-Who?" slug="michael-smith-who-" content_type="Root" status="DRAFT_EXCLUDED">
-        <public_route>/michael-smith-who-</public_route>
-        <component_adapter>EXCLUDED</component_adapter>
-        <notes>Draft case study story. Blocked via EXCLUDED_SLUGS in src/app/(candidate)/[[...slug]]/page.tsx.</notes>
-      </story>
-      <story name="Deloitte Manpower" slug="deloitte-manpower" content_type="Blog Content" status="DRAFT_EXCLUDED">
-        <public_route>/blog/deloitte-manpower</public_route>
-        <component_adapter>EXCLUDED</component_adapter>
-        <notes>Draft investigative post. Blocked via EXCLUDED_SLUGS in src/app/(candidate)/[[...slug]]/page.tsx.</notes>
-      </story>
-    </storyblok_space_inventory>
-
-    <repository_map>
-      <root_directories>.github, src, public, docs, e2e, qa-agent, tests/fixtures</root_directories>
-      <src_architecture>
-        <path name="src/proxy.ts">Next.js 16 subdomain hostname routing proxy rewriting hr.thejobapplicantperspective.com and hr.localhost:3000 to /hr/* (and ready for admin.* -> /admin/*), bypassing /_next, /api/*, and static public assets, and blocking case-insensitive apex /hr/* access</path>
-        <path name="src/app/layout.tsx">Minimal root HTML/body/font wrapper shared across all route groups (target for next/font/google Jost and Manrope CSS variable injection)</path>
-        <path name="src/app/(candidate)">Candidate apex route group containing layout.tsx (MainHeader, MainFooter, StoryblokProvider, outer main) and [[...slug]]/page.tsx</path>
-        <path name="src/app/hr">Isolated HR subdomain route tree (layout.tsx, page.tsx dashboard entry, login/page.tsx, create-account/page.tsx, verify/page.tsx)</path>
-        <path name="src/app/admin">Target isolated Admin subdomain route tree (queued in Task 1.17 component extraction)</path>
-        <path name="src/components/blocks">Presentational and composite components with centralized index.ts barrel export (HeroSection, TabbedInterface, PromoBanner, LocalJobsGrid, MissionBanner, BlogGrid, BlogCard, JobLinkCard, FormInput)</path>
-        <path name="src/components/hr">HR portal client/server components with index.ts barrel export (HrAuthProvider.tsx, HrLoginForm.tsx, HrCreateAccountForm.tsx, HrVerifyForm.tsx, JobProvider.tsx, HrDashboardWorkspace.tsx — all patched for same-origin /api/v1 routing)</path>
-        <path name="src/components/layout">Global layout shells (MainHeader, MainNav, MainFooter)</path>
-        <path name="src/components/storyblok">CMS-bound component wrappers and client-side bridge resolver (PageBlok, HomeContent, AboutUsContent, BlogListingContent, BlogArticleContent, LegalDocumentContent, ResourceHubContent, EventDirectoryContent, ToolingAuditContent, StandardPageContent)</path>
-        <path name="src/components/ui">Base interactive primitives (Button, SearchInput, Tabs, NavLink)</path>
-        <path name="src/lib">Storyblok client initialization (storyblok.ts) with unified component map registry including 'Standard Page', 'Blog Content', customFallbackComponent (FallbackBlok), and virtual client intercept for offline CI fixture hydration</path>
-        <path name="src/lib/api">Client API helpers including hrSession.ts (JWT storage and same-origin GET /api/v1/auth/me hydration)</path>
-        <path name="src/lib/constants">Static domain taxonomies including hrOptions.ts (92 industry classifications and 5 employee headcount tiers)</path>
-        <path name="src/lib/dto">Data Transfer Objects, payload sanitization (sanitizeStoryPayload.ts), HR auth validation schemas (hrAuth.ts), and centralized Storyblok error handling (storyblok/storyblokErrorHandler.ts)</path>
-        <path name="src/lib/security">Route and query parameter sanitization modules (sanitizeParams.ts)</path>
-        <path name="tests/fixtures">Standardized CMS response fixtures (storyblok-fixture.json) for zero-egress CI/CD compilation and deterministic testing</path>
-        <path name="qa-agent">Agentic testing engine: index.ts (runner), core-io.ts (Brute Force Solder &amp; Sentinel Catch reporter), system-prompt.ts (Stealth Feral Logic &amp; Gemini Flash setup), golden-template.ts (RAG schematic), @quarantine (isolated test output), docs/qa-tasks (markdown task specs), docs/bug-reports (April-Approved markdown defect reports)</path>
-        <path name="e2e">Deterministic human-verified Playwright test suites (airlock.spec.ts, security-links.spec.ts, security.spec.ts, smoke-test.spec.ts, responsive.spec.ts, accessibility.spec.ts)</path>
-      </src_architecture>
-    </repository_map>
-    
-    <cms_architectural_invariants>
-      <invariant id="CMS-01">Decoupled Headless Contract: Storyblok owns zero HTML, CSS, or molecular components in production. It operates strictly as a decoupled JSON data store returning content arrays of typed bloks.</invariant>
-      <invariant id="CMS-02">Zero Production Iframe: The application renders native Next.js Server Components. Iframes are strictly isolated to the Storyblok Visual Editor administrative preview (app.storyblok.com) via window.postMessage bridge listeners.</invariant>
-      <invariant id="CMS-03">Presentation Sovereignty: All styling, fluid typography, WCAG 2.2 AA focus indicators, and layout constraints remain 100% under local Tailwind CSS v4 CSS-first token custody.</invariant>
-      <invariant id="CMS-04">Offline CI Determinism: CI runners execute static generation and type audits against local fixture JSON, eliminating build-time network dependencies, API token exposure, and rate-limiting failure states.</invariant>
-      <invariant id="CMS-05">SEO URL Invariance: Established public-facing URL routes (/who-we-are, /job-insights, /us-govt-financial-support, /self-care-tools) and nested article routes (/job-insights/:slug*) remain fixed at the routing layer via server-side rewrites and dynamic normalization in next.config.ts and page.tsx, regardless of internal Storyblok slug variations.</invariant>
-      <invariant id="CMS-06">Application Widget Decoupling: Interactive functional interfaces (TabbedInterface search engine, MainNav dropdown menus, contact form handlers, and the entire hr.thejobapplicantperspective.com and Admin portals) reside in native application code and are NOT treated as Storyblok CMS bloks.</invariant>
-      <invariant id="CMS-07">Zero-Code Dynamic Page Ingestion: Any new page created in Storyblok using 'Standard Page' (or unmapped blok types via FallbackBlok) resolves dynamically via src/app/(candidate)/[[...slug]]/page.tsx across root and pages/ folder paths without requiring new Next.js route files.</invariant>
-    </cms_architectural_invariants>
   </environment_state>
 
   <execution_log id="project_timeline">
@@ -496,8 +579,9 @@
     <entry phase="HR Bundle Extraction &amp; Route Group Split">COMPLETED: Decompiled production JS bundles (Chunks 665, 95, 466, 865, 707) and live dashboard HTML, uncovering all 12 api.thejobapplicantperspective.com/api/v1 endpoints. Reconciled HrCreateAccountForm.tsx (check-exist, signup, PUT /users/:id, 4-rule password complexity), built HrVerifyForm.tsx and src/app/hr/verify/page.tsx (forgot-password), split root layout into src/app/layout.tsx + src/app/(candidate)/layout.tsx (achieving 16/17 a11y pass across candidate and HR auth views), and implemented JobProvider.tsx + HrDashboardWorkspace.tsx at src/app/hr/page.tsx.</entry>
     <entry phase="AWS, EC2 Shell, Backend Codebase &amp; DNS Forensics (ap-south-1)">COMPLETED INFRASTRUCTURE &amp; EC2 FORENSICS: Connected to EC2 i-05d98b0f608ac5555 via EC2 Instance Connect ('ubuntu'). Audited running processes (nginx on :80/:443; 0 active node or mongod processes; empty PM2 list), Security Group sg-0060a9ff6e57e56de (TCP 22, 80, 443 open), and scaling posture (0 ALB, 0 ASG, single t2.micro SPOF with 0% swap). Verified upstream GitHub repo yestack/TJAP-backend-v1 is deleted, recovered full compiled dist/ + .js.map source maps + env files into /home/ubuntu/tjap-backend-recovery.tar.gz (232K), and audited all backend routers, Joi schemas, auth/user controllers, and UserModel. Confirmed via dns/promises (8.8.8.8) that both legacy MongoDB Atlas SRVs on the EC2 box (database.w1zd7l4.mongodb.net and cluster0.asqgrpi.mongodb.net) return ENOTFOUND, while api.thejobapplicantperspective.com resolves to CloudFront (108.158.46.x) fronting a separate active production backend.</entry>
     <entry phase="Task 1.16 Same-Origin Proxy &amp; Multi-Region Production Origin Discovery (us-east-1 / us-east-2)">COMPLETED: Hardened next.config.ts (UPSTREAM_API_ORIGIN normalization under beforeFiles /api/v1/:path*) and src/proxy.ts (Next.js 16 proxy with /api passthrough and case-insensitive apex /hr blocking). Patched HrLoginForm.tsx, HrVerifyForm.tsx, HrDashboardWorkspace.tsx, HrCreateAccountForm.tsx, and src/lib/api/hrSession.ts to default NEXT_PUBLIC_TJAP_API_URL to '' (and fixed relative URL resolution in HrDashboardWorkspace.tsx). Executed CloudShell discovery under JamesHood118 (Account 339712895738): mapped CloudFront E2UHGLH5EAXCI5 (api.thejobapplicantperspective.com) -&gt; active production EC2 i-0463540c51a529c86 (tjap-backend-production, 3.20.251.79, us-east-2) running PM2 tjapServer (PID 62667) &amp; tjapCron (PID 62666); verified E3MARK9PMA9QXS (dpagjyel6u99d.cloudfront.net) -&gt; tjap-production.s3.us-east-2.amazonaws.com; confirmed authoritative Route 53 zone Z0603808WH0ORIXJQ544 (admin.thejobapplicantperspective.com -&gt; d3hyz0zuifd6vg.cloudfront.net, hr.thejobapplicantperspective.com -&gt; d3mtoc891jmw6v.cloudfront.net, www.thejobapplicantperspective.com -&gt; d2pwm1u9tx2995.cloudfront.net); enumerated active production Amplify apps in us-east-1 (d9s893j4vo7ul user-App, ddh0cydff1lx3 Hr-Frontend, d30453m3fsctgt Admin) and confirmed ap-south-1 App d3i9qng4qdadgr returns NotFoundException. Sealed sanitized production backend tarball /home/ubuntu/tjap-backend-prod-recovery.tar.gz (117K) on i-0463540c51a529c86 and verified live MongoDB cluster cluster0.a3quc.mongodb.net/tjap-production.</entry>
-    <entry phase="Independent Admin Account Provisioning">COMPLETED: Provisioned a dedicated, independent Admin user account for James Hood in live MongoDB cluster0.a3quc.mongodb.net/tjap-production, keeping existing HR account 6af36f4bb45946e3433eab6f (jameshood118@gmail.com) and Sarah Springsteen Trumble's Admin account 666adfe75e4d8e28c652a117 strictly separate.</entry>
-    <entry phase="Active Focus">ACTIVE (Single-Slice Launch Critical Path — HR Drawers Paused): (1) Task 1.17 Component Extraction Protocol: ingest DOM/HTML captures and JS bundle chunks from authenticated admin.thejobapplicantperspective.com session, wire admin.thejobapplicantperspective.com / admin.localhost:3000 host routing in src/proxy.ts, and build isolated WCAG 2.2 AA Admin portal views (src/app/admin/*); (2) Task 3.1 Custody: exfiltrate /home/ubuntu/tjap-backend-prod-recovery.tar.gz (117K) from i-0463540c51a529c86 and /home/ubuntu/tjap-backend-recovery.tar.gz (232K) from i-05d98b0f608ac5555 into private Git custody; (3) Task 1.18 Cutover: integrate Jost (headings) + Manrope (body/subtitles) via next/font/google and Tailwind CSS v4 @theme tokens, audit global brand color contrast, pass npm run test:gate &amp;&amp; npm run build:offline, verify us-east-1 Amplify domain associations (d9s893j4vo7ul, ddh0cydff1lx3, d30453m3fsctgt), and execute production cutover.</entry>
+    <entry phase="Independent Admin Account Provisioning &amp; Admin DOM Extraction">COMPLETED: Provisioned a dedicated, independent Admin user account for James Hood in live MongoDB cluster0.a3quc.mongodb.net/tjap-production (keeping existing HR account 6af36f4bb45946e3433eab6f and Sarah Springsteen Trumble's Admin account 666adfe75e4d8e28c652a117 strictly separate), and executed Component Extraction Protocol sweeps and CSS token audits across all 13 legacy Admin DOM snapshots (/login, /, /classified, /hr-management, /reviews, /reviews/reviewed-companies).</entry>
+    <entry phase="Backend Custody, Local Docker MongoDB &amp; Source Reconstruction">COMPLETED BASELINE &amp; ISOLATED 18 TSC ERRORS: Downloaded /home/ubuntu/tjap-backend-prod-recovery.tar.gz (117K) from i-0463540c51a529c86, unpacked into C:\code\backend (--strip-components=1), and pushed sanitized baseline snapshot to https://github.com/The-Job-Applicant-Perspective-Business/backend.git (commit 21b01ff). Installed Windows dependencies (472 packages), configured BOM-free .env with all 15 verified keys, launched Docker mongo:7 container tjap-mongo (127.0.0.1:27017/tjap-local), seeded local test accounts (admin-local@saiphhouse.com _id 6b0668924554b314f05d7112 and hr-local@saiphhouse.com), verified HTTP 200 login and /auth/me session hydration on http://127.0.0.1:5000, generated tsconfig.json, and unpacked all 52 dist/**/*.js modules into src/**/*.ts (isolating 18 tsc errors across 6 files for immediate resolution).</entry>
+    <entry phase="Active Focus">ACTIVE (Group 1 Single-Slice Launch Critical Path — HR Drawers Paused): (1) Stage 1.1 Backend TypeScript Fix &amp; Custody Commit: fix 18 tsc errors in C:\code\backend (company.service.ts, jobApplication.controller.ts, apiError.ts, auth.ts, errorHandler.ts, zip.lib.ts), enforce JWT_SECRET startup check, commit src/ + tsconfig.json to main, and download archival tarball /home/ubuntu/tjap-backend-recovery.tar.gz (232K) from i-05d98b0f608ac5555; (2) Stage 1.2 Task 1.17 Admin Portal Buildout: wire admin.* host routing in src/proxy.ts and build isolated WCAG 2.2 AA Admin portal views (src/app/admin/*); (3) Stage 1.3 Task 1.18 Cutover: integrate Jost (headings) + Manrope (body/subtitles) via next/font/google and Tailwind CSS v4 @theme tokens, audit global brand color contrast, pass npm run test:gate &amp;&amp; npm run build:offline, verify us-east-1 Amplify domain associations (d9s893j4vo7ul, ddh0cydff1lx3, d30453m3fsctgt), and execute production cutover.</entry>
   </execution_log>
 
   <governance_topology id="section_8_triad">
@@ -585,8 +669,8 @@
       </task>
       <task id="1.17" name="Admin Portal Reconnaissance, Independent Admin Provisioning &amp; Buildout" status="IN_PROGRESS">
         <subtask status="COMPLETED">Provisioned an independent Admin user account for James Hood (separate email, password, and JWT identity) via direct MongoDB insertion into cluster0.a3quc.mongodb.net/tjap-production, preserving existing HR account 6af36f4bb45946e3433eab6f (jameshood118@gmail.com) and Sarah's Admin account 666adfe75e4d8e28c652a117 separately.</subtask>
-        <subtask status="ACTIVE">Component Extraction Protocol: Ingest legacy Admin portal HTML/DOM captures and JS chunks from authenticated admin.thejobapplicantperspective.com session to map Admin UI views, tables/cards, and moderation workflows (backend auth("admin") endpoints across /users, /jobs, /companies, /reviews, and /notifications are already verified).</subtask>
-        <subtask status="PENDING">Implement isolated Admin subdomain/route tree (admin.thejobapplicantperspective.com / admin.localhost:3000 -&gt; src/app/admin/*) decoupled from Storyblok [[...slug]] catch-all routes via src/proxy.ts with strict role-based auth guards and build WCAG 2.2 AA Admin management views (job moderation, company/review moderation, HR/Admin user oversight, platform telemetry) in React 19, TypeScript, and Zod DTOs.</subtask>
+        <subtask status="COMPLETED">Component Extraction Protocol: Ingested and audited all 13 legacy Admin portal HTML/DOM captures and CSS design token bundles (/login, /, /classified, /hr-management, /reviews, /reviews/reviewed-companies).</subtask>
+        <subtask status="ACTIVE">Implement isolated Admin subdomain/route tree (admin.thejobapplicantperspective.com / admin.localhost:3000 -&gt; src/app/admin/*) decoupled from Storyblok [[...slug]] catch-all routes via src/proxy.ts with strict role-based auth guards and build WCAG 2.2 AA Admin management views (job moderation, company/review moderation, HR/Admin user oversight, platform telemetry) in React 19, TypeScript, and Zod DTOs.</subtask>
       </task>
       <task id="1.18" name="Global Brand Typography, Color Contrast Reconciliation &amp; AWS Amplify Go-Live Cutover" status="PENDING">
         <subtask status="PENDING">Configure Jost (headings) and Manrope (body/subtitles) via next/font/google CSS variables (--font-jost, --font-manrope) mapped into Tailwind CSS v4 @theme tokens (--font-heading, --font-sans), removing render-blocking @import rules.</subtask>
@@ -620,22 +704,101 @@
         <subtask status="COMPLETED">Decompiled backend routers, Joi validation schemas, auth/user controllers, and UserModel from dist/, proving USER_ROLE_ENUM is strictly 'admin' and 'hr', mapping all auth('admin') moderation endpoints, and proving Admin accounts must be inserted directly into MongoDB.</subtask>
         <subtask status="COMPLETED">Verified via dns/promises (8.8.8.8) that both legacy MongoDB Atlas clusters on i-05d98b0f608ac5555 (database.w1zd7l4.mongodb.net and cluster0.asqgrpi.mongodb.net) are decommissioned (ENOTFOUND), while api.thejobapplicantperspective.com resolves to CloudFront (108.158.46.x).</subtask>
         <subtask status="COMPLETED">Located live production EC2 instance i-0463540c51a529c86 (tjap-backend-production, 3.20.251.79, us-east-2) behind CloudFront E2UHGLH5EAXCI5, verified active PM2 processes tjapServer (PID 62667) and tjapCron (PID 62666), archived sanitized production codebase into /home/ubuntu/tjap-backend-prod-recovery.tar.gz (117K), and verified live MongoDB cluster cluster0.a3quc.mongodb.net/tjap-production.</subtask>
-        <subtask status="ACTIVE">Exfiltrate /home/ubuntu/tjap-backend-prod-recovery.tar.gz (117K) from i-0463540c51a529c86 and /home/ubuntu/tjap-backend-recovery.tar.gz (232K) from i-05d98b0f608ac5555 to local workstation, extract original TypeScript source files from dist/**/*.js.map sourcesContent, and commit into a new private GitHub repository under Saiph House / TJAP custody.</subtask>
-        <subtask status="PENDING">Stand up the reconstructed Express/Mongoose backend locally against a local MongoDB instance (populated via sanitized read-only mongodump/mongorestore or seed script), configure CORS for http://localhost:3000, http://hr.localhost:3000, and http://admin.localhost:3000, and verify toggleable TJAP_UPSTREAM_API_ORIGIN routing in next.config.ts across all HR and Admin API contracts.</subtask>
+        <subtask status="COMPLETED">Exfiltrated /home/ubuntu/tjap-backend-prod-recovery.tar.gz (117K) from i-0463540c51a529c86, unpacked into C:\code\backend (--strip-components=1), committed baseline snapshot to https://github.com/The-Job-Applicant-Perspective-Business/backend.git (commit 21b01ff), stood up local Docker MongoDB tjap-mongo (127.0.0.1:27017/tjap-local), seeded local test users (admin-local@saiphhouse.com _id 6b0668924554b314f05d7112 and hr-local@saiphhouse.com), verified HTTP 200 login and /auth/me locally, generated tsconfig.json, and unpacked all 52 dist/**/*.js files into src/**/*.ts.</subtask>
+        <subtask status="ACTIVE">Resolve the 18 tsc compilation errors across the 6 reconstructed src/ files in C:\code\backend (company.service.ts, jobApplication.controller.ts, apiError.ts, auth.ts, errorHandler.ts, zip.lib.ts), enforce JWT_SECRET startup check, commit src/ + tsconfig.json to main, and download archival tarball /home/ubuntu/tjap-backend-recovery.tar.gz (232K) from i-05d98b0f608ac5555 into cold storage.</subtask>
+        <subtask status="PENDING">Verify toggleable TJAP_UPSTREAM_API_ORIGIN=http://127.0.0.1:5000 routing in frontend next.config.ts against the local Express/Mongoose backend across all HR and Admin API contracts.</subtask>
         <subtask status="PENDING">Post-Launch Infrastructure Hardening (Scaling &amp; Load Balancing): Replace single-instance t2.micro SPOF architecture (0 ALB, 0 ASG, 0% swap, coupled cron process) with a multi-AZ Application Load Balancer (ALB) + ACM TLS fronting stateless containerized API workers (ECS Fargate or EC2 Auto Scaling Group with CPU/memory target-tracking scale-out/in) and an isolated singleton scheduled task for tjapCron.</subtask>
       </task>
     </category>
   </task_and_query_ledger>
 
+  <ordered_execution_roadmap id="collated_future_directions">
+    <group id="GROUP_1" name="IMMEDIATE LAUNCH CRITICAL PATH (PRE-CUTOVER)" priority="P0_BLOCKING">
+      <stage order="1.1" repo="backend" task_ref="Task 3.1" status="ACTIVE_NEXT_SLICE">
+        <title>Backend TypeScript Compilation Fix, Security Hardening &amp; Custody Commit</title>
+        <steps>
+          <step>1. Resolve the 18 tsc errors across the 6 reconstructed src/ files in C:\code\backend: type filter/query objects as Record&lt;string, any&gt; in src/apps/company/company.service.ts and src/apps/jobApplication/jobApplication.controller.ts; declare statusCode: number and success: boolean on class APIError in src/lib/errors/apiError.ts; replace util.promisify(jwt.verify) with explicit typed Promise&lt;JwtPayload&gt; wrapper in src/lib/middleware/auth.ts; type caught error fields in src/lib/middleware/errorHandler.ts; and specify new Promise&lt;void&gt; in src/lib/zip/zip.lib.ts.</step>
+          <step>2. Harden auth.ts and auth.controller.ts to fail fast if process.env.JWT_SECRET is missing (removing the "sample" fallback), normalize email.toLowerCase() in forgotPasswordStartController, and guard err.response?.data in src/utils/email.ts.</step>
+          <step>3. Update package.json repository URLs to The-Job-Applicant-Perspective-Business/backend.git and remove POSIX touch .env from Windows-incompatible scripts.</step>
+          <step>4. Verify npm run build (tsc) exits with 0 errors and re-verify local http://127.0.0.1:5000 auth handshake, then commit and push src/, tsconfig.json, and package.json to main.</step>
+          <step>5. Exfiltrate archival tarball /home/ubuntu/tjap-backend-recovery.tar.gz (232K) from ap-south-1 host i-05d98b0f608ac5555 into cold storage.</step>
+        </steps>
+      </stage>
+      <stage order="1.2" repo="frontend" task_ref="Task 1.17" status="QUEUED_NEXT">
+        <title>Isolated WCAG 2.2 AA Admin Portal Buildout (admin.thejobapplicantperspective.com)</title>
+        <steps>
+          <step>1. Inspect reconstructed backend src/apps/analytics/analytics.router.ts and src/apps/company/company.router.ts to lock exact query/response contracts for dashboard analytics and reviewed companies.</step>
+          <step>2. Extend src/proxy.ts to rewrite admin.thejobapplicantperspective.com and admin.localhost:3000 to /admin/* while blocking direct apex /admin/* access via /404.</step>
+          <step>3. Build isolated Admin route tree under src/app/admin/* (layout.tsx with AdminAuthProvider and noindex metadata, /admin/login, /admin Recharts dashboard, /admin/classified, /admin/hr-management, /admin/reviews, /admin/reviews/reviewed-companies) using extracted design tokens (#0D3276, #36558D, #7388B0, #9CABC7) remediated to WCAG 2.2 AA contrast ratios.</step>
+          <step>4. Verify end-to-end Admin login, dashboard telemetry, and moderation actions locally via TJAP_UPSTREAM_API_ORIGIN=http://127.0.0.1:5000 against admin-local@saiphhouse.com.</step>
+        </steps>
+      </stage>
+      <stage order="1.3" repo="frontend_and_aws" task_ref="Task 1.18" status="QUEUED">
+        <title>Brand Typography/Contrast Reconciliation, QA Gate &amp; AWS Amplify Production Cutover</title>
+        <steps>
+          <step>1. Configure Jost (headings) and Manrope (body/subtitles) via next/font/google CSS variables (--font-jost, --font-manrope) mapped into Tailwind CSS v4 @theme tokens (--font-heading, --font-sans), removing render-blocking @import rules.</step>
+          <step>2. Reconcile global brand color tokens across candidate, HR, and Admin routes (resolving malformed hex #733aab0 and enforcing WCAG 2.2 AA contrast).</step>
+          <step>3. Execute full CI/CD verification gate (npm run test:gate &amp;&amp; npm run build:offline) with 100% pass.</step>
+          <step>4. Verify us-east-1 Amplify domain associations (d9s893j4vo7ul user-App, ddh0cydff1lx3 Hr-Frontend, d30453m3fsctgt Admin), ensure STORYBLOK_TOKEN and TJAP_UPSTREAM_API_ORIGIN=https://api.thejobapplicantperspective.com are set, and execute in-place repository cutover.</step>
+          <step>5. Disable/delete CloudFront E3MARK9PMA9QXS, purge deprecated S3 buckets tjap-testing and tjap-production, and rotate exposed production credentials (MONGO_URI, SIB_KEY, JWT_SECRET, IAM keys).</step>
+        </steps>
+      </stage>
+    </group>
+
+    <group id="GROUP_2" name="POST-LAUNCH FEATURE &amp; DISCOVERY COMPLETION" priority="P1_POST_LAUNCH">
+      <stage order="2.1" repo="frontend" task_ref="Task 1.13" status="PAUSED_POST_LAUNCH">
+        <title>HR Portal Drawers &amp; Job Applications Workspace Completion</title>
+        <steps>
+          <step>1. Patch main [role="alert"] selector in e2e/accessibility.spec.ts and add mocked authenticated HR dashboard accessibility scan.</step>
+          <step>2. Build Create/Edit Job Drawer (POST /api/v1/jobs, PUT /api/v1/jobs/:id with Base64 HTML encoding) and Job Detail Drawer (PATCH/DELETE /api/v1/jobs/:id; resume export deprecated per Sarah's scope lock).</step>
+          <step>3. Build /job-applications view (src/app/hr/job-applications/page.tsx) excluding deprecated resume download actions.</step>
+        </steps>
+      </stage>
+      <stage order="2.2" repo="frontend_and_backend" task_ref="Task 1.15" status="DEFERRED_POST_LAUNCH">
+        <title>RFC 8615 .well-known OpenAPI Discovery &amp; Interactive API Explorer</title>
+        <steps>
+          <step>1. Generate versioned OpenAPI 3.1 JSON specification from Zod/Joi DTO contracts served at /.well-known/openapi.json and /.well-known/api-catalog.</step>
+          <step>2. Deploy gated interactive /api-docs explorer with Bearer JWT header injection.</step>
+        </steps>
+      </stage>
+    </group>
+
+    <group id="GROUP_3" name="POST-LAUNCH INFRASTRUCTURE SCALING, QA TELEMETRY &amp; MONETIZATION" priority="P2_SCALE_AND_REVENUE">
+      <stage order="3.1" repo="backend_and_aws" task_ref="Task 3.1 (Scaling)" status="PLANNED_POST_LAUNCH">
+        <title>Eliminate Single t2.micro SPOF &amp; Upgrade AWS SDK</title>
+        <steps>
+          <step>1. Migrate production backend off single t2.micro EC2 (i-0463540c51a529c86) to multi-AZ Application Load Balancer (ALB) + ACM TLS fronting auto-scaling stateless containers (ECS Fargate or Multi-AZ ASG).</step>
+          <step>2. Decouple tjapCron into an isolated singleton scheduled task to prevent duplicate cron execution during horizontal scale-out.</step>
+          <step>3. Migrate remaining AWS SDK v2 calls to modular @aws-sdk/* v3 packages.</step>
+        </steps>
+      </stage>
+      <stage order="3.2" repo="frontend" task_ref="Task 2.2" status="QUEUED_POST_LAUNCH">
+        <title>Feral QA Agent In-Repo Coverage Telemetry &amp; 3-Stage Ferality Sweeps</title>
+        <steps>
+          <step>1. Extend qa-agent/core-io.ts to serialize test specifications, failure traces, and April-Approved Markdown/JSON coverage reports into docs/qa-coverage/.</step>
+          <step>2. Execute 3-Stage Ferality Dial and Multimodal Accessibility Drone sweeps across candidate, HR, and Admin workflows.</step>
+        </steps>
+      </stage>
+      <stage order="3.3" repo="frontend_and_backend" task_ref="Task 1.12" status="FUTURE">
+        <title>Stripe Monetization &amp; Upstash Layer 7 Rate Limiting</title>
+        <steps>
+          <step>1. Deploy Stripe Checkout Sessions, Customer Portal, and webhook listeners for paid candidate services and employer verification.</step>
+          <step>2. Deploy Upstash Layer 7 rate limiting (@upstash/ratelimit) on authentication, dynamic ISR, and form submission endpoints.</step>
+        </steps>
+      </stage>
+    </group>
+  </ordered_execution_roadmap>
+
   <llm_execution_directives>
-    <directive>1. ZERO-TRUST CONTEXT: Treat this XML as immutable ground truth.</directive>
+    <directive>1. ZERO-TRUST CONTEXT: Treat this XML as immutable ground truth across both frontend and backend repositories.</directive>
     <directive>2. MODE-LOCK: Enforce /saiph (Sovereign CTO) mode for all code and architecture generation using the embedded saiph_mode_governance ruleset.</directive>
     <directive>3. SINGLE-SLICE EXECUTION: Never bundle unrelated tracks or open multiple multi-file refactors simultaneously. Complete and verify one discrete vertical slice at a time.</directive>
-    <directive>4. SYNTAX MANDATE: All React components must strictly utilize ES6 fat arrow function syntax.</directive>
+    <directive>4. SYNTAX MANDATE: All React frontend components must strictly utilize ES6 fat arrow function syntax.</directive>
     <directive>5. CI INTEGRITY: Maintain offline fixture fallback support across any Storyblok API updates to ensure continuous headless build validity.</directive>
     <directive>6. SEO INVARIANCE: Preserve existing canonical URLs (/who-we-are, /job-insights, /us-govt-financial-support, /self-care-tools, and /job-insights/:slug*) through server-side rewrites and dynamic normalization rather than exposing raw CMS slug discrepancies to visitors or search engines.</directive>
     <directive>7. ZERO-CODE PAGE PARITY: Maintain StandardPageContent.tsx and FallbackBlok in src/lib/storyblok.ts alongside pages/ folder resolution in src/app/(candidate)/[[...slug]]/page.tsx so non-technical stakeholders can spin up new CMS routes independently.</directive>
     <directive>8. SUBDOMAIN &amp; PORTAL ISOLATION: Keep hr.thejobapplicantperspective.com and admin.thejobapplicantperspective.com routes strictly decoupled from Storyblok CMS queries via hostname/path rewrites beneath minimal RootLayout.</directive>
-    <directive>9. LAUNCH CRITICAL PATH GOVERNANCE: Follow strict sequence: Task 1.17 Component Extraction Protocol (extract legacy admin.thejobapplicantperspective.com UI/chunks &amp; build isolated WCAG 2.2 AA src/app/admin/* portal views) -&gt; Task 3.1 Custody (download tjap-backend-prod-recovery.tar.gz into private Git custody) -&gt; Task 1.18 (Jost/Manrope Tailwind v4 styles, test:gate, us-east-1 Amplify domain-association verification &amp; cutover, S3/CloudFront legacy cleanup, and credential rotation) -&gt; Post-launch Task 3.1 ALB/ECS auto-scaling hardening. Keep Task 1.13 remaining HR drawers, Task 1.15 (OpenAPI), and Task 2.2 (QA telemetry) paused/queued until after live deployment.</directive>
+    <directive>9. LAUNCH CRITICAL PATH GOVERNANCE: Follow strict Group 1 sequence: Stage 1.1 Backend TypeScript Fix &amp; Custody Commit (resolve 18 tsc errors in C:\code\backend, enforce JWT_SECRET, commit src/ to main, download archival 232K tarball) -&gt; Stage 1.2 Task 1.17 Admin Portal Buildout (wire admin.* host routing in src/proxy.ts &amp; build isolated WCAG 2.2 AA src/app/admin/* portal views) -&gt; Stage 1.3 Task 1.18 Cutover (Jost/Manrope Tailwind v4 styles, contrast audit, test:gate, us-east-1 Amplify domain-association verification &amp; cutover, S3/CloudFront legacy cleanup, and credential rotation) -&gt; Post-launch Group 2 (Task 1.13 HR drawers, Task 1.15 OpenAPI) and Group 3 (Task 3.1 ALB/ECS auto-scaling hardening, Task 2.2 QA telemetry, Task 1.12 Stripe/Upstash).</directive>
+    <directive>10. BACKEND SECRET &amp; ENCODING HYGIENE: Never commit .env files or hardcode JWT secrets ("sample"); always write .env and tsconfig.json files in UTF-8 without BOM on Windows.</directive>
   </llm_execution_directives>
 </system_context_override>
