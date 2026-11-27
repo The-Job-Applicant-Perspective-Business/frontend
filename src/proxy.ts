@@ -1,9 +1,18 @@
 import { NextResponse, type NextRequest } from 'next/server';
 
+const customAdminHost = (process.env.NEXT_PUBLIC_TJAP_ADMIN_HOST ?? '').trim().toLowerCase();
+
 const HR_HOSTS = new Set([
   'hr.thejobapplicantperspective.com',
   'hr.localhost:3000',
   'hr.localhost',
+]);
+
+const ADMIN_HOSTS = new Set([
+  'admin.thejobapplicantperspective.com',
+  'admin.localhost:3000',
+  'admin.localhost',
+  ...(customAdminHost ? [customAdminHost] : []),
 ]);
 
 const STATIC_ASSET_REGEX = /\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff2?|ttf|eot|css|js|map)$/i;
@@ -22,10 +31,20 @@ export const proxy = (request: NextRequest) => {
     return NextResponse.next();
   }
 
-  // Block direct access to /hr/* (case-insensitive) on the main apex domain
+  // Block direct access to /hr/* (case-insensitive) on non-HR hosts
   if (
     !HR_HOSTS.has(host) &&
     (normalizedPathname === '/hr' || normalizedPathname.startsWith('/hr/'))
+  ) {
+    const url = request.nextUrl.clone();
+    url.pathname = '/404';
+    return NextResponse.rewrite(url);
+  }
+
+  // Block direct access to /admin/* (case-insensitive) on non-Admin hosts
+  if (
+    !ADMIN_HOSTS.has(host) &&
+    (normalizedPathname === '/admin' || normalizedPathname.startsWith('/admin/'))
   ) {
     const url = request.nextUrl.clone();
     url.pathname = '/404';
@@ -36,6 +55,13 @@ export const proxy = (request: NextRequest) => {
   if (HR_HOSTS.has(host)) {
     const url = request.nextUrl.clone();
     url.pathname = pathname === '/' ? '/hr' : `/hr${pathname}`;
+    return NextResponse.rewrite(url);
+  }
+
+  // Rewrite admin.thejobapplicantperspective.com/* -> /admin/*
+  if (ADMIN_HOSTS.has(host)) {
+    const url = request.nextUrl.clone();
+    url.pathname = pathname === '/' ? '/admin' : `/admin${pathname}`;
     return NextResponse.rewrite(url);
   }
 
