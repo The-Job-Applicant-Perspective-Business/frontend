@@ -1,19 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 
-/* BASE BRANDED STYLES FROM SARAH, have to verify if these were ever used and her choices respected*
-Titles: Jost
-Subtitle: Manrope
-
-Color scheme: 
-#e7ebf1
-#9cabc7
-#733aab0
-#36558d
-#0d3276
-#092353
-#081f48
-/
+/*
+ * Canonical TJAP Brand Typography & Color Ramp (Sarah Springsteen Trumble):
+ * - Titles / Headings: Jost (--font-jost -> --font-heading)
+ * - Subtitles / Body: Manrope (--font-manrope -> --font-sans)
+ * - Brand Ramp: #e7ebf1, #9cabc7, #7388b0 (reconciled from #733aab0), #36558d, #0d3276, #092353, #081f48
+ */
 
 /* stylelint-disable at-rule-no-unknown */
 @theme {
@@ -34,8 +26,9 @@ Color scheme:
   --breakpoint-desktop: 80rem;
 
   /* FONTS */
-  --font-sans: var(--font-geist-sans), 'Manrope', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-heading: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   /*
    * WCAG 2.2 AA FLUID TYPOGRAPHY (SC 1.4.4):
@@ -63,12 +56,22 @@ Color scheme:
   /* RINGS */
   --ring-width-3: 3px;
 
-  /* COLOR MAPPINGS */
+  /* CANONICAL BRAND PALETTE TOKENS */
+  --color-brand-50: #e7ebf1;
+  --color-brand-200: #9cabc7;
+  --color-brand-400: #7388b0;
+  --color-brand-600: #36558d;
+  --color-brand-800: #0d3276;
+  --color-brand-900: #092353;
+  --color-brand-950: #081f48;
+
+  /* SEMANTIC COLOR MAPPINGS */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
   --color-primary: var(--primary);
   --color-primary-light: var(--primary-light);
+  --color-primary-mid: var(--primary-mid);
   --color-primary-dark: var(--primary-dark);
 
   --color-accent-bg: var(--accent-bg);
@@ -88,9 +91,10 @@ Color scheme:
   --foreground: #171717;
   --primary: #0d3276;
   --primary-light: #36558d;
+  --primary-mid: #092353;
   --primary-dark: #081f48;
-  --accent-bg: #f0f3ff;
-  --accent-text: #003cb1;
+  --accent-bg: #e7ebf1;
+  --accent-text: #0d3276;
   --focus-ring: #2563eb;
   --border: #cbd5e1;
   --muted: #f8fafc;
@@ -108,6 +112,15 @@ Color scheme:
     /* Base body fluid text default */
     font-size: var(--text-fluid-base);
     line-height: 1.5;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
   }
 
   /* WCAG 2.2 AA Focus Management (SC 2.4.11 / 2.4.12) */
